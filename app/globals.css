@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@theme {
+  /* Yonsei signature blue, extracted from reference/대표 색상.png (RGB 24,61,122) */
+  --color-primary: #183d7a;
+  --color-primary-strong: #0f2a57;
+  --color-primary-soft: #5578ac;
+  --color-ink: #131c2e;
+  --color-surface-muted: #f4f7fc;
+  --color-line: #dce4f0;
+  /* used sparingly: "new post" badges only, never as a design accent */
+  --color-accent: #b8863a;
+
+  --font-display: var(--font-pretendard), "Malgun Gothic", "Apple SD Gothic Neo",
+    sans-serif;
+  --font-body: var(--font-pretendard), "Malgun Gothic", "Apple SD Gothic Neo",
+    sans-serif;
+  --font-sans: var(--font-pretendard), "Malgun Gothic", "Apple SD Gothic Neo",
+    sans-serif;
+
+  --container-content: 72rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  color: var(--color-ink);
+  background: #ffffff;
+  font-family: var(--font-body);
+}
+
+/*
+ * font-display/font-body are both Pretendard now (a single variable font,
+ * weight 45-920); these weights preserve the visual hierarchy the two
+ * separate Yonsei Bold/Light typefaces used to give for free. Placed in
+ * @layer base so any explicit Tailwind font-weight utility (font-medium,
+ * font-extrabold, ...) still overrides it.
+ */
+@layer base {
+  .font-display {
+    font-weight: 700;
+  }
+  .font-body {
+    font-weight: 400;
+  }
+}
+
+/*
+ * Scroll-reveal: visible by default so content never depends on JS running.
+ * ScrollReveal.tsx adds "reveal-pending" on mount (hiding it) then swaps in
+ * "is-visible" once IntersectionObserver reports the element on screen.
+ */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.reveal-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.reveal.reveal-pending.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyboard users get a clear focus ring; mouse users don't see it on click */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+@keyframes soft-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+.animate-soft-bounce {
+  animation: soft-bounce 2.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-soft-bounce {
+    animation: none;
+  }
+}
+
+/*
+ * Scroll-triggered slide-in-from-right (ScrollSlideIn.tsx). Same progressive-
+ * enhancement pattern as .reveal: default state is settled in place, and
+ * only JS-capable clients get the "slide in from the right" entrance.
+ */
+.slide-in-right {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-in-right.slide-pending {
+  opacity: 0;
+  transform: translateX(120px);
+}
+.slide-in-right.slide-pending.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*
+ * ImageAutoSlider (components/ui/image-auto-slider.tsx): infinite horizontal
+ * scroll strip. .auto-slider-mask fades the left/right edges of the strip so
+ * images don't visibly cut off; .auto-slider-track drives the loop (the
+ * image list is duplicated so it can wrap seamlessly at -50%).
+ */
+@keyframes auto-slider-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.auto-slider-track {
+  animation: auto-slider-scroll 32s linear infinite;
+}
+.auto-slider-track:hover {
+  animation-play-state: paused;
+}
+.auto-slider-mask {
+  mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .auto-slider-track {
+    animation: none;
+  }
+}

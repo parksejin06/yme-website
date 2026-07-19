@@ -1,0 +1,28 @@
+{
+  "address": {
+    "kr": "서울특별시 서대문구 연세로 50 연세대학교",
+    "en": "50 Yonsei-ro, Seodaemun-gu, Seoul, Republic of Korea",
+    "postal": "03722"
+  },
+  "phone": "02-2123-2810",
+  "email": "nmh@yonsei.ac.kr",
+  "subway": [
+    {
+      "line": "2",
+      "exit": "2",
+      "kr": "신촌역 2번 출구 (연세대학교, 세브란스병원 방향)",
+      "en": "Sinchon Station Exit 2 (toward Yonsei University / Severance Hospital)"
+    },
+    {
+      "line": "2",
+      "exit": "3",
+      "kr": "신촌역 3번 출구 (연세대학교, 한국사이버대학교 방향)",
+      "en": "Sinchon Station Exit 3 (toward Yonsei University / Korea Cyber University)"
+    }
+  ],
+  "bus": {
+    "green": ["6711", "6712", "6714", "7014", "7015", "7017", "7020", "7613", "7712", "7720", "7725", "7726", "7727", "7728", "7736", "서대문03", "서대문04", "서대문05"],
+    "blue": ["163", "170", "171", "172", "270", "272", "370", "470", "472", "601", "606", "700", "750", "751"],
+    "red": ["9600", "9601", "9602", "9702", "9704", "9706", "9708", "9713"]
+  }
+}

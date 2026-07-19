@@ -1,0 +1,127 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import ScrollReveal from "@/components/ScrollReveal";
+import { HomeIcon, ChevronRightIcon, ArrowLeftIcon } from "@/components/icons";
+import { fieldLabel, type FacultyMember } from "@/lib/faculty";
+import faculty from "@/data/faculty.json";
+
+const members = faculty as FacultyMember[];
+
+export function generateStaticParams() {
+  return members.map((m) => ({ slug: m.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const member = members.find((m) => m.slug === slug);
+  return { title: member ? `${member.name} 교수` : "교수진" };
+}
+
+export default async function FacultyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const member = members.find((m) => m.slug === slug);
+  if (!member) notFound();
+
+  return (
+    <>
+      <section className="bg-gradient-to-b from-primary to-primary-strong px-4 py-14 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-content">
+          <nav aria-label="브레드크럼" className="flex items-center gap-1.5 text-sm text-white/70">
+            <Link href="/" className="flex items-center hover:text-white" aria-label="홈">
+              <HomeIcon className="h-4 w-4" />
+            </Link>
+            <ChevronRightIcon />
+            <Link href="/faculty" className="hover:text-white">
+              교수진
+            </Link>
+            <ChevronRightIcon />
+            <span className="text-white">{member.name}</span>
+          </nav>
+          <h1 className="mt-6 font-display text-3xl text-white sm:text-4xl">{member.name}</h1>
+          <p className="mt-2 text-white/70">{member.position}</p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+        <ScrollReveal className="grid gap-10 sm:grid-cols-[260px_1fr] sm:gap-14">
+          <div className="mx-auto h-64 w-64 shrink-0 overflow-hidden rounded-lg bg-surface-muted sm:mx-0 sm:h-auto sm:w-full">
+            {member.photoPath && (
+              <Image
+                src={member.photoPath}
+                alt={`${member.name} 교수 사진`}
+                width={520}
+                height={640}
+                priority
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
+
+          <dl className="space-y-4 text-sm">
+            <div className="flex gap-2">
+              <dt className="w-28 shrink-0 text-ink/50">이름</dt>
+              <dd className="text-ink">{member.name}</dd>
+            </div>
+            <div className="flex gap-2">
+              <dt className="w-28 shrink-0 text-ink/50">직급</dt>
+              <dd className="text-ink">{member.position}</dd>
+            </div>
+            <div className="flex gap-2">
+              <dt className="w-28 shrink-0 text-ink/50">전화번호</dt>
+              <dd className="text-ink">{member.phone ?? "번호 미등록"}</dd>
+            </div>
+            {member.email && (
+              <div className="flex gap-2">
+                <dt className="w-28 shrink-0 text-ink/50">이메일</dt>
+                <dd>
+                  <a href={`mailto:${member.email}`} className="text-primary hover:underline">
+                    {member.email}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {member.office && (
+              <div className="flex gap-2">
+                <dt className="w-28 shrink-0 text-ink/50">사무실 위치</dt>
+                <dd className="text-ink">{member.office}</dd>
+              </div>
+            )}
+            {member.field && (
+              <div className="flex gap-2">
+                <dt className="w-28 shrink-0 text-ink/50">연구분야</dt>
+                <dd className="text-ink">{fieldLabel(member.field, "ko")}</dd>
+              </div>
+            )}
+            {member.labName && (
+              <div className="flex gap-2">
+                <dt className="w-28 shrink-0 text-ink/50">연구실명</dt>
+                <dd className="text-ink">{member.labName}</dd>
+              </div>
+            )}
+            {member.labUrl && (
+              <div className="pt-2">
+                <a
+                  href={member.labUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-full border border-primary px-5 py-2 text-primary transition-colors hover:bg-primary hover:text-white"
+                >
+                  연구실 홈페이지 →
+                </a>
+              </div>
+            )}
+          </dl>
+        </ScrollReveal>
+
+        <Link
+          href="/faculty"
+          className="mt-14 inline-flex items-center gap-1.5 text-sm text-ink/70 hover:text-primary"
+        >
+          <ArrowLeftIcon /> 교수진 목록으로
+        </Link>
+      </section>
+    </>
+  );
+}

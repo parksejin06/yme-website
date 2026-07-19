@@ -1,0 +1,56 @@
+[
+  {
+    "appliesTo": "06~09학번",
+    "category": "복수전공(이중전공:기계공학)",
+    "majorRequiredCredit": 9,
+    "majorElectiveCredit": 31,
+    "majorTotalCredit": 40,
+    "requiredCourses": "19학번 이전 기준: 기계공학창의설계, 창의설계프로젝트(2), 창의제품설계(종합설계)",
+    "otherConditions": null
+  },
+  {
+    "appliesTo": "10학번 이후",
+    "category": "복수전공(이중전공:기계공학)",
+    "majorRequiredCredit": 9,
+    "majorElectiveCredit": 27,
+    "majorTotalCredit": 36,
+    "requiredCourses": "19학번 이전(19학번 포함 이전은 아래 항목 참조): 기계공학창의설계, 창의설계프로젝트(2), 창의제품설계(종합설계) / 19학번 이후(19학번 포함): 열역학, 고체역학, 유체역학, 동역학 중 최소 3과목(9학점) 이상",
+    "otherConditions": null
+  },
+  {
+    "appliesTo": "06학번 이후",
+    "category": "부전공",
+    "majorRequiredCredit": 9,
+    "majorElectiveCredit": 12,
+    "majorTotalCredit": 21,
+    "requiredCourses": "19학번 이전: 기계공학창의설계, 창의설계프로젝트(2), 창의제품설계(종합설계) / 19학번 이후(19학번 포함): 열역학, 고체역학, 유체역학, 동역학 중 최소 3과목(9학점) 이상",
+    "otherConditions": null
+  },
+  {
+    "appliesTo": "19학번 이전",
+    "category": "복수전공(2전공)/부전공 공통 필수과목",
+    "majorRequiredCredit": null,
+    "majorElectiveCredit": null,
+    "majorTotalCredit": null,
+    "requiredCourses": "기계공학창의설계, 창의설계프로젝트(2), 창의제품설계(종합설계)",
+    "otherConditions": null
+  },
+  {
+    "appliesTo": "19학번 이후(19학번 포함)",
+    "category": "복수전공(2전공)/부전공 공통 필수과목",
+    "majorRequiredCredit": null,
+    "majorElectiveCredit": null,
+    "majorTotalCredit": null,
+    "requiredCourses": "열역학, 고체역학, 유체역학, 동역학 중 최소 3과목(9학점) 이상 수강",
+    "otherConditions": null
+  },
+  {
+    "appliesTo": "전체",
+    "category": "졸업예정자 복수전공",
+    "majorRequiredCredit": 24,
+    "majorElectiveCredit": 36,
+    "majorTotalCredit": 60,
+    "requiredCourses": null,
+    "otherConditions": "전공(전선,전필) 60학점과 필수교양(논리와수리, 자연과우주, 생명과환경) 21학점을 이수하여야 함"
+  }
+]
