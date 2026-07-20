@@ -23,9 +23,9 @@ export interface ResearchField {
 
 // Same order used elsewhere on the site (faculty page hero description, etc.)
 export const RESEARCH_FIELDS: ResearchField[] = [
-  { key: "역학·소재", image: "/images/lab_main_images/mechanics-materials.jpg" },
+  { key: "역학·소재", image: "/images/lab_main_images/역학_소재_new.jpg" },
   { key: "에너지·열유체", image: "/images/lab_main_images/energy-thermofluids.jpg" },
-  { key: "로보틱스·제어", image: "/images/lab_main_images/robotics-control.jpg" },
+  { key: "로보틱스·제어", image: "/images/lab_main_images/로보틱스_제어_new.jpg" },
   { key: "설계·제조", image: "/images/lab_main_images/design-manufacturing.jpg" },
   { key: "마이크로·나노", image: "/images/lab_main_images/micro-nano.jpg" },
   { key: "바이오·포토닉스", image: "/images/lab_main_images/bio-photonics.jpg" },

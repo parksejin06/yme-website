@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Globe, ImageOff, MapPin, PlayCircle } from "lucide-react";
+import { Globe, ImageOff, MapPin, PlayCircle, UserRound } from "lucide-react";
 import { MailIcon, PhoneIcon } from "@/components/icons";
 import { positionLabel } from "@/lib/faculty";
-import type { LabEntry } from "@/lib/labs";
+import { fieldLabel, type LabEntry } from "@/lib/labs";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
@@ -36,15 +36,26 @@ function LabCard({ lab, lang }: { lab: LabEntry; lang: Lang }) {
   return (
     <article className="rounded-lg border border-line p-6">
       <div className="flex flex-wrap items-start gap-4">
-        <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-muted sm:h-20 sm:w-20">
-          {lab.photoPath && (
+        {/*
+          photoPath comes exclusively from the "교수 사진" column (the
+          professor's face) — never from any lab/research image field, so
+          there is no shared-field overwrite here. Still, if it's ever empty
+          (new professor not yet photographed, etc.) show a person-outline
+          placeholder rather than a blank circle so it doesn't read as a
+          broken image.
+        */}
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-muted sm:h-20 sm:w-20">
+          {lab.photoPath ? (
             <Image src={lab.photoPath} alt="" width={80} height={80} className="h-full w-full object-cover" />
+          ) : (
+            <UserRound className="h-8 w-8 text-ink/30" aria-hidden="true" />
           )}
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="font-display text-xl text-ink sm:text-2xl">{lab.labNameEn ?? lab.name}</h3>
           <p className="mt-1 text-sm text-primary">
             {t.advisor} {lab.name} · {positionLabel(lab.position, lang)}
+            <span className="text-ink/40"> · {fieldLabel(lab.field, lang)}</span>
           </p>
 
           <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-ink/70">

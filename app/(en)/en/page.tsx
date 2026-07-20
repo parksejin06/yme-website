@@ -35,6 +35,14 @@ export default function HomePageEn() {
               "linear-gradient(to bottom, rgba(15,42,87,0.4) 0%, rgba(15,42,87,0.45) 55%, rgba(15,42,87,0.55) 100%)",
           }}
         />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse 65% 55% at 50% 48%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.14) 55%, transparent 78%)",
+          }}
+        />
         <div className="relative z-10 mx-auto w-full max-w-content px-4 py-28 text-center sm:px-6">
           <h1 className="font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl md:text-7xl">
             <span className="block">YONSEI UNIVERSITY</span>
@@ -163,14 +171,14 @@ export default function HomePageEn() {
         </div>
         <ul className="mt-8 divide-y divide-line border-y border-line">
           {recentNotices.map((n) => (
-            <li key={n.no} className="flex items-center justify-between gap-4 py-4">
+            <li key={n.id} className="flex items-center justify-between gap-4 py-4">
               <Link href="/en/news" className="flex min-w-0 items-center gap-2 hover:text-primary">
-                {n.isNew && (
+                {n.isNotice && (
                   <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
-                    N
+                    NOTICE
                   </span>
                 )}
-                <span className="truncate text-sm text-ink/85">{n.titleEn}</span>
+                <span className="truncate text-sm text-ink/85">{n.title}</span>
               </Link>
               <span className="shrink-0 text-xs text-ink/70">{n.date}</span>
             </li>

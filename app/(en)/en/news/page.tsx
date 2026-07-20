@@ -11,7 +11,7 @@ export default function NewsPageEn() {
       <PageHero
         eyebrow="NEWS"
         title="News"
-        description="Announcements from the school. (Currently populated with dummy data — add new entries to data/notices.json to publish real posts.)"
+        description="Announcements from the school, based on actual notices from the Yonsei University School of Mechanical Engineering."
       />
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
         <NoticeTable lang="en" notices={notices} />
