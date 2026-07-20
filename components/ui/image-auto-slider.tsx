@@ -30,9 +30,16 @@ const items: GalleryItem[] = [
   {
     image: "/images/hero-campus.jpg",
     alt: { kr: "연세대학교 기계공학부 건물 전경", en: "Yonsei University School of Mechanical Engineering building" },
-    title: { kr: "교육과정·학사안내", en: "Academics" },
-    subtitle: { kr: "학부·대학원 교육과정 안내", en: "Undergraduate and graduate curricula" },
-    href: "/academics",
+    title: { kr: "학부", en: "Undergraduate" },
+    subtitle: { kr: "졸업요건부터 교과목 체계도까지", en: "From graduation requirements to the curriculum map" },
+    href: "/undergraduate",
+  },
+  {
+    image: "/images/campus-courtyard.jpg",
+    alt: { kr: "연세대학교 캠퍼스 안뜰", en: "A courtyard on Yonsei University's campus" },
+    title: { kr: "대학원", en: "Graduate" },
+    subtitle: { kr: "석사·박사·석박사통합 과정 안내", en: "Master's, doctoral, and combined-program information" },
+    href: "/graduate",
   },
   {
     image: "/images/eagle-statue.jpg",

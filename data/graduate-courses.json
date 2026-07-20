@@ -1,0 +1,1283 @@
+[
+  {
+    "courseCode": "MEU5001",
+    "nameKr": "품질공학설계",
+    "nameEn": "Quality Engineering Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5002",
+    "nameKr": "분자열역학",
+    "nameEn": "Molecular Thermodynamics",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5003",
+    "nameKr": "복사열전달",
+    "nameEn": "Radiation Heat Transfer",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5004",
+    "nameKr": "나노기전소자",
+    "nameEn": "Nano Electro-Mechanical Devices",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5005",
+    "nameKr": "음향학 I",
+    "nameEn": "Accoustics I",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5006",
+    "nameKr": "음향학 II",
+    "nameEn": "Accoustics II",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5007",
+    "nameKr": "고급나노생산송정",
+    "nameEn": "Advanced Topics in Nano Devices",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5008",
+    "nameKr": "로보트공학",
+    "nameEn": "Robotics",
+    "credit": 3,
+    "researchArea": "robotics"
+  },
+  {
+    "courseCode": "MEU5009",
+    "nameKr": "공학도를위한심리음향학",
+    "nameEn": "Psychoacoustics for Engineers",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5010",
+    "nameKr": "비선형 음향학",
+    "nameEn": "Nonlinear Accoustics",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5011",
+    "nameKr": "극초단동역학",
+    "nameEn": "Ultrafast Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5012",
+    "nameKr": "생체공학용재료 특론",
+    "nameEn": "Advanced Materials for Bio-Engineering",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5013",
+    "nameKr": "나노소자의 기본원리",
+    "nameEn": "Fundamentals for Nano Devices",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5014",
+    "nameKr": "바이오전산유체역학",
+    "nameEn": "Introduction to Computational Biofluidics",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5015",
+    "nameKr": "의생물학용 마이크로시스템의 설계 및 제조",
+    "nameEn": "Design and Fabrication for Biomedical Microdevices",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5016",
+    "nameKr": "나노전자기학개론",
+    "nameEn": "Fundamentals of Nanoelectronics",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5017",
+    "nameKr": "반도체소자이론",
+    "nameEn": "Principle of Semiconductor",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5018",
+    "nameKr": "기전설계",
+    "nameEn": "Electromechanical Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5019",
+    "nameKr": "위상최적설계이론",
+    "nameEn": "Theoretical Topology Optimization",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5020",
+    "nameKr": "고급열역학",
+    "nameEn": "Advanced Thermodynamics",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5021",
+    "nameKr": "바이오메디칼 광학 이미징",
+    "nameEn": "Biomedical Optical Imaging",
+    "credit": 3,
+    "researchArea": "optics"
+  },
+  {
+    "courseCode": "MEU5022",
+    "nameKr": "기계공학에서의 광학기술 응용",
+    "nameEn": "Optics in Mechanical Engineering",
+    "credit": 3,
+    "researchArea": "optics"
+  },
+  {
+    "courseCode": "MEU5023",
+    "nameKr": "생체 시스템의 기계적 거동",
+    "nameEn": "Mechanics in Biological System",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5024",
+    "nameKr": "비등열전달",
+    "nameEn": "Boiling Heat Transfer",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5025",
+    "nameKr": "생체물리학",
+    "nameEn": "Biopyhsics",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5026",
+    "nameKr": "응용동역학",
+    "nameEn": "Applied Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5027",
+    "nameKr": "유체윤할",
+    "nameEn": "Fluid Film Lubrication",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU5028",
+    "nameKr": "재료의 원자모사 방법론",
+    "nameEn": "Atomistic Simulation of Materials",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5029",
+    "nameKr": "실험모우드해석",
+    "nameEn": "Experimental Modal Analysis",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5030",
+    "nameKr": "연속체 역학",
+    "nameEn": "Continuum Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5031",
+    "nameKr": "기구합성론",
+    "nameEn": "Planar Mechanism Design",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5032",
+    "nameKr": "마이크로 바이오 메카트로닉스",
+    "nameEn": "Microbiomechatronics",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5033",
+    "nameKr": "코팅의 물리 및 기계적 특성",
+    "nameEn": "Physics and Mechanics of Coatings",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5034",
+    "nameKr": "첨단응용소재",
+    "nameEn": "State-of-the-art Materials",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5035",
+    "nameKr": "나노테크날러지",
+    "nameEn": "Nanotechnology",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5036",
+    "nameKr": "기계가공의역학",
+    "nameEn": "Mechanics and Dynamics of Machining",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5037",
+    "nameKr": "공학응용수학",
+    "nameEn": "Applied Mathematics for Engineering",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5038",
+    "nameKr": "터보기계",
+    "nameEn": "Turbomachinery",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU5039",
+    "nameKr": "장치설계",
+    "nameEn": "Thermal and Rotating Equipment Design",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5040",
+    "nameKr": "비점성유체역학",
+    "nameEn": "Inviscid Flow Theory",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU5041",
+    "nameKr": "역학및전자기학응용해석",
+    "nameEn": "Applied Engineering in Mechanics and Electromagnetics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5042",
+    "nameKr": "재료및구조역학",
+    "nameEn": "Material and Structure Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5043",
+    "nameKr": "시스템 다이나믹스",
+    "nameEn": "System Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5044",
+    "nameKr": "첨단 나노제작 기술",
+    "nameEn": "Advanced Nanofabrication Technologies",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5045",
+    "nameKr": "매개변수추정",
+    "nameEn": "Parameter Estimation",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5046",
+    "nameKr": "에너지변환시스템의 통합적해석",
+    "nameEn": "Integrative analysis of Energy Conversion System",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5060",
+    "nameKr": "나노광자공학특론",
+    "nameEn": "Advanced Nano Photonics",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5080",
+    "nameKr": "선형탄성파괴역학",
+    "nameEn": "Linear Elastic Fracture Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5090",
+    "nameKr": "나노과학개론",
+    "nameEn": "Principles Of Nanoscience",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5100",
+    "nameKr": "전산유체특론",
+    "nameEn": "Special Topic in Computational Fluid Dynamics",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU5110",
+    "nameKr": "바이오산업창업과경영",
+    "nameEn": "Bio-Industry and Management",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5120",
+    "nameKr": "기계금속학",
+    "nameEn": "Mechanical Metallurgy",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU5130",
+    "nameKr": "기계기구학특론",
+    "nameEn": "Advanced Kinematics of Machines",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5150",
+    "nameKr": "내연기관이론 및 실험",
+    "nameEn": "Internal Combustion Engine Theory and Experiment",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5210",
+    "nameKr": "통계열역학",
+    "nameEn": "Statistical Thermodynamics",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5230",
+    "nameKr": "터보기계특론",
+    "nameEn": "Special Topics in Turbomachinery",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU5241",
+    "nameKr": "응용수치해석",
+    "nameEn": "Applied Numerical Analysis",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5310",
+    "nameKr": "기계진동학특론",
+    "nameEn": "Advanced Mechanical Vibration",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU5320",
+    "nameKr": "시스템설계",
+    "nameEn": "System Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5370",
+    "nameKr": "유한요소법",
+    "nameEn": "Finite Element Method",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU5410",
+    "nameKr": "동시공학설계",
+    "nameEn": "Concurrent Engineering Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5420",
+    "nameKr": "공정계획설계",
+    "nameEn": "Process Planning Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5430",
+    "nameKr": "제품개발및설계",
+    "nameEn": "Product Development and Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU5450",
+    "nameKr": "마이크로시스템 설계",
+    "nameEn": "Microsystem Design",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU5460",
+    "nameKr": "연소화학개론",
+    "nameEn": "Introduction to Combustion Chemistry",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU5480",
+    "nameKr": "생체분석시스템",
+    "nameEn": "Bio-Analytical Systems",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU5630",
+    "nameKr": "창의적문제해결방법론의 개요",
+    "nameEn": "Introduction to TRIZ",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6000",
+    "nameKr": "동역학특론",
+    "nameEn": "Advanced Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6001",
+    "nameKr": "전자기학개론",
+    "nameEn": "Instroduction to Electrodynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6002",
+    "nameKr": "세포역학",
+    "nameEn": "Mechanical of the Cells",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU6003",
+    "nameKr": "제품개발론",
+    "nameEn": "Product Planning And Development",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU6004",
+    "nameKr": "박막플라즈마공정",
+    "nameEn": "Processing of Thin Film and Plasma",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6005",
+    "nameKr": "고급극초단동역학",
+    "nameEn": "Advanced Ultrafast Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6006",
+    "nameKr": "마이크로옵틱스설계제조",
+    "nameEn": "Design and Fabrication of Micro-Optics",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6010",
+    "nameKr": "나노스케일에너지전달",
+    "nameEn": "Micro/Nanoscale Energy Transport",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6011",
+    "nameKr": "컴퓨터해석기구학특론",
+    "nameEn": "Computer Aided Mechanism Analysis",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6020",
+    "nameKr": "탄소성파괴역학",
+    "nameEn": "Elastic-Plastic Fracture Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6041",
+    "nameKr": "최적설계공학",
+    "nameEn": "Engineering Design Optimization",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6050",
+    "nameKr": "기계금속학특론",
+    "nameEn": "Special Topics of Mechanical Metallurgy",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6060",
+    "nameKr": "분자기체역학",
+    "nameEn": "Molecular Gas Dynamics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6070",
+    "nameKr": "포토닉스",
+    "nameEn": "Photonics",
+    "credit": 3,
+    "researchArea": "optics"
+  },
+  {
+    "courseCode": "MEU6071",
+    "nameKr": "소프트컴퓨팅응용시스템설계",
+    "nameEn": "Soft Computing in Intelligent System Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6080",
+    "nameKr": "마이크로시스템역학",
+    "nameEn": "Mechanics of Microsystems",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6090",
+    "nameKr": "세포칩 특론",
+    "nameEn": "Special Topics on Cell Chip",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU6101",
+    "nameKr": "기계-전자기기설계",
+    "nameEn": "Mechanical-Electric Device Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6111",
+    "nameKr": "구조최적설계",
+    "nameEn": "Structural Optimal Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6130",
+    "nameKr": "용접공학특론",
+    "nameEn": "Advanced Welding Engineering",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6140",
+    "nameKr": "특수가공법",
+    "nameEn": "Special Topics in Contact Manufacturing Process",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6160",
+    "nameKr": "기계역학특론",
+    "nameEn": "Advanced Dynamics of Machinery",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6170",
+    "nameKr": "첨단레이져광공학",
+    "nameEn": "Advanced Laser and Optical Engineering",
+    "credit": 3,
+    "researchArea": "optics"
+  },
+  {
+    "courseCode": "MEU6180",
+    "nameKr": "신뢰성공학",
+    "nameEn": "Engineering Reliability",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6190",
+    "nameKr": "접촉역학",
+    "nameEn": "Contact Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6200",
+    "nameKr": "공리설계론",
+    "nameEn": "Axiomatic Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6210",
+    "nameKr": "전도열전달",
+    "nameEn": "Conduction Heat Transfer",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU6230",
+    "nameKr": "점성유체역학",
+    "nameEn": "Viscous Fluid Dynamics",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU6240",
+    "nameKr": "연소공학",
+    "nameEn": "Combustion Engineering",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU6241",
+    "nameKr": "실험역학",
+    "nameEn": "Experimental Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6250",
+    "nameKr": "열시스템설계",
+    "nameEn": "Design of Thermal System",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU6260",
+    "nameKr": "전산유체역학",
+    "nameEn": "Computational Fluid Dynamics",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU6261",
+    "nameKr": "복합재료역학",
+    "nameEn": "Engineering Mechanics of Composite Materials",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6270",
+    "nameKr": "고급윤활공학",
+    "nameEn": "Advanced Triboligy",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6290",
+    "nameKr": "입자공학",
+    "nameEn": "Particle Engineering",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU6340",
+    "nameKr": "자동제어론",
+    "nameEn": "Theory of Automatic Control",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6350",
+    "nameKr": "전기부품신뢰성설계",
+    "nameEn": "Reliability Design For Electric Parts",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6360",
+    "nameKr": "설계최적화특론",
+    "nameEn": "Advanced Optimal Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6411",
+    "nameKr": "마이크로광부품제조특론",
+    "nameEn": "Micro-Optics Fabrication",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6420",
+    "nameKr": "전산난류특론",
+    "nameEn": "Special Topics in Computational Turbulence",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU6430",
+    "nameKr": "마이크로 및 나노 성형공정",
+    "nameEn": "Micro and Nano Molding Process",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6440",
+    "nameKr": "플라즈마공학",
+    "nameEn": "Plasma Engineering",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6450",
+    "nameKr": "접촉역학특론",
+    "nameEn": "Special Topics in Contact Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6460",
+    "nameKr": "기계공학을위한센서기술",
+    "nameEn": "Sensor Technology Applied To Mechanical Engineering",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6470",
+    "nameKr": "응력해석과파손설계",
+    "nameEn": "Stress Analysis and Failure",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU6500",
+    "nameKr": "센서공학",
+    "nameEn": "Sensors",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6510",
+    "nameKr": "추진공학",
+    "nameEn": "Propulsion Engineering",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU6520",
+    "nameKr": "대류열전달",
+    "nameEn": "Convective Heat Transfer",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU6530",
+    "nameKr": "가스터빈특론",
+    "nameEn": "Advanced Gas Turbines",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU6540",
+    "nameKr": "열/유체실험공학",
+    "nameEn": "Experimental Method in Heat Transfer",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU6560",
+    "nameKr": "열환경공학",
+    "nameEn": "Thermal Environmental Engineering",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU6600",
+    "nameKr": "MEMS특론",
+    "nameEn": "MEMS",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6610",
+    "nameKr": "마찰및마멸",
+    "nameEn": "Friction and Wear",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU6620",
+    "nameKr": "바이오엔지니어링특론",
+    "nameEn": "Special Topics in Bioengineering",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU6630",
+    "nameKr": "나노트라이볼로지",
+    "nameEn": "Nanotribology",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU6640",
+    "nameKr": "바이오엔지니어링특론II",
+    "nameEn": "Special Topics in Bioengineering II",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU6641",
+    "nameKr": "로봇운동학",
+    "nameEn": "Kinematics and Dynamics of Robots",
+    "credit": 3,
+    "researchArea": "robotics"
+  },
+  {
+    "courseCode": "MEU6671",
+    "nameKr": "운동기하학",
+    "nameEn": "Kinematic Geometry",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU6810",
+    "nameKr": "기계공학세미나1",
+    "nameEn": "Seminar in Mechanical Science I",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU6820",
+    "nameKr": "기계공학세미나2",
+    "nameEn": "Seminar in Mechanical Science II",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU6900",
+    "nameKr": "창의설계특론",
+    "nameEn": "Special Topics in Creative Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU7001",
+    "nameKr": "입자공학특론",
+    "nameEn": "Advanced Particle Engineering",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7002",
+    "nameKr": "연소공학특론",
+    "nameEn": "Special Topics in Combustion Engineering",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU7003",
+    "nameKr": "파손설계특론",
+    "nameEn": "Special Topics on Failure Design",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU7004",
+    "nameKr": "열환경공학특론",
+    "nameEn": "Advanced Thermal Environmental Engineering",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU7005",
+    "nameKr": "응력재료설계특론",
+    "nameEn": "Special Topics of Design of Stress and Materials",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU7006",
+    "nameKr": "기계와 금속공학의 융합기술",
+    "nameEn": "Fusion Technology of Mechanical and Material Engineering",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7007",
+    "nameKr": "기계금속해석특론",
+    "nameEn": "Special Topics on Mechanical and Metallugical Analysis",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7008",
+    "nameKr": "양자론과 양자역학개론",
+    "nameEn": "Introduction to Quantum Theory and Mechanics",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7009",
+    "nameKr": "위상최적설계이론",
+    "nameEn": "Theoretical Topology Optimization",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU7010",
+    "nameKr": "에어로졸응용공학",
+    "nameEn": "Application of Aerosol Science and Technology",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7011",
+    "nameKr": "응력해석",
+    "nameEn": "Stress Analysis",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7012",
+    "nameKr": "내부유동",
+    "nameEn": "Internal Flow",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7013",
+    "nameKr": "응용전산유체역학",
+    "nameEn": "Applied Device Design and Development",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7014",
+    "nameKr": "메디칼디바이스 설계 및 개발",
+    "nameEn": "Medical Device Design and Development",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU7015",
+    "nameKr": "분자및세포역학",
+    "nameEn": "Molecular and Cell Biomechanics",
+    "credit": 3,
+    "researchArea": "bio"
+  },
+  {
+    "courseCode": "MEU7016",
+    "nameKr": "전기화학 에너지 시스템",
+    "nameEn": "Electrochemical Energy Systems",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU7017",
+    "nameKr": "터보기계 실험공학",
+    "nameEn": "Experimental Methods for Turbomachinery",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7018",
+    "nameKr": "전산 나노 과학",
+    "nameEn": "Computational Nanotechnology",
+    "credit": 3,
+    "researchArea": "micro-nano"
+  },
+  {
+    "courseCode": "MEU7030",
+    "nameKr": "탄성이론",
+    "nameEn": "Theory of Elasticity",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7060",
+    "nameKr": "기체운동론",
+    "nameEn": "Kinetic Theory of Gas",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7070",
+    "nameKr": "나선이론",
+    "nameEn": "Screw Theory",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7110",
+    "nameKr": "모우드해석",
+    "nameEn": "Modal Analysis",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7120",
+    "nameKr": "진동제어",
+    "nameEn": "Vibration Control",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU7130",
+    "nameKr": "컴퓨터통합생산시스템특론",
+    "nameEn": "Computer Integrated Manufacturing",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU7140",
+    "nameKr": "메카트로닉스응용",
+    "nameEn": "Application of Mechatronics",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU7160",
+    "nameKr": "광공학특론",
+    "nameEn": "Advanced Optical Engineering",
+    "credit": 3,
+    "researchArea": "optics"
+  },
+  {
+    "courseCode": "MEU7170",
+    "nameKr": "생산시스템제어공학",
+    "nameEn": "Control of Manufacturing System and Processes",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU7250",
+    "nameKr": "전달현상특론",
+    "nameEn": "Advanced Transport Phenomena",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU7260",
+    "nameKr": "유동안정성이론",
+    "nameEn": "Theory of Hydrodynamic Stability",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7270",
+    "nameKr": "근사해법",
+    "nameEn": "Pertubation Method",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7300",
+    "nameKr": "난류이론",
+    "nameEn": "Theory of Turbulent Flow",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7310",
+    "nameKr": "판의이론",
+    "nameEn": "Theory of Plates",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7330",
+    "nameKr": "구조진동학특론",
+    "nameEn": "Advanced Method in Structural Vibration",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU7350",
+    "nameKr": "복합재료역학",
+    "nameEn": "Mechanics of Composite Materials",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7370",
+    "nameKr": "자동제어특론",
+    "nameEn": "Advanced Theory of Automatic Control",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU7410",
+    "nameKr": "유체기계특론",
+    "nameEn": "Special Topics in Fluid Machinery",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7450",
+    "nameKr": "윤활특론",
+    "nameEn": "Special Topics in Tribology",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7460",
+    "nameKr": "난류특론",
+    "nameEn": "Special Topics in Turbulence",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7470",
+    "nameKr": "패키징공학",
+    "nameEn": "Electronic Packaging",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7610",
+    "nameKr": "마찰학응용",
+    "nameEn": "Applications in Tribology",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU7630",
+    "nameKr": "공기조화및냉동공학특론",
+    "nameEn": "Special Topics in HVAC",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7910",
+    "nameKr": "기계공학세미나3",
+    "nameEn": "Seminar in Mechanical Science 3",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7920",
+    "nameKr": "기계공학세미나4",
+    "nameEn": "Seminar in Mechanical Science 4",
+    "credit": 3,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU7930",
+    "nameKr": "압축성유체역학",
+    "nameEn": "Compressible Fluid Dynamics",
+    "credit": 3,
+    "researchArea": "fluids"
+  },
+  {
+    "courseCode": "MEU7999",
+    "nameKr": "연구지도1",
+    "nameEn": "Directed Research 1",
+    "credit": 0,
+    "researchArea": null
+  },
+  {
+    "courseCode": "MEU8120",
+    "nameKr": "정밀가공이론",
+    "nameEn": "Theory of Precision Machining",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU8130",
+    "nameKr": "제조공정특강",
+    "nameEn": "Special Topics in Manufacturing Processes",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU8210",
+    "nameKr": "내연기관특론",
+    "nameEn": "Advanced Internal Combustion Engines",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU8230",
+    "nameKr": "방전가공특론",
+    "nameEn": "Special Topics in Electrical Discharge Machining",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU8250",
+    "nameKr": "열전달특론",
+    "nameEn": "Special Topics in Heat Transfer",
+    "credit": 3,
+    "researchArea": "thermal-energy"
+  },
+  {
+    "courseCode": "MEU8260",
+    "nameKr": "공작기계설계특론",
+    "nameEn": "Design of Precision Machine Tool System",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU8350",
+    "nameKr": "비선형제어",
+    "nameEn": "Nonlinear Control",
+    "credit": 3,
+    "researchArea": "dynamics-control"
+  },
+  {
+    "courseCode": "MEU8400",
+    "nameKr": "재료거동학특론",
+    "nameEn": "Special Topics in Mechanical Behavior of Materials",
+    "credit": 3,
+    "researchArea": "mechanics-materials"
+  },
+  {
+    "courseCode": "MEU8770",
+    "nameKr": "고분자가공특론",
+    "nameEn": "Special Topics in Polymer Processing",
+    "credit": 3,
+    "researchArea": "manufacturing-design"
+  },
+  {
+    "courseCode": "MEU9999",
+    "nameKr": "연구지도2",
+    "nameEn": "Directed Research 2",
+    "credit": 0,
+    "researchArea": null
+  }
+]

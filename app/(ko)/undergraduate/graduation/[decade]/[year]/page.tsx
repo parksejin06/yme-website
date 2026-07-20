@@ -3,12 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GraduationSummary from "@/components/academics/GraduationSummary";
 import SpecialNotes from "@/components/academics/SpecialNotes";
-import CourseExplorer, { type CourseDetail } from "@/components/academics/CourseExplorer";
 import DualMajorInfo from "@/components/academics/DualMajorInfo";
-import { ArrowLeftIcon } from "@/components/icons";
+import SectionSubNav from "@/components/SectionSubNav";
+import Breadcrumb from "@/components/Breadcrumb";
+import { ArrowLeftIcon, ChevronRightIcon } from "@/components/icons";
+import { UNDERGRADUATE_NAV } from "@/lib/nav";
 import gradRequirements from "@/data/graduation-requirements.json";
-import curriculum from "@/data/curriculum.json";
-import courses from "@/data/courses.json";
 import dualMajor from "@/data/dual-major.json";
 
 type GradEntry = (typeof gradRequirements)[number];
@@ -24,10 +24,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { decade, year } = await params;
   const entry = (gradRequirements as GradEntry[]).find((g) => g.decade === decade && g.slug === year);
-  return { title: entry ? `${entry.label} 졸업요건` : "학부 교육과정" };
+  return { title: entry ? `${entry.label} 졸업요건` : "졸업 요건" };
 }
 
-export default async function AcademicsYearPage({
+export default async function UndergraduateGraduationYearPage({
   params,
 }: {
   params: Promise<{ decade: string; year: string }>;
@@ -36,19 +36,26 @@ export default async function AcademicsYearPage({
   const entry = (gradRequirements as GradEntry[]).find((g) => g.decade === decade && g.slug === year);
   if (!entry) notFound();
 
-  const courseMap = new Map<string, CourseDetail>((courses as CourseDetail[]).map((c) => [c.courseCode, c]));
-
   return (
     <>
       <section className="bg-gradient-to-b from-primary to-primary-strong px-4 py-14 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-content">
-          <Link href="/academics" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
-            <ArrowLeftIcon /> 학부 교육과정으로
+          <Link href="/undergraduate/graduation" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
+            <ArrowLeftIcon /> 졸업 요건으로
           </Link>
           <h1 className="mt-4 font-display text-3xl text-white sm:text-4xl">{entry.label} 졸업요건</h1>
           {entry.note && <p className="mt-2 max-w-2xl text-white/70">{entry.note}</p>}
         </div>
       </section>
+      <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
+      <Breadcrumb
+        lang="ko"
+        items={[
+          { label: "학부", path: "/undergraduate" },
+          { label: "졸업 요건", path: "/undergraduate/graduation" },
+          { label: `${entry.label} 졸업요건` },
+        ]}
+      />
 
       <section className="mx-auto max-w-content space-y-16 px-4 py-16 sm:px-6 sm:py-20">
         <div>
@@ -73,15 +80,16 @@ export default async function AcademicsYearPage({
 
         <SpecialNotes notes={entry.specialNotes} lang="ko" />
 
-        <div>
-          <h2 className="font-display text-xl text-ink">학년학기별 교육과정</h2>
-          <p className="mt-2 text-sm text-ink/60">
-            아래 편성표는 전체 학번 공통 자료이며, 위 졸업요건과 함께 참고하시기 바랍니다.
-          </p>
-          <div className="mt-5">
-            <CourseExplorer entries={curriculum} courseMap={courseMap} lang="ko" />
+        <Link
+          href="/undergraduate/courses"
+          className="group flex items-center justify-between gap-4 rounded-lg border border-line bg-surface-muted/60 p-5 transition-colors hover:border-primary-soft"
+        >
+          <div>
+            <p className="font-display text-base text-ink">학년·학기별 교과목 소개 보기</p>
+            <p className="mt-1 text-sm text-ink/60">위 졸업요건과 함께, 학년·학기별로 개설되는 전체 교과목을 확인하세요.</p>
           </div>
-        </div>
+          <ChevronRightIcon className="h-4 w-4 shrink-0 text-ink/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+        </Link>
 
         <DualMajorInfo rows={dualMajor} lang="ko" />
       </section>

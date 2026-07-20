@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { ChevronDown, Search, X } from "lucide-react";
+import Collapse from "@/components/ui/Collapse";
 import {
   YEAR_GROUPS,
   SEMESTERS,
@@ -280,7 +281,7 @@ export default function CourseExplorer({
                 />
               </button>
 
-              <DetailPanel open={open}>
+              <Collapse open={open}>
                 <div className="space-y-3 bg-surface-muted/60 px-4 py-4 sm:px-5">
                     <dl className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs sm:grid-cols-4">
                       <div>
@@ -338,34 +339,11 @@ export default function CourseExplorer({
                     )}
                     {c.dataNote && <p className="text-xs italic text-ink/40">※ {c.dataNote}</p>}
                 </div>
-              </DetailPanel>
+              </Collapse>
             </div>
           );
         })}
       </div>
-    </div>
-  );
-}
-
-/** Animates open/close by measuring the content's natural height (grid-template-rows fr-unit
- * transitions don't reliably resolve on all rendering engines when the target size is
- * content-dependent, so we measure explicitly instead). */
-function DetailPanel({ open, children }: { open: boolean; children: React.ReactNode }) {
-  const innerRef = useRef<HTMLDivElement>(null);
-  const [maxHeight, setMaxHeight] = useState(0);
-
-  useEffect(() => {
-    const el = innerRef.current;
-    if (!el) return;
-    setMaxHeight(open ? el.scrollHeight : 0);
-  }, [open]);
-
-  return (
-    <div
-      style={{ maxHeight }}
-      className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${open ? "opacity-100" : "opacity-0"}`}
-    >
-      <div ref={innerRef}>{children}</div>
     </div>
   );
 }

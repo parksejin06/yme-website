@@ -3,14 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GraduationSummary from "@/components/academics/GraduationSummary";
 import SpecialNotes from "@/components/academics/SpecialNotes";
-import CourseExplorer, { type CourseDetail } from "@/components/academics/CourseExplorer";
 import DualMajorInfo from "@/components/academics/DualMajorInfo";
-import { ArrowLeftIcon } from "@/components/icons";
-import gradRequirements from "@/data/graduation-requirements.json";
-import curriculum from "@/data/curriculum.json";
-import courses from "@/data/courses.json";
-import dualMajor from "@/data/dual-major.json";
+import SectionSubNav from "@/components/SectionSubNav";
+import Breadcrumb from "@/components/Breadcrumb";
+import { ArrowLeftIcon, ChevronRightIcon } from "@/components/icons";
+import { UNDERGRADUATE_NAV } from "@/lib/nav";
 import { STUDENT_GROUPS } from "@/lib/academics";
+import gradRequirements from "@/data/graduation-requirements.json";
+import dualMajor from "@/data/dual-major.json";
 
 type GradEntry = (typeof gradRequirements)[number];
 
@@ -25,10 +25,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { decade, year } = await params;
   const entry = (gradRequirements as GradEntry[]).find((g) => g.decade === decade && g.slug === year);
-  return { title: entry ? `${entry.label} Graduation Requirements` : "Academics" };
+  return { title: entry ? `${entry.label} Graduation Requirements` : "Graduation Requirements" };
 }
 
-export default async function AcademicsYearPageEn({
+export default async function UndergraduateGraduationYearPageEn({
   params,
 }: {
   params: Promise<{ decade: string; year: string }>;
@@ -38,14 +38,13 @@ export default async function AcademicsYearPageEn({
   if (!entry) notFound();
 
   const groupMeta = STUDENT_GROUPS.find((g) => g.slug === entry.slug);
-  const courseMap = new Map<string, CourseDetail>((courses as CourseDetail[]).map((c) => [c.courseCode, c]));
 
   return (
     <>
       <section className="bg-gradient-to-b from-primary to-primary-strong px-4 py-14 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-content">
-          <Link href="/en/academics" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
-            <ArrowLeftIcon /> Back to Academics
+          <Link href="/en/undergraduate/graduation" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
+            <ArrowLeftIcon /> Back to Graduation Requirements
           </Link>
           <h1 className="mt-4 font-display text-3xl text-white sm:text-4xl">
             {groupMeta?.labelEn ?? entry.label} Graduation Requirements
@@ -56,6 +55,15 @@ export default async function AcademicsYearPageEn({
           </p>
         </div>
       </section>
+      <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
+      <Breadcrumb
+        lang="en"
+        items={[
+          { label: "Undergraduate", path: "/undergraduate" },
+          { label: "Graduation Requirements", path: "/undergraduate/graduation" },
+          { label: `${groupMeta?.labelEn ?? entry.label} Requirements` },
+        ]}
+      />
 
       <section className="mx-auto max-w-content space-y-16 px-4 py-16 sm:px-6 sm:py-20">
         <div>
@@ -80,15 +88,16 @@ export default async function AcademicsYearPageEn({
 
         <SpecialNotes notes={entry.specialNotes} lang="en" />
 
-        <div>
-          <h2 className="font-display text-xl text-ink">Curriculum by Year &amp; Semester</h2>
-          <p className="mt-2 text-sm text-ink/60">
-            This curriculum plan is common to all cohorts; please cross-reference it with the requirements above.
-          </p>
-          <div className="mt-5">
-            <CourseExplorer entries={curriculum} courseMap={courseMap} lang="en" />
+        <Link
+          href="/en/undergraduate/courses"
+          className="group flex items-center justify-between gap-4 rounded-lg border border-line bg-surface-muted/60 p-5 transition-colors hover:border-primary-soft"
+        >
+          <div>
+            <p className="font-display text-base text-ink">View Courses by Year &amp; Semester</p>
+            <p className="mt-1 text-sm text-ink/60">Cross-reference these requirements with the full course list by year and semester.</p>
           </div>
-        </div>
+          <ChevronRightIcon className="h-4 w-4 shrink-0 text-ink/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+        </Link>
 
         <DualMajorInfo rows={dualMajor} lang="en" />
       </section>

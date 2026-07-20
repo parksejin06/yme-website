@@ -48,7 +48,7 @@ export function findGroupBySlug(slug: string) {
 }
 
 export function academicsPath(lang: Lang, decade?: string, yearSlug?: string) {
-  const base = lang === "ko" ? "/academics" : "/en/academics";
+  const base = lang === "ko" ? "/undergraduate/graduation" : "/en/undergraduate/graduation";
   if (!decade) return base;
   if (!yearSlug) return `${base}/${decade}`;
   return `${base}/${decade}/${yearSlug}`;

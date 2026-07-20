@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      { source: "/academics", destination: "/undergraduate/graduation", permanent: false },
+      { source: "/academics/:decade/:year", destination: "/undergraduate/graduation/:decade/:year", permanent: false },
+      { source: "/en/academics", destination: "/en/undergraduate/graduation", permanent: false },
+      { source: "/en/academics/:decade/:year", destination: "/en/undergraduate/graduation/:decade/:year", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;
