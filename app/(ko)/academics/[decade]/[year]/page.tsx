@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GraduationSummary from "@/components/academics/GraduationSummary";
 import SpecialNotes from "@/components/academics/SpecialNotes";
-import CurriculumAccordion, { type CourseDetail } from "@/components/academics/CurriculumAccordion";
+import CourseExplorer, { type CourseDetail } from "@/components/academics/CourseExplorer";
 import DualMajorInfo from "@/components/academics/DualMajorInfo";
 import { ArrowLeftIcon } from "@/components/icons";
 import gradRequirements from "@/data/graduation-requirements.json";
@@ -79,7 +79,7 @@ export default async function AcademicsYearPage({
             아래 편성표는 전체 학번 공통 자료이며, 위 졸업요건과 함께 참고하시기 바랍니다.
           </p>
           <div className="mt-5">
-            <CurriculumAccordion entries={curriculum} courseMap={courseMap} lang="ko" />
+            <CourseExplorer entries={curriculum} courseMap={courseMap} lang="ko" />
           </div>
         </div>
 

@@ -54,20 +54,48 @@ export function academicsPath(lang: Lang, decade?: string, yearSlug?: string) {
   return `${base}/${decade}/${yearSlug}`;
 }
 
-export const CATEGORY_COLORS: Record<string, string> = {
-  "기초": "bg-slate-100 text-slate-700 border-slate-300",
-  "전공핵심": "bg-primary/10 text-primary border-primary/30",
-  "응용·심화": "bg-amber-50 text-amber-800 border-amber-300",
-  "실험·설계": "bg-emerald-50 text-emerald-800 border-emerald-300",
-};
-
-export const BUCKETS: { key: string; labelKr: string; labelEn: string }[] = [
-  { key: "1-1", labelKr: "1학년 1학기", labelEn: "Year 1, Semester 1" },
-  { key: "1-2", labelKr: "1학년 2학기", labelEn: "Year 1, Semester 2" },
-  { key: "2-1", labelKr: "2학년 1학기", labelEn: "Year 2, Semester 1" },
-  { key: "2-2", labelKr: "2학년 2학기", labelEn: "Year 2, Semester 2" },
-  { key: "34-1", labelKr: "3·4학년 1학기", labelEn: "Year 3–4, Semester 1" },
-  { key: "34-2", labelKr: "3·4학년 2학기", labelEn: "Year 3–4, Semester 2" },
-  { key: "4-1", labelKr: "4학년 1학기", labelEn: "Year 4, Semester 1" },
-  { key: "4-2", labelKr: "4학년 2학기", labelEn: "Year 4, Semester 2" },
+/** Year groups as they actually appear in curriculum bucket keys ("34" = combined 3rd/4th-year offering). */
+export const YEAR_GROUPS: { key: string; labelKr: string; labelEn: string }[] = [
+  { key: "1", labelKr: "1학년", labelEn: "Year 1" },
+  { key: "2", labelKr: "2학년", labelEn: "Year 2" },
+  { key: "34", labelKr: "3·4학년", labelEn: "Year 3–4" },
+  { key: "4", labelKr: "4학년", labelEn: "Year 4" },
 ];
+
+export const SEMESTERS: { key: string; labelKr: string; labelEn: string }[] = [
+  { key: "1", labelKr: "1학기", labelEn: "Semester 1" },
+  { key: "2", labelKr: "2학기", labelEn: "Semester 2" },
+];
+
+/** courseType codes from the source spreadsheet: 전필=Major Required, 전선=Major Elective, 대교=University Liberal Arts. */
+export const COURSE_TYPES: { key: string; labelKr: string; labelEn: string; badgeClass: string }[] = [
+  { key: "전필", labelKr: "전공필수", labelEn: "Major Required", badgeClass: "bg-primary text-white" },
+  {
+    key: "전선",
+    labelKr: "전공선택",
+    labelEn: "Major Elective",
+    badgeClass: "bg-primary-soft/15 text-primary-strong ring-1 ring-inset ring-primary-soft/30",
+  },
+  {
+    key: "대교",
+    labelKr: "대학교양",
+    labelEn: "University Liberal Arts",
+    badgeClass: "bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-200",
+  },
+];
+
+export function courseTypeMeta(key: string) {
+  return COURSE_TYPES.find((t) => t.key === key);
+}
+
+export function yearLabelFromBucket(bucket: string, lang: Lang): string {
+  const [y] = bucket.split("-");
+  const g = YEAR_GROUPS.find((g) => g.key === y);
+  return g ? (lang === "ko" ? g.labelKr : g.labelEn) : y;
+}
+
+export function semesterLabelFromBucket(bucket: string, lang: Lang): string {
+  const [, s] = bucket.split("-");
+  const g = SEMESTERS.find((g) => g.key === s);
+  return g ? (lang === "ko" ? g.labelKr : g.labelEn) : s;
+}

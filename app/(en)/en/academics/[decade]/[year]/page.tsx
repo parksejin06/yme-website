@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GraduationSummary from "@/components/academics/GraduationSummary";
 import SpecialNotes from "@/components/academics/SpecialNotes";
-import CurriculumAccordion, { type CourseDetail } from "@/components/academics/CurriculumAccordion";
+import CourseExplorer, { type CourseDetail } from "@/components/academics/CourseExplorer";
 import DualMajorInfo from "@/components/academics/DualMajorInfo";
 import { ArrowLeftIcon } from "@/components/icons";
 import gradRequirements from "@/data/graduation-requirements.json";
@@ -86,7 +86,7 @@ export default async function AcademicsYearPageEn({
             This curriculum plan is common to all cohorts; please cross-reference it with the requirements above.
           </p>
           <div className="mt-5">
-            <CurriculumAccordion entries={curriculum} courseMap={courseMap} lang="en" />
+            <CourseExplorer entries={curriculum} courseMap={courseMap} lang="en" />
           </div>
         </div>
 
