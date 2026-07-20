@@ -10,7 +10,7 @@
     "labUrl": "https://sites.google.com/site/kwkanglab/",
     "photoPath": "/assets/faculty/강건욱.png",
     "slug": "gang-geonuk",
-    "labSlug": null
+    "labSlug": "gang-geonuk"
   },
   {
     "name": "김대은",
@@ -23,7 +23,7 @@
     "labUrl": "https://trl.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김대은.png",
     "slug": "gim-daeeun",
-    "labSlug": null
+    "labSlug": "gim-daeeun"
   },
   {
     "name": "민경민",
@@ -36,7 +36,7 @@
     "labUrl": "https://csailabyonsei.quv.kr/",
     "photoPath": "/assets/faculty/민경민.png",
     "slug": "min-gyeongmin",
-    "labSlug": null
+    "labSlug": "min-gyeongmin"
   },
   {
     "name": "이형석",
@@ -49,7 +49,7 @@
     "labUrl": "https://leelab.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/이형석.png",
     "slug": "i-hyeongseok",
-    "labSlug": null
+    "labSlug": "i-hyeongseok"
   },
   {
     "name": "장용훈",
@@ -62,7 +62,7 @@
     "labUrl": "https://web.yonsei.ac.kr/mcmclab2/index1.htm",
     "photoPath": "/assets/faculty/장용훈.png",
     "slug": "jang-yonghun",
-    "labSlug": null
+    "labSlug": "jang-yonghun"
   },
   {
     "name": "전흥재",
@@ -75,7 +75,7 @@
     "labUrl": "https://hostinfo.cafe24.com/serviceExpire/expiration.html?domain=isid.yonsei.ac.kr",
     "photoPath": "/assets/faculty/전흥재.png",
     "slug": "jeon-heungjae",
-    "labSlug": null
+    "labSlug": "jeon-heungjae"
   },
   {
     "name": "김우철",
@@ -88,7 +88,7 @@
     "labUrl": "http://atel.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김우철.png",
     "slug": "gim-ucheol",
-    "labSlug": null
+    "labSlug": "gim-ucheol"
   },
   {
     "name": "김원정",
@@ -101,7 +101,7 @@
     "labUrl": "https://ssfl.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김원정.png",
     "slug": "gim-wonjeong",
-    "labSlug": null
+    "labSlug": "gim-wonjeong"
   },
   {
     "name": "송순호",
@@ -114,7 +114,7 @@
     "labUrl": "https://discodj997.mycafe24.com/",
     "photoPath": "/assets/faculty/송순호.png",
     "slug": "song-sunho",
-    "labSlug": null
+    "labSlug": "song-sunho"
   },
   {
     "name": "이준상",
@@ -127,7 +127,7 @@
     "labUrl": "https://mfdl.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/이준상.png",
     "slug": "i-junsang",
-    "labSlug": null
+    "labSlug": "i-junsang"
   },
   {
     "name": "이창훈",
@@ -140,7 +140,7 @@
     "labUrl": "https://euler.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/이창훈.png",
     "slug": "i-changhun",
-    "labSlug": null
+    "labSlug": "i-changhun"
   },
   {
     "name": "홍종섭",
@@ -153,7 +153,20 @@
     "labUrl": "https://mes.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/홍종섭.png",
     "slug": "hong-jongseop",
-    "labSlug": null
+    "labSlug": "hong-jongseop"
+  },
+  {
+    "name": "이남규",
+    "position": "교수",
+    "field": "에너지·열유체",
+    "email": "NK.LEE@YONSEI.AC.KR",
+    "phone": "02-2123-2820",
+    "office": "Engineering Building #1, Room N207",
+    "labName": "Heat Transfer & Thermal Design Lab.",
+    "labUrl": "https://sites.google.com/view/httd-yonsei",
+    "photoPath": "/assets/faculty/이남규.png",
+    "slug": "i-namgyu",
+    "labSlug": "i-namgyu"
   },
   {
     "name": "박노철",
@@ -166,7 +179,7 @@
     "labUrl": "http://optomecha.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/박노철.png",
     "slug": "bak-nocheol",
-    "labSlug": null
+    "labSlug": "bak-nocheol"
   },
   {
     "name": "신동준",
@@ -179,7 +192,7 @@
     "labUrl": "https://hcr.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/신동준.png",
     "slug": "sin-dongjun",
-    "labSlug": null
+    "labSlug": "sin-dongjun"
   },
   {
     "name": "양현석",
@@ -192,7 +205,7 @@
     "labUrl": "http://mservo.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/양현석.png",
     "slug": "yang-hyeonseok",
-    "labSlug": null
+    "labSlug": "yang-hyeonseok"
   },
   {
     "name": "최종은",
@@ -205,7 +218,7 @@
     "labUrl": "https://mlcs.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/최종은.png",
     "slug": "choe-jongeun",
-    "labSlug": null
+    "labSlug": "choe-jongeun"
   },
   {
     "name": "강신일",
@@ -218,7 +231,7 @@
     "labUrl": "http://nanofab.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/강신일.png",
     "slug": "gang-sinil",
-    "labSlug": null
+    "labSlug": "gang-sinil"
   },
   {
     "name": "김석",
@@ -231,7 +244,7 @@
     "labUrl": "https://sites.google.com/view/seoklab/max",
     "photoPath": "/assets/faculty/김석.png",
     "slug": "gim-seok",
-    "labSlug": null
+    "labSlug": "gim-seok"
   },
   {
     "name": "민병권",
@@ -244,7 +257,7 @@
     "labUrl": "http://minlab.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/민병권.png",
     "slug": "min-byeonggwon",
-    "labSlug": null
+    "labSlug": "min-byeonggwon"
   },
   {
     "name": "유정훈",
@@ -257,7 +270,7 @@
     "labUrl": "http://ssd.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/유정훈.png",
     "slug": "yu-jeonghun",
-    "labSlug": null
+    "labSlug": "yu-jeonghun"
   },
   {
     "name": "윤준영",
@@ -270,7 +283,7 @@
     "labUrl": "https://drive.google.com/file/d/1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z/preview",
     "photoPath": "/assets/faculty/윤준영.png",
     "slug": "yun-junyeong",
-    "labSlug": null
+    "labSlug": "yun-junyeong"
   },
   {
     "name": "이종수",
@@ -283,7 +296,7 @@
     "labUrl": "http://web.yonsei.ac.kr/medesign",
     "photoPath": "/assets/faculty/이종수.png",
     "slug": "i-jongsu",
-    "labSlug": null
+    "labSlug": "i-jongsu"
   },
   {
     "name": "김경식",
@@ -296,7 +309,7 @@
     "labUrl": "http://opticsme.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김경식.png",
     "slug": "gim-gyeongsik",
-    "labSlug": null
+    "labSlug": "gim-gyeongsik"
   },
   {
     "name": "김용준",
@@ -309,7 +322,7 @@
     "labUrl": "http://mems.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김용준.png",
     "slug": "gim-yongjun",
-    "labSlug": null
+    "labSlug": "gim-yongjun"
   },
   {
     "name": "김종백",
@@ -322,7 +335,7 @@
     "labUrl": "https://ntl.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김종백.png",
     "slug": "gim-jongbaek",
-    "labSlug": null
+    "labSlug": "gim-jongbaek"
   },
   {
     "name": "김해진",
@@ -335,7 +348,7 @@
     "labUrl": "https://www.yslidm.com/",
     "photoPath": "/assets/faculty/김해진.png",
     "slug": "gim-haejin",
-    "labSlug": null
+    "labSlug": "gim-haejin"
   },
   {
     "name": "전성찬",
@@ -348,7 +361,7 @@
     "labUrl": "http://nemd.yonsei.ac.kr/frontpage.asp?catalogid=nemd&language=ko",
     "photoPath": "/assets/faculty/전성찬.png",
     "slug": "jeon-seongchan",
-    "labSlug": null
+    "labSlug": "jeon-seongchan"
   },
   {
     "name": "김영주",
@@ -361,7 +374,7 @@
     "labUrl": "http://nos.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/김영주.png",
     "slug": "gim-yeongju",
-    "labSlug": null
+    "labSlug": "gim-yeongju"
   },
   {
     "name": "류원형",
@@ -374,7 +387,7 @@
     "labUrl": "https://sites.google.com/a/bmesyonsei.com/bmeslab/",
     "photoPath": "/assets/faculty/류원형.png",
     "slug": "ryu-wonhyeong",
-    "labSlug": null
+    "labSlug": "ryu-wonhyeong"
   },
   {
     "name": "정효일",
@@ -387,7 +400,7 @@
     "labUrl": "http://nanobio.yonsei.ac.kr/",
     "photoPath": "/assets/faculty/정효일.png",
     "slug": "jeong-hyoil",
-    "labSlug": null
+    "labSlug": "jeong-hyoil"
   },
   {
     "name": "주철민",
@@ -400,7 +413,7 @@
     "labUrl": "https://cii-yonsei.com/",
     "photoPath": "/assets/faculty/주철민.png",
     "slug": "ju-cheolmin",
-    "labSlug": null
+    "labSlug": "ju-cheolmin"
   },
   {
     "name": "현재상",
@@ -413,6 +426,6 @@
     "labUrl": "https://sites.google.com/view/damislab",
     "photoPath": "/assets/faculty/현재상.png",
     "slug": "hyeon-jaesang",
-    "labSlug": null
+    "labSlug": "hyeon-jaesang"
   }
 ]

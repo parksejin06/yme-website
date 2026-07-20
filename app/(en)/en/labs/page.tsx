@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import SectionSubNav from "@/components/SectionSubNav";
+import Breadcrumb from "@/components/Breadcrumb";
 import LabsExplorer from "@/components/labs/LabsExplorer";
 import labs from "@/data/labs.json";
 import type { LabEntry } from "@/lib/labs";
+import { LABS_NAV } from "@/lib/nav";
 
 export const metadata: Metadata = { title: "Research Labs" };
 
-export default function LabsPageEn() {
+export default async function LabsPageEn({ searchParams }: { searchParams: Promise<{ field?: string }> }) {
+  const { field } = await searchParams;
+
   return (
     <>
       <PageHero
         eyebrow="RESEARCH"
         title="Research Labs"
-        description="Explore 32 laboratories across 6 research fields: Mechanics & Materials, Energy & Thermofluids, Robotics & Control, Design & Manufacturing, Micro & Nano, and Bio & Photonics. Select a field to see its laboratories."
+        description={`Explore ${labs.length} laboratories across 6 research fields: Mechanics & Materials, Energy & Thermofluids, Robotics & Control, Design & Manufacturing, Micro & Nano, and Bio & Photonics. Select a field to see its laboratories.`}
       />
+      <SectionSubNav items={LABS_NAV} lang="en" label="Research Labs sub-navigation" />
+      <Breadcrumb lang="en" items={[{ label: "Research Labs" }]} />
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
-        <LabsExplorer lang="en" labs={labs as LabEntry[]} />
+        <LabsExplorer lang="en" labs={labs as LabEntry[]} initialField={field} />
       </section>
     </>
   );

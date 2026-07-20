@@ -39,8 +39,24 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { path: "/faculty", kr: "교수진", en: "Faculty" },
-  { path: "/labs", kr: "연구실", en: "Research Labs" },
-  { path: "/news", kr: "공지사항", en: "News" },
+  {
+    path: "/labs",
+    kr: "연구실",
+    en: "Research Labs",
+    children: [
+      { path: "/labs", kr: "연구실", en: "Research Labs" },
+      { path: "/labs/fields", kr: "연구분야 소개", en: "Research Fields" },
+    ],
+  },
+  {
+    path: "/news",
+    kr: "공지사항",
+    en: "News",
+    children: [
+      { path: "/news", kr: "공지사항", en: "Notices" },
+      { path: "/news/research", kr: "뉴스", en: "Research News" },
+    ],
+  },
   { path: "/admissions", kr: "입학·진로", en: "Admissions" },
   { path: "/alumni", kr: "동문·협력", en: "Alumni" },
   { path: "/contact", kr: "오시는 길", en: "Contact" },
@@ -48,6 +64,8 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const UNDERGRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/undergraduate")!.children!;
 export const GRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/graduate")!.children!;
+export const LABS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/labs")!.children!;
+export const NEWS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/news")!.children!;
 
 /** Prefixes a bare path ("/about") with the locale root ("" for ko, "/en" for en). */
 export function localizePath(path: string, lang: Lang): string {

@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import Modal from "@/components/ui/Modal";
+import Link from "next/link";
 import type { Lang } from "@/lib/nav";
 
 interface Notice {
@@ -29,8 +26,6 @@ function PaperclipIcon() {
 }
 
 export default function NoticeTable({ lang, notices }: { lang: Lang; notices: Notice[] }) {
-  const [selected, setSelected] = useState<Notice | null>(null);
-
   const label = {
     ko: { no: "번호", title: "제목", author: "작성자", date: "날짜", attachment: "첨부파일 있음", notice: "공지" },
     en: { no: "No.", title: "Title", author: "Author", date: "Date", attachment: "Has attachment", notice: "Notice" },
@@ -57,14 +52,13 @@ export default function NoticeTable({ lang, notices }: { lang: Lang; notices: No
         </thead>
         <tbody>
           {notices.map((n) => (
-            <tr
-              key={n.id}
-              onClick={() => setSelected(n)}
-              className="cursor-pointer border-b border-line hover:bg-surface-muted"
-            >
+            <tr key={n.id} className="border-b border-line hover:bg-surface-muted">
               <td className="px-3 py-4 text-ink/70">{n.id}</td>
               <td className="px-3 py-4">
-                <span className="flex items-center gap-2">
+                <Link
+                  href={lang === "ko" ? `/news/${n.id}` : `/en/news/${n.id}`}
+                  className="flex items-center gap-2 hover:text-primary"
+                >
                   {n.isNotice && (
                     <span
                       className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white"
@@ -79,7 +73,7 @@ export default function NoticeTable({ lang, notices }: { lang: Lang; notices: No
                       <PaperclipIcon />
                     </span>
                   )}
-                </span>
+                </Link>
               </td>
               <td className="px-3 py-4 text-ink/70">{n.author}</td>
               <td className="px-3 py-4 text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
@@ -89,36 +83,6 @@ export default function NoticeTable({ lang, notices }: { lang: Lang; notices: No
           ))}
         </tbody>
       </table>
-
-      <Modal open={!!selected} onClose={() => setSelected(null)} labelledBy="notice-detail-title" panelClassName="max-w-xl">
-        {selected && (
-          <div className="p-6">
-            <div className="flex items-center gap-2 pr-8">
-              {selected.isNotice && (
-                <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
-                  {label.notice}
-                </span>
-              )}
-              <h3 id="notice-detail-title" className="font-display text-lg text-ink">
-                {selected.title}
-              </h3>
-            </div>
-            <div className="mt-2 flex items-center gap-3 text-xs text-ink/50">
-              <span>{selected.author}</span>
-              <span style={{ fontVariantNumeric: "tabular-nums" }}>{selected.date}</span>
-              {selected.hasAttachment && (
-                <span className="flex items-center gap-1">
-                  <PaperclipIcon />
-                  {label.attachment}
-                </span>
-              )}
-            </div>
-            <p className="mt-4 whitespace-pre-line border-t border-line pt-4 text-sm leading-relaxed text-ink/80">
-              {selected.content}
-            </p>
-          </div>
-        )}
-      </Modal>
     </div>
   );
 }

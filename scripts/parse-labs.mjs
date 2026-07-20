@@ -1,15 +1,29 @@
-import ExcelJS from "exceljs";
 import fs from "node:fs";
 import path from "node:path";
 import hangulRomanization from "hangul-romanization";
+import { readProfessorSheet } from "./lib/read-professor-sheet.mjs";
 
-// Standalone parser for the "연구실·연구분야" (labs) page. Reads the same
-// source workbook as parse-faculty.mjs but produces a different shape
-// (per-professor lab entry grouped by research field, incl. representative
-// research titles/media). Kept as its own script per explicit instruction:
-// re-running this alone regenerates data/labs.json without touching
-// data/faculty.json or its extracted photos.
-const SRC = "c:\\Users\\parks\\OneDrive\\Desktop\\홈페이지 경진대회\\reference\\연세대학교 기계공학부 교수진.xlsx";
+// Standalone parser for the "연구실·연구분야" (labs) page. Reads the
+// "...대표연구추가.xlsx" workbook - re-running this alone regenerates
+// data/labs.json without touching data/faculty.json or its extracted
+// photos.
+//
+// This workbook supersedes the older space-named
+// "연세대학교 기계공학부 교수진.xlsx": same roster fields for all
+// pre-existing professors (verified 1:1, field-by-field) plus a 33rd
+// professor (이남규, absent from the older file), a "대표 연구 제목"
+// filled in for every row (the older file only had it for a handful, and
+// has since been cleared entirely upstream), and - importantly - a
+// verified real face photo in the profile-photo column for every row.
+// The older file had a few rows (e.g. 김대은, 민경민) where someone had
+// pasted a representative-research figure into the profile-photo column
+// by mistake; this workbook fixes that.
+//
+// ExcelJS cannot load this workbook (its drawing relationships trip a bug
+// in ExcelJS's drawing-reconcile step: "Cannot read properties of
+// undefined (reading 'anchors')"), so it's read via lib/xlsx-lite.mjs
+// (a small dependency-free ZIP/XML reader) instead of ExcelJS.
+const SRC = "c:\\Users\\parks\\OneDrive\\Desktop\\홈페이지 경진대회\\reference\\연세대학교_기계공학부_교수진_대표연구추가.xlsx";
 const PHOTO_DIR = path.resolve("public/assets/faculty");
 const OUT_JSON = path.resolve("data/labs.json");
 
@@ -21,18 +35,6 @@ const FIELD_MAP = {
   "마이크로,나노": "마이크로·나노",
   "바이오,포토닉스": "바이오·포토닉스",
 };
-
-function cellText(cell) {
-  const v = cell.value;
-  if (v == null) return null;
-  if (typeof v === "string") return v.trim() || null;
-  if (typeof v === "number") return String(v);
-  if (typeof v === "object") {
-    if (typeof v.text === "string") return v.text.trim() || null; // hyperlink cell
-    if (typeof v.richText === "object") return v.richText.map((r) => r.text).join("").trim() || null;
-  }
-  return String(v).trim() || null;
-}
 
 function isUrl(s) {
   return typeof s === "string" && /^https?:\/\//i.test(s.trim());
@@ -49,95 +51,67 @@ function romanize(name) {
   return `${hangulRomanization.convert(surname)}-${hangulRomanization.convert(given)}`.toLowerCase();
 }
 
-async function main() {
-  const wb = new ExcelJS.Workbook();
-  await wb.xlsx.readFile(SRC);
-  const ws = wb.worksheets[0];
-
-  // 1. Block-start rows (col D has a name) => one per professor
-  const blockStarts = [];
-  for (let r = 2; r <= ws.rowCount; r++) {
-    const name = cellText(ws.getRow(r).getCell(4));
-    if (name) blockStarts.push(r);
-  }
+function main() {
+  const people = readProfessorSheet(SRC);
 
   const anomalies = [];
   const labs = [];
 
-  for (let i = 0; i < blockStarts.length; i++) {
-    const startRow = blockStarts[i];
-    const endRow = i + 1 < blockStarts.length ? blockStarts[i + 1] - 1 : ws.rowCount;
-    const row0 = ws.getRow(startRow);
-
-    const name = cellText(row0.getCell(4));
-    if (!name) {
-      anomalies.push({ name: `(row ${startRow})`, field: "name", issue: "이름 없음 - 블록 스킵" });
+  for (const p of people) {
+    if (!p.name) {
+      anomalies.push({ name: `(row ${p.startRow})`, field: "name", issue: "이름 없음 - 블록 스킵" });
       continue;
     }
 
-    const rawField = cellText(row0.getCell(1));
-    const field = FIELD_MAP[rawField] ?? rawField ?? null;
-    if (!FIELD_MAP[rawField]) {
-      anomalies.push({ name, field: "researchField", issue: `알 수 없는 연구분야 값: "${rawField}"` });
+    if (!Object.values(FIELD_MAP).includes(p.field)) {
+      anomalies.push({ name: p.name, field: "researchField", issue: `알 수 없는 연구분야 값: "${p.field}"` });
     }
 
-    let email = cellText(row0.getCell(5));
+    let email = p.email;
     if (email && !isPlausibleEmail(email)) {
-      anomalies.push({ name, field: "email", issue: `이메일 형식 이상: "${email}"` });
+      anomalies.push({ name: p.name, field: "email", issue: `이메일 형식 이상: "${email}"` });
       email = null;
     }
 
-    let phone = cellText(row0.getCell(6));
+    let phone = p.phone;
     if (phone && phone.trim().toUpperCase() === "X") {
       phone = null; // "X" = 전화번호 없음
     } else if (phone && !/^[0-9()\-+.\s]+$/.test(phone)) {
-      anomalies.push({ name, field: "phone", issue: `전화번호 형식 이상: "${phone}"` });
+      anomalies.push({ name: p.name, field: "phone", issue: `전화번호 형식 이상: "${phone}"` });
       phone = null;
     }
 
-    const office = cellText(row0.getCell(7));
-
-    const row1 = ws.getRow(startRow + 1);
-    const labNameEn = cellText(row1.getCell(7));
-
-    const row2 = ws.getRow(startRow + 2);
-    const labUrlCandidate = cellText(row2.getCell(7));
-    const labUrl = isUrl(labUrlCandidate) ? labUrlCandidate : null;
-    if (labUrlCandidate && !labUrl) {
-      anomalies.push({ name, field: "labUrl", issue: `URL 형식이 아님(무시): "${labUrlCandidate}"` });
+    const labUrl = isUrl(p.labUrl) ? p.labUrl : null;
+    if (p.labUrl && !labUrl) {
+      anomalies.push({ name: p.name, field: "labUrl", issue: `URL 형식이 아님(무시): "${p.labUrl}"` });
     }
 
-    const rawTitles = cellText(row0.getCell(8));
-    const researchTitles = rawTitles
-      ? rawTitles.split("\n").map((t) => t.trim()).filter(Boolean)
-      : [];
+    const researchTitles = p.researchTitle ? [p.researchTitle] : [];
 
-    let researchMediaUrl = cellText(row0.getCell(9));
-    if (researchMediaUrl && !isUrl(researchMediaUrl)) {
-      anomalies.push({ name, field: "researchMediaUrl", issue: `URL 형식이 아님(무시): "${researchMediaUrl}"` });
-      researchMediaUrl = null;
+    const researchMediaUrl = isUrl(p.researchMedia) ? p.researchMedia : null;
+    if (p.researchMedia && !researchMediaUrl) {
+      anomalies.push({ name: p.name, field: "researchMediaUrl", issue: `URL 형식이 아님(무시): "${p.researchMedia}"` });
     }
 
     labs.push({
-      field,
-      name,
+      field: p.field,
+      name: p.name,
       // 직급 데이터가 소스에 없어 기본값으로 채움 - 실제 직급이 다르면 이 필드만 수정
       position: "교수",
       email,
       phone,
-      office: office || null,
-      labNameEn: labNameEn || null,
+      office: p.office || null,
+      labNameEn: p.labName || null,
       labUrl,
       researchTitles,
       researchMediaUrl,
-      photoPath: null, // filled in after image extraction
-      _startRow: startRow,
-      _endRow: endRow,
+      photoPath: null, // filled in below
+      _photo: p.photo,
     });
   }
 
-  // 2. Slugs (same romanization scheme as parse-faculty.mjs, for stable keys /
-  // potential cross-links to /faculty/[slug])
+  // Slugs (Revised Romanization via hangul-romanization) for stable keys /
+  // potential cross-links to /faculty/[slug].
   const slugCounts = new Map();
   for (const l of labs) {
     const base = romanize(l.name);
@@ -146,42 +120,31 @@ async function main() {
     l.slug = count === 0 ? base : `${base}-${count + 1}`;
   }
 
-  // 3. Extract embedded professor photos, matched by anchor row
+  // Write embedded profile photos.
   fs.mkdirSync(PHOTO_DIR, { recursive: true });
-  const images = ws.getImages();
-  const photoReport = { extracted: [], unmatched: [] };
-
-  for (const img of images) {
-    const anchorRow1 = img.range.tl.nativeRow + 1; // exceljs is 0-indexed
-    const person = labs.find((l) => anchorRow1 >= l._startRow && anchorRow1 <= l._endRow);
-    const media = wb.model.media[img.imageId];
-    if (!media) continue;
-    const ext = media.extension || "png";
-
-    if (!person) {
-      photoReport.unmatched.push({ imageId: img.imageId, anchorRow1 });
-      continue;
+  let photoCount = 0;
+  for (const l of labs) {
+    if (l._photo) {
+      const safeName = l.name.replace(/[\\/:*?"<>|\s]/g, "");
+      const fileName = `${safeName}.${l._photo.ext}`;
+      fs.writeFileSync(path.join(PHOTO_DIR, fileName), l._photo.buffer);
+      l.photoPath = `/assets/faculty/${fileName}`;
+      photoCount++;
     }
-    const safeName = person.name.replace(/[\\/:*?"<>|\s]/g, "");
-    const fileName = `${safeName}.${ext}`;
-    fs.writeFileSync(path.join(PHOTO_DIR, fileName), media.buffer);
-    person.photoPath = `/assets/faculty/${fileName}`;
-    photoReport.extracted.push(person.name);
   }
 
-  // 4. Write labs.json (strip internal bookkeeping fields)
-  const finalLabs = labs.map(({ _startRow, _endRow, ...rest }) => rest);
+  const finalLabs = labs.map(({ _photo, ...rest }) => rest);
   fs.writeFileSync(OUT_JSON, JSON.stringify(finalLabs, null, 2), "utf-8");
 
-  // 5. Report
   const missingPhotos = labs.filter((l) => !l.photoPath).map((l) => l.name);
-  const missingResearchMedia = labs.filter((l) => !l.researchMediaUrl).map((l) => l.name);
+  const missingTitles = labs.filter((l) => l.researchTitles.length === 0).map((l) => l.name);
+  const missingResearchMedia = labs.filter((l) => !l.researchMediaUrl).length;
   console.log("=== 연구실 데이터 파싱 리포트 ===");
-  console.log(`총 블록 발견: ${blockStarts.length}, 정상 파싱: ${labs.length}`);
-  console.log(`사진 추출: ${photoReport.extracted.length} / ${images.length} (임베드 이미지 총 개수)`);
+  console.log(`정상 파싱: ${labs.length}명`);
+  console.log(`사진 추출: ${photoCount} / ${labs.length}`);
   console.log(`사진 누락 인원: ${missingPhotos.length ? missingPhotos.join(", ") : "없음"}`);
-  console.log(`매칭 안 된 이미지(앵커 위치 불일치): ${photoReport.unmatched.length}`);
-  console.log(`대표 연구 자료(URL) 누락 인원: ${missingResearchMedia.length}명 / ${labs.length}명 (fallback 처리 대상)`);
+  console.log(`대표 연구 제목 누락 인원: ${missingTitles.length ? missingTitles.join(", ") : "없음"}`);
+  console.log(`대표 연구 자료(URL) 누락 인원: ${missingResearchMedia}명 / ${labs.length}명 (fallback 처리 대상)`);
   console.log(`\n연구분야 분포:`, Object.fromEntries(
     [...new Set(labs.map((l) => l.field))].map((g) => [g, labs.filter((l) => l.field === g).length])
   ));
@@ -189,7 +152,4 @@ async function main() {
   anomalies.forEach((a) => console.log(`  - ${a.name} [${a.field}]: ${a.issue}`));
 }
 
-main().catch((err) => {
-  console.error("파싱 실패:", err);
-  process.exit(1);
-});
+main();

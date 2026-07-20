@@ -8,6 +8,7 @@ import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import SocialSection from "@/components/home/SocialSection";
 import history from "@/data/history.json";
 import notices from "@/data/notices.json";
+import labs from "@/data/labs.json";
 
 const foundingYear = 1962;
 const currentYear = new Date().getFullYear();
@@ -112,7 +113,7 @@ export default function HomePage() {
       <section className="bg-primary py-16 sm:py-20">
         <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4">
           <StatCounter value={currentYear - foundingYear} suffix="주년" label="설립 이래" />
-          <StatCounter value={26} suffix="개" label="연구실" />
+          <StatCounter value={labs.length} suffix="개" label="연구실" />
           <StatCounter value={6} suffix="개" label="전문 연구분야" />
           <StatCounter value={10} suffix="개" label="산학협력 네트워크" />
         </ScrollReveal>
@@ -171,7 +172,7 @@ export default function HomePage() {
         <ul className="mt-8 divide-y divide-line border-y border-line">
           {recentNotices.map((n) => (
             <li key={n.id} className="flex items-center justify-between gap-4 py-4">
-              <Link href="/news" className="flex min-w-0 items-center gap-2 hover:text-primary">
+              <Link href={`/news/${n.id}`} className="flex min-w-0 items-center gap-2 hover:text-primary">
                 {n.isNotice && (
                   <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
                     공지

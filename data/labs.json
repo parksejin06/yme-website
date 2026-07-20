@@ -9,10 +9,9 @@
     "labNameEn": "Computational Mechanics of Materials Laboratory",
     "labUrl": "https://sites.google.com/site/kwkanglab/",
     "researchTitles": [
-      "Development of large-scale molecular dynamics parallel code",
-      "for irradiation simulations in micrometer-sized specimen"
+      "Mechanical/Electrical Properties in Nano-scale"
     ],
-    "researchMediaUrl": "https://youtu.be/Wtgv0nQmcDA?si=CsvM1FVE2kW9j8NN",
+    "researchMediaUrl": null,
     "photoPath": "/assets/faculty/강건욱.png",
     "slug": "gang-geonuk"
   },
@@ -26,9 +25,7 @@
     "labNameEn": "Tribology Research Lab",
     "labUrl": "https://trl.yonsei.ac.kr/",
     "researchTitles": [
-      "캡슐형내시경 개발을 위한 기능성 표면 설계",
-      "각종 bio소재의 점탄성특성에 대한 연구",
-      "혈관 내 혈전의 효과적인 제거와 혈관 벽의 손상 방지를 위한 의료기기 개발"
+      "마찰·마모 저감기술 개발"
     ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김대은.png",
@@ -44,7 +41,7 @@
     "labNameEn": "Computational Science - Artificial Intelligence Lab",
     "labUrl": "https://csailabyonsei.quv.kr/",
     "researchTitles": [
-      "계산과학(DFT, MD) + 인공지능 융합"
+      "계산과학 기반 신소재 탐색·설계"
     ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/민경민.png",
@@ -59,7 +56,9 @@
     "office": "제1공학관 A581, N104",
     "labNameEn": "Biomechanics and Soft Material Lab",
     "labUrl": "https://leelab.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Mechanobiology"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/이형석.png",
     "slug": "i-hyeongseok"
@@ -73,7 +72,9 @@
     "office": "제1공학관 A110",
     "labNameEn": "MicroMechanics Lab",
     "labUrl": "https://web.yonsei.ac.kr/mcmclab2/index1.htm",
-    "researchTitles": [],
+    "researchTitles": [
+      "Artificial Intelligence for Tribology"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/장용훈.png",
     "slug": "jang-yonghun"
@@ -87,7 +88,9 @@
     "office": "제3공학관 C332",
     "labNameEn": "Intelligent Structures and Integrated Design Lab",
     "labUrl": "https://hostinfo.cafe24.com/serviceExpire/expiration.html?domain=isid.yonsei.ac.kr",
-    "researchTitles": [],
+    "researchTitles": [
+      "Structural Design and Analysis (Composite Materials)"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/전흥재.png",
     "slug": "jeon-heungjae"
@@ -101,7 +104,9 @@
     "office": "제1공학관 A310",
     "labNameEn": "어드밴스드 열공학 연구실",
     "labUrl": "http://atel.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Thermal Energy Transport"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김우철.png",
     "slug": "gim-ucheol"
@@ -115,7 +120,9 @@
     "office": "제1공학관 A586",
     "labNameEn": "Small Scale Fluids Lab",
     "labUrl": "https://ssfl.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "미소 유체 물리학 실험 및 이론"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김원정.png",
     "slug": "gim-wonjeong"
@@ -129,7 +136,9 @@
     "office": "제1공학관 A180",
     "labNameEn": "청정 에너지 연구실",
     "labUrl": "https://discodj997.mycafe24.com/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Fuel Reforming"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/송순호.png",
     "slug": "song-sunho"
@@ -143,7 +152,9 @@
     "office": "제1공학관 N204, A277",
     "labNameEn": "Multi-scale Fluid Dynamics Lab",
     "labUrl": "https://mfdl.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Quantum Computing(QC) 기반 유체·의료 시뮬레이션"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/이준상.png",
     "slug": "i-junsang"
@@ -157,7 +168,9 @@
     "office": "제1공학관 A178",
     "labNameEn": "Turbulence & Environmental Flow Physics Lab",
     "labUrl": "https://euler.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Turbulence and Particle-laden Flow"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/이창훈.png",
     "slug": "i-changhun"
@@ -171,10 +184,28 @@
     "office": "제1공학관 A288",
     "labNameEn": "Multiphysics Energy System Lab",
     "labUrl": "https://mes.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Novel & Renewable Energy System"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/홍종섭.png",
     "slug": "hong-jongseop"
+  },
+  {
+    "field": "에너지·열유체",
+    "name": "이남규",
+    "position": "교수",
+    "email": "NK.LEE@YONSEI.AC.KR",
+    "phone": "02-2123-2820",
+    "office": "Engineering Building #1, Room N207",
+    "labNameEn": "Heat Transfer & Thermal Design Lab.",
+    "labUrl": "https://sites.google.com/view/httd-yonsei",
+    "researchTitles": [
+      "Thermal Metamaterials"
+    ],
+    "researchMediaUrl": null,
+    "photoPath": "/assets/faculty/이남규.png",
+    "slug": "i-namgyu"
   },
   {
     "field": "로보틱스·제어",
@@ -185,7 +216,9 @@
     "office": "공학원 332D",
     "labNameEn": "Vibration and Opto-Mechatronics Lab",
     "labUrl": "http://optomecha.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Structural Vibration"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/박노철.png",
     "slug": "bak-nocheol"
@@ -199,7 +232,9 @@
     "office": "제3공학관 C426",
     "labNameEn": "Human-Centered Robotics Lab",
     "labUrl": "https://hcr.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Soft Actuators, Sensors, Wearables"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/신동준.png",
     "slug": "sin-dongjun"
@@ -213,7 +248,9 @@
     "office": "제1공학관 A283",
     "labNameEn": "Micro servo system Lab",
     "labUrl": "http://mservo.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Robot Mechanism Design & Manufacture"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/양현석.png",
     "slug": "yang-hyeonseok"
@@ -227,7 +264,9 @@
     "office": "제1공학관 N206",
     "labNameEn": "Machine Learning and Control Systems Lab",
     "labUrl": "https://mlcs.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Inverse Learning of Autonomous Driving"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/최종은.png",
     "slug": "choe-jongeun"
@@ -241,7 +280,9 @@
     "office": "제3공학관 C330",
     "labNameEn": "Nano Fabrication & Micro Optics Lab",
     "labUrl": "http://nanofab.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Nanotechnologies for Automobile, Vessel and Aerospace Applications"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/강신일.png",
     "slug": "gang-sinil"
@@ -255,7 +296,9 @@
     "office": "제3공학관 C314",
     "labNameEn": "멀티스케일구조설계 및 극한제조연구실",
     "labUrl": "https://sites.google.com/view/seoklab/max",
-    "researchTitles": [],
+    "researchTitles": [
+      "Physical Intelligence (π) Design (물리지능 활용 설계)"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김석.png",
     "slug": "gim-seok"
@@ -269,7 +312,9 @@
     "office": "산학협동관 308호",
     "labNameEn": "Manufacturing & Mechatronics Lab",
     "labUrl": "http://minlab.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "지능형 생산시스템 및 차세대 공작기계 제어기"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/민병권.png",
     "slug": "min-byeonggwon"
@@ -283,7 +328,9 @@
     "office": "제3공학관 C334",
     "labNameEn": "전산구조설계 연구실",
     "labUrl": "http://ssd.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Machine Learning과 위상최적화 방법을 이용한 구조물 경량 설계"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/유정훈.png",
     "slug": "yu-jeonghun"
@@ -297,7 +344,9 @@
     "office": "제1공학관 A190",
     "labNameEn": "정밀 생산 메카트로닉스 연구실",
     "labUrl": "https://drive.google.com/file/d/1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z/preview",
-    "researchTitles": [],
+    "researchTitles": [
+      "Intelligent Manufacturing Mechatronics and Robotics System Design"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/윤준영.png",
     "slug": "yun-junyeong"
@@ -311,7 +360,9 @@
     "office": "제3공학관 C316",
     "labNameEn": "최적설계공학 연구실",
     "labUrl": "http://web.yonsei.ac.kr/medesign",
-    "researchTitles": [],
+    "researchTitles": [
+      "Reliability-Based Multi-Physics Design Optimization"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/이종수.png",
     "slug": "i-jongsu"
@@ -325,7 +376,9 @@
     "office": "제1공학관 A534",
     "labNameEn": "Optics and Metamaterials Lab",
     "labUrl": "http://opticsme.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "메타물질 기반 양자로직 게이트 (Quantum Logic Gates with Metamaterials)"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김경식.png",
     "slug": "gim-gyeongsik"
@@ -339,7 +392,9 @@
     "office": "제1공학관 A583",
     "labNameEn": "MEMS Lab",
     "labUrl": "http://mems.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "MEMS 기반 환경 모니터링 (Environmental Monitoring)"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김용준.png",
     "slug": "gim-yongjun"
@@ -353,7 +408,9 @@
     "office": "산학협동관 520호",
     "labNameEn": "Nano Transducers Lab",
     "labUrl": "https://ntl.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "AI 기반 나노 소재 공정 최적화"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김종백.png",
     "slug": "gim-jongbaek"
@@ -367,7 +424,9 @@
     "office": "공학관 N206",
     "labNameEn": "Laboratory for Intelligent Device & Manufacturing",
     "labUrl": "https://www.yslidm.com/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Mechanically Stretchable and Flexible Electronics"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김해진.png",
     "slug": "gim-haejin"
@@ -381,7 +440,9 @@
     "office": "공학관 N204",
     "labNameEn": "Nani Electromechacal Device Lab",
     "labUrl": "http://nemd.yonsei.ac.kr/frontpage.asp?catalogid=nemd&language=ko",
-    "researchTitles": [],
+    "researchTitles": [
+      "인공지능 공기 센서"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/전성찬.png",
     "slug": "jeon-seongchan"
@@ -395,7 +456,9 @@
     "office": "공학원 332D",
     "labNameEn": "Nano Optolectronics System Lab",
     "labUrl": "http://nos.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Design of Quantum Dot for Display"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/김영주.png",
     "slug": "gim-yeongju"
@@ -409,7 +472,9 @@
     "office": "공학관 N105",
     "labNameEn": "Biomedical and Energy System Lab",
     "labUrl": "https://sites.google.com/a/bmesyonsei.com/bmeslab/",
-    "researchTitles": [],
+    "researchTitles": [
+      "AI-assisted 3D Printing"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/류원형.png",
     "slug": "ryu-wonhyeong"
@@ -423,7 +488,9 @@
     "office": "제1공학관 A108",
     "labNameEn": "Biochip Technology Lab",
     "labUrl": "http://nanobio.yonsei.ac.kr/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Microfluidics"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/정효일.png",
     "slug": "jeong-hyoil"
@@ -437,7 +504,9 @@
     "office": "공학관 N104",
     "labNameEn": "Biomedical Optics & Instrumentation Lab",
     "labUrl": "https://cii-yonsei.com/",
-    "researchTitles": [],
+    "researchTitles": [
+      "Computational Phase Imaging"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/주철민.png",
     "slug": "ju-cheolmin"
@@ -451,7 +520,9 @@
     "office": "제3공학관 C315",
     "labNameEn": "정밀 측정 및 지능형 센싱 연구실",
     "labUrl": "https://sites.google.com/view/damislab",
-    "researchTitles": [],
+    "researchTitles": [
+      "3D Optical Sensing / Superfast 3D Imaging"
+    ],
     "researchMediaUrl": null,
     "photoPath": "/assets/faculty/현재상.png",
     "slug": "hyeon-jaesang"
