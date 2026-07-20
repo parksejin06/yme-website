@@ -1,0 +1,40 @@
+{
+  "channelUrl": "https://www.youtube.com/@YonMech",
+  "featured": {
+    "videoId": "8Uuhf9saZCQ",
+    "titleKr": "2025 연세대학교 기계공학부 홍보 영상",
+    "titleEn": "2025 Yonsei Mechanical Engineering Promotional Video",
+    "dateLabel": "2025.08.28",
+    "thumbnail": "https://i.ytimg.com/vi/8Uuhf9saZCQ/hqdefault.jpg"
+  },
+  "recent": [
+    {
+      "videoId": "8XCUEfGM1gI",
+      "titleKr": "기계소년단 송도 출격….!! #공대생 #기계공학 #연세대학교",
+      "titleEn": "Mechanical Boy Band heads to Songdo #EngineeringStudents #MechEng #Yonsei",
+      "dateLabel": "2026.05.19",
+      "thumbnail": "https://i.ytimg.com/vi/8XCUEfGM1gI/hqdefault.jpg"
+    },
+    {
+      "videoId": "IeBomWKc114",
+      "titleKr": "아르테미스 2호 탐사 궤적 #연세대학교 #공대생 #기계공학 #nasa",
+      "titleEn": "Artemis II Trajectory #Yonsei #EngineeringStudents #MechEng #NASA",
+      "dateLabel": "2026.04.09",
+      "thumbnail": "https://i.ytimg.com/vi/IeBomWKc114/hqdefault.jpg"
+    },
+    {
+      "videoId": "3Pitpu2R43o",
+      "titleKr": "이 영상을 본 기계공학과 학생들은 시험 볼 때 꼭 따라하세요😎 #중간고사대비",
+      "titleEn": "Mechanical engineering students, try this on your next exam 😎",
+      "dateLabel": "2026.04.06",
+      "thumbnail": "https://i.ytimg.com/vi/3Pitpu2R43o/hqdefault.jpg"
+    },
+    {
+      "videoId": "J7-_D6mL2o4",
+      "titleKr": "POV 학교만 가면 항상 마주치는 선배 #연세대학교 #기계공학 #공대생",
+      "titleEn": "POV: The senior you always run into on campus #Yonsei #MechEng",
+      "dateLabel": "2026.03.30",
+      "thumbnail": "https://i.ytimg.com/vi/J7-_D6mL2o4/hqdefault.jpg"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ScrollSlideIn from "@/components/ScrollSlideIn";
 import StatCounter from "@/components/StatCounter";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
+import SocialSection from "@/components/home/SocialSection";
 import history from "@/data/history.json";
 import notices from "@/data/notices.json";
 
@@ -146,6 +147,8 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <SocialSection lang="ko" />
 
       {/* News teaser */}
       <section className="mx-auto max-w-content px-4 py-20 sm:px-6 sm:py-28">

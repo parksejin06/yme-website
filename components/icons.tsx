@@ -49,3 +49,22 @@ export function ArrowLeftIcon({ className = "h-4 w-4" }: { className?: string })
     </svg>
   );
 }
+
+export function InstagramIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+      <rect x="3" y="3" width="14" height="14" rx="4" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="10" cy="10" r="3.4" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="14.1" cy="5.9" r="0.9" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function YoutubeIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+      <rect x="2" y="5" width="16" height="10" rx="3" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M8.5 7.7v4.6l4-2.3-4-2.3Z" fill="currentColor" />
+    </svg>
+  );
+}

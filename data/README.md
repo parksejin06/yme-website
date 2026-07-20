@@ -103,6 +103,16 @@ JSON. 원문 문장을 요약하지 않고 그대로 옮겼으며, 영문(`parag
 직접 번역함. `roadmap` 배열은 원문에 명시적으로 등장하는 절차 순서(입학→지도교수배정→수업→종합시험→
 연구계획서승인→예비심사→본심사→졸업)를 그대로 옮긴 것이며, 공식 문서에 없는 단계는 추가하지 않음.
 
+## social-instagram.json / social-youtube.json (메인페이지 YONSEI ME NOW 섹션)
+공식 SNS 채널(YouTube `@YonMech`, Instagram `@yonsei_mech`/`@yonsei_me4`/`@yonsei_mech7`)에서 직접 확인한 실제
+콘텐츠만 담은 정적 큐레이션 데이터. Instagram 공식 API/Embed는 인증 없이는 안정적으로 붙일 수 없어(2020년
+이후 정책 변경), 실제 게시물 썸네일은 `public/images/social/`에 다운로드해 로컬로 서빙하고, 캡션·게시일·
+원문 링크는 각 게시물을 직접 열어 확인한 값을 그대로 옮겼다. **가짜 게시물/좋아요/조회수는 없음.** 캡션을
+직접 확인하지 못한 게시물은 `captionKr`/`captionEn`을 `null`로 두었고, UI에서는 캡션 없이 썸네일+날짜만
+표시함(빈 캡션 placeholder 문구 없음). YouTube는 공식 RSS 피드(`/feeds/videos.xml?channel_id=...`)로
+가져온 실제 영상 목록이며, 조회수·영상 길이 등 API 키가 필요한 정보는 제공하지 않음(길이는 표시하지 않음).
+계정이 새 게시물을 올리면 이 파일들을 수동으로 갱신해야 한다(실시간 연동 아님).
+
 ## notices.json (공지사항)
 더미 데이터로 채워져 있습니다. 실제 운영 시 이 배열에 새 객체를 추가(맨 위에 추가 권장)하면 됩니다.
 
