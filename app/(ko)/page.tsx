@@ -4,19 +4,16 @@ import { ChevronDown } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollSlideIn from "@/components/ScrollSlideIn";
 import StatCounter from "@/components/StatCounter";
-import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import SocialSection from "@/components/home/SocialSection";
+import LatestUpdatesSection from "@/components/home/LatestUpdatesSection";
 import history from "@/data/history.json";
 import labs from "@/data/labs.json";
-import { BOARD_DATA } from "@/lib/community-data";
-import { postHref } from "@/lib/community-content";
 
 const foundingYear = 1962;
 const currentYear = new Date().getFullYear();
 
 export default function HomePage() {
   const recentHistory = history.slice(-5).reverse();
-  const recentNotices = BOARD_DATA["notices-undergraduate"].slice(0, 3);
 
   return (
     <>
@@ -120,18 +117,7 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* Quick links */}
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-content px-4 sm:px-6">
-          <ScrollReveal>
-            <h2 className="text-balance font-display text-2xl text-ink sm:text-3xl">둘러보기</h2>
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-10">
-          <ImageAutoSlider lang="ko" />
-        </div>
-      </section>
+      <LatestUpdatesSection lang="ko" />
 
       {/* History teaser */}
       <section className="bg-surface-muted py-20 sm:py-28">
@@ -159,33 +145,6 @@ export default function HomePage() {
       </section>
 
       <SocialSection lang="ko" />
-
-      {/* News teaser */}
-      <section className="mx-auto max-w-content px-4 py-20 sm:px-6 sm:py-28">
-        <div className="flex items-center justify-between">
-          <ScrollReveal>
-            <h2 className="text-balance font-display text-2xl text-ink sm:text-3xl">공지사항</h2>
-          </ScrollReveal>
-          <Link href="/news" className="text-sm font-body text-primary">
-            전체보기 →
-          </Link>
-        </div>
-        <ul className="mt-8 divide-y divide-line border-y border-line">
-          {recentNotices.map((n) => (
-            <li key={n.id} className="flex items-center justify-between gap-4 py-4">
-              <Link href={postHref("ko", "notices-undergraduate", n.sourcePostId)} className="flex min-w-0 items-center gap-2 hover:text-primary">
-                {n.isPinned && (
-                  <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
-                    공지
-                  </span>
-                )}
-                <span className="truncate text-sm text-ink/85">{n.title}</span>
-              </Link>
-              <span className="shrink-0 text-xs text-ink/70">{n.publishedAt}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
     </>
   );
 }

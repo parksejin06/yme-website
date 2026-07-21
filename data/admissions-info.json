@@ -1,0 +1,30 @@
+{
+  "overviewKr": "기계공학은 연세대학교 공과대학에 소속된 학부로, 힘과 운동을 다루는 역학, 에너지 변환과 흐름을 다루는 열유체공학, 기계 시스템을 이루는 재료·구조 설계까지 폭넓은 영역을 공학적으로 탐구하는 학문입니다.",
+  "overviewEn": "Mechanical Engineering is a department within Yonsei University's College of Engineering, spanning mechanics (forces and motion), thermal-fluid and energy systems, and the materials and structural design that make up mechanical systems.",
+  "admissionTypes": [
+    {
+      "key": "susi",
+      "labelKr": "수시모집",
+      "labelEn": "Susi (Rolling Admissions)",
+      "descKr": "학생부종합전형·학생부교과전형 등 다양한 전형으로 신입생을 선발합니다. 전형별 세부 요건과 일정은 매년 변경되므로 반드시 최신 모집요강을 확인하세요.",
+      "descEn": "New students are selected through several tracks, including holistic and academic-record-based review. Requirements and schedules change every year, so always check the current admissions guide.",
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/rolling/guide.asp"
+    },
+    {
+      "key": "jeongsi",
+      "labelKr": "정시모집",
+      "labelEn": "Jeongsi (Regular Admissions)",
+      "descKr": "대학수학능력시험 성적을 중심으로 신입생을 선발하는 전형입니다. 모집 단위와 전형요소 반영 비율은 매년 공고되는 모집요강을 따릅니다.",
+      "descEn": "Students are selected primarily based on the College Scholastic Ability Test (CSAT). Recruitment units and the weighting of evaluation elements follow the guide published each year.",
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/regular/guide.asp"
+    },
+    {
+      "key": "transfer",
+      "labelKr": "편입학",
+      "labelEn": "Transfer Admissions",
+      "descKr": "신입학과 별도로 진행되는 편입학 전형을 통해 재학생을 선발합니다. 모집 시기, 정원, 전형 방법이 신입학과 다르게 운영되므로 편입학 전용 모집요강을 확인하세요.",
+      "descEn": "Transfer students are admitted through a track separate from first-year admissions. Timing, seats, and evaluation methods differ from new-student admissions, so check the transfer-specific guide.",
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/transfer/guide.asp"
+    }
+  ]
+}

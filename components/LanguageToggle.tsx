@@ -16,21 +16,21 @@ export default function LanguageToggle({ lang, light = false }: { lang: Lang; li
     <div
       role="group"
       aria-label="Language / 언어 선택"
-      className={`flex items-center rounded-full border p-0.5 text-xs font-body font-medium transition-colors duration-300 ${
+      className={`flex shrink-0 items-center whitespace-nowrap rounded-full border p-0.5 text-xs font-body font-medium transition-colors duration-300 ${
         light ? "border-white/50" : "border-line"
       }`}
     >
       <Link
         href={koHref}
         aria-current={lang === "ko" ? "page" : undefined}
-        className={`rounded-full px-3 py-1 transition-colors ${lang === "ko" ? activeClass : inactiveClass}`}
+        className={`rounded-full px-2 py-1 transition-colors sm:px-3 ${lang === "ko" ? activeClass : inactiveClass}`}
       >
         한국어
       </Link>
       <Link
         href={enHref}
         aria-current={lang === "en" ? "page" : undefined}
-        className={`rounded-full px-3 py-1 transition-colors ${lang === "en" ? activeClass : inactiveClass}`}
+        className={`rounded-full px-2 py-1 transition-colors sm:px-3 ${lang === "en" ? activeClass : inactiveClass}`}
       >
         EN
       </Link>

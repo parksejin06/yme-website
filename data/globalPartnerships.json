@@ -1,0 +1,36 @@
+{
+  "_note": "TODO(학과 행정실 확인 후 교체): 기계공학부 단독으로 체결한 개별 MOU 대학/기업 리스트가 아직 없습니다. mouPartners는 빈 배열이며, 이 동안 화면에는 mouPendingNotice 문구만 노출됩니다. 실제 리스트를 받으면 { \"nameKr\", \"nameEn\", \"logo\" } 형태로 채우면 카드가 자동으로 늘어납니다 (logo는 /public 기준 이미지 경로, 없으면 null).",
+  "news": {
+    "badgeKr": "최근 소식",
+    "badgeEn": "Recent",
+    "dateKr": "2026년 2월",
+    "dateEn": "February 2026",
+    "titleKr": "게이오대학교·도쿄대학교와 글로벌 학술·산업 교류 프로그램 개최",
+    "titleEn": "Global Academic & Industry Exchange Program Held with Keio University and the University of Tokyo",
+    "descKr": "연세대학교 기계공학부가 일본 게이오대학교, 도쿄대학교와 글로벌 학술 및 산업 교류 프로그램을 성황리에 개최했습니다.",
+    "descEn": "The Department of Mechanical Engineering hosted a global academic and industry exchange program with Keio University and the University of Tokyo in Japan.",
+    "sourceUrl": "https://me.yonsei.ac.kr/me/community/news.do",
+    "linkLabelKr": "학과 뉴스에서 확인하기",
+    "linkLabelEn": "See the department news"
+  },
+  "gradSchoolExchange": {
+    "titleKr": "대학원 국제 공동·복수학위",
+    "titleEn": "Graduate International Joint & Dual Degrees",
+    "descKr": "연세대학교 대학원은 미국·영국·일본·대만 등 세계 19개 명문대와 협약을 맺어 공동학위(Joint Degree)·복수학위(Dual Degree) 제도를 운영하고 있습니다.",
+    "descEn": "The Yonsei University Graduate School runs joint- and dual-degree programs through agreements with 19 leading universities across the U.S., U.K., Japan, Taiwan, and elsewhere.",
+    "sourceUrl": "https://graduate.yonsei.ac.kr/graduate/academic/international02.do",
+    "linkLabelKr": "대학원 국제교류 페이지 바로가기",
+    "linkLabelEn": "View the Graduate School's international exchange page"
+  },
+  "keioNote": {
+    "titleKr": "게이오대학교와의 인연",
+    "titleEn": "A Long-standing Tie with Keio University",
+    "descKr": "연세대학교와 게이오대학교는 학부 상호 교환학생 협정을 맺고 있으며, 오랜 역사적 교류 관계를 이어오고 있습니다.",
+    "descEn": "Yonsei University and Keio University maintain an undergraduate exchange agreement and share a long history of academic exchange."
+  },
+  "mouHeadingKr": "학과 개별 MOU",
+  "mouHeadingEn": "Department-level MOUs",
+  "mouPendingNoticeKr": "학과 개별 MOU 체결 현황은 준비 중입니다.",
+  "mouPendingNoticeEn": "Department-level MOU partnerships are being compiled and will be added here.",
+  "mouPartners": []
+}

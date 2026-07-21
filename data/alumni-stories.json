@@ -1,0 +1,50 @@
+[
+  {
+    "id": "story-2020-rnd",
+    "nameKr": "OOO",
+    "nameEn": "OOO",
+    "gradYear": 2020,
+    "roleKr": "대기업 R&D 엔지니어",
+    "roleEn": "R&D Engineer, Major Manufacturer",
+    "summaryKr": "학부 때 참여했던 캡스톤 디자인 프로젝트가 입사 후 실무에서도 큰 도움이 됐습니다. 문제를 정의하고 설계를 검증하는 과정을 직접 경험한 것이 지금 하는 일의 기초가 됐어요.",
+    "summaryEn": "The capstone design project I worked on as an undergrad turned out to be directly useful once I started working. Going through the process of defining a problem and validating a design firsthand became the foundation for what I do now.",
+    "fullStoryKr": "입사 초기에는 학교에서 배운 이론과 현장 업무 사이의 간극이 크게 느껴졌습니다. 하지만 4학년 캡스톤 디자인 수업에서 팀과 함께 처음부터 끝까지 설계-제작-검증을 반복했던 경험이 실제 개발 프로세스와 크게 다르지 않다는 걸 금방 깨달았어요. 특히 시행착오를 정리하고 다음 설계에 반영하는 습관은 지금도 프로젝트를 진행할 때 가장 먼저 떠올리는 태도입니다. 후배들에게는 전공 수업 못지않게 직접 손으로 만들어보는 프로젝트 경험을 꼭 쌓아보라고 이야기하고 싶습니다.",
+    "fullStoryEn": "In my first months on the job, the gap between classroom theory and real work felt large. But I quickly realized the design-build-test cycle my team repeated in the senior capstone course wasn't so different from the actual development process. The habit of documenting trial and error and feeding it back into the next design is still the first thing I reach for on any project. To current students, I'd say: build things with your own hands as much as you study the theory."
+  },
+  {
+    "id": "story-2019-phd",
+    "nameKr": "OOO",
+    "nameEn": "OOO",
+    "gradYear": 2019,
+    "roleKr": "대학원 박사과정 재학",
+    "roleEn": "PhD Candidate, Graduate School",
+    "summaryKr": "학부 연구실 인턴 경험이 진로를 결정하는 데 결정적이었습니다. 직접 실험하고 데이터를 분석해보면서 연구가 저와 잘 맞는다는 걸 알게 됐어요.",
+    "summaryEn": "Interning in a lab as an undergrad was decisive in shaping my career path. Running experiments and analyzing data myself showed me that research suited me well.",
+    "fullStoryKr": "3학년 여름방학에 큰 고민 없이 지원했던 연구실 인턴이 진로를 완전히 바꿔놓았습니다. 실험 장비를 다루고, 예상과 다른 결과가 나올 때마다 원인을 추적하는 과정이 생각보다 훨씬 재미있었어요. 그 경험을 계기로 대학원 진학을 결심했고, 지금은 같은 연구실에서 박사과정을 밟고 있습니다. 학부 때는 이 분야가 저와 맞을지 확신이 없었는데, 짧더라도 연구실 생활을 직접 경험해보는 것이 진로를 정하는 데 가장 빠른 방법이었던 것 같습니다.",
+    "fullStoryEn": "A lab internship I applied for almost on a whim during my third-year summer completely changed my direction. Handling equipment and tracing the cause whenever results didn't match expectations turned out to be far more engaging than I'd guessed. That experience led me to pursue graduate school, and I'm now a PhD candidate in the same lab. I wasn't sure this field was right for me as an undergrad, but trying out lab life firsthand, even briefly, was the fastest way to find out."
+  },
+  {
+    "id": "story-2021-startup",
+    "nameKr": "OOO",
+    "nameEn": "OOO",
+    "gradYear": 2021,
+    "roleKr": "스타트업 공동창업자",
+    "roleEn": "Startup Co-founder",
+    "summaryKr": "전공 수업에서 배운 설계·해석 지식뿐 아니라 동아리, 창업 경진대회 같은 다양한 활동이 창업 과정에 큰 도움이 됐습니다.",
+    "summaryEn": "Beyond the design and analysis knowledge from my major courses, activities like clubs and startup competitions were a big help throughout the founding process.",
+    "fullStoryKr": "창업은 전공 지식만으로는 부족한 영역이 훨씬 많다는 걸 알게 해준 과정이었습니다. 제품의 구조를 설계하고 시제품을 검증하는 데는 학부에서 배운 역학·재료 지식이 그대로 쓰였지만, 시장을 조사하고 팀을 꾸리고 투자를 유치하는 일은 전공 수업 밖에서 부딪히며 배웠습니다. 학부 시절 참여했던 창업 경진대회와 동아리 활동에서 만난 사람들이 지금 팀의 시작이 됐고요. 전공 공부와 다양한 활동을 함께 병행했던 경험이 결국 창업의 밑거름이 됐다고 생각합니다.",
+    "fullStoryEn": "Starting a company taught me how much lies beyond what a major alone can cover. Designing the product's structure and validating prototypes drew directly on the mechanics and materials knowledge from my degree, but market research, team-building, and fundraising were things I learned by running into them outside the classroom. People I met through undergrad startup competitions and club activities became the start of my current team. Balancing coursework with a range of other activities ended up being the real groundwork for founding a company."
+  },
+  {
+    "id": "story-2022-institute",
+    "nameKr": "OOO",
+    "nameEn": "OOO",
+    "gradYear": 2022,
+    "roleKr": "정부출연연구기관 연구원",
+    "roleEn": "Researcher, Government-funded Research Institute",
+    "summaryKr": "석사 과정 중 참여한 산학협력 프로젝트 덕분에 관련 분야 연구기관에 자연스럽게 진출할 수 있었습니다.",
+    "summaryEn": "An industry-academia collaboration project I took part in during my master's program opened a natural path into a research institute in the field.",
+    "fullStoryKr": "석사 과정 중 지도교수님과 함께 진행한 산학협력 프로젝트에서 실제 기업 데이터를 다루고 발표할 기회가 많았습니다. 그 과정에서 알게 된 연구기관 담당자와의 인연이 채용으로 이어졌고, 지금은 학부와 대학원에서 쌓은 연구 경험을 바탕으로 관련 분야 국가 연구과제에 참여하고 있습니다. 하나의 프로젝트를 처음부터 끝까지 책임지고 끌고 가본 경험이 이력서의 어떤 스펙보다 큰 도움이 됐다고 느낍니다.",
+    "fullStoryEn": "During my master's program, an industry-academia collaboration project with my advisor gave me many chances to work with real company data and present findings. A connection I made with a research-institute contact through that project eventually led to my current position, where I now work on national research projects in the field, building on the research experience from both undergrad and graduate school. Taking full ownership of one project from start to finish ended up mattering more than any single line on my resume."
+  }
+]

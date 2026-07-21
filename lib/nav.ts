@@ -43,6 +43,7 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/undergraduate", kr: "학부 개요", en: "Overview" },
       { path: "/undergraduate/goals", kr: "교육 목표", en: "Education Goals" },
       { path: "/undergraduate/graduation", kr: "졸업 요건", en: "Graduation Requirements" },
+      { path: "/undergraduate/graduation-check", kr: "졸업요건 자가진단", en: "Graduation Requirement Check" },
       { path: "/undergraduate/courses", kr: "교과목 소개", en: "Courses" },
       { path: "/undergraduate/curriculum-map", kr: "교과목 체계도", en: "Curriculum Map" },
     ],
@@ -56,7 +57,6 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/graduate/graduation", kr: "졸업 요건", en: "Graduation Requirements" },
       { path: "/graduate/courses", kr: "교과목 소개", en: "Courses" },
       { path: "/graduate/curriculum-map", kr: "교육·연구 체계도", en: "Academic & Research Map" },
-      { path: "/graduate/lab-media", kr: "연구실 소개 자료 및 영상", en: "Lab Media" },
     ],
   },
   {
@@ -64,8 +64,9 @@ export const NAV_ITEMS: NavItem[] = [
     kr: "연구실",
     en: "Research Labs",
     children: [
-      { path: "/labs", kr: "연구실", en: "Research Labs" },
       { path: "/labs/fields", kr: "연구분야 소개", en: "Research Fields" },
+      { path: "/labs", kr: "연구실", en: "Research Labs" },
+      { path: "/labs/media", kr: "연구실 소개 자료 및 영상", en: "Lab Media" },
     ],
   },
   {
@@ -83,7 +84,16 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/news/calendar", kr: "일정", en: "Calendar" },
     ],
   },
-  { path: "/admissions", kr: "입학·진로", en: "Admissions" },
+  {
+    path: "/admissions",
+    kr: "입학·진로",
+    en: "Admissions",
+    children: [
+      { path: "/admissions", kr: "신입학·편입학 안내", en: "Admission Guide" },
+      { path: "/admissions/career", kr: "졸업 후 진로·취업현황", en: "Career Outcomes" },
+      { path: "/admissions/jobs", kr: "채용정보·인턴십", en: "Jobs & Internships" },
+    ],
+  },
   { path: "/alumni", kr: "동문·협력", en: "Alumni" },
 ];
 
@@ -93,6 +103,7 @@ export const UNDERGRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === 
 export const GRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/graduate")!.children!;
 export const LABS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/labs")!.children!;
 export const NEWS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/news")!.children!;
+export const ADMISSIONS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/admissions")!.children!;
 
 /** Prefixes a bare path ("/about") with the locale root ("" for ko, "/en" for en). */
 export function localizePath(path: string, lang: Lang): string {

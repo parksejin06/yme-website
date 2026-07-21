@@ -1,0 +1,11 @@
+{
+  "_note": "TODO(학과 확인 필요): 03~18학번 졸업요건(data/graduation-requirements.json)의 mandatoryCourses에 등장하지만 현재 개설과목 목록(data/courses.json)에는 없는, 이후 폐지·개편된 과거 교과목입니다. courseCode는 실제 학수번호가 아니라 이 자가진단 도구 내부에서만 쓰는 임시 식별자(DRAFT- 접두)이고, credit(학점)도 학과의 다른 전공필수 과목과 동일하게 3학점으로 추정한 값입니다. 실제 학수번호·학점이 확인되면 courseCode를 공식 학수번호로 교체하고 status를 \"confirmed\"로 바꾸세요. 이 파일은 졸업요건 자가진단 기능에서만 사용되며, 학과 공식 교과목 소개/체계도 페이지가 쓰는 data/courses.json에는 반영되지 않습니다.",
+  "courses": [
+    { "courseCode": "DRAFT-CAPSTONE1", "nameKr": "창의설계프로젝트1", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" },
+    { "courseCode": "DRAFT-CAPSTONE2", "nameKr": "창의설계프로젝트2", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" },
+    { "courseCode": "DRAFT-CAPSTONE3", "nameKr": "창의설계프로젝트3(종합설계)", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" },
+    { "courseCode": "DRAFT-SOLID-LAB1", "nameKr": "고체역학및실험1", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" },
+    { "courseCode": "DRAFT-DYNAMICS-APP", "nameKr": "동역학및응용", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" },
+    { "courseCode": "DRAFT-FLUID-LAB", "nameKr": "유체역학및실험", "nameEn": null, "courseType": "전필", "credit": 3, "status": "draft" }
+  ]
+}

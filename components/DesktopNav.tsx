@@ -28,8 +28,8 @@ export default function DesktopNav({ lang, light = false }: { lang: Lang; light?
   }
 
   return (
-    <nav aria-label={lang === "ko" ? "주 내비게이션" : "Main navigation"} className="hidden md:block">
-      <ul className="flex items-center gap-6">
+    <nav aria-label={lang === "ko" ? "주 내비게이션" : "Main navigation"} className="hidden xl:block">
+      <ul className="flex items-center gap-4 whitespace-nowrap">
         {NAV_ITEMS.map((item) => {
           const href = localizePath(item.path, lang);
           const active = pathname === href || (item.children && item.children.some((c) => pathname === localizePath(c.path, lang)));
@@ -37,7 +37,7 @@ export default function DesktopNav({ lang, light = false }: { lang: Lang; light?
           const inactiveClass = light
             ? "text-white/85 after:w-0 after:bg-white hover:text-white hover:after:w-full"
             : "text-ink/75 after:w-0 after:bg-primary hover:text-primary hover:after:w-full";
-          const linkClass = `relative py-1 text-sm font-body font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:transition-all ${
+          const linkClass = `relative shrink-0 py-1 text-[13px] font-body font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:transition-all ${
             active ? activeClass : inactiveClass
           }`;
 

@@ -60,6 +60,14 @@ export function InstagramIcon({ className = "h-4 w-4" }: { className?: string })
   );
 }
 
+export function LinkedInIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M3.5 6.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM2.2 8h2.6v9.2H2.2V8Zm5.4 0h2.5v1.26h.04c.35-.66 1.2-1.36 2.47-1.36 2.64 0 3.13 1.74 3.13 4v5.3h-2.6v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48v4.78H7.6V8Z" />
+    </svg>
+  );
+}
+
 export function YoutubeIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>

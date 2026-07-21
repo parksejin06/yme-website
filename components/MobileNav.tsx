@@ -26,7 +26,7 @@ export default function MobileNav({ lang, light = false }: { lang: Lang; light?:
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="shrink-0 xl:hidden">
       <button
         type="button"
         aria-expanded={open}

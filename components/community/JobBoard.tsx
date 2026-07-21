@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Paperclip, Search } from "lucide-react";
 import type { CommunityPost } from "@/lib/community-content";
-import { postHref } from "@/lib/community-content";
+import { postHref, extractLeadingBracketTag } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
@@ -39,17 +39,26 @@ export default function JobBoard({ items, lang }: { items: CommunityPost[]; lang
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
         <ul className="mt-6 divide-y divide-line border-y border-line">
-          {filtered.map((j) => (
-            <li key={j.id} className="py-4">
-              <Link href={postHref(lang, "jobs", j.sourcePostId)} className="flex items-center gap-2 hover:text-primary">
-                <span className="line-clamp-1 font-display text-sm text-ink">{j.title}</span>
-                {j.attachments.length > 0 && <Paperclip className="h-3.5 w-3.5 shrink-0 text-ink/35" />}
-              </Link>
-              <p className="mt-1 text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
-                {j.author} · {j.publishedAt}
-              </p>
-            </li>
-          ))}
+          {filtered.map((j) => {
+            const company = extractLeadingBracketTag(j.title);
+            const titleRest = company ? j.title.replace(/^\s*\[[^\]]+\]\s*/, "") : j.title;
+            return (
+              <li key={j.id} className="py-4">
+                <Link href={postHref(lang, "jobs", j.sourcePostId)} className="flex items-center gap-2 hover:text-primary">
+                  {company && (
+                    <span className="shrink-0 rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary">
+                      {company}
+                    </span>
+                  )}
+                  <span className="line-clamp-1 font-display text-sm text-ink">{titleRest}</span>
+                  {j.attachments.length > 0 && <Paperclip className="h-3.5 w-3.5 shrink-0 text-ink/35" />}
+                </Link>
+                <p className="mt-1 text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {j.author} · {j.publishedAt}
+                </p>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
