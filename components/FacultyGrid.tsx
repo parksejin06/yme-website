@@ -3,8 +3,9 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Search, X } from "lucide-react";
 import type { Lang } from "@/lib/nav";
-import { fieldLabel, positionLabel, type FacultyMember } from "@/lib/faculty";
+import { fieldLabel, positionLabel, romanizedName, type FacultyMember } from "@/lib/faculty";
 import { PhoneIcon, MailIcon } from "@/components/icons";
 
 const COPY = {
@@ -13,12 +14,16 @@ const COPY = {
     noPhone: "번호 미등록",
     detail: "상세보기",
     empty: "교수진 정보는 추후 제공 예정입니다. 그룹별 필터와 카드 레이아웃은 데이터 전달 즉시 반영됩니다.",
+    searchPlaceholder: "이름, 영문 표기, 이메일, 연구실로 검색",
+    noResults: "검색 결과가 없습니다.",
   },
   en: {
     all: "All",
     noPhone: "Not listed",
     detail: "View profile",
     empty: "Faculty information will be provided soon. Group filters and the card layout will populate as soon as data is available.",
+    searchPlaceholder: "Search by name, email, or lab",
+    noResults: "No faculty match your search.",
   },
 };
 
@@ -82,7 +87,18 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
   }, [members]);
 
   const [active, setActive] = useState<string>(t.all);
-  const filtered = active === t.all ? members : members.filter((m) => m.field === active);
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    let list = active === t.all ? members : members.filter((m) => m.field === active);
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter((m) =>
+        [m.name, romanizedName(m.slug), m.email, m.labName].filter(Boolean).join(" ").toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }, [members, active, query, t.all]);
 
   if (members.length === 0) {
     return (
@@ -94,10 +110,30 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
 
   return (
     <div>
+      <div className="relative max-w-sm">
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t.searchPlaceholder}
+          className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+        />
+        {query && (
+          <button
+            onClick={() => setQuery("")}
+            aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
+            className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
+      </div>
+
       <div
         role="tablist"
         aria-label={lang === "ko" ? "연구분야 그룹" : "Research field groups"}
-        className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
       >
         {[t.all, ...groups].map((g) => (
           <button
@@ -116,11 +152,15 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
         ))}
       </div>
 
-      <div className="mt-10 grid gap-5 sm:grid-cols-2">
-        {filtered.map((m) => (
-          <FacultyCard key={m.slug} member={m} lang={lang} />
-        ))}
-      </div>
+      {filtered.length === 0 ? (
+        <p className="mt-10 text-center text-sm text-ink/40">{t.noResults}</p>
+      ) : (
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {filtered.map((m) => (
+            <FacultyCard key={m.slug} member={m} lang={lang} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

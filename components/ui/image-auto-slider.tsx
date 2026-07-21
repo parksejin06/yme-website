@@ -56,7 +56,7 @@ const items: GalleryItem[] = [
       kr: "연세대학교 기계공학부 찾아오시는 길",
       en: "Find your way to the School of Mechanical Engineering",
     },
-    href: "/contact",
+    href: "/about/directions",
   },
   {
     image: "/images/campus-aerial.jpg",

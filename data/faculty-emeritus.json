@@ -1,0 +1,155 @@
+[
+  {
+    "name": "김천욱",
+    "nameEn": null,
+    "field": "고체역학",
+    "tenure": "1963 - 2002",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/김천욱.png",
+    "slug": "gim-cheonuk"
+  },
+  {
+    "name": "민옥기",
+    "nameEn": null,
+    "field": "응용역학",
+    "tenure": "1983 - 2013",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/민옥기.png",
+    "slug": "min-okgi"
+  },
+  {
+    "name": "박영필",
+    "nameEn": null,
+    "field": "동역학",
+    "tenure": "1977 - 2013",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/박영필.png",
+    "slug": "bak-yeongpil"
+  },
+  {
+    "name": "백윤수",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "ysbaek@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/백윤수.png",
+    "slug": "baek-yunsu"
+  },
+  {
+    "name": "이강용",
+    "nameEn": null,
+    "field": "파괴역학",
+    "tenure": "1980 - 2012",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/이강용.png",
+    "slug": "i-gangyong"
+  },
+  {
+    "name": "이상조",
+    "nameEn": null,
+    "field": "생산공학",
+    "tenure": "1986 - 2019",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/이상조.png",
+    "slug": "i-sangjo"
+  },
+  {
+    "name": "이수홍",
+    "nameEn": null,
+    "field": "AI CADCAM 동시공학설계",
+    "tenure": "1994 - 2024",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/이수홍.png",
+    "slug": "i-suhong"
+  },
+  {
+    "name": "이진호",
+    "nameEn": null,
+    "field": "AI CADCAM 동시공학설계",
+    "tenure": "1983 - 2018",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/이진호.png",
+    "slug": "i-jinho"
+  },
+  {
+    "name": "임윤철",
+    "nameEn": null,
+    "field": "AI CADCAM 동시공학설계",
+    "tenure": null,
+    "email": "rhimyc@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/임윤철.png",
+    "slug": "im-yuncheol"
+  },
+  {
+    "name": "전광민",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "kmchun@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/전광민.png",
+    "slug": "jeon-gwangmin"
+  },
+  {
+    "name": "조강래",
+    "nameEn": null,
+    "field": "유체역학",
+    "tenure": "1971 - 2002",
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/조강래.png",
+    "slug": "jo-gangrae"
+  },
+  {
+    "name": "조형희",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": null,
+    "photoPath": "/assets/faculty/emeritus/조형희.png",
+    "slug": "jo-hyeonghui"
+  },
+  {
+    "name": "주원구",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "joo_wg@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/주원구.png",
+    "slug": "ju-wongu"
+  },
+  {
+    "name": "차성운",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "swcha@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/차성운.png",
+    "slug": "cha-seongun"
+  },
+  {
+    "name": "최용제",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "yjchoi@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/최용제.png",
+    "slug": "choe-yongje"
+  },
+  {
+    "name": "한재원",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "jaewhahn@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/한재원.png",
+    "slug": "han-jaewon"
+  },
+  {
+    "name": "황정호",
+    "nameEn": null,
+    "field": null,
+    "tenure": null,
+    "email": "hwangjh@yonsei.ac.kr",
+    "photoPath": "/assets/faculty/emeritus/황정호.png",
+    "slug": "hwang-jeongho"
+  }
+]

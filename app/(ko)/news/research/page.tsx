@@ -12,12 +12,12 @@ export default function NewsResearchPage() {
   return (
     <>
       <PageHero
-        eyebrow="NEWS"
+        eyebrow="NEWS & COMMUNITY"
         title="뉴스"
         description="연세대학교 기계공학부 교수진의 연구 성과와 학술·행사 소식을 전합니다."
       />
-      <SectionSubNav items={NEWS_NAV} lang="ko" label="공지사항 서브 내비게이션" />
-      <Breadcrumb lang="ko" items={[{ label: "공지사항", path: "/news" }, { label: "뉴스" }]} />
+      <SectionSubNav items={NEWS_NAV} lang="ko" label="뉴스 및 공지사항 서브 내비게이션" />
+      <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "뉴스" }]} />
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
         <NewsArticleBoard lang="ko" articles={articles} />
       </section>

@@ -1,0 +1,38 @@
+[
+  {
+    "staffId": 1,
+    "nameKo": "남민화",
+    "team": "대학원",
+    "phone": "02-2123-2810",
+    "email": "nmh@yonsei.ac.kr",
+    "office": "제4공학관 D301호",
+    "displayOrder": 1
+  },
+  {
+    "staffId": 2,
+    "nameKo": "정나경",
+    "team": "학부 행정",
+    "phone": "02-2123-4426",
+    "email": "skyice@yonsei.ac.kr",
+    "office": "제4공학관 D301호",
+    "displayOrder": 2
+  },
+  {
+    "staffId": 3,
+    "nameKo": "임은영",
+    "team": "BK21 교육연구단",
+    "phone": "02-2123-7817",
+    "email": "mech_bk21_ley@yonsei.ac.kr",
+    "office": "제4공학관 D608호",
+    "displayOrder": 3
+  },
+  {
+    "staffId": 4,
+    "nameKo": "정예솔",
+    "team": "BK21 교육연구단",
+    "phone": "02-2123-7815",
+    "email": "ysol912@yonsei.ac.kr",
+    "office": "제4공학관 D608호",
+    "displayOrder": 4
+  }
+]

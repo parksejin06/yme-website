@@ -35,3 +35,14 @@ const POSITION_EN: Record<string, string> = {
 export function positionLabel(position: string, lang: "ko" | "en"): string {
   return lang === "en" ? POSITION_EN[position] ?? position : position;
 }
+
+/** No official English name exists in the source roster. Slugs are already a systematic
+ * Revised-Romanization of each name (see scripts/parse-faculty.mjs), so this just formats
+ * that same romanization for display/search — it's not a claimed "official" English name. */
+export function romanizedName(slug: string): string {
+  return slug
+    .replace(/-\d+$/, "")
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}

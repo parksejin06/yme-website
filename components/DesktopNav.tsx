@@ -57,6 +57,7 @@ export default function DesktopNav({ lang, light = false }: { lang: Lang; light?
           }
 
           const isOpen = openPath === item.path;
+          const twoColumn = item.children.length > 5;
 
           return (
             <li key={item.path} className="relative" onMouseEnter={() => { cancelClose(); setOpenPath(item.path); }} onMouseLeave={scheduleClose}>
@@ -72,14 +73,14 @@ export default function DesktopNav({ lang, light = false }: { lang: Lang; light?
 
               {isOpen && (
                 <div
-                  className="absolute left-1/2 top-full w-56 -translate-x-1/2 pt-3"
+                  className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 ${twoColumn ? "w-80" : "w-56"}`}
                   onFocus={cancelClose}
                 >
                   <div className="overflow-hidden rounded-lg border border-line bg-white shadow-lg">
                     <p className="border-b border-line bg-surface-muted px-4 py-2.5 text-xs font-display tracking-wide text-ink/50">
                       {lang === "ko" ? item.kr : item.en}
                     </p>
-                    <ul className="py-1.5">
+                    <ul className={`py-1.5 ${twoColumn ? "grid grid-cols-2" : ""}`}>
                       {item.children.map((sub) => {
                         const subHref = localizePath(sub.path, lang);
                         const subActive = pathname === subHref;

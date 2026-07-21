@@ -14,7 +14,27 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { path: "/about", kr: "학부소개", en: "About" },
+  {
+    path: "/about",
+    kr: "학부소개",
+    en: "About",
+    children: [
+      { path: "/about", kr: "학부 개요", en: "Overview" },
+      { path: "/about/vision", kr: "비전·교육목표", en: "Vision & Mission" },
+      { path: "/about/history", kr: "연혁", en: "History" },
+      { path: "/about/staff", kr: "교직원", en: "Staff" },
+      { path: "/about/directions", kr: "오시는 길", en: "Directions" },
+    ],
+  },
+  {
+    path: "/faculty",
+    kr: "교수진",
+    en: "Faculty",
+    children: [
+      { path: "/faculty", kr: "전임교수", en: "Full-time Faculty" },
+      { path: "/faculty/emeritus", kr: "명예·퇴임 교수", en: "Emeritus & Retired Faculty" },
+    ],
+  },
   {
     path: "/undergraduate",
     kr: "학부",
@@ -38,7 +58,6 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/graduate/curriculum-map", kr: "교육·연구 체계도", en: "Academic & Research Map" },
     ],
   },
-  { path: "/faculty", kr: "교수진", en: "Faculty" },
   {
     path: "/labs",
     kr: "연구실",
@@ -50,18 +69,25 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     path: "/news",
-    kr: "공지사항",
-    en: "News",
+    kr: "뉴스 및 공지사항",
+    en: "News & Community",
     children: [
       { path: "/news", kr: "공지사항", en: "Notices" },
-      { path: "/news/research", kr: "뉴스", en: "Research News" },
+      { path: "/news/research", kr: "뉴스", en: "News" },
+      { path: "/news/thesis-review", kr: "학위논문심사", en: "Thesis Review" },
+      { path: "/news/resources", kr: "자료실", en: "Resources" },
+      { path: "/news/jobs", kr: "취업정보", en: "Jobs" },
+      { path: "/news/events", kr: "행사", en: "Events" },
+      { path: "/news/seminars", kr: "세미나", en: "Seminars" },
+      { path: "/news/calendar", kr: "일정", en: "Calendar" },
     ],
   },
   { path: "/admissions", kr: "입학·진로", en: "Admissions" },
   { path: "/alumni", kr: "동문·협력", en: "Alumni" },
-  { path: "/contact", kr: "오시는 길", en: "Contact" },
 ];
 
+export const ABOUT_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/about")!.children!;
+export const FACULTY_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/faculty")!.children!;
 export const UNDERGRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/undergraduate")!.children!;
 export const GRADUATE_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/graduate")!.children!;
 export const LABS_NAV: NavSubItem[] = NAV_ITEMS.find((i) => i.path === "/labs")!.children!;

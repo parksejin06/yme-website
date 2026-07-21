@@ -1,57 +1,65 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import SectionSubNav from "@/components/SectionSubNav";
 import ScrollReveal from "@/components/ScrollReveal";
-import history from "@/data/history.json";
+import { ABOUT_NAV } from "@/lib/nav";
+import { ChevronRightIcon } from "@/components/icons";
 
-export const metadata: Metadata = { title: "About · History · Vision" };
+export const metadata: Metadata = { title: "Overview" };
+
+const QUICK_LINKS = [
+  { path: "/about/vision", title: "Vision & Mission", desc: "The vision and education goals Yonsei Mechanical Engineering pursues." },
+  { path: "/about/history", title: "History", desc: "The department's path since 1958." },
+  { path: "/about/staff", title: "Staff", desc: "Find administrative contacts for undergraduate, graduate, and research affairs." },
+  { path: "/about/directions", title: "Directions", desc: "Campus location and how to get here." },
+];
 
 export default function AboutPageEn() {
   return (
     <>
       <PageHero
         eyebrow="ABOUT US"
-        title="About · History · Vision"
+        title="Overview"
         image="/images/eagle-statue.jpg"
-        imageAlt="Yonsei University's eagle statue with the 'YONSEI, where we make history' signage"
+        imageAlt="Yonsei University's eagle statue and 'YONSEI, where we make history' signage"
         imagePosition="center 30%"
       />
+      <SectionSubNav items={ABOUT_NAV} lang="en" label="About sub-navigation" />
 
       <section className="mx-auto max-w-content px-4 py-20 sm:px-6">
         <ScrollReveal>
-          <p className="font-body text-sm tracking-[0.2em] text-primary/70">VISION</p>
+          <p className="font-body text-sm tracking-[0.2em] text-primary/70">OVERVIEW</p>
           <blockquote className="mt-4 text-balance font-display text-2xl leading-snug text-ink sm:text-4xl">
-            &ldquo;Relentless challenge,
-            <br />
-            creating value for the world.&rdquo;
+            &ldquo;Relentless challenge, creating value for the world.&rdquo;
           </blockquote>
           <p className="mt-6 max-w-2xl text-ink/70">
-            Since its founding in 1962, Yonsei University&apos;s School of Mechanical Engineering has led
-            mechanical engineering education and research in Korea for over 60 years. Across a wide range of
-            fields — precision & design, thermofluids, robotics & mechatronics, materials & structures,
-            nano/bio, and energy — 26 research laboratories continue active research, with the goal of
-            cultivating talent who contribute to industry.
+            Since its founding in 1962, Yonsei University&apos;s School of Mechanical Engineering has led mechanical
+            engineering education and research in Korea for over 60 years. Numerous labs are active across a wide
+            range of research fields — precision design, thermofluids, robotics/mechatronics, materials/structures,
+            nano/bio, and energy — cultivating talent who contribute to industry.
           </p>
         </ScrollReveal>
       </section>
 
-      <section className="bg-surface-muted py-20">
+      <section className="border-t border-line bg-surface-muted/60 py-20">
         <div className="mx-auto max-w-content px-4 sm:px-6">
-          <ScrollReveal>
-            <h2 className="font-display text-2xl text-ink sm:text-3xl">History</h2>
-          </ScrollReveal>
-          <ol className="mt-12 space-y-0 border-l border-line pl-8">
-            {history.map((h, i) => (
-              <ScrollReveal key={h.year + h.month} delayMs={Math.min(i * 40, 400)}>
-                <li className="relative pb-9 last:pb-0">
-                  <span className="absolute -left-[2.35rem] top-1 h-3 w-3 rounded-full border-2 border-primary bg-white" />
-                  <p className="font-display text-sm text-primary">
-                    {h.year}.{h.month}
-                  </p>
-                  <p className="mt-1 text-ink/80">{h.en}</p>
-                </li>
-              </ScrollReveal>
+          <h2 className="font-display text-xl text-ink">Explore About</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {QUICK_LINKS.map((q) => (
+              <Link
+                key={q.path}
+                href={`/en${q.path}`}
+                className="group flex items-center justify-between gap-4 rounded-lg border border-line bg-white p-5 transition-colors hover:border-primary-soft"
+              >
+                <div>
+                  <p className="font-display text-base text-ink">{q.title}</p>
+                  <p className="mt-1 text-sm text-ink/60">{q.desc}</p>
+                </div>
+                <ChevronRightIcon className="h-4 w-4 shrink-0 text-ink/30 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+              </Link>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
     </>

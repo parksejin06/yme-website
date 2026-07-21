@@ -12,12 +12,12 @@ export default function NewsResearchPageEn() {
   return (
     <>
       <PageHero
-        eyebrow="NEWS"
+        eyebrow="NEWS & COMMUNITY"
         title="Research News"
         description="Research achievements, academic activities, and event news from the faculty of Yonsei University's School of Mechanical Engineering."
       />
-      <SectionSubNav items={NEWS_NAV} lang="en" label="News sub-navigation" />
-      <Breadcrumb lang="en" items={[{ label: "News", path: "/news" }, { label: "Research News" }]} />
+      <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
+      <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Research News" }]} />
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
         <NewsArticleBoard lang="en" articles={articles} />
       </section>

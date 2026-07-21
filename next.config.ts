@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       { source: "/academics/:decade/:year", destination: "/undergraduate/graduation/:decade/:year", permanent: false },
       { source: "/en/academics", destination: "/en/undergraduate/graduation", permanent: false },
       { source: "/en/academics/:decade/:year", destination: "/en/undergraduate/graduation/:decade/:year", permanent: false },
+      { source: "/contact", destination: "/about/directions", permanent: false },
+      { source: "/en/contact", destination: "/en/about/directions", permanent: false },
     ];
   },
 };
