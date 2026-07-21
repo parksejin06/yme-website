@@ -1,128 +1,116 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { ZoomIn } from "lucide-react";
-import Modal from "@/components/ui/Modal";
-import {
-  YEAR_GROUPS,
-  SEMESTERS,
-  courseTypeMeta,
-  yearLabelFromBucket,
-  semesterLabelFromBucket,
-  type Lang,
-} from "@/lib/academics";
+import { useMemo, useState } from "react";
+import { Search, X, Minus, Plus, RotateCcw, LayoutGrid, List } from "lucide-react";
+import { courseTypeMeta, YEAR_GROUPS, SEMESTERS } from "@/lib/academics";
+import { FIELD_ROWS, MAP_COLUMNS, rowForEntry, rowLabel, relatedCodesFor, type FieldRow } from "@/lib/curriculumMap";
+import CourseDetailDrawer from "@/components/undergraduate/CourseDetailDrawer";
 import type { CurriculumEntry, CourseDetail } from "@/components/academics/CourseExplorer";
+import type { Lang } from "@/lib/nav";
 
 const COPY = {
   ko: {
-    original: "공식 교과목 체계도 원본",
-    originalHint: "클릭하면 확대해서 볼 수 있습니다",
-    interactive: "인터랙티브 체계도",
-    interactiveHint: "과목을 클릭하면 상세 정보를 확인할 수 있습니다",
-    required: "필수",
-    elective: "선택",
-    year: "학년 선택",
-    semester: "학기 선택",
+    intro: "학년·학기와 분야를 따라 기계공학부의 교과목 흐름을 확인할 수 있습니다. 교과목을 선택하면 상세정보와 관련 과목이 표시됩니다.",
+    searchPlaceholder: "교과목명, 학정번호로 검색",
+    all: "전체",
+    required: "전공필수",
+    elective: "전공선택",
+    noResults: "검색 결과가 없습니다.",
+    fullMap: "전체 체계도 보기",
+    backToList: "목록으로",
+    zoomOut: "축소",
+    zoomIn: "확대",
+    reset: "초기화",
     credit: "학점",
-    yearSemester: "학년·학기",
-    keywords: "핵심 키워드",
-    related: "관련 교과목",
-    researchArea: "관련 연구분야",
   },
   en: {
-    original: "Official Curriculum Diagram",
-    originalHint: "Click to zoom in",
-    interactive: "Interactive Curriculum Map",
-    interactiveHint: "Click a course to see its details",
+    intro: "Follow the year, semester, and field to see how Yonsei ME courses connect. Select a course to see its details and related courses.",
+    searchPlaceholder: "Search by course name or code",
+    all: "All",
     required: "Required",
     elective: "Elective",
-    year: "Select year",
-    semester: "Select semester",
+    noResults: "No courses match your search.",
+    fullMap: "View full map",
+    backToList: "Back to list",
+    zoomOut: "Zoom out",
+    zoomIn: "Zoom in",
+    reset: "Reset",
     credit: " credits",
-    yearSemester: "Year / Semester",
-    keywords: "Keywords",
-    related: "Related Courses",
-    researchArea: "Related Research Area",
   },
 };
 
-const CATEGORY_ORDER = ["기초", "전공핵심", "응용·심화", "실험·설계"];
-const CATEGORY_LABEL: Record<string, { ko: string; en: string }> = {
-  "기초": { ko: "기초(MSC)", en: "Basic Science (MSC)" },
-  "전공핵심": { ko: "전공핵심", en: "Major Core" },
-  "응용·심화": { ko: "응용·심화", en: "Applied/Advanced" },
-  "실험·설계": { ko: "실험·설계", en: "Lab/Design" },
-};
-
-const BUCKET_COLUMNS = [
-  { key: "1-1", groupWith: null },
-  { key: "1-2", groupWith: null },
-  { key: "2-1", groupWith: null },
-  { key: "2-2", groupWith: null },
-  { key: "34-1", groupWith: "3-4" },
-  { key: "34-2", groupWith: "3-4" },
-  { key: "4-1", groupWith: null },
-  { key: "4-2", groupWith: null },
+const ZOOM_STEPS = [
+  { col: "128px", font: "text-[11px]", pad: "px-2 py-1.5" },
+  { col: "160px", font: "text-xs", pad: "px-2.5 py-2" },
+  { col: "196px", font: "text-[13px]", pad: "px-3 py-2.5" },
 ];
 
-function CourseChip({
-  entry,
-  lang,
-  onSelect,
-}: {
-  entry: CurriculumEntry;
+function chipClass(active: boolean) {
+  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
+    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
+  }`;
+}
+
+interface NodeState {
   lang: Lang;
-  onSelect: (e: CurriculumEntry) => void;
-}) {
+  zoomLevel: number;
+  isDimmed: (entry: CurriculumEntry) => boolean;
+  relatedSet: Set<string> | null;
+  onSelect: (code: string) => void;
+  creditLabel: string;
+}
+
+function CourseNode({ entry, state }: { entry: CurriculumEntry; state: NodeState }) {
+  const { lang, zoomLevel, isDimmed, relatedSet, onSelect, creditLabel } = state;
+  const zoom = ZOOM_STEPS[zoomLevel];
+  const meta = courseTypeMeta(entry.courseType);
+  const row = rowForEntry(entry);
   const required = entry.courseType === "전필";
+  const dimmed = isDimmed(entry);
+  const related = relatedSet?.has(entry.courseCode) ?? false;
+  const name = lang === "ko" ? entry.nameKr : entry.nameEn ?? entry.nameKr;
+  const typeLabel = meta ? (lang === "ko" ? meta.labelKr : meta.labelEn) : entry.courseType;
+
   return (
     <button
-      onClick={() => onSelect(entry)}
-      className={`block w-full rounded px-2.5 py-1.5 text-left text-xs leading-snug transition-colors ${
-        required
-          ? "bg-primary text-white hover:bg-primary-strong"
-          : "border border-line bg-white text-ink/75 hover:border-primary-soft hover:text-primary"
-      }`}
+      onClick={() => onSelect(entry.courseCode)}
+      aria-label={`${entry.nameKr}, ${typeLabel}, ${entry.credit}${creditLabel}`}
+      style={
+        required ? { backgroundColor: row.color, borderColor: row.color } : { borderColor: row.color, color: row.color }
+      }
+      className={`block w-full rounded ${zoom.pad} ${zoom.font} border font-medium leading-snug text-left transition-all duration-200 ${
+        required ? "text-white" : "bg-white"
+      } ${dimmed ? "opacity-25" : "opacity-100"} ${related ? "ring-2 ring-offset-1 ring-primary" : ""}`}
     >
-      {lang === "ko" ? entry.nameKr : entry.nameEn ?? entry.nameKr}
+      <span className="line-clamp-2">{name}</span>
     </button>
   );
 }
 
-function Column({
-  bucketKey,
-  entries,
-  lang,
-  onSelect,
-}: {
-  bucketKey: string;
-  entries: CurriculumEntry[];
-  lang: Lang;
-  onSelect: (e: CurriculumEntry) => void;
-}) {
-  const inBucket = entries.filter((e) => e.bucket === bucketKey).sort((a, b) => a.displayOrder - b.displayOrder);
+function FieldRowCells({ row, entries, lang, state }: { row: FieldRow; entries: CurriculumEntry[]; lang: Lang; state: NodeState }) {
+  const rowEntries = entries.filter((e) => rowForEntry(e).key === row.key);
 
   return (
-    <div className="flex w-full flex-col gap-3 sm:w-56 sm:shrink-0">
-      <p className="rounded bg-primary-strong px-2 py-1.5 text-center text-xs font-display text-white">
-        {yearLabelFromBucket(bucketKey, lang)} · {semesterLabelFromBucket(bucketKey, lang)}
-      </p>
-      {CATEGORY_ORDER.map((cat) => {
-        const inCat = inBucket.filter((e) => e.category === cat);
-        if (inCat.length === 0) return null;
+    <>
+      <div className="sticky left-0 z-10 flex items-center border-b border-r border-line bg-white px-2.5 py-2">
+        <span className="flex items-center gap-1.5 text-xs font-display text-ink/75">
+          <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: row.color }} />
+          <span className="leading-tight">{rowLabel(row, lang)}</span>
+        </span>
+      </div>
+      {MAP_COLUMNS.map((col) => {
+        const cellEntries = rowEntries
+          .filter((e) => e.bucket === col.bucket)
+          .sort((a, b) => a.displayOrder - b.displayOrder);
         return (
-          <div key={cat}>
-            <p className="mb-1.5 text-[11px] font-medium text-ink/40">{CATEGORY_LABEL[cat]?.[lang] ?? cat}</p>
-            <div className="space-y-1">
-              {inCat.map((e) => (
-                <CourseChip key={e.courseId} entry={e} lang={lang} onSelect={onSelect} />
-              ))}
-            </div>
+          <div key={col.bucket} className="space-y-1.5 border-b border-l border-line p-1.5">
+            {cellEntries.map((e) => (
+              <CourseNode key={e.courseId} entry={e} state={state} />
+            ))}
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
 
@@ -136,167 +124,254 @@ export default function CurriculumMap({
   lang: Lang;
 }) {
   const t = COPY[lang];
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [selected, setSelected] = useState<CurriculumEntry | null>(null);
+  const [selectedCode, setSelectedCode] = useState<string | null>(null);
+  const [fieldFilter, setFieldFilter] = useState<string>("all");
+  const [typeFilter, setTypeFilter] = useState<string>("all");
+  const [query, setQuery] = useState("");
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [mobileFullMap, setMobileFullMap] = useState(false);
   const [mobileYear, setMobileYear] = useState(YEAR_GROUPS[0].key);
   const [mobileSemester, setMobileSemester] = useState(SEMESTERS[0].key);
 
-  const selectedDetail = selected ? courseMap.get(selected.courseCode) : null;
-  const selectedMeta = selected ? courseTypeMeta(selected.courseType) : null;
+  const selectedEntry = entries.find((e) => e.courseCode === selectedCode) ?? null;
+  const trimmedQuery = query.trim().toLowerCase();
+
+  const searchMatches = useMemo(() => {
+    if (!trimmedQuery) return null;
+    return new Set(
+      entries
+        .filter((e) => {
+          const detail = courseMap.get(e.courseCode);
+          const hay = [e.nameKr, e.nameEn, e.courseCode, detail?.keywords].filter(Boolean).join(" ").toLowerCase();
+          return hay.includes(trimmedQuery);
+        })
+        .map((e) => e.courseCode)
+    );
+  }, [trimmedQuery, entries, courseMap]);
+
+  const relatedSet = useMemo(() => {
+    if (!selectedCode) return null;
+    return new Set([selectedCode, ...relatedCodesFor(selectedCode)]);
+  }, [selectedCode]);
+
+  function isDimmed(entry: CurriculumEntry) {
+    if (fieldFilter !== "all" && rowForEntry(entry).key !== fieldFilter) return true;
+    if (typeFilter !== "all" && entry.courseType !== typeFilter) return true;
+    if (searchMatches && !searchMatches.has(entry.courseCode)) return true;
+    return false;
+  }
+
+  const hasSearchResults = !searchMatches || searchMatches.size > 0;
+
+  const nodeState: NodeState = {
+    lang,
+    zoomLevel,
+    isDimmed,
+    relatedSet,
+    onSelect: setSelectedCode,
+    creditLabel: t.credit,
+  };
 
   return (
-    <div className="space-y-14">
-      {/* A. Original diagram */}
-      <section>
-        <h2 className="font-display text-lg text-ink">{t.original}</h2>
-        <button
-          onClick={() => setLightboxOpen(true)}
-          className="group relative mt-4 block w-full max-w-sm overflow-hidden rounded-lg border border-line"
-        >
-          <Image
-            src="/images/undergraduate-curriculum-diagram.jpg"
-            alt={lang === "ko" ? "기계공학부 교과목 체계도 원본 이미지" : "Official Mechanical Engineering curriculum tree diagram"}
-            width={793}
-            height={1121}
-            className="w-full"
+    <div>
+      <p className="max-w-2xl text-sm text-ink/60">{t.intro}</p>
+
+      {/* Controls */}
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative min-w-[220px] max-w-sm flex-1">
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t.searchPlaceholder}
+            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all group-hover:bg-ink/30 group-hover:opacity-100">
-            <span className="flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-medium text-ink">
-              <ZoomIn className="h-3.5 w-3.5" /> {t.originalHint}
-            </span>
-          </div>
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
+              className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-1.5">
+          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
+            {t.all}
+          </button>
+          <button onClick={() => setTypeFilter("전필")} className={chipClass(typeFilter === "전필")}>
+            {t.required}
+          </button>
+          <button onClick={() => setTypeFilter("전선")} className={chipClass(typeFilter === "전선")}>
+            {t.elective}
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        <button onClick={() => setFieldFilter("all")} className={chipClass(fieldFilter === "all")}>
+          {t.all}
         </button>
-      </section>
+        {FIELD_ROWS.map((r) => (
+          <button key={r.key} onClick={() => setFieldFilter(r.key)} className={chipClass(fieldFilter === r.key)}>
+            {rowLabel(r, lang)}
+          </button>
+        ))}
+      </div>
 
-      {/* B. Interactive map */}
-      <section>
-        <h2 className="font-display text-lg text-ink">{t.interactive}</h2>
-        <p className="mt-1.5 text-sm text-ink/50">{t.interactiveHint}</p>
+      <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line pt-4 text-xs text-ink/60">
+        <span className="flex items-center gap-1.5">
+          <span className="h-3.5 w-5 rounded-sm bg-ink/70" /> {t.required}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-3.5 w-5 rounded-sm border-2 border-ink/70 bg-white" /> {t.elective}
+        </span>
+        {FIELD_ROWS.map((r) => (
+          <span key={r.key} className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: r.color }} />
+            {rowLabel(r, lang)}
+          </span>
+        ))}
+      </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-ink/60">
-          <span className="flex items-center gap-1.5">
-            <span className="h-3 w-3 rounded-sm bg-primary" /> {t.required}
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="h-3 w-3 rounded-sm border border-line bg-white" /> {t.elective}
-          </span>
+      {!hasSearchResults && <p className="mt-6 text-sm text-ink/40">{t.noResults}</p>}
+
+      {/* Desktop / tablet grid (also shown on mobile when "full map" is toggled) */}
+      <div className={`${mobileFullMap ? "block" : "hidden"} sm:block`}>
+        <div className="mt-6 flex items-center justify-between">
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setZoomLevel((z) => Math.max(0, z - 1))}
+              disabled={zoomLevel === 0}
+              aria-label={t.zoomOut}
+              className="flex h-8 w-8 items-center justify-center rounded border border-line text-ink/60 disabled:opacity-30"
+            >
+              <Minus className="h-3.5 w-3.5" />
+            </button>
+            <button
+              onClick={() => setZoomLevel(1)}
+              aria-label={t.reset}
+              className="flex h-8 w-8 items-center justify-center rounded border border-line text-ink/60"
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+            </button>
+            <button
+              onClick={() => setZoomLevel((z) => Math.min(2, z + 1))}
+              disabled={zoomLevel === 2}
+              aria-label={t.zoomIn}
+              className="flex h-8 w-8 items-center justify-center rounded border border-line text-ink/60 disabled:opacity-30"
+            >
+              <Plus className="h-3.5 w-3.5" />
+            </button>
+          </div>
+          <button
+            onClick={() => setMobileFullMap(false)}
+            className="flex min-h-9 items-center gap-1.5 rounded-full border border-line px-3 text-xs text-ink/60 sm:hidden"
+          >
+            <List className="h-3.5 w-3.5" /> {t.backToList}
+          </button>
         </div>
 
-        {/* Mobile: year/semester navigator, one column at a time */}
-        <div className="mt-5 sm:hidden">
-          <div className="flex gap-1 overflow-x-auto">
-            {YEAR_GROUPS.map((g) => (
-              <button
-                key={g.key}
-                onClick={() => setMobileYear(g.key)}
-                className={`shrink-0 rounded-md px-3.5 py-2.5 text-sm font-display ${
-                  mobileYear === g.key ? "bg-primary text-white" : "text-ink/60"
-                }`}
+        <div className="relative mt-3 max-h-[70vh] overflow-auto rounded-lg border border-line">
+          <div className="grid" style={{ gridTemplateColumns: `112px repeat(${MAP_COLUMNS.length}, ${ZOOM_STEPS[zoomLevel].col})` }}>
+            <div className="sticky left-0 top-0 z-30 border-b border-r border-line bg-white" />
+            {MAP_COLUMNS.map((col) => (
+              <div
+                key={col.bucket}
+                className="sticky top-0 z-20 border-b border-l border-line bg-white px-2 py-2.5 text-center text-[11px] font-display text-ink/70"
               >
-                {lang === "ko" ? g.labelKr : g.labelEn}
-              </button>
+                {lang === "ko" ? col.labelKr : col.labelEn}
+              </div>
             ))}
-          </div>
-          <div className="mt-2 inline-flex rounded-md border border-line p-0.5">
-            {SEMESTERS.map((s) => (
-              <button
-                key={s.key}
-                onClick={() => setMobileSemester(s.key)}
-                className={`min-h-11 rounded px-3.5 text-sm font-medium ${
-                  mobileSemester === s.key ? "bg-primary-strong text-white" : "text-ink/60"
-                }`}
-              >
-                {lang === "ko" ? s.labelKr : s.labelEn}
-              </button>
+
+            {FIELD_ROWS.map((row) => (
+              <FieldRowCells key={row.key} row={row} entries={entries} lang={lang} state={nodeState} />
             ))}
-          </div>
-          <div className="mt-5">
-            <Column bucketKey={`${mobileYear}-${mobileSemester}`} entries={entries} lang={lang} onSelect={setSelected} />
           </div>
         </div>
+      </div>
 
-        {/* Desktop/tablet: full tree, horizontal scroll if needed */}
-        <div className="mt-5 hidden overflow-x-auto pb-4 sm:block">
-          <div className="flex min-w-max gap-4">
-            {BUCKET_COLUMNS.map((col, i) => {
-              const prevGrouped = BUCKET_COLUMNS[i - 1]?.groupWith === col.groupWith && col.groupWith !== null;
+      {/* Mobile vertical navigator */}
+      <div className={`${mobileFullMap ? "hidden" : "block"} mt-6 sm:hidden`}>
+        <div className="flex gap-1 overflow-x-auto">
+          {YEAR_GROUPS.map((g) => (
+            <button
+              key={g.key}
+              onClick={() => setMobileYear(g.key)}
+              className={`min-h-11 shrink-0 rounded-md px-4 text-sm font-display transition-colors ${
+                mobileYear === g.key ? "bg-primary text-white" : "text-ink/60"
+              }`}
+            >
+              {lang === "ko" ? g.labelKr : g.labelEn}
+            </button>
+          ))}
+        </div>
+        <div className="mt-2 inline-flex rounded-md border border-line p-0.5">
+          {SEMESTERS.map((s) => (
+            <button
+              key={s.key}
+              onClick={() => setMobileSemester(s.key)}
+              className={`min-h-11 rounded px-3.5 text-sm font-medium ${
+                mobileSemester === s.key ? "bg-primary-strong text-white" : "text-ink/60"
+              }`}
+            >
+              {lang === "ko" ? s.labelKr : s.labelEn}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-4 space-y-2">
+          {entries
+            .filter((e) => {
+              const [y, s] = e.bucket.split("-");
+              return y === mobileYear && s === mobileSemester;
+            })
+            .filter((e) => fieldFilter === "all" || rowForEntry(e).key === fieldFilter)
+            .filter((e) => typeFilter === "all" || e.courseType === typeFilter)
+            .sort((a, b) => a.displayOrder - b.displayOrder)
+            .map((e) => {
+              const row = rowForEntry(e);
+              const meta = courseTypeMeta(e.courseType);
               return (
-                <div key={col.key} className={prevGrouped ? "-ml-2 border-l border-dashed border-line pl-2" : undefined}>
-                  <Column bucketKey={col.key} entries={entries} lang={lang} onSelect={setSelected} />
-                </div>
+                <button
+                  key={e.courseId}
+                  onClick={() => setSelectedCode(e.courseCode)}
+                  className="flex w-full items-center justify-between gap-3 rounded-lg border border-line px-4 py-3.5 text-left"
+                >
+                  <span className="min-w-0">
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: row.color }} />
+                      <span className="truncate font-display text-sm text-ink">{lang === "ko" ? e.nameKr : e.nameEn ?? e.nameKr}</span>
+                    </span>
+                    <span className="mt-1 block text-xs text-ink/45">
+                      {meta ? (lang === "ko" ? meta.labelKr : meta.labelEn) : e.courseType} · {e.credit}
+                      {t.credit}
+                    </span>
+                  </span>
+                </button>
               );
             })}
-          </div>
         </div>
-      </section>
 
-      {/* Lightbox for the original diagram */}
-      <Modal open={lightboxOpen} onClose={() => setLightboxOpen(false)} panelClassName="max-w-3xl">
-        <Image
-          src="/images/undergraduate-curriculum-diagram.jpg"
-          alt=""
-          width={793}
-          height={1121}
-          className="w-full"
-        />
-      </Modal>
+        <button
+          onClick={() => setMobileFullMap(true)}
+          className="mt-5 flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-line text-sm text-ink/70"
+        >
+          <LayoutGrid className="h-4 w-4" /> {t.fullMap}
+        </button>
+      </div>
 
-      {/* Course detail modal */}
-      <Modal open={!!selected} onClose={() => setSelected(null)} labelledBy="curriculum-map-course-title" panelClassName="max-w-md">
-        {selected && (
-          <div className="p-6">
-            <h3 id="curriculum-map-course-title" className="pr-8 font-display text-lg text-ink">
-              {lang === "ko" ? selected.nameKr : selected.nameEn ?? selected.nameKr}
-            </h3>
-            {selected.nameEn && lang === "ko" && <p className="mt-0.5 text-sm text-ink/50">{selected.nameEn}</p>}
-
-            <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs">
-              <div>
-                <dt className="text-ink/40">{lang === "ko" ? "학정번호" : "Course Code"}</dt>
-                <dd className="mt-0.5 text-ink/80">{selected.courseCode}</dd>
-              </div>
-              <div>
-                <dt className="text-ink/40">{lang === "ko" ? "이수구분" : "Category"}</dt>
-                <dd className="mt-0.5 text-ink/80">
-                  {selectedMeta ? (lang === "ko" ? selectedMeta.labelKr : selectedMeta.labelEn) : selected.courseType}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-ink/40">{t.credit}</dt>
-                <dd className="mt-0.5 text-ink/80">{selected.credit}</dd>
-              </div>
-              <div>
-                <dt className="text-ink/40">{t.yearSemester}</dt>
-                <dd className="mt-0.5 text-ink/80">
-                  {yearLabelFromBucket(selected.bucket, lang)} · {semesterLabelFromBucket(selected.bucket, lang)}
-                </dd>
-              </div>
-            </dl>
-
-            <div className="mt-4 space-y-2.5 border-t border-line pt-4">
-              {selectedDetail?.hasDetail && selectedDetail.description && (
-                <p className="text-sm leading-relaxed text-ink/75">{selectedDetail.description}</p>
-              )}
-              {selectedDetail?.keywords && (
-                <p className="text-xs text-ink/50">
-                  <span className="text-ink/40">{t.keywords}:</span> {selectedDetail.keywords}
-                </p>
-              )}
-              {selected.researchArea && (
-                <p className="text-xs text-ink/50">
-                  <span className="text-ink/40">{t.researchArea}:</span> {selected.researchArea}
-                </p>
-              )}
-              {selectedDetail?.relatedCourses && (
-                <p className="text-xs text-ink/50">
-                  <span className="text-ink/40">{t.related}:</span> {selectedDetail.relatedCourses}
-                </p>
-              )}
-              {selected.dataNote && <p className="text-xs italic text-ink/40">※ {selected.dataNote}</p>}
-            </div>
-          </div>
-        )}
-      </Modal>
+      <CourseDetailDrawer
+        entry={selectedEntry}
+        courseMap={courseMap}
+        allEntries={entries}
+        lang={lang}
+        onClose={() => setSelectedCode(null)}
+        onSelectCode={setSelectedCode}
+      />
     </div>
   );
 }
