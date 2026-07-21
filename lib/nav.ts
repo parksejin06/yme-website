@@ -56,6 +56,7 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/graduate/graduation", kr: "졸업 요건", en: "Graduation Requirements" },
       { path: "/graduate/courses", kr: "교과목 소개", en: "Courses" },
       { path: "/graduate/curriculum-map", kr: "교육·연구 체계도", en: "Academic & Research Map" },
+      { path: "/graduate/lab-media", kr: "연구실 소개 자료 및 영상", en: "Lab Media" },
     ],
   },
   {

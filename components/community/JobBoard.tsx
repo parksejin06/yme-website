@@ -1,112 +1,55 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { JobPosting } from "@/lib/community";
+import Link from "next/link";
+import { Paperclip, Search } from "lucide-react";
+import type { CommunityPost } from "@/lib/community-content";
+import { postHref } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
-  ko: {
-    all: "전체",
-    closingSoon: "마감 임박",
-    closed: "마감",
-    open: "접수중",
-    deadline: "마감일",
-    posted: "게시일",
-    noResults: "등록된 채용정보가 없습니다.",
-    goToPosting: "채용 페이지로 이동",
-  },
-  en: {
-    all: "All",
-    closingSoon: "Closing Soon",
-    closed: "Closed",
-    open: "Open",
-    deadline: "Deadline",
-    posted: "Posted",
-    noResults: "No job postings available.",
-    goToPosting: "Go to job posting",
-  },
+  ko: { search: "제목으로 검색", noResults: "등록된 채용정보가 없습니다." },
+  en: { search: "Search by title", noResults: "No job postings available." },
 };
 
-function chipClass(active: boolean) {
-  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
-
-function isClosingSoon(deadline: string) {
-  const days = (new Date(deadline).getTime() - Date.now()) / 86400000;
-  return days >= 0 && days <= 7;
-}
-function isClosed(deadline: string) {
-  return new Date(deadline).getTime() < Date.now();
-}
-
-export default function JobBoard({ items, lang }: { items: JobPosting[]; lang: Lang }) {
+export default function JobBoard({ items, lang }: { items: CommunityPost[]; lang: Lang }) {
   const t = COPY[lang];
-  const [typeFilter, setTypeFilter] = useState("all");
-  const types = useMemo(() => [...new Set(items.map((i) => i.type))], [items]);
+  const [query, setQuery] = useState("");
 
-  const filtered = items
-    .filter((i) => {
-      if (typeFilter === "all") return true;
-      if (typeFilter === "closingSoon") return isClosingSoon(i.applyEnd);
-      return i.type === typeFilter;
-    })
-    .sort((a, b) => a.applyEnd.localeCompare(b.applyEnd));
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return items;
+    return items.filter((i) => i.title.toLowerCase().includes(q));
+  }, [items, query]);
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5">
-        <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-          {t.all}
-        </button>
-        {types.map((type) => (
-          <button key={type} onClick={() => setTypeFilter(type)} className={chipClass(typeFilter === type)}>
-            {type}
-          </button>
-        ))}
-        <button onClick={() => setTypeFilter("closingSoon")} className={chipClass(typeFilter === "closingSoon")}>
-          {t.closingSoon}
-        </button>
+      <div className="relative max-w-sm">
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t.search}
+          className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-3 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+        />
       </div>
 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
         <ul className="mt-6 divide-y divide-line border-y border-line">
-          {filtered.map((j) => {
-            const closed = isClosed(j.applyEnd);
-            return (
-              <li key={j.id} className="py-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span
-                    className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
-                      closed ? "bg-surface-muted text-ink/40" : isClosingSoon(j.applyEnd) ? "bg-accent text-white" : "bg-primary/10 text-primary"
-                    }`}
-                  >
-                    {closed ? t.closed : t.open}
-                  </span>
-                  <p className="font-display text-sm text-ink">
-                    {j.company} · {j.title}
-                  </p>
-                </div>
-                <p className="mt-1.5 text-xs text-ink/50">
-                  {j.type}
-                  {j.target ? ` · ${j.target}` : ""} · {t.deadline} {j.applyEnd}
-                </p>
-                {j.link && (
-                  <a
-                    href={j.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block text-xs font-medium text-primary hover:underline"
-                  >
-                    {t.goToPosting} →
-                  </a>
-                )}
-              </li>
-            );
-          })}
+          {filtered.map((j) => (
+            <li key={j.id} className="py-4">
+              <Link href={postHref(lang, "jobs", j.sourcePostId)} className="flex items-center gap-2 hover:text-primary">
+                <span className="line-clamp-1 font-display text-sm text-ink">{j.title}</span>
+                {j.attachments.length > 0 && <Paperclip className="h-3.5 w-3.5 shrink-0 text-ink/35" />}
+              </Link>
+              <p className="mt-1 text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
+                {j.author} · {j.publishedAt}
+              </p>
+            </li>
+          ))}
         </ul>
       )}
     </div>

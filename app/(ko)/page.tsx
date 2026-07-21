@@ -7,15 +7,16 @@ import StatCounter from "@/components/StatCounter";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 import SocialSection from "@/components/home/SocialSection";
 import history from "@/data/history.json";
-import notices from "@/data/notices.json";
 import labs from "@/data/labs.json";
+import { BOARD_DATA } from "@/lib/community-data";
+import { postHref } from "@/lib/community-content";
 
 const foundingYear = 1962;
 const currentYear = new Date().getFullYear();
 
 export default function HomePage() {
   const recentHistory = history.slice(-5).reverse();
-  const recentNotices = notices.slice(0, 3);
+  const recentNotices = BOARD_DATA["notices-undergraduate"].slice(0, 3);
 
   return (
     <>
@@ -172,15 +173,15 @@ export default function HomePage() {
         <ul className="mt-8 divide-y divide-line border-y border-line">
           {recentNotices.map((n) => (
             <li key={n.id} className="flex items-center justify-between gap-4 py-4">
-              <Link href={`/news/${n.id}`} className="flex min-w-0 items-center gap-2 hover:text-primary">
-                {n.isNotice && (
+              <Link href={postHref("ko", "notices-undergraduate", n.sourcePostId)} className="flex min-w-0 items-center gap-2 hover:text-primary">
+                {n.isPinned && (
                   <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
                     공지
                   </span>
                 )}
                 <span className="truncate text-sm text-ink/85">{n.title}</span>
               </Link>
-              <span className="shrink-0 text-xs text-ink/70">{n.date}</span>
+              <span className="shrink-0 text-xs text-ink/70">{n.publishedAt}</span>
             </li>
           ))}
         </ul>

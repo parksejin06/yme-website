@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
       { source: "/en/academics/:decade/:year", destination: "/en/undergraduate/graduation/:decade/:year", permanent: false },
       { source: "/contact", destination: "/about/directions", permanent: false },
       { source: "/en/contact", destination: "/en/about/directions", permanent: false },
+      { source: "/news/:id(\\d+)", destination: "/news", permanent: false },
+      { source: "/en/news/:id(\\d+)", destination: "/en/news", permanent: false },
     ];
   },
 };

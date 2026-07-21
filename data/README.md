@@ -113,23 +113,43 @@ JSON. 원문 문장을 요약하지 않고 그대로 옮겼으며, 영문(`parag
 가져온 실제 영상 목록이며, 조회수·영상 길이 등 API 키가 필요한 정보는 제공하지 않음(길이는 표시하지 않음).
 계정이 새 게시물을 올리면 이 파일들을 수동으로 갱신해야 한다(실시간 연동 아님).
 
-## thesis-reviews.json / resources.json / jobs.json / community-events.json / seminars.json
-"뉴스 및 공지사항" 하위의 학위논문심사/자료실/취업정보/행사/세미나 5개 게시판. **현재 전부 빈 배열(`[]`)이다.**
-학위논문심사·자료실·취업정보·행사·세미나 어느 것도 실제 공식 데이터(엑셀, 이미지, 공식 URL 등)가 제공되지
-않았기 때문에, "정보 없음"/"준비 중" 같은 문구로 자리를 채우는 대신 정직하게 빈 목록으로 둔 것이다(빈 목록은
-거짓이 아니지만, 존재하지 않는 게시물을 지어내는 것은 거짓이다). Route·검색·필터·상세페이지 UI는 전부 실제로
-동작하며, 콘텐츠 담당자가 이 파일들에 실제 항목을 추가하는 즉시 화면에 반영된다. 각 항목 스키마는
-`lib/community.ts`의 `ThesisReview` / `Resource` / `JobPosting` / `CommunityEvent` / `Seminar` 타입 참고.
+## community/ (뉴스 및 공지사항 — 실제 원문 데이터)
+`data/community/*.json`은 전부 `scripts/scrape-community.mjs`가 me.yonsei.ac.kr의 실제 게시판
+10개를 그대로 가져온 결과물이다. AI 요약·재작성 없음: 제목/작성자/등록일/본문은 각 게시글의 공식
+상세페이지에서 그대로 가져오고(`plainText`/`originalHtml`), `excerpt`는 `plainText.slice(0, 140)`으로
+기계적으로 잘라낸 것이다. 스키마는 `lib/community-content.ts`의 `CommunityPost` 참고.
 
-`/news/calendar`(일정)의 이벤트는 이 5개 파일과 별도의 캘린더 데이터 파일을 두지 않고, `lib/community.ts`의
-`buildCalendarEvents()`가 위 파일들(학위논문심사의 신청기간, 행사의 일시, 세미나의 일시, 취업정보의 마감일)
-에서 즉석으로 계산한다 — 게시물과 캘린더 항목이 따로 관리되어 어긋나는 일을 원천적으로 방지하기 위함이다.
+| 파일 | 게시판 | 건수 |
+|---|---|---|
+| notices-undergraduate.json | 학부 공지사항 | 151 |
+| notices-graduate.json | 대학원 공지사항 | 151 |
+| notices-external.json | 외부기관 공지사항 | 100 |
+| notices-scholarship.json | 장학생 선발공고 | 101 |
+| news.json | 뉴스 | 150 |
+| thesis-reviews.json | 학위논문심사 | 100 |
+| resources.json | 자료실 | 7 (전체) |
+| jobs.json | 취업정보 | 150 |
+| events.json | 행사 | 39 (전체) |
+| seminars.json | 세미나 | 150 |
+| calendar-official.json | 공식 캘린더(구글 캘린더 iCal export) | 413건 |
 
-## notices.json (공지사항)
-실제 학부 공지 13건(제목·날짜·작성자·본문·첨부 여부 모두 실제 데이터). 새 공지는 배열 맨 앞에 추가한다.
-`category`는 제목에 명확한 근거가 있는 경우에만 세분화했다("수림재단...장학생 선발 안내" → `장학생 선발공고`).
-나머지는 전부 작성자가 "기계공학부"로 동일하여 `학부`로 분류했으며, `대학원`/`외부기관`으로 볼 근거가 있는
-공지가 현재 없어 임의로 나누지 않았다.
+첨부파일·본문 이미지는 `public/content/community/{board}/{postId}/{attachments,images}/`에 실제
+다운로드되어 있고, 각 게시글 JSON의 `localPath`가 그 경로를 가리킨다. 원본 URL과 수집 시각은
+`sourceUrl`/`importedAt`에 항상 보존된다. 전체 수집 현황과 실패 항목은 `CONTENT_SOURCES.md`,
+`content-source-manifest.json`, `data/community/_import-report.json`에 기록되어 있다.
+
+재수집: `node scripts/scrape-community.mjs [보드키]`, `node scripts/scrape-calendar.mjs`.
+
+`/news/calendar`(일정)은 위 캘린더 파일을 1차 소스로 쓰고, 세미나/행사 게시글과는 제목이 정확히
+일치할 때만 내부 상세페이지로 연결한다(`lib/community-content.ts`의 `findLinkedPost`) — 추측 매칭은
+하지 않으므로 연결되지 않는 이벤트가 있는 것이 정상이다.
+
+## graduate-lab-media.json (대학원 연구실 소개 자료 및 영상)
+`scripts/scrape-lab-media.mjs`가 me.yonsei.ac.kr/me/graduate/labs.do가 실제로 호출하는 Google Apps
+Script JSON 엔드포인트에서 직접 가져온 33명 교수 데이터 중, 영상 또는 이미지가 설정된 27명. 홍보
+이미지 URL 26개는 전부 공식 사이트에서 이미 삭제되어 404이므로(스프레드시트만 갱신 안 됨) 그대로
+노출하지 않고 비인물형 플레이스홀더로 대체한다 — 자세한 내용은 `CONTENT_SOURCES.md` 참고.
+재수집: `node scripts/scrape-lab-media.mjs`.
 
 ## staff.json (교직원)
 사용자가 제공한 교직원 안내 이미지(표) 원본 그대로: 4명, `구분(team)/성명/교내전화/장소/이메일`만 존재.

@@ -1,28 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { CommunityEvent } from "@/lib/community";
+import Link from "next/link";
+import { Paperclip } from "lucide-react";
+import type { CommunityPost } from "@/lib/community-content";
+import { postHref, extractLeadingBracketTag } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
-  ko: {
-    all: "전체",
-    upcoming: "예정",
-    ongoing: "진행 중",
-    ended: "종료",
-    location: "장소",
-    target: "대상",
-    noResults: "예정된 행사가 없습니다.",
-  },
-  en: {
-    all: "All",
-    upcoming: "Upcoming",
-    ongoing: "Ongoing",
-    ended: "Ended",
-    location: "Location",
-    target: "Target",
-    noResults: "No events scheduled.",
-  },
+  ko: { all: "전체", noResults: "등록된 행사가 없습니다." },
+  en: { all: "All", noResults: "No events posted." },
 };
 
 function chipClass(active: boolean) {
@@ -31,78 +18,51 @@ function chipClass(active: boolean) {
   }`;
 }
 
-function statusOf(e: CommunityEvent): "upcoming" | "ongoing" | "ended" {
-  const now = Date.now();
-  const start = new Date(e.startDate).getTime();
-  const end = new Date(e.endDate ?? e.startDate).getTime();
-  if (now < start) return "upcoming";
-  if (now > end) return "ended";
-  return "ongoing";
-}
-
-export default function EventBoard({ items, lang }: { items: CommunityEvent[]; lang: Lang }) {
+export default function EventBoard({ items, lang }: { items: CommunityPost[]; lang: Lang }) {
   const t = COPY[lang];
   const [typeFilter, setTypeFilter] = useState("all");
-  const types = useMemo(() => [...new Set(items.map((i) => i.type))], [items]);
+  const types = useMemo(() => {
+    const s = new Set<string>();
+    for (const i of items) {
+      const tag = extractLeadingBracketTag(i.title);
+      if (tag) s.add(tag);
+    }
+    return Array.from(s);
+  }, [items]);
 
-  const filtered = items.filter((i) => typeFilter === "all" || i.type === typeFilter);
-  const statusLabel = { upcoming: t.upcoming, ongoing: t.ongoing, ended: t.ended };
-  const statusClass = {
-    upcoming: "bg-primary/10 text-primary",
-    ongoing: "bg-emerald-100 text-emerald-700",
-    ended: "bg-surface-muted text-ink/40",
-  };
+  const filtered = items.filter((i) => typeFilter === "all" || extractLeadingBracketTag(i.title) === typeFilter);
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5">
-        <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-          {t.all}
-        </button>
-        {types.map((type) => (
-          <button key={type} onClick={() => setTypeFilter(type)} className={chipClass(typeFilter === type)}>
-            {type}
+      {types.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
+            {t.all}
           </button>
-        ))}
-      </div>
+          {types.map((type) => (
+            <button key={type} onClick={() => setTypeFilter(type)} className={chipClass(typeFilter === type)}>
+              {type}
+            </button>
+          ))}
+        </div>
+      )}
 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {filtered.map((e) => {
-            const status = statusOf(e);
-            return (
-              <div key={e.id} className="rounded-lg border border-line p-5">
-                <span className={`inline-block rounded px-1.5 py-0.5 text-[10px] font-bold ${statusClass[status]}`}>
-                  {statusLabel[status]}
-                </span>
-                <p className="mt-2 font-display text-base text-ink">{e.title}</p>
-                <p className="mt-1 text-xs text-ink/50">{e.type}</p>
-                <dl className="mt-3 space-y-1 text-xs text-ink/60">
-                  <div className="flex gap-2">
-                    <dt className="w-12 shrink-0">{lang === "ko" ? "일시" : "Date"}</dt>
-                    <dd>
-                      {e.startDate}
-                      {e.endDate && e.endDate !== e.startDate ? ` ~ ${e.endDate}` : ""}
-                    </dd>
-                  </div>
-                  {e.location && (
-                    <div className="flex gap-2">
-                      <dt className="w-12 shrink-0">{t.location}</dt>
-                      <dd>{e.location}</dd>
-                    </div>
-                  )}
-                  {e.target && (
-                    <div className="flex gap-2">
-                      <dt className="w-12 shrink-0">{t.target}</dt>
-                      <dd>{e.target}</dd>
-                    </div>
-                  )}
-                </dl>
+          {filtered.map((e) => (
+            <Link key={e.id} href={postHref(lang, "events", e.sourcePostId)} className="rounded-lg border border-line p-5 hover:border-primary-soft">
+              <div className="flex items-start justify-between gap-2">
+                <p className="font-display text-base text-ink">{e.title}</p>
+                {e.attachments.length > 0 && <Paperclip className="mt-0.5 h-4 w-4 shrink-0 text-ink/35" />}
               </div>
-            );
-          })}
+              <p className="mt-2 line-clamp-2 text-sm text-ink/60">{e.excerpt}</p>
+              <p className="mt-3 text-xs text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
+                {e.author} · {e.publishedAt}
+              </p>
+            </Link>
+          ))}
         </div>
       )}
     </div>

@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-07-21T05:22:43.183Z",
+  "communityBoards": [
+    {
+      "key": "notices-undergraduate",
+      "label": "학부 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice.do",
+      "imported": 151,
+      "attachments": 178,
+      "images": 69,
+      "errors": 0
+    },
+    {
+      "key": "notices-graduate",
+      "label": "대학원 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice2.do",
+      "imported": 151,
+      "attachments": 194,
+      "images": 27,
+      "errors": 5
+    },
+    {
+      "key": "notices-external",
+      "label": "외부기관 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice3.do",
+      "imported": 100,
+      "attachments": 46,
+      "images": 20,
+      "errors": 12
+    },
+    {
+      "key": "notices-scholarship",
+      "label": "장학생 선발공고",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice4.do",
+      "imported": 101,
+      "attachments": 106,
+      "images": 2,
+      "errors": 0
+    },
+    {
+      "key": "news",
+      "label": "뉴스",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/news.do",
+      "imported": 150,
+      "attachments": 272,
+      "images": 163,
+      "errors": 0
+    },
+    {
+      "key": "thesis-reviews",
+      "label": "학위논문심사",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/degree_thesis_review.do",
+      "imported": 100,
+      "attachments": 0,
+      "images": 99,
+      "errors": 0
+    },
+    {
+      "key": "resources",
+      "label": "자료실",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/information.do",
+      "imported": 7,
+      "attachments": 12,
+      "images": 0,
+      "errors": 0
+    },
+    {
+      "key": "jobs",
+      "label": "취업정보",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/job.do",
+      "imported": 150,
+      "attachments": 164,
+      "images": 112,
+      "errors": 0
+    },
+    {
+      "key": "events",
+      "label": "행사",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/seminar_graduate1.do",
+      "imported": 39,
+      "attachments": 38,
+      "images": 42,
+      "errors": 0
+    },
+    {
+      "key": "seminars",
+      "label": "세미나",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/seminar.do",
+      "imported": 150,
+      "attachments": 147,
+      "images": 2,
+      "errors": 0
+    }
+  ],
+  "calendar": {
+    "sourceUrl": "https://me.yonsei.ac.kr/me/calender_main.do",
+    "icsUrl": "https://calendar.google.com/calendar/ical/0nevledgmf1pgvjsc57sp2tdik%40group.calendar.google.com/public/basic.ics",
+    "importedAt": "2026-07-21T04:38:14.572Z",
+    "totalEvents": 413,
+    "errors": 0
+  },
+  "graduateLabMedia": {
+    "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+    "apiUrl": "https://script.google.com/macros/s/AKfycbxHrcj6Qeu1LnFr2knGCESBrDTyoSshxmVZ7rCAJUQu6UAGV9NT45wS0-vA4iTgxNiYyg/exec",
+    "importedAt": "2026-07-21T03:30:29.932Z",
+    "total": 27,
+    "video": 19,
+    "imageOnly": 8,
+    "errors": 28
+  }
+}

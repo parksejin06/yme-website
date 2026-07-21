@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import ThesisReviewBoard from "@/components/community/ThesisReviewBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import thesisReviews from "@/data/thesis-reviews.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "학위논문심사" };
 
@@ -16,7 +16,7 @@ export default function ThesisReviewPage() {
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "학위논문심사" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <ThesisReviewBoard items={thesisReviews} lang="ko" />
+        <ThesisReviewBoard items={BOARD_DATA["thesis-reviews"]} lang="ko" />
       </section>
     </>
   );

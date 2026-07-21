@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import JobBoard from "@/components/community/JobBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import jobs from "@/data/jobs.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "취업정보" };
 
@@ -16,7 +16,7 @@ export default function JobsPage() {
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "취업정보" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <JobBoard items={jobs} lang="ko" />
+        <JobBoard items={BOARD_DATA["jobs"]} lang="ko" />
       </section>
     </>
   );

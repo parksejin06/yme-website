@@ -4,25 +4,29 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import Calendar from "@/components/community/Calendar";
 import { NEWS_NAV } from "@/lib/nav";
-import { buildCalendarEvents } from "@/lib/community";
-import thesisReviews from "@/data/thesis-reviews.json";
-import events from "@/data/community-events.json";
-import seminars from "@/data/seminars.json";
-import jobs from "@/data/jobs.json";
+import { BOARD_DATA } from "@/lib/community-data";
+import calendarData from "@/data/community/calendar-official.json";
 
 export const metadata: Metadata = { title: "Calendar" };
 
 export default function CalendarPageEn() {
-  const calendarEvents = buildCalendarEvents({ thesisReviews, events, seminars, jobs });
+  const relatedPosts = [
+    ...BOARD_DATA.events.map((post) => ({ board: "events" as const, post })),
+    ...BOARD_DATA.seminars.map((post) => ({ board: "seminars" as const, post })),
+  ];
 
   return (
     <>
-      <PageHero eyebrow="NEWS & COMMUNITY" title="Calendar" description="Academic, thesis review, event, seminar, and job deadlines at a glance." />
+      <PageHero
+        eyebrow="NEWS & COMMUNITY"
+        title="Calendar"
+        description="Seminar and event dates exactly as shown on the official Yonsei ME calendar."
+      />
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Calendar" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <Calendar events={calendarEvents} lang="en" />
+        <Calendar events={calendarData.events} relatedPosts={relatedPosts} lang="en" />
       </section>
     </>
   );

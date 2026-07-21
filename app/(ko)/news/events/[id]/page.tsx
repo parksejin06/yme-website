@@ -1,0 +1,33 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import PostDetail from "@/components/community/PostDetail";
+import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
+import { postHref, listHref } from "@/lib/community-content";
+
+export function generateStaticParams() {
+  return BOARD_DATA["events"].map((p) => ({ id: p.sourcePostId }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = BOARD_DATA["events"].find((p) => p.sourcePostId === id);
+  return { title: post?.title ?? "행사" };
+}
+
+export default async function EventsDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = BOARD_DATA["events"].find((p) => p.sourcePostId === id);
+  if (!post) notFound();
+
+  const { prev, next } = getAdjacent("events", id);
+
+  return (
+    <PostDetail
+      post={post}
+      lang="ko"
+      backHref={listHref("ko", "events")}
+      prev={prev ? { href: postHref("ko", "events", prev.sourcePostId), title: prev.title } : null}
+      next={next ? { href: postHref("ko", "events", next.sourcePostId), title: next.title } : null}
+    />
+  );
+}

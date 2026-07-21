@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-07-21T04:50:07.766Z",
+  "boards": [
+    {
+      "key": "notices-undergraduate",
+      "label": "학부 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice.do",
+      "requested": 151,
+      "imported": 151,
+      "attachments": 178,
+      "images": 69,
+      "errors": []
+    },
+    {
+      "key": "notices-graduate",
+      "label": "대학원 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice2.do",
+      "requested": 151,
+      "imported": 151,
+      "attachments": 194,
+      "images": 27,
+      "errors": [
+        {
+          "url": "https://me.yonsei.ac.kr/me/community/notice2.do?mode=download&articleNo=462554&attachNo=203021",
+          "fileName": "관정재단 2026년도 국내대학 장학생 선발계획(기존버전)(외4).zip",
+          "error": "The operation was aborted due to timeout"
+        },
+        {
+          "url": "https://zm901.mailplug.com/api/showImage.php?image=eW9uc2VpLmFjLmtyfG5taHwyNTA5fDAyMjMxMzIwMDE3NTc2NTI2NTg=",
+          "fileName": "showImage.php",
+          "error": "empty body"
+        },
+        {
+          "url": "https://zm901.mailplug.com/api/showImage.php?image=eW9uc2VpLmFjLmtyfG5taHwyNTA5fDAyMjMxMzIwMDE3NTc2NTI2NTg=",
+          "fileName": "showImage.php",
+          "error": "empty body"
+        },
+        {
+          "url": "https://zm901.mailplug.com/api/showImage.php?image=eW9uc2VpLmFjLmtyfG5taHwyNTA5fDAyMjMxMzIwMDE3NTc2NTI2NTg=",
+          "fileName": "showImage.php",
+          "error": "empty body"
+        },
+        {
+          "url": "https://zm901.mailplug.com/api/showImage.php?image=eW9uc2VpLmFjLmtyfG5taHwyNTA5fDAyMjMxMzIwMDE3NTc2NTI2NTg=",
+          "fileName": "showImage.php",
+          "error": "empty body"
+        }
+      ]
+    },
+    {
+      "key": "notices-external",
+      "label": "외부기관 공지사항",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice3.do",
+      "requested": 100,
+      "imported": 100,
+      "attachments": 46,
+      "images": 20,
+      "errors": [
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-newsletter.jpg",
+          "fileName": "m-e12-newsletter.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-header.jpg",
+          "fileName": "m-e12-header.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-tit.jpg",
+          "fileName": "m-e12-tit.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont01.jpg",
+          "fileName": "m-e12-cont01.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont02.jpg",
+          "fileName": "m-e12-cont02.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont03.jpg",
+          "fileName": "m-e12-cont03.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont04.jpg",
+          "fileName": "m-e12-cont04.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont05.jpg",
+          "fileName": "m-e12-cont05.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont06.jpg",
+          "fileName": "m-e12-cont06.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-cont07.jpg",
+          "fileName": "m-e12-cont07.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://evs37korea.org/webmail/images/m-e12-footer.jpg",
+          "fileName": "m-e12-footer.jpg",
+          "error": "fetch failed"
+        },
+        {
+          "url": "blob:1CF3B67B-495A-4127-9D4E-AEC3A5F4BE24",
+          "fileName": "blob:1CF3B67B-495A-4127-9D4E-AEC3A5F4BE24",
+          "error": "fetch failed"
+        }
+      ]
+    },
+    {
+      "key": "notices-scholarship",
+      "label": "장학생 선발공고",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/notice4.do",
+      "requested": 101,
+      "imported": 101,
+      "attachments": 106,
+      "images": 2,
+      "errors": []
+    },
+    {
+      "key": "news",
+      "label": "뉴스",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/news.do",
+      "requested": 150,
+      "imported": 150,
+      "attachments": 272,
+      "images": 163,
+      "errors": []
+    },
+    {
+      "key": "thesis-reviews",
+      "label": "학위논문심사",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/degree_thesis_review.do",
+      "requested": 100,
+      "imported": 100,
+      "attachments": 0,
+      "images": 99,
+      "errors": []
+    },
+    {
+      "key": "resources",
+      "label": "자료실",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/information.do",
+      "requested": 7,
+      "imported": 7,
+      "attachments": 12,
+      "images": 0,
+      "errors": []
+    },
+    {
+      "key": "jobs",
+      "label": "취업정보",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/job.do",
+      "requested": 150,
+      "imported": 150,
+      "attachments": 164,
+      "images": 112,
+      "errors": []
+    },
+    {
+      "key": "events",
+      "label": "행사",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/seminar_graduate1.do",
+      "requested": 39,
+      "imported": 39,
+      "attachments": 38,
+      "images": 42,
+      "errors": []
+    },
+    {
+      "key": "seminars",
+      "label": "세미나",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/community/seminar.do",
+      "requested": 150,
+      "imported": 150,
+      "attachments": 147,
+      "images": 2,
+      "errors": []
+    }
+  ]
+}

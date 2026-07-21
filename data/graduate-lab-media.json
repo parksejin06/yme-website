@@ -1,0 +1,690 @@
+{
+  "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+  "apiUrl": "https://script.google.com/macros/s/AKfycbxHrcj6Qeu1LnFr2knGCESBrDTyoSshxmVZ7rCAJUQu6UAGV9NT45wS0-vA4iTgxNiYyg/exec",
+  "importedAt": "2026-07-21T03:30:29.932Z",
+  "total": 27,
+  "errors": [
+    {
+      "labId": "1",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/18.png"
+    },
+    {
+      "labId": "2",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/30.png"
+    },
+    {
+      "labId": "3",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/33.png"
+    },
+    {
+      "labId": "4",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/32.png"
+    },
+    {
+      "labId": "6",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/31.png"
+    },
+    {
+      "labId": "7",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/23.png"
+    },
+    {
+      "labId": "8",
+      "stage": "video-thumbnail-unreachable",
+      "url": "https://drive.google.com/thumbnail?id=1X3AUNfLahaoD3fixMtU-KpYU77s1HiCN&sz=w800"
+    },
+    {
+      "labId": "8",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/9.png"
+    },
+    {
+      "labId": "10",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/3.png"
+    },
+    {
+      "labId": "12",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/16.png"
+    },
+    {
+      "labId": "14",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/22.png"
+    },
+    {
+      "labId": "15",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/14.png"
+    },
+    {
+      "labId": "16",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/4.png"
+    },
+    {
+      "labId": "18",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/24.png"
+    },
+    {
+      "labId": "19",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/12.png"
+    },
+    {
+      "labId": "21",
+      "stage": "video-thumbnail-unreachable",
+      "url": "https://drive.google.com/thumbnail?id=1jYJr4n2BbGoDcmpRbAv8pbY5ITF_oU8I&sz=w800"
+    },
+    {
+      "labId": "21",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/6.png"
+    },
+    {
+      "labId": "22",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/28.png"
+    },
+    {
+      "labId": "23",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/34.png\n"
+    },
+    {
+      "labId": "24",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/15.png"
+    },
+    {
+      "labId": "25",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/5.png"
+    },
+    {
+      "labId": "26",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/29.png"
+    },
+    {
+      "labId": "27",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/20.png"
+    },
+    {
+      "labId": "28",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/7.png"
+    },
+    {
+      "labId": "29",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/19.png"
+    },
+    {
+      "labId": "30",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/17.png"
+    },
+    {
+      "labId": "31",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/21.png"
+    },
+    {
+      "labId": "33",
+      "stage": "promo-image-unreachable",
+      "url": "https://me.yonsei.ac.kr/_res/me/img/research/27.png"
+    }
+  ],
+  "items": [
+    {
+      "labId": "1",
+      "professorName": "강건욱",
+      "professorNameEn": "Keonwook Kang",
+      "professorPosition": "교수",
+      "labNameKo": "Computational Mechanics of Materials Lab.",
+      "labWebsite": "https://sites.google.com/site/kwkanglab/",
+      "researchField": "재료 역학, 분자동역학",
+      "mediaType": "video",
+      "video": {
+        "provider": "drive",
+        "videoId": "1wPuVgLQfQ6rUszJtn4loqx9ZC7x3-jKN",
+        "embedUrl": "https://drive.google.com/file/d/1wPuVgLQfQ6rUszJtn4loqx9ZC7x3-jKN/preview",
+        "watchUrl": "https://drive.google.com/file/d/1wPuVgLQfQ6rUszJtn4loqx9ZC7x3-jKN/view",
+        "thumbnailUrl": "https://drive.google.com/thumbnail?id=1wPuVgLQfQ6rUszJtn4loqx9ZC7x3-jKN&sz=w800",
+        "localThumbnail": "/content/graduate/lab-media/1/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gang-geonuk",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "2",
+      "professorName": "강신일",
+      "professorNameEn": "Kang, Shinill",
+      "professorPosition": "교수",
+      "labNameKo": "Nano Fabrication/Micro Optics Lab.",
+      "labWebsite": "http://nanofab.yonsei.ac.kr/",
+      "researchField": "성형가공",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "t4BxyHiDGiY",
+        "embedUrl": "https://www.youtube.com/embed/t4BxyHiDGiY",
+        "watchUrl": "https://www.youtube.com/watch?v=t4BxyHiDGiY",
+        "thumbnailUrl": "https://img.youtube.com/vi/t4BxyHiDGiY/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/2/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gang-sinil",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "3",
+      "professorName": "김경식",
+      "professorNameEn": "Kim, Kyoungsik",
+      "professorPosition": "교수",
+      "labNameKo": "Optics and Metamaterials Lab.",
+      "labWebsite": "http://opticsme.yonsei.ac.kr/",
+      "researchField": "광학, 메타물질",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-gyeongsik",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "4",
+      "professorName": "김대은",
+      "professorNameEn": "Kim, Dae Eun",
+      "professorPosition": "교수",
+      "labNameKo": "Tribology Research Lab",
+      "labWebsite": "http://trl.yonsei.ac.kr/",
+      "researchField": "마찰역학, Tribology",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "rL0kVSdlyHY",
+        "embedUrl": "https://www.youtube.com/embed/rL0kVSdlyHY",
+        "watchUrl": "https://www.youtube.com/watch?v=rL0kVSdlyHY",
+        "thumbnailUrl": "https://img.youtube.com/vi/rL0kVSdlyHY/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/4/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-daeeun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "6",
+      "professorName": "김영주",
+      "professorNameEn": "Kim, Young-Joo",
+      "professorPosition": "교수",
+      "labNameKo": "Nano Optoelectronics System",
+      "labWebsite": "http://nos.yonsei.ac.kr/",
+      "researchField": "나노광소재",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-yeongju",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "7",
+      "professorName": "김용준",
+      "professorNameEn": "Kim, Yong -Jun",
+      "professorPosition": "교수",
+      "labNameKo": "MEMS Lab.",
+      "labWebsite": "http://mems.yonsei.ac.kr/",
+      "researchField": "MEMS,Packaging",
+      "mediaType": "video",
+      "video": {
+        "provider": "drive",
+        "videoId": "1-E4zgeYdmcRBtxDaFRELuveaBp6Q5L5M",
+        "embedUrl": "https://drive.google.com/file/d/1-E4zgeYdmcRBtxDaFRELuveaBp6Q5L5M/preview",
+        "watchUrl": "https://drive.google.com/file/d/1-E4zgeYdmcRBtxDaFRELuveaBp6Q5L5M/view",
+        "thumbnailUrl": "https://drive.google.com/thumbnail?id=1-E4zgeYdmcRBtxDaFRELuveaBp6Q5L5M&sz=w800",
+        "localThumbnail": "/content/graduate/lab-media/7/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-yongjun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "8",
+      "professorName": "김우철",
+      "professorNameEn": "Kim, Woochul",
+      "professorPosition": "교수",
+      "labNameKo": "어드밴스드 열공학 연구실",
+      "labWebsite": "http://atel.yonsei.ac.kr/",
+      "researchField": "나노열전달",
+      "mediaType": "video",
+      "video": {
+        "provider": "drive",
+        "videoId": "1X3AUNfLahaoD3fixMtU-KpYU77s1HiCN",
+        "embedUrl": "https://drive.google.com/file/d/1X3AUNfLahaoD3fixMtU-KpYU77s1HiCN/preview",
+        "watchUrl": "https://drive.google.com/file/d/1X3AUNfLahaoD3fixMtU-KpYU77s1HiCN/view",
+        "thumbnailUrl": null
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-ucheol",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "10",
+      "professorName": "김종백",
+      "professorNameEn": "Kim, Jongbaeg",
+      "professorPosition": "교수",
+      "labNameKo": "나노기전시스템 연구실 (Nano Transducers Lab)",
+      "labWebsite": "http://ntl.yonsei.ac.kr/",
+      "researchField": "MEMS, 나노기전",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "dCRkFroCc74",
+        "embedUrl": "https://www.youtube.com/embed/dCRkFroCc74",
+        "watchUrl": "https://www.youtube.com/watch?v=dCRkFroCc74",
+        "thumbnailUrl": "https://img.youtube.com/vi/dCRkFroCc74/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/10/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "gim-jongbaek",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "12",
+      "professorName": "류원형",
+      "professorNameEn": "WonHyoung Ryu",
+      "professorPosition": "교수",
+      "labNameKo": "Biomedical and Energy System Lab.",
+      "labWebsite": "https://sites.google.com/a/bmesyonsei.com/bmeslab/",
+      "researchField": "나노제작기술, 의료기기, 에너지 변환",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "DmrV8KGZz9U",
+        "embedUrl": "https://www.youtube.com/embed/DmrV8KGZz9U",
+        "watchUrl": "https://www.youtube.com/watch?v=DmrV8KGZz9U",
+        "thumbnailUrl": "https://img.youtube.com/vi/DmrV8KGZz9U/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/12/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "ryu-wonhyeong",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "14",
+      "professorName": "민병권",
+      "professorNameEn": "Min, Byung-Kwon",
+      "professorPosition": "교수",
+      "labNameKo": "Manufacturing & Mechatronics Lab.",
+      "labWebsite": "http://minlab.yonsei.ac.kr/",
+      "researchField": "생산시스템",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": "https://static.wixstatic.com/media/258f08_32ed4ccb451345a58eefc829341cea73~mv2.png/v1/fill/w_368,h_172,al_c,q_85,usm_0.66_1.00_0.01/258f08_32ed4ccb451345a58eefc829341cea73~mv2.webp",
+      "matchedFacultySlug": "min-byeonggwon",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+      "localLogo": "/content/graduate/lab-media/14/258f08_32ed4ccb451345a58eefc829341cea73~mv2.webp"
+    },
+    {
+      "labId": "15",
+      "professorName": "박노철",
+      "professorNameEn": "Park, No-Cheol",
+      "professorPosition": "교수",
+      "labNameKo": "진동 및 광메카트로닉스 연구실 (Vibration and Opto-Mechatronics Lab)",
+      "labWebsite": "http://optomecha.yonsei.ac.kr/",
+      "researchField": "동력학/진동, 광학",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "Vi5OucBLUH8",
+        "embedUrl": "https://www.youtube.com/embed/Vi5OucBLUH8",
+        "watchUrl": "https://www.youtube.com/watch?v=Vi5OucBLUH8",
+        "thumbnailUrl": "https://img.youtube.com/vi/Vi5OucBLUH8/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/15/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": "http://optomecha.yonsei.ac.kr/wp-content/uploads/2020/08/VIBOM.png",
+      "matchedFacultySlug": "bak-nocheol",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+      "localLogo": "/content/graduate/lab-media/15/VIBOM.png"
+    },
+    {
+      "labId": "16",
+      "professorName": "송순호",
+      "professorNameEn": "Song, Soonho",
+      "professorPosition": "교수",
+      "labNameKo": "청정 에너지 연구실",
+      "labWebsite": "http://cleanenergy.yonsei.ac.kr/",
+      "researchField": "자동차 배기/에너지",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "song-sunho",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "18",
+      "professorName": "양현석",
+      "professorNameEn": "Yang, Hyunseok",
+      "professorPosition": "교수",
+      "labNameKo": "Micro servo system Lab.",
+      "labWebsite": "http://mservo.yonsei.ac.kr/",
+      "researchField": "자동제어, 로봇공학",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "yang-hyeonseok",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "19",
+      "professorName": "유정훈",
+      "professorNameEn": "Yoo, Jeonghoon",
+      "professorPosition": "교수",
+      "labNameKo": "전산구조설계 연구실",
+      "labWebsite": "http://ssd.yonsei.ac.kr/",
+      "researchField": "전산최적설계",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "Y3TfPB8vGow",
+        "embedUrl": "https://www.youtube.com/embed/Y3TfPB8vGow",
+        "watchUrl": "https://www.youtube.com/watch?v=Y3TfPB8vGow",
+        "thumbnailUrl": "https://img.youtube.com/vi/Y3TfPB8vGow/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/19/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "yu-jeonghun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "20",
+      "professorName": "윤준영",
+      "professorNameEn": "Junyoung, Yoon",
+      "professorPosition": "교수",
+      "labNameKo": "정밀 생산 메카트로닉스 연구실",
+      "labWebsite": null,
+      "researchField": "정밀 생산 메카트로닉스",
+      "mediaType": "video",
+      "video": {
+        "provider": "drive",
+        "videoId": "1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z",
+        "embedUrl": "https://drive.google.com/file/d/1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z/preview",
+        "watchUrl": "https://drive.google.com/file/d/1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z/view",
+        "thumbnailUrl": "https://drive.google.com/thumbnail?id=1tZEQSZ6khHt5pT3p8upwsaXvU-3bdt_z&sz=w800",
+        "localThumbnail": "/content/graduate/lab-media/20/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "yun-junyeong",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "21",
+      "professorName": "이종수",
+      "professorNameEn": "Lee, Jongsoo",
+      "professorPosition": "교수",
+      "labNameKo": "최적설계공학 연구실",
+      "labWebsite": "http://web.yonsei.ac.kr/medesign",
+      "researchField": "최적설계공학",
+      "mediaType": "video",
+      "video": {
+        "provider": "drive",
+        "videoId": "1jYJr4n2BbGoDcmpRbAv8pbY5ITF_oU8I",
+        "embedUrl": "https://drive.google.com/file/d/1jYJr4n2BbGoDcmpRbAv8pbY5ITF_oU8I/preview",
+        "watchUrl": "https://drive.google.com/file/d/1jYJr4n2BbGoDcmpRbAv8pbY5ITF_oU8I/view",
+        "thumbnailUrl": null
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "i-jongsu",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "22",
+      "professorName": "이준상",
+      "professorNameEn": "Lee, Joon Sang",
+      "professorPosition": "교수",
+      "labNameKo": "Multi-scale Fluid Dynamics Lab.",
+      "labWebsite": "https://mfdl.yonsei.ac.kr/",
+      "researchField": "전산유체",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "39VE42jtsR8",
+        "embedUrl": "https://www.youtube.com/embed/39VE42jtsR8",
+        "watchUrl": "https://www.youtube.com/watch?v=39VE42jtsR8",
+        "thumbnailUrl": "https://img.youtube.com/vi/39VE42jtsR8/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/22/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "i-junsang",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "23",
+      "professorName": "이창훈",
+      "professorNameEn": "Lee, Changhoon",
+      "professorPosition": "교수",
+      "labNameKo": "Turbulence& Environmental Flow Physics Lab.",
+      "labWebsite": "http://euler.yonsei.ac.kr/",
+      "researchField": "유체역학및난류",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "i-changhun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "24",
+      "professorName": "이형석",
+      "professorNameEn": "Hyung-Suk Lee",
+      "professorPosition": "교수",
+      "labNameKo": "Biomechanics and Soft Material Lab.",
+      "labWebsite": "http://leelab.yonsei.ac.kr/",
+      "researchField": "생체역학",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "9PtwLfg8ReE",
+        "embedUrl": "https://www.youtube.com/embed/9PtwLfg8ReE",
+        "watchUrl": "https://www.youtube.com/watch?v=9PtwLfg8ReE",
+        "thumbnailUrl": "https://img.youtube.com/vi/9PtwLfg8ReE/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/24/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "i-hyeongseok",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "25",
+      "professorName": "장용훈",
+      "professorNameEn": "Jang, Yong Hoon",
+      "professorPosition": "교수",
+      "labNameKo": "마이크로역학 연구실 (MicroMechanics Lab.)",
+      "labWebsite": "https://web.yonsei.ac.kr/mcmclab2/index1.htm",
+      "researchField": "마이크로역학",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "huwuonYI8wY",
+        "embedUrl": "https://www.youtube.com/embed/huwuonYI8wY",
+        "watchUrl": "https://www.youtube.com/watch?v=huwuonYI8wY",
+        "thumbnailUrl": "https://img.youtube.com/vi/huwuonYI8wY/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/25/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "jang-yonghun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "26",
+      "professorName": "전성찬",
+      "professorNameEn": "Jun, Seong Chan",
+      "professorPosition": "교수",
+      "labNameKo": "Nano Electromechancal Device Lab.",
+      "labWebsite": "http://nemd.yonsei.ac.kr/",
+      "researchField": "나노디바이스",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "d1NR13s6doc",
+        "embedUrl": "https://www.youtube.com/embed/d1NR13s6doc",
+        "watchUrl": "https://www.youtube.com/watch?v=d1NR13s6doc",
+        "thumbnailUrl": "https://img.youtube.com/vi/d1NR13s6doc/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/26/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": "http://nemd.yonsei.ac.kr/users/nemd/image/main/mlogo.gif",
+      "matchedFacultySlug": "jeon-seongchan",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+      "localLogo": "/content/graduate/lab-media/26/mlogo.gif"
+    },
+    {
+      "labId": "27",
+      "professorName": "전흥재",
+      "professorNameEn": "Chun, Heoung Jae",
+      "professorPosition": "교수",
+      "labNameKo": "Intelligent Structuresand Integrated Design Lab.",
+      "labWebsite": "http://isid.yonsei.ac.kr/",
+      "researchField": "복합재료",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "jeon-heungjae",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "28",
+      "professorName": "정효일",
+      "professorNameEn": "Jung, Hyo-il",
+      "professorPosition": "교수",
+      "labNameKo": "바이오칩 연구실 (Biochip Technology Lab.)",
+      "labWebsite": "http://nanobio.yonsei.ac.kr/",
+      "researchField": "생체공학",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "GdIw_G1UX-k",
+        "embedUrl": "https://www.youtube.com/embed/GdIw_G1UX-k",
+        "watchUrl": "https://www.youtube.com/watch?v=GdIw_G1UX-k",
+        "thumbnailUrl": "https://img.youtube.com/vi/GdIw_G1UX-k/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/28/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "jeong-hyoil",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "29",
+      "professorName": "주원구",
+      "professorNameEn": "Joo, Won-Gu",
+      "professorPosition": "교수",
+      "labNameKo": "Energy, Fluid and Turbomachinery Lab",
+      "labWebsite": "http://fluid.yonsei.ac.kr/",
+      "researchField": "응용유체역학",
+      "mediaType": "image",
+      "video": null,
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": null,
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "30",
+      "professorName": "주철민",
+      "professorNameEn": "Joo, Chulmin",
+      "professorPosition": "교수",
+      "labNameKo": "Biomedical Optics & Instrumentation Laboratory",
+      "labWebsite": "http://boilab.wordpress.com/",
+      "researchField": "바이오/의료 광학, 의료기기",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "6ykXbisx7g0",
+        "embedUrl": "https://www.youtube.com/embed/6ykXbisx7g0",
+        "watchUrl": "https://www.youtube.com/watch?v=6ykXbisx7g0",
+        "thumbnailUrl": "https://img.youtube.com/vi/6ykXbisx7g0/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/30/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "ju-cheolmin",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "31",
+      "professorName": "최종은",
+      "professorNameEn": "Choi, Jongeun",
+      "professorPosition": "교수",
+      "labNameKo": "Machine Learning and Control Systems Lab.",
+      "labWebsite": "https://mlcs.yonsei.ac.kr/",
+      "researchField": "기계학습 및 제어 시스템",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "RBKoYopm2C8",
+        "embedUrl": "https://www.youtube.com/embed/RBKoYopm2C8",
+        "watchUrl": "https://www.youtube.com/watch?v=RBKoYopm2C8",
+        "thumbnailUrl": "https://img.youtube.com/vi/RBKoYopm2C8/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/31/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": null,
+      "matchedFacultySlug": "choe-jongeun",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do"
+    },
+    {
+      "labId": "33",
+      "professorName": "홍종섭",
+      "professorNameEn": "Hong, Jongsup",
+      "professorPosition": "교수",
+      "labNameKo": "Multiphysics Energy System Lab.",
+      "labWebsite": "http://mes.yonsei.ac.kr/",
+      "researchField": "열 및 물질전달, 반응공학",
+      "mediaType": "video",
+      "video": {
+        "provider": "youtube",
+        "videoId": "QyO40rVVPg0",
+        "embedUrl": "https://www.youtube.com/embed/QyO40rVVPg0",
+        "watchUrl": "https://www.youtube.com/watch?v=QyO40rVVPg0",
+        "thumbnailUrl": "https://img.youtube.com/vi/QyO40rVVPg0/hqdefault.jpg",
+        "localThumbnail": "/content/graduate/lab-media/33/thumbnail.jpg"
+      },
+      "promoImageUrl": null,
+      "logoUrl": "http://mes.yonsei.ac.kr/wp-content/uploads/2018/02/logo.png",
+      "matchedFacultySlug": "hong-jongseop",
+      "sourceUrl": "https://me.yonsei.ac.kr/me/graduate/labs.do",
+      "localLogo": "/content/graduate/lab-media/33/logo.png"
+    }
+  ]
+}

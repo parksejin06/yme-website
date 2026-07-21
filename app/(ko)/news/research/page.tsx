@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import NewsArticleBoard from "@/components/NewsArticleBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import articles from "@/data/news-articles.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "뉴스" };
 
@@ -19,7 +19,7 @@ export default function NewsResearchPage() {
       <SectionSubNav items={NEWS_NAV} lang="ko" label="뉴스 및 공지사항 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "뉴스" }]} />
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
-        <NewsArticleBoard lang="ko" articles={articles} />
+        <NewsArticleBoard lang="ko" articles={BOARD_DATA.news} />
       </section>
     </>
   );

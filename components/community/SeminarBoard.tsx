@@ -1,20 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { SEMINAR_FIELDS, type Seminar } from "@/lib/community";
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { Paperclip } from "lucide-react";
+import type { CommunityPost } from "@/lib/community-content";
+import { postHref, extractLeadingBracketTag } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
-  ko: {
-    all: "전체",
-    speaker: "연사",
-    noResults: "예정된 세미나가 없습니다.",
-  },
-  en: {
-    all: "All",
-    speaker: "Speaker",
-    noResults: "No seminars scheduled.",
-  },
+  ko: { all: "전체", noResults: "등록된 세미나가 없습니다." },
+  en: { all: "All", noResults: "No seminars posted." },
 };
 
 function chipClass(active: boolean) {
@@ -23,26 +18,35 @@ function chipClass(active: boolean) {
   }`;
 }
 
-export default function SeminarBoard({ items, lang }: { items: Seminar[]; lang: Lang }) {
+export default function SeminarBoard({ items, lang }: { items: CommunityPost[]; lang: Lang }) {
   const t = COPY[lang];
-  const [fieldFilter, setFieldFilter] = useState("all");
+  const [typeFilter, setTypeFilter] = useState("all");
 
-  const filtered = items
-    .filter((i) => fieldFilter === "all" || i.field === fieldFilter)
-    .sort((a, b) => a.date.localeCompare(b.date));
+  const types = useMemo(() => {
+    const s = new Set<string>();
+    for (const i of items) {
+      const tag = extractLeadingBracketTag(i.title);
+      if (tag) s.add(tag);
+    }
+    return Array.from(s);
+  }, [items]);
+
+  const filtered = items.filter((i) => typeFilter === "all" || extractLeadingBracketTag(i.title) === typeFilter);
 
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5">
-        <button onClick={() => setFieldFilter("all")} className={chipClass(fieldFilter === "all")}>
-          {t.all}
-        </button>
-        {SEMINAR_FIELDS.map((f) => (
-          <button key={f} onClick={() => setFieldFilter(f)} className={chipClass(fieldFilter === f)}>
-            {f}
+      {types.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
+            {t.all}
           </button>
-        ))}
-      </div>
+          {types.map((type) => (
+            <button key={type} onClick={() => setTypeFilter(type)} className={chipClass(typeFilter === type)}>
+              {type}
+            </button>
+          ))}
+        </div>
+      )}
 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
@@ -50,19 +54,13 @@ export default function SeminarBoard({ items, lang }: { items: Seminar[]; lang: 
         <ul className="mt-6 divide-y divide-line border-y border-line">
           {filtered.map((s) => (
             <li key={s.id} className="py-4">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <p className="font-display text-sm text-ink">{s.title}</p>
-                <p className="text-xs text-ink/45">
-                  {s.date}
-                  {s.startTime ? ` ${s.startTime}` : ""}
-                </p>
-              </div>
-              <p className="mt-1 text-xs text-ink/60">
-                {t.speaker}: {s.speaker}
-                {s.affiliation ? ` (${s.affiliation})` : ""}
-                {s.location ? ` · ${s.location}` : ""}
+              <Link href={postHref(lang, "seminars", s.sourcePostId)} className="flex items-start gap-2 hover:text-primary">
+                <span className="line-clamp-2 font-display text-sm text-ink">{s.title}</span>
+                {s.attachments.length > 0 && <Paperclip className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink/35" />}
+              </Link>
+              <p className="mt-1 text-xs text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
+                {s.author} · {s.publishedAt}
               </p>
-              {s.abstract && <p className="mt-2 text-sm text-ink/70">{s.abstract}</p>}
             </li>
           ))}
         </ul>

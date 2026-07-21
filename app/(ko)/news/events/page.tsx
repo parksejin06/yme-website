@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import EventBoard from "@/components/community/EventBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import events from "@/data/community-events.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "행사" };
 
@@ -16,7 +16,7 @@ export default function EventsPage() {
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "행사" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <EventBoard items={events} lang="ko" />
+        <EventBoard items={BOARD_DATA["events"]} lang="ko" />
       </section>
     </>
   );

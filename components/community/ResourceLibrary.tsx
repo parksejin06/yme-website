@@ -1,106 +1,72 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, FileDown } from "lucide-react";
-import type { Resource } from "@/lib/community";
+import Link from "next/link";
+import { Search, FileDown, FileText } from "lucide-react";
+import type { CommunityPost } from "@/lib/community-content";
+import { postHref } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
-  ko: {
-    searchPlaceholder: "자료명으로 검색",
-    all: "전체",
-    sortNewest: "최신순",
-    sortName: "이름순",
-    noResults: "등록된 자료가 없습니다.",
-  },
-  en: {
-    searchPlaceholder: "Search by title",
-    all: "All",
-    sortNewest: "Newest",
-    sortName: "By name",
-    noResults: "No files available.",
-  },
+  ko: { search: "자료명으로 검색", noResults: "등록된 자료가 없습니다.", files: "개 파일" },
+  en: { search: "Search by title", noResults: "No files available.", files: " file(s)" },
 };
 
-function chipClass(active: boolean) {
-  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
-
-export default function ResourceLibrary({ items, lang }: { items: Resource[]; lang: Lang }) {
+export default function ResourceLibrary({ items, lang }: { items: CommunityPost[]; lang: Lang }) {
   const t = COPY[lang];
   const [query, setQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
-  const [sort, setSort] = useState<"newest" | "name">("newest");
-  const categories = useMemo(() => [...new Set(items.map((i) => i.category))], [items]);
 
-  const filtered = items
-    .filter((i) => categoryFilter === "all" || i.category === categoryFilter)
-    .filter((i) => !query.trim() || i.title.toLowerCase().includes(query.trim().toLowerCase()))
-    .sort((a, b) => (sort === "newest" ? b.registeredDate.localeCompare(a.registeredDate) : a.title.localeCompare(b.title)));
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return items;
+    return items.filter((i) => i.title.toLowerCase().includes(q));
+  }, [items, query]);
 
   return (
     <div>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative min-w-[220px] max-w-sm flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-3 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-        </div>
-        <div className="inline-flex rounded-md border border-line p-0.5">
-          <button
-            onClick={() => setSort("newest")}
-            className={`min-h-9 rounded px-3 text-xs font-medium ${sort === "newest" ? "bg-primary-strong text-white" : "text-ink/60"}`}
-          >
-            {t.sortNewest}
-          </button>
-          <button
-            onClick={() => setSort("name")}
-            className={`min-h-9 rounded px-3 text-xs font-medium ${sort === "name" ? "bg-primary-strong text-white" : "text-ink/60"}`}
-          >
-            {t.sortName}
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        <button onClick={() => setCategoryFilter("all")} className={chipClass(categoryFilter === "all")}>
-          {t.all}
-        </button>
-        {categories.map((c) => (
-          <button key={c} onClick={() => setCategoryFilter(c)} className={chipClass(categoryFilter === c)}>
-            {c}
-          </button>
-        ))}
+      <div className="relative max-w-sm">
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t.search}
+          className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-3 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+        />
       </div>
 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <ul className="mt-6 divide-y divide-line border-y border-line">
-          {filtered.map((r) => (
-            <li key={r.id} className="flex items-center justify-between gap-4 py-3.5">
-              <div className="min-w-0">
-                <p className="truncate font-display text-sm text-ink">{r.title}</p>
-                <p className="mt-0.5 text-xs text-ink/45">
-                  {r.category} · {r.fileType} · {r.fileSize} · {r.registeredDate}
-                </p>
-              </div>
-              <a
-                href={r.filePath}
-                download
-                className="flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink/70 hover:border-primary hover:text-primary"
-              >
-                <FileDown className="h-3.5 w-3.5" /> {lang === "ko" ? "다운로드" : "Download"}
-              </a>
-            </li>
-          ))}
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+          {filtered.map((r) => {
+            const firstFile = r.attachments[0];
+            return (
+              <li key={r.id} className="flex items-start gap-3 rounded-lg border border-line p-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-surface-muted text-primary/50">
+                  <FileText className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <Link href={postHref(lang, "resources", r.sourcePostId)} className="line-clamp-2 font-display text-sm text-ink hover:text-primary">
+                    {r.title}
+                  </Link>
+                  <p className="mt-1 text-xs text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
+                    {r.publishedAt}
+                    {r.attachments.length > 0 && ` · ${r.attachments.length}${t.files}`}
+                  </p>
+                  {firstFile && (
+                    <a
+                      href={firstFile.localPath || firstFile.fileUrl}
+                      download={!!firstFile.localPath}
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink/70 hover:border-primary hover:text-primary"
+                    >
+                      <FileDown className="h-3.5 w-3.5" /> {lang === "ko" ? "다운로드" : "Download"}
+                    </a>
+                  )}
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

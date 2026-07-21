@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import SeminarBoard from "@/components/community/SeminarBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import seminars from "@/data/seminars.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "Seminars" };
 
@@ -16,7 +16,7 @@ export default function SeminarsPageEn() {
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Seminars" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <SeminarBoard items={seminars} lang="en" />
+        <SeminarBoard items={BOARD_DATA["seminars"]} lang="en" />
       </section>
     </>
   );

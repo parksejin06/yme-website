@@ -4,7 +4,7 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import ResourceLibrary from "@/components/community/ResourceLibrary";
 import { NEWS_NAV } from "@/lib/nav";
-import resources from "@/data/resources.json";
+import { BOARD_DATA } from "@/lib/community-data";
 
 export const metadata: Metadata = { title: "자료실" };
 
@@ -16,7 +16,7 @@ export default function ResourcesPage() {
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "자료실" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <ResourceLibrary items={resources} lang="ko" />
+        <ResourceLibrary items={BOARD_DATA["resources"]} lang="ko" />
       </section>
     </>
   );

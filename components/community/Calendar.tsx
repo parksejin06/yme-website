@@ -1,9 +1,17 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, LayoutGrid, List } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, LayoutGrid, List, ExternalLink } from "lucide-react";
 import Modal from "@/components/ui/Modal";
-import { CALENDAR_TYPE_META, calendarTypeLabel, type CalendarEvent, type CalendarEventType } from "@/lib/community";
+import {
+  CALENDAR_TYPE_COLORS,
+  findLinkedPost,
+  postHref,
+  type OfficialCalendarEvent,
+  type CommunityPost,
+  type BoardKey,
+} from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 const COPY = {
@@ -17,8 +25,8 @@ const COPY = {
     noEventsList: "등록된 일정이 없습니다.",
     noEventsDay: "선택한 날짜에 일정이 없습니다.",
     weekdays: ["일", "월", "화", "수", "목", "금", "토"],
-    location: "장소",
-    contact: "문의처",
+    relatedPost: "관련 게시글 보기",
+    official: "공식 캘린더 원문",
   },
   en: {
     today: "Today",
@@ -30,8 +38,8 @@ const COPY = {
     noEventsList: "No events scheduled.",
     noEventsDay: "No events on this date.",
     weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    location: "Location",
-    contact: "Contact",
+    relatedPost: "View related post",
+    official: "Official calendar source",
   },
 };
 
@@ -41,12 +49,29 @@ function pad(n: number) {
 function toDateKey(d: Date) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
-function eventsOnDate(events: CalendarEvent[], dateKey: string) {
-  return events.filter((e) => e.startDate <= dateKey && dateKey <= e.endDate);
+/** ICS timed values are UTC ('...Z'); the source calendar is Asia/Seoul (UTC+9), so we shift by a
+ * fixed 9h to get the calendar date the official page would show -- no reliance on server TZ. */
+function kstDateKey(iso: string, allDay: boolean): string {
+  if (allDay) return iso;
+  const d = new Date(iso);
+  const kst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+  return `${kst.getUTCFullYear()}-${pad(kst.getUTCMonth() + 1)}-${pad(kst.getUTCDate())}`;
+}
+function kstTime(iso: string): string {
+  const d = new Date(iso);
+  const kst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+  return `${pad(kst.getUTCHours())}:${pad(kst.getUTCMinutes())}`;
+}
+function typeColor(type: string): string {
+  return CALENDAR_TYPE_COLORS[type] ?? "#5578ac";
 }
 
-function EventDot({ type }: { type: CalendarEventType }) {
-  return <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: CALENDAR_TYPE_META[type].color }} />;
+function EventDot({ type }: { type: string }) {
+  return <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: typeColor(type) }} />;
+}
+
+interface DatedEvent extends OfficialCalendarEvent {
+  dateKey: string;
 }
 
 function EventListView({
@@ -54,9 +79,9 @@ function EventListView({
   noEventsLabel,
   onSelect,
 }: {
-  events: CalendarEvent[];
+  events: DatedEvent[];
   noEventsLabel: string;
-  onSelect: (e: CalendarEvent) => void;
+  onSelect: (e: DatedEvent) => void;
 }) {
   if (events.length === 0) {
     return <p className="py-10 text-center text-sm text-ink/40">{noEventsLabel}</p>;
@@ -64,19 +89,16 @@ function EventListView({
   return (
     <ul className="divide-y divide-line border-y border-line">
       {[...events]
-        .sort((a, b) => a.startDate.localeCompare(b.startDate))
-        .map((e) => (
-          <li key={e.id}>
+        .sort((a, b) => a.dateKey.localeCompare(b.dateKey))
+        .map((e, i) => (
+          <li key={`${e.uid ?? e.summary}-${i}`}>
             <button
               onClick={() => onSelect(e)}
               className="flex min-h-11 w-full items-center gap-3 py-3.5 text-left hover:bg-surface-muted/60 sm:gap-4"
             >
-              <span className="w-20 shrink-0 text-xs text-ink/50 sm:w-24">
-                {e.startDate}
-                {e.endDate !== e.startDate ? ` ~ ${e.endDate}` : ""}
-              </span>
-              <EventDot type={e.type} />
-              <span className="min-w-0 flex-1 truncate text-sm text-ink">{e.title}</span>
+              <span className="w-20 shrink-0 text-xs text-ink/50 sm:w-24">{e.dateKey}</span>
+              <EventDot type={e.eventType} />
+              <span className="min-w-0 flex-1 truncate text-sm text-ink">{e.summary}</span>
             </button>
           </li>
         ))}
@@ -84,19 +106,36 @@ function EventListView({
   );
 }
 
-export default function Calendar({ events, lang }: { events: CalendarEvent[]; lang: Lang }) {
+export default function Calendar({
+  events,
+  relatedPosts,
+  lang,
+}: {
+  events: OfficialCalendarEvent[];
+  relatedPosts: { board: BoardKey; post: CommunityPost }[];
+  lang: Lang;
+}) {
   const t = COPY[lang];
   const today = new Date();
   const [viewDate, setViewDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
-  const [typeFilter, setTypeFilter] = useState<CalendarEventType | "all">("all");
+  const [typeFilter, setTypeFilter] = useState<string>("all");
   const [view, setView] = useState<"month" | "list">("month");
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<DatedEvent | null>(null);
+
+  const datedEvents = useMemo<DatedEvent[]>(
+    () => events.map((e) => ({ ...e, dateKey: kstDateKey(e.start, e.allDay) })),
+    [events]
+  );
+
+  const types = useMemo(() => Array.from(new Set(datedEvents.map((e) => e.eventType))), [datedEvents]);
 
   const filteredEvents = useMemo(
-    () => (typeFilter === "all" ? events : events.filter((e) => e.type === typeFilter)),
-    [events, typeFilter]
+    () => (typeFilter === "all" ? datedEvents : datedEvents.filter((e) => e.eventType === typeFilter)),
+    [datedEvents, typeFilter]
   );
+
+  const eventsOnDate = (dateKey: string) => filteredEvents.filter((e) => e.dateKey === dateKey);
 
   const todayKey = toDateKey(today);
 
@@ -118,11 +157,21 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
       ? `${viewDate.getFullYear()}년 ${viewDate.getMonth() + 1}월`
       : viewDate.toLocaleDateString("en-US", { year: "numeric", month: "long" });
 
-  const dayEvents = selectedDay ? eventsOnDate(filteredEvents, selectedDay) : [];
+  const dayEvents = selectedDay ? eventsOnDate(selectedDay) : [];
+  const linked = selectedEvent
+    ? (() => {
+        const match = findLinkedPost(
+          selectedEvent.summary,
+          relatedPosts.map((r) => r.post)
+        );
+        if (!match) return null;
+        const board = relatedPosts.find((r) => r.post.id === match.id)?.board;
+        return board ? { board, post: match } : null;
+      })()
+    : null;
 
   return (
     <div>
-      {/* Header: month nav + view toggle */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-1">
           <button
@@ -166,7 +215,6 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
         </div>
       </div>
 
-      {/* Type filter */}
       <div className="mt-4 flex flex-wrap gap-1.5">
         <button
           onClick={() => setTypeFilter("all")}
@@ -174,22 +222,21 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
         >
           {t.all}
         </button>
-        {(Object.keys(CALENDAR_TYPE_META) as CalendarEventType[]).map((type) => (
+        {types.map((type) => (
           <button
             key={type}
             onClick={() => setTypeFilter(type)}
             className={`inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors ${
               typeFilter === type ? "text-white" : "border-line text-ink/60 hover:border-primary-soft"
             }`}
-            style={typeFilter === type ? { backgroundColor: CALENDAR_TYPE_META[type].color, borderColor: CALENDAR_TYPE_META[type].color } : undefined}
+            style={typeFilter === type ? { backgroundColor: typeColor(type), borderColor: typeColor(type) } : undefined}
           >
             <EventDot type={type} />
-            {calendarTypeLabel(type, lang)}
+            {type}
           </button>
         ))}
       </div>
 
-      {/* Month view (hidden on mobile unless explicitly toggled to it isn't needed since mobile always shows list per design) */}
       {view === "month" ? (
         <div className="mt-6 hidden sm:block">
           <div className="grid grid-cols-7 border-b border-line text-center text-xs text-ink/45">
@@ -201,7 +248,7 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
           </div>
           <div className="grid grid-cols-7">
             {cells.map(({ date, key, inMonth }) => {
-              const dayEvts = eventsOnDate(filteredEvents, key);
+              const dayEvts = eventsOnDate(key);
               const isToday = key === todayKey;
               const visible = dayEvts.slice(0, 3);
               const overflow = dayEvts.length - visible.length;
@@ -221,13 +268,13 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
                     {date.getDate()}
                   </span>
                   <div className="w-full space-y-0.5">
-                    {visible.map((e) => (
+                    {visible.map((e, i) => (
                       <span
-                        key={e.id}
+                        key={`${e.uid ?? e.summary}-${i}`}
                         className="block truncate rounded px-1 py-0.5 text-[10px] text-white"
-                        style={{ backgroundColor: CALENDAR_TYPE_META[e.type].color }}
+                        style={{ backgroundColor: typeColor(e.eventType) }}
                       >
-                        {e.title}
+                        {e.summary}
                       </span>
                     ))}
                     {overflow > 0 && <span className="block text-[10px] text-ink/45">{t.moreCount(overflow)}</span>}
@@ -240,19 +287,16 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
         </div>
       ) : null}
 
-      {/* List view: desktop only when "list" selected via toggle */}
       {view === "list" && (
         <div className="mt-6 hidden sm:block">
           <EventListView events={filteredEvents} noEventsLabel={t.noEventsList} onSelect={setSelectedEvent} />
         </div>
       )}
 
-      {/* Mobile: always a list (there's no month grid on mobile regardless of the view toggle) */}
       <div className="mt-6 sm:hidden">
         <EventListView events={filteredEvents} noEventsLabel={t.noEventsList} onSelect={setSelectedEvent} />
       </div>
 
-      {/* Day detail (from month-grid date click) */}
       <Modal open={!!selectedDay} onClose={() => setSelectedDay(null)} panelClassName="max-w-sm">
         {selectedDay && (
           <div className="p-6">
@@ -261,8 +305,8 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
               <p className="mt-4 text-sm text-ink/40">{t.noEventsDay}</p>
             ) : (
               <ul className="mt-4 space-y-2">
-                {dayEvents.map((e) => (
-                  <li key={e.id}>
+                {dayEvents.map((e, i) => (
+                  <li key={`${e.uid ?? e.summary}-${i}`}>
                     <button
                       onClick={() => {
                         setSelectedDay(null);
@@ -270,8 +314,8 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
                       }}
                       className="flex w-full items-center gap-2 rounded-md border border-line px-3 py-2.5 text-left text-sm hover:border-primary-soft"
                     >
-                      <EventDot type={e.type} />
-                      <span className="min-w-0 flex-1 truncate">{e.title}</span>
+                      <EventDot type={e.eventType} />
+                      <span className="min-w-0 flex-1 truncate">{e.summary}</span>
                     </button>
                   </li>
                 ))}
@@ -281,45 +325,33 @@ export default function Calendar({ events, lang }: { events: CalendarEvent[]; la
         )}
       </Modal>
 
-      {/* Event detail */}
       <Modal open={!!selectedEvent} onClose={() => setSelectedEvent(null)} panelClassName="max-w-sm">
         {selectedEvent && (
           <div className="p-6">
             <span
               className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium text-white"
-              style={{ backgroundColor: CALENDAR_TYPE_META[selectedEvent.type].color }}
+              style={{ backgroundColor: typeColor(selectedEvent.eventType) }}
             >
-              {calendarTypeLabel(selectedEvent.type, lang)}
+              {selectedEvent.eventType}
             </span>
-            <h3 className="mt-3 font-display text-lg text-ink">{selectedEvent.title}</h3>
+            <h3 className="mt-3 font-display text-lg text-ink">{selectedEvent.summary}</h3>
             <dl className="mt-4 space-y-2.5 text-sm">
               <div className="flex gap-2">
                 <dt className="w-16 shrink-0 text-ink/40">{lang === "ko" ? "일시" : "Date"}</dt>
                 <dd className="text-ink/80">
-                  {selectedEvent.startDate}
-                  {selectedEvent.endDate !== selectedEvent.startDate ? ` ~ ${selectedEvent.endDate}` : ""}
-                  {selectedEvent.startTime ? ` ${selectedEvent.startTime}${selectedEvent.endTime ? `–${selectedEvent.endTime}` : ""}` : ""}
+                  {selectedEvent.dateKey}
+                  {!selectedEvent.allDay ? ` ${kstTime(selectedEvent.start)}` : ""}
                 </dd>
               </div>
-              {selectedEvent.location && (
-                <div className="flex gap-2">
-                  <dt className="w-16 shrink-0 text-ink/40">{t.location}</dt>
-                  <dd className="text-ink/80">{selectedEvent.location}</dd>
-                </div>
-              )}
-              {selectedEvent.description && (
-                <div className="flex gap-2">
-                  <dt className="w-16 shrink-0 text-ink/40">{lang === "ko" ? "설명" : "Info"}</dt>
-                  <dd className="text-ink/80">{selectedEvent.description}</dd>
-                </div>
-              )}
-              {selectedEvent.contact && (
-                <div className="flex gap-2">
-                  <dt className="w-16 shrink-0 text-ink/40">{t.contact}</dt>
-                  <dd className="text-ink/80">{selectedEvent.contact}</dd>
-                </div>
-              )}
             </dl>
+            {linked && (
+              <Link
+                href={postHref(lang, linked.board, linked.post.sourcePostId)}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+              >
+                {t.relatedPost} <ExternalLink className="h-3.5 w-3.5" />
+              </Link>
+            )}
           </div>
         )}
       </Modal>

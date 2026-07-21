@@ -1,0 +1,3726 @@
+{
+  "sourceUrl": "https://me.yonsei.ac.kr/me/calender_main.do",
+  "icsUrl": "https://calendar.google.com/calendar/ical/0nevledgmf1pgvjsc57sp2tdik%40group.calendar.google.com/public/basic.ics",
+  "importedAt": "2026-07-21T04:38:14.572Z",
+  "totalEvents": 413,
+  "errors": [],
+  "events": [
+    {
+      "uid": "08fg4g0vnnot90codkdnulmjnh@google.com",
+      "summary": "[세미나]이은석(메르세데스-벤츠,북미센터)",
+      "eventType": "세미나",
+      "start": "2021-01-26T07:00:00Z",
+      "end": "2021-01-26T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2e92ah1an4cikv3fvc6325rohf@google.com",
+      "summary": "[세미나]양진규(Univ. of Washington)",
+      "eventType": "세미나",
+      "start": "2021-03-12T04:00:00Z",
+      "end": "2021-03-12T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4tv54jpk18u21llf0jen738abk@google.com",
+      "summary": "[세미나]서가영(CSU-Long Beach)",
+      "eventType": "세미나",
+      "start": "2021-03-19T04:00:00Z",
+      "end": "2021-03-19T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5l6nuu29hh2b1r31i93ocqujm4@google.com",
+      "summary": "[세미나]이호원(서울대학교)",
+      "eventType": "세미나",
+      "start": "2021-03-26T04:00:00Z",
+      "end": "2021-03-26T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "26hdsqqa47lkvermribfa38i8v@google.com",
+      "summary": "[행사]기계공학과 대학원생 입시설명회",
+      "eventType": "행사",
+      "start": "2021-03-29",
+      "end": "2021-03-30",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "47orbcfl9sllk7vnu6npa1kji2@google.com",
+      "summary": "[행사]제 3회 대학원생 학술대회",
+      "eventType": "행사",
+      "start": "2021-03-29T10:00:00Z",
+      "end": "2021-03-31T10:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6qr9j5t05rao55lhdjqlbqbqf9@google.com",
+      "summary": "[세미나]이병찬(경희대학교)",
+      "eventType": "세미나",
+      "start": "2021-04-02T04:00:00Z",
+      "end": "2021-04-02T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3n7ooept247tiqcja93dkvkrck@google.com",
+      "summary": "[세미나]남상철(RIST 양극재연구그룹)",
+      "eventType": "세미나",
+      "start": "2021-04-02T07:00:00Z",
+      "end": "2021-04-02T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5s9oi4hfnk10f4m2acch7mpi25@google.com",
+      "summary": "[세미나]이승우(Georgia Tech)",
+      "eventType": "세미나",
+      "start": "2021-04-09T01:00:00Z",
+      "end": "2021-04-09T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1h8av5jhol49vsd36grj22gek6@google.com",
+      "summary": "[세미나]Takuji Oda(서울대학교)",
+      "eventType": "세미나",
+      "start": "2021-04-09T04:00:00Z",
+      "end": "2021-04-09T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5f1q66nt19cql0m89of1n8hs49@google.com",
+      "summary": "[세미나]윤길호(한양대학교)",
+      "eventType": "세미나",
+      "start": "2021-04-16T04:00:00Z",
+      "end": "2021-04-16T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3sba83r0obu2qqcs1rnqleptlf@google.com",
+      "summary": "[행사]2021학년도 신입생 간담회 실시 안내",
+      "eventType": "행사",
+      "start": "2021-04-20T02:00:00Z",
+      "end": "2021-04-20T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0krjns1nnp4u3uk9n79i2s49mk@google.com",
+      "summary": "[세미나]곽노균(한양대학교)",
+      "eventType": "세미나",
+      "start": "2021-04-23T04:00:00Z",
+      "end": "2021-04-23T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7f8kbtivug88rl6qripr9s0f58@google.com",
+      "summary": "[세미나]Yixiang Shi(Tsinghua University)",
+      "eventType": "세미나",
+      "start": "2021-04-30T04:00:00Z",
+      "end": "2021-04-30T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "34855m67h08up99ivgn7bm3tps@google.com",
+      "summary": "[세미나]Ahmed Ghoniem(MIT)",
+      "eventType": "세미나",
+      "start": "2021-05-07T04:00:00Z",
+      "end": "2021-05-07T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5kec41df1q4rd7bu57aedla14e@google.com",
+      "summary": "2021학년도 기계공학부 지도교수 간담회",
+      "eventType": "일정",
+      "start": "2021-05-10T02:00:00Z",
+      "end": "2021-05-10T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5am2c5ten5bm3pgudkjbi45q32@google.com",
+      "summary": "2021학년도 1학기 졸업앨범 사진촬영 관련 안내",
+      "eventType": "일정",
+      "start": "2021-05-10T10:00:00Z",
+      "end": "2021-05-13T10:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "41ltng63rndqdl41anteue2fu8@google.com",
+      "summary": "[세미나]심준형(고려대학교)",
+      "eventType": "세미나",
+      "start": "2021-05-14T04:00:00Z",
+      "end": "2021-05-14T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1kfj7lieb9km1eoh2l8sipc7n6@google.com",
+      "summary": "2021학년도 1학기 서봉 이충곤 장학기금 장학생 선발",
+      "eventType": "일정",
+      "start": "2021-05-17T10:00:00Z",
+      "end": "2021-05-20T10:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7d0h7ikumjgerkscd6q37l8m8p@google.com",
+      "summary": "일몰된 교과목(기계공학수학)에 대한 재수강처리 요청서 제출",
+      "eventType": "일정",
+      "start": "2021-05-21",
+      "end": "2021-05-28",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "05tlcafs0n6l9q2qeuvtmulnhf@google.com",
+      "summary": "[세미나]Olaf Deutschmann(KIT)",
+      "eventType": "세미나",
+      "start": "2021-05-21T04:00:00Z",
+      "end": "2021-05-21T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "09knfqr9mefms2pff8phal953h@google.com",
+      "summary": "[2021-1학기] RC특강- Creativity, AI, and Your Future_ 양현석 교수님",
+      "eventType": "일정",
+      "start": "2021-05-26T10:00:00Z",
+      "end": "2021-05-26T12:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4u939g7mr0nj7k4q2s9e6n2csp@google.com",
+      "summary": "[세미나]조재현(NASA)",
+      "eventType": "세미나",
+      "start": "2021-05-28T04:00:00Z",
+      "end": "2021-05-28T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5pgo3u1hammo752l961mq6lp87@google.com",
+      "summary": "[세미나]노건우(고려대)",
+      "eventType": "세미나",
+      "start": "2021-06-11T04:00:00Z",
+      "end": "2021-06-11T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1jnjibm83rumpfcicorb78qh7c@google.com",
+      "summary": "기계 공학부 Online MEetup_주철민 교수님",
+      "eventType": "일정",
+      "start": "2021-06-23T03:00:00Z",
+      "end": "2021-06-23T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "522civd55qmpq9lu8c9llj75co@google.com",
+      "summary": "대학원 세미나(Prof. Wolfgang Gruber)",
+      "eventType": "대학원 세미나",
+      "start": "2021-09-10T05:00:00Z",
+      "end": "2021-09-10T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "49a3m1p5l3qfjqeq51e73a5mso@google.com",
+      "summary": "학부 세미나(장우석 전무)",
+      "eventType": "학부 세미나",
+      "start": "2021-09-10T07:00:00Z",
+      "end": "2021-09-10T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "42k1ufdk7pt47r57ca20g1j86d@google.com",
+      "summary": "홈페이지 대문사진 공모전(9/15~10/6)",
+      "eventType": "일정",
+      "start": "2021-09-15T05:15:00Z",
+      "end": "2021-09-15T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0fben988rh7pblktf1u8db1onk@google.com",
+      "summary": "대학원 세미나(Dr. Tyler Hamer)",
+      "eventType": "대학원 세미나",
+      "start": "2021-09-17T05:00:00Z",
+      "end": "2021-09-17T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3rv2psr7v1oqpn2ne6ef3kgam3@google.com",
+      "summary": "학부 세미나(조형희 교수, 김용준 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-09-17T07:00:00Z",
+      "end": "2021-09-17T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4anki5lphlscbg3js4u99ii1mp@google.com",
+      "summary": "대학원 세미나(Prof. Scott Atwood)",
+      "eventType": "대학원 세미나",
+      "start": "2021-09-24T05:00:00Z",
+      "end": "2021-09-24T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "05hpueed0i9e1mdrr3rn6c7vtd@google.com",
+      "summary": "학부 세미나(강건욱 교수, 이준상 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-09-24T07:00:00Z",
+      "end": "2021-09-24T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4qd79roeg697nuuj2ul3g8j32a@google.com",
+      "summary": "홈페이지 대문사진 공모전(09/15~10/06)",
+      "eventType": "일정",
+      "start": "2021-09-30T02:00:00Z",
+      "end": "2021-09-30T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "45di7ramq5mae3tkl7dquvserp@google.com",
+      "summary": "대학원 세미나(Dr. Ian Mackenzie)",
+      "eventType": "대학원 세미나",
+      "start": "2021-10-01T05:00:00Z",
+      "end": "2021-10-01T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2ajfffsr4mfqe6aajhltjjvc8u@google.com",
+      "summary": "학부 세미나(박연주 박사)",
+      "eventType": "학부 세미나",
+      "start": "2021-10-01T07:00:00Z",
+      "end": "2021-10-01T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "19g6su01k0nt7k2vgk2c0c6rk5@google.com",
+      "summary": "2022년도 기계공학과 대학원생 입시설명회",
+      "eventType": "일정",
+      "start": "2021-10-06T01:00:00Z",
+      "end": "2021-10-06T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7j869vrft6ut66fp5j0aeonb16@google.com",
+      "summary": "홈페이지 대문사진 공모전(9/15~10/06)",
+      "eventType": "일정",
+      "start": "2021-10-06T03:00:00Z",
+      "end": "2021-10-06T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1nl0r7r6m3q5kunc47jin8547v@google.com",
+      "summary": "대학원 세미나(김영기 연사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-10-08T05:00:00Z",
+      "end": "2021-10-08T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4fic3sdi1ksg80k34up57c515f@google.com",
+      "summary": "학부 세미나(홍종섭 교수, 류원형 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-10-08T07:00:00Z",
+      "end": "2021-10-08T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4l1vt64fphha1vcevfl4chfqls@google.com",
+      "summary": "대학원 세미나(Seiji Tsutsumi 연사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-10-15T04:00:00Z",
+      "end": "2021-10-15T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6a4kpul8f49ssomdh9rnv8htvq@google.com",
+      "summary": "학부 세미나(김종백 교수, 전성찬 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-10-15T07:00:00Z",
+      "end": "2021-10-15T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4grile59h6nv090jmv0mu3pr4t@google.com",
+      "summary": "2022-1학기 학위논문 예비 심사 기간(9/24~10/22)",
+      "eventType": "일정",
+      "start": "2021-10-20T23:30:00Z",
+      "end": "2021-10-22T00:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4lqefo87n6isd9us4t5hbpfumf@google.com",
+      "summary": "대학원 세미나(신성철 연사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-10-22T04:00:00Z",
+      "end": "2021-10-22T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "46m9ri5d5kqt4u73vvh6mn27c4@google.com",
+      "summary": "2021-2학기 기계공학과 대학원 종합시험 신청 기간(10/25~10/26)",
+      "eventType": "일정",
+      "start": "2021-10-24T18:00:00Z",
+      "end": "2021-10-24T19:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3tvvunsnf8c8uoqs51iadjpelj@google.com",
+      "summary": "2021년 2학기 대학원 신입생 제출 서류(10/25~10/26)",
+      "eventType": "일정",
+      "start": "2021-10-25T00:00:00Z",
+      "end": "2021-10-26T01:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5hc6kq2puv0c513rjulb3gtc9r@google.com",
+      "summary": " 대학원세미나(육현우 박사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-10-29T05:00:00Z",
+      "end": "2021-10-29T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2f98okokqm0mhlgg2k5m97jt3r@google.com",
+      "summary": "학부 세미나(이형석 교수, 송순호 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-10-29T07:00:00Z",
+      "end": "2021-10-29T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3l8fvr5dtciglmcm9v95auqai3@google.com",
+      "summary": "대학원세미나_엄원석 교수",
+      "eventType": "대학원 세미나",
+      "start": "2021-11-05T04:00:00Z",
+      "end": "2021-11-05T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "77m29u6qig23cc3h7ghdbc9a9b@google.com",
+      "summary": "학부 세미나(양현석 교수, 최종은 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-11-05T07:00:00Z",
+      "end": "2021-11-05T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5jvnlgm9mm93afdthvgv7j2ut1@google.com",
+      "summary": "초청세미나_박우성 교수(숙명여자대학교)",
+      "eventType": "세미나",
+      "start": "2021-11-08T07:00:00Z",
+      "end": "2021-11-08T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0m5ktmn9tqe2q4vk9o2mirf4ma@google.com",
+      "summary": "BK 세미나_윤용진 교수(카이스트)",
+      "eventType": "BK세미나",
+      "start": "2021-11-08T08:00:00Z",
+      "end": "2021-11-08T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3b4s1mgb97lfp4kocir4lprg4j@google.com",
+      "summary": "대학원 세미나(박순홍 연사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-11-12T04:00:00Z",
+      "end": "2021-11-12T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2484tmaoen1ekln1e5pov801p9@google.com",
+      "summary": "학부 세미나(박연주 박사)",
+      "eventType": "학부 세미나",
+      "start": "2021-11-12T07:00:00Z",
+      "end": "2021-11-12T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "67g601c7u34k2pb9ufmq37b75v@google.com",
+      "summary": "대학원 세미나(박연주 박사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-11-19T04:00:00Z",
+      "end": "2021-11-19T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "26p2am2lolobkphc27jckutoaa@google.com",
+      "summary": "학부 세미나(주철민 교수, 윤준영 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-11-19T07:00:00Z",
+      "end": "2021-11-19T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3mt9tehlmuc10o84j6msip4i1p@google.com",
+      "summary": "대학원 세미나(김용태 연사)",
+      "eventType": "대학원 세미나",
+      "start": "2021-11-26T04:00:00Z",
+      "end": "2021-11-26T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "24l8jhlcmhoa6b4sj42ijn43jd@google.com",
+      "summary": "학부 세미나(장용훈 교수, 이종수 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-11-26T07:00:00Z",
+      "end": "2021-11-26T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5dpg34fkdm6satp3uelk2q0ro0@google.com",
+      "summary": "학부 세미나(정효일 교수)",
+      "eventType": "학부 세미나",
+      "start": "2021-12-03T07:00:00Z",
+      "end": "2021-12-03T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "05asfdtdkbfn3iksqe1l72hp8a@google.com",
+      "summary": "BK세미나_이정철 교수(카이스트)",
+      "eventType": "BK세미나",
+      "start": "2021-12-03T07:00:00Z",
+      "end": "2021-12-03T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4eh3gvarnnrgmiris9tk246ama@google.com",
+      "summary": "BK세미나_조일주 박사(KIST)",
+      "eventType": "BK세미나",
+      "start": "2021-12-03T08:00:00Z",
+      "end": "2021-12-03T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "246bj5ck09uhnf3j3mt4gn1u2n@google.com",
+      "summary": "MEetup_강건욱 교수",
+      "eventType": "일정",
+      "start": "2021-12-10T02:00:00Z",
+      "end": "2021-12-10T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "02bv82t990vasg9j3mp256klkm@google.com",
+      "summary": "학부 세미나(박연주 박사)",
+      "eventType": "학부 세미나",
+      "start": "2021-12-10T07:00:00Z",
+      "end": "2021-12-10T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7uqvlatsimulbj3m7cblre4g4q@google.com",
+      "summary": "학부세미나_황정호 교수",
+      "eventType": "학부 세미나",
+      "start": "2021-12-10T07:00:00Z",
+      "end": "2021-12-10T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7h46e2kr9ibbul1b8bc7n593v8@google.com",
+      "summary": "BK세미나_Joseph Jang(GM)",
+      "eventType": "BK세미나",
+      "start": "2021-12-17T06:00:00Z",
+      "end": "2021-12-17T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "12h4l446fhiat5ro0enkfoh4mt@google.com",
+      "summary": "BK세미나_김영상(한국기계연구원)",
+      "eventType": "BK세미나",
+      "start": "2021-12-22T02:00:00Z",
+      "end": "2021-12-22T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4mkvmdgrkjqk2q23fon7pn6g00@google.com",
+      "summary": "BK세미나_김현진(KAIST)",
+      "eventType": "BK세미나",
+      "start": "2022-02-04T01:00:00Z",
+      "end": "2022-02-04T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2rr9l2vhs6v5fhtkqmu5b1tiku@google.com",
+      "summary": "대학원세미나_황농문 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-03-11T04:00:00Z",
+      "end": "2022-03-11T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3t9raoavuthhb97at04v759k7p@google.com",
+      "summary": "대학원세미나_박천홍",
+      "eventType": "대학원 세미나",
+      "start": "2022-03-18T04:00:00Z",
+      "end": "2022-03-18T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3s971cj9o1g4m5t0s2348l52ro@google.com",
+      "summary": "BK세미나_김지호",
+      "eventType": "BK세미나",
+      "start": "2022-03-22T08:00:00Z",
+      "end": "2022-03-22T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4hto9dp14t2df1h9f82grat6li@google.com",
+      "summary": "대학원세미나_이윤우",
+      "eventType": "대학원 세미나",
+      "start": "2022-03-25T04:00:00Z",
+      "end": "2022-03-25T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4tdr9q47doq0j4njkhrufrrpf7@google.com",
+      "summary": "2022년도 후기 대학원생 입시설명회",
+      "eventType": "일정",
+      "start": "2022-03-28T08:00:00Z",
+      "end": "2022-03-28T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0ed9jb5to4nlm3gsuecpqmdurq@google.com",
+      "summary": "대학원세미나_임창문",
+      "eventType": "대학원 세미나",
+      "start": "2022-04-01T04:00:00Z",
+      "end": "2022-04-01T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5mungorkhde78p26t4jcnh2vkh@google.com",
+      "summary": "대학원세미나_David Hwang 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-04-08T04:00:00Z",
+      "end": "2022-04-08T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "195jou2olkc99uk5rggs4b9quu@google.com",
+      "summary": "대학원세미나_Sang Hyun Oh 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-04-15T04:00:00Z",
+      "end": "2022-04-15T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7im5r8jrbl9teigfb3imu7o6td@google.com",
+      "summary": "대학원세미나_신동준 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-04-22T04:00:00Z",
+      "end": "2022-04-22T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "10p4phs1up5pf8jb5jen0cqegp@google.com",
+      "summary": "BK세미나_이유호 교수",
+      "eventType": "BK세미나",
+      "start": "2022-04-26T07:00:00Z",
+      "end": "2022-04-26T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7uuq3qep1bjhge5k9ejbkn9tji@google.com",
+      "summary": "대학원세미나_Emel Demircan",
+      "eventType": "대학원 세미나",
+      "start": "2022-04-29T04:00:00Z",
+      "end": "2022-04-29T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "24hvp4u6jlbdp1hj4eok0gu4pv@google.com",
+      "summary": "대학원 세미나_Sung Jin Park",
+      "eventType": "대학원 세미나",
+      "start": "2022-05-06T04:00:00Z",
+      "end": "2022-05-06T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "53gfc1ja1jus8h2i95idjeoi9l@google.com",
+      "summary": "BK세미나_김태용 박사",
+      "eventType": "BK세미나",
+      "start": "2022-05-12T02:00:00Z",
+      "end": "2022-05-12T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "21vnn3n6l7d993ol1u46j0oa8t@google.com",
+      "summary": "대학원 세미나_Denny Oetomo",
+      "eventType": "대학원 세미나",
+      "start": "2022-05-13T04:00:00Z",
+      "end": "2022-05-13T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2644vb2ndshg5469aaf2vcupua@google.com",
+      "summary": "BK세미나_Dr.Tony Kim",
+      "eventType": "BK세미나",
+      "start": "2022-05-17T05:00:00Z",
+      "end": "2022-05-17T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3de6ru6edi7fn1lbq3n4kurabk@google.com",
+      "summary": "대학원 세미나_김석민 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-05-20T04:00:00Z",
+      "end": "2022-05-20T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4ahlp7dmbokti4jna5jsj354kn@google.com",
+      "summary": "BK세미나_장지영 교수",
+      "eventType": "BK세미나",
+      "start": "2022-05-25T02:00:00Z",
+      "end": "2022-05-25T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4rrtoi4lh5qltf41q8rs8iubvo@google.com",
+      "summary": "심혈관 연구 국제공동연구실 워크샵",
+      "eventType": "일정",
+      "start": "2022-05-25T05:00:00Z",
+      "end": "2022-05-25T06:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "102leohj03ola5fnrae97g5v67@google.com",
+      "summary": "대학원 세미나_Tae Chung, M.D.",
+      "eventType": "대학원 세미나",
+      "start": "2022-05-27T04:00:00Z",
+      "end": "2022-05-27T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3q7sr2pd45q1nbs1vnu0v5a8ld@google.com",
+      "summary": "대학원 우수논문 발표",
+      "eventType": "일정",
+      "start": "2022-06-03T04:00:00Z",
+      "end": "2022-06-03T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "097frhj54e503kahf70pp8ru5c@google.com",
+      "summary": "BK세미나_여창동 교수",
+      "eventType": "BK세미나",
+      "start": "2022-06-07T05:00:00Z",
+      "end": "2022-06-07T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7jlicocrrjfg33gtp5cut3imfa@google.com",
+      "summary": "BK세미나_최종률 교수",
+      "eventType": "BK세미나",
+      "start": "2022-06-08T05:30:00Z",
+      "end": "2022-06-08T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0r0geti9nqkihlik0vd4si044q@google.com",
+      "summary": "BK세미나_박형채 박사",
+      "eventType": "BK세미나",
+      "start": "2022-06-10T02:00:00Z",
+      "end": "2022-06-10T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "12kh9s2fu0kg7lbsufdpf8j5g8@google.com",
+      "summary": "대학원 세미나_Philippe Fraisse‬",
+      "eventType": "대학원 세미나",
+      "start": "2022-06-10T04:00:00Z",
+      "end": "2022-06-10T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7bi8b5e24vfvmh2g1329fpmhrj@google.com",
+      "summary": "칭화대-연세대 학술포럼",
+      "eventType": "일정",
+      "start": "2022-06-11",
+      "end": "2022-06-12",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5jun6rd4n95ftv2ts9vfm3je0q@google.com",
+      "summary": "칭화대-연세대 학술포럼",
+      "eventType": "일정",
+      "start": "2022-06-12",
+      "end": "2022-06-13",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4tuh8c23dqoatfru5kl3d7t60c@google.com",
+      "summary": "BK세미나_황원묵 교수",
+      "eventType": "BK세미나",
+      "start": "2022-06-30T01:00:00Z",
+      "end": "2022-06-30T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6bpkk39vmpntrki3i3aikt8c03@google.com",
+      "summary": "BK세미나_박재홍 교수",
+      "eventType": "BK세미나",
+      "start": "2022-07-07T01:30:00Z",
+      "end": "2022-07-07T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0dqsk1qpncmf14b64g1tb07np1@google.com",
+      "summary": "BK세미나_류일 교수",
+      "eventType": "BK세미나",
+      "start": "2022-07-13T02:00:00Z",
+      "end": "2022-07-13T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "02jrgjhqs1aii3bhkguu5rop92@google.com",
+      "summary": "BK세미나_홍종은 박사",
+      "eventType": "BK세미나",
+      "start": "2022-07-13T06:00:00Z",
+      "end": "2022-07-13T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1833mqgqka6nu05eegqvhjf8jt@google.com",
+      "summary": "태국-연세 워크샵",
+      "eventType": "일정",
+      "start": "2022-08-02T05:00:00Z",
+      "end": "2022-08-02T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1k0n0ddn6u1hal7l1bs472f2kh@google.com",
+      "summary": "BK세미나_김경학 교수",
+      "eventType": "BK세미나",
+      "start": "2022-08-05T07:00:00Z",
+      "end": "2022-08-05T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0ptv97m81o8t2dnejjm1efmp46@google.com",
+      "summary": "2022년 열전달 첨단분야 워크샵",
+      "eventType": "일정",
+      "start": "2022-08-12T06:00:00Z",
+      "end": "2022-08-12T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3daqkih49mgmco1303h9th07a8@google.com",
+      "summary": "제4회 연세기계 특허콘서트",
+      "eventType": "일정",
+      "start": "2022-08-24T05:00:00Z",
+      "end": "2022-08-24T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0a0d62ro6034foq2efkqq3saqo@google.com",
+      "summary": "BK세미나_홍종은 박사",
+      "eventType": "BK세미나",
+      "start": "2022-08-29T06:00:00Z",
+      "end": "2022-08-29T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7429tdn0fd290ehmtrltf75v0s@google.com",
+      "summary": "BK세미나_홍제형 교수",
+      "eventType": "BK세미나",
+      "start": "2022-09-01T08:00:00Z",
+      "end": "2022-09-01T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "702164grd9lt0hk426t9kor808@google.com",
+      "summary": "BK세미나_김자영 교수",
+      "eventType": "BK세미나",
+      "start": "2022-09-13T07:00:00Z",
+      "end": "2022-09-13T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3kkd0vpua8s068io4n4dt8b8rn@google.com",
+      "summary": "BK세미나_Prof. Kaleli",
+      "eventType": "BK세미나",
+      "start": "2022-09-15T02:00:00Z",
+      "end": "2022-09-15T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6qgnllu8k3ic6om9s1u6sn4vfu@google.com",
+      "summary": "대학원 세미나_최인호 실장",
+      "eventType": "대학원 세미나",
+      "start": "2022-09-16T04:30:00Z",
+      "end": "2022-09-16T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6v6k8cn9lb67ngct4itn8flv9p@google.com",
+      "summary": "학부 세미나_이준상 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-09-16T07:00:00Z",
+      "end": "2022-09-16T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "124g9nfqfpim5bn9kc1abjvoil@google.com",
+      "summary": "학부 세미나_전성찬 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-09-16T08:00:00Z",
+      "end": "2022-09-16T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1bg02kn96nvlqa1n3tffulvhld@google.com",
+      "summary": "BK세미나_한범수 교수",
+      "eventType": "BK세미나",
+      "start": "2022-09-19T04:30:00Z",
+      "end": "2022-09-19T06:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3au19n5ksiu8cpne041osdv8eb@google.com",
+      "summary": "대학원 세미나_김법민 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-09-23T04:30:00Z",
+      "end": "2022-09-23T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4f7j4vopvargja9g7j275hk03s@google.com",
+      "summary": "학부 세미나_김종백 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-09-23T07:00:00Z",
+      "end": "2022-09-23T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4m1gs0k42ugnmu1dektu5eakbu@google.com",
+      "summary": "제4회 대학원생 학술대회",
+      "eventType": "일정",
+      "start": "2022-09-29",
+      "end": "2022-09-30",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7q3pcf1cbhg7d85ffv2aaf5q1m@google.com",
+      "summary": "대학원 세미나_문지영",
+      "eventType": "대학원 세미나",
+      "start": "2022-09-30T04:30:00Z",
+      "end": "2022-09-30T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "70nqdfj46saqv3hihlu9miturb@google.com",
+      "summary": "BK세미나_나지성",
+      "eventType": "BK세미나",
+      "start": "2022-09-30T07:00:00Z",
+      "end": "2022-09-30T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5clsvn06edoivehbm5o6nopn5v@google.com",
+      "summary": "학부 세미나_김용준 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-09-30T07:00:00Z",
+      "end": "2022-09-30T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5cquj9a61kphctlvj88r432ntj@google.com",
+      "summary": "학부 세미나_홍종섭 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-09-30T08:00:00Z",
+      "end": "2022-09-30T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2h0r6ovoc261ebjsl7ver0i3e9@google.com",
+      "summary": "대학원 세미나_박진무",
+      "eventType": "대학원 세미나",
+      "start": "2022-10-07T04:30:00Z",
+      "end": "2022-10-07T06:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5723m2ppmdc3uvpsudfpqmjfbm@google.com",
+      "summary": "학부 세미나_이형석 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-07T07:00:00Z",
+      "end": "2022-10-07T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4977bindnp36o48h6hnsnp3dtk@google.com",
+      "summary": "학부 세미나_류원형 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-07T08:00:00Z",
+      "end": "2022-10-07T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "06bq39oor33qcua35n8e1kmau1@google.com",
+      "summary": "대학원 세미나_김원종 대표",
+      "eventType": "대학원 세미나",
+      "start": "2022-10-14T04:30:00Z",
+      "end": "2022-10-14T06:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3r5vd3p6qd1cms421etqvn8mcp@google.com",
+      "summary": "학부 세미나_주철민 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-14T07:00:00Z",
+      "end": "2022-10-14T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "21p7u9mjoqro74j3d6ktemr2dm@google.com",
+      "summary": "학부 세미나_현재상 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-14T08:00:00Z",
+      "end": "2022-10-14T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5ptnav8hj3uoi6om3qa2d1pdcn@google.com",
+      "summary": "BK세미나_신승용 교수",
+      "eventType": "BK세미나",
+      "start": "2022-10-20T08:00:00Z",
+      "end": "2022-10-20T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2lc8mp0hes5n5lauf8snl1ijbn@google.com",
+      "summary": "대학원 세미나_임준채 팀장",
+      "eventType": "대학원 세미나",
+      "start": "2022-10-28T04:30:00Z",
+      "end": "2022-10-28T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7b2vjc9aiv6r60dk2p77hnrstl@google.com",
+      "summary": "학부 세미나_조형희 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-28T07:00:00Z",
+      "end": "2022-10-28T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "12lch8cia3ggg9a487noq95a9i@google.com",
+      "summary": "학부 세미나_민병권 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-10-28T08:00:00Z",
+      "end": "2022-10-28T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "050j25da26brq500b7ekc8cgga@google.com",
+      "summary": "과학기술 및 인문학 공동워크샵",
+      "eventType": "일정",
+      "start": "2022-10-31T04:00:00Z",
+      "end": "2022-10-31T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2qej1mps70p9mlrlqvf28rrufj@google.com",
+      "summary": "대학원 세미나_서종민 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-11-04T04:30:00Z",
+      "end": "2022-11-04T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "64spvqqf17cg56ldqolq1e2kfp@google.com",
+      "summary": "학부 세미나_신동준 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-04T07:00:00Z",
+      "end": "2022-11-04T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5a2rp8k5aeonlsovqa9876pp5p@google.com",
+      "summary": "학부 세미나_최종은 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-04T08:00:00Z",
+      "end": "2022-11-04T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3j0cjb7rl98cnutcnj41pau02a@google.com",
+      "summary": "BK세미나_신선미 교수",
+      "eventType": "BK세미나",
+      "start": "2022-11-11T02:00:00Z",
+      "end": "2022-11-11T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "76l9impnddfmmnal604v5o3imo@google.com",
+      "summary": "대학원 세미나_김득상 대표",
+      "eventType": "대학원 세미나",
+      "start": "2022-11-11T04:30:00Z",
+      "end": "2022-11-11T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7dnn6gtsi52o63ufi2ffkgrsuc@google.com",
+      "summary": "학부 세미나_윤준영 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-11T07:00:00Z",
+      "end": "2022-11-11T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5s853n333hc9iao82n6n18hmbp@google.com",
+      "summary": "학부 세미나_송순호 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-11T08:00:00Z",
+      "end": "2022-11-11T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "73h4obm499s20hgb93ob1pl2ai@google.com",
+      "summary": "대학원 세미나_최동휘 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-11-18T04:30:00Z",
+      "end": "2022-11-18T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7gd1s3ivfdauf6983rjiph1s69@google.com",
+      "summary": "학부 세미나_이종수 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-18T07:00:00Z",
+      "end": "2022-11-18T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3ssvfnptqvld9jj3dq1oia6osq@google.com",
+      "summary": "학부 세미나_강건욱 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-18T08:00:00Z",
+      "end": "2022-11-18T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3left4i6d5nfegpavttj56jf4d@google.com",
+      "summary": "BK세미나_김정원 박사",
+      "eventType": "BK세미나",
+      "start": "2022-11-24T02:00:00Z",
+      "end": "2022-11-24T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0i976ohsbet5n3aqgmp29gvja3@google.com",
+      "summary": "대학원 세미나_박재홍 대표",
+      "eventType": "대학원 세미나",
+      "start": "2022-11-25T04:30:00Z",
+      "end": "2022-11-25T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6flsu4gh34ptlf86r64sad7qco@google.com",
+      "summary": "학부 세미나_심경수 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-11-25T07:00:00Z",
+      "end": "2022-11-25T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6q4b06987n9eh5mht5h27ubile@google.com",
+      "summary": "2학기 대학원 우수논문 발표",
+      "eventType": "일정",
+      "start": "2022-12-02T04:30:00Z",
+      "end": "2022-12-02T06:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3pqrmbu4rter1aa4ebm9eh1hn6@google.com",
+      "summary": "학부 세미나_박노철 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-12-02T07:00:00Z",
+      "end": "2022-12-02T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3c6859hj2ji5jlmu05lt6kpbu7@google.com",
+      "summary": "학부 세미나_김영주 교수",
+      "eventType": "학부 세미나",
+      "start": "2022-12-02T08:00:00Z",
+      "end": "2022-12-02T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3rru71oam52gnhn2do784h403o@google.com",
+      "summary": "창의3 전시회",
+      "eventType": "일정",
+      "start": "2022-12-07T04:00:00Z",
+      "end": "2022-12-07T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "600cdbre5ci393lmvf59vf3qh3@google.com",
+      "summary": "ceo포럼",
+      "eventType": "일정",
+      "start": "2022-12-07T08:00:00Z",
+      "end": "2022-12-07T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "01qcp6mdre8ck1137pjuf85csp@google.com",
+      "summary": "외국인 대학원생 간담회",
+      "eventType": "일정",
+      "start": "2022-12-08T03:00:00Z",
+      "end": "2022-12-08T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0pb1b44vjpeuf7e45jjkta6lf3@google.com",
+      "summary": "대학원 세미나_김동혁 교수",
+      "eventType": "대학원 세미나",
+      "start": "2022-12-09T04:30:00Z",
+      "end": "2022-12-09T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7fhvhnnopc37l2cs5oqfl8man3@google.com",
+      "summary": "신진연구인력 간담회",
+      "eventType": "일정",
+      "start": "2022-12-15T02:30:00Z",
+      "end": "2022-12-15T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "35itrhrc90350ppt91gbasvrps@google.com",
+      "summary": "대학원 여학생 간담회",
+      "eventType": "일정",
+      "start": "2022-12-20T03:00:00Z",
+      "end": "2022-12-20T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2n72thgiegeo6r16dk95itulq7@google.com",
+      "summary": "BK세미나_김우수 교수",
+      "eventType": "BK세미나",
+      "start": "2022-12-22T07:30:00Z",
+      "end": "2022-12-22T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6a2h2kr7l69bgr1f3mnjfsv253@google.com",
+      "summary": "BK세미나_김관규 박사",
+      "eventType": "BK세미나",
+      "start": "2022-12-29T07:00:00Z",
+      "end": "2022-12-29T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "44e2nd2p6lav6pog7rtmmbjhht@google.com",
+      "summary": "BK세미나_Soo Jeon 교수",
+      "eventType": "BK세미나",
+      "start": "2023-01-03T07:00:00Z",
+      "end": "2023-01-03T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6orhvb658b5u4elngh10pq5l78@google.com",
+      "summary": "BK세미나_문혜란 박사",
+      "eventType": "BK세미나",
+      "start": "2023-01-06T05:00:00Z",
+      "end": "2023-01-06T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2rckq83hm7epqlhs56hjl8a10h@google.com",
+      "summary": "BK세미나_하호진 교수",
+      "eventType": "BK세미나",
+      "start": "2023-01-19T07:00:00Z",
+      "end": "2023-01-19T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "31h2l8tfbkl509d8es3skdt7mi@google.com",
+      "summary": "BK세미나_김범석 교수",
+      "eventType": "BK세미나",
+      "start": "2023-01-20T06:00:00Z",
+      "end": "2023-01-20T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "49vs6cdv4htmeia471qjva7tir@google.com",
+      "summary": "BK 세미나_Dr. Stefan Partel / Dr. Volha Matylitskaya",
+      "eventType": "BK세미나",
+      "start": "2023-01-26T07:00:00Z",
+      "end": "2023-01-26T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1tt97g0mkioqt6pujl042oloie@google.com",
+      "summary": "제5회 특허콘서트",
+      "eventType": "일정",
+      "start": "2023-01-27T05:00:00Z",
+      "end": "2023-01-27T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5p0s851e432r8hueejjef1e78t@google.com",
+      "summary": "BK세미나_정호암 교수",
+      "eventType": "BK세미나",
+      "start": "2023-02-03T08:00:00Z",
+      "end": "2023-02-03T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7q1ikmpf3tm6450408havleqk5@google.com",
+      "summary": "BK세미나_Dr. Tran Quang",
+      "eventType": "BK세미나",
+      "start": "2023-02-08T02:00:00Z",
+      "end": "2023-02-08T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "75t1oecvnusp102plvb93ggr0m@google.com",
+      "summary": "BK세미나_양승화 교수",
+      "eventType": "BK세미나",
+      "start": "2023-02-10T07:00:00Z",
+      "end": "2023-02-10T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "61ucn69t5n969mhntff16aj3v7@google.com",
+      "summary": "BK세미나_이성혁 교수",
+      "eventType": "BK세미나",
+      "start": "2023-02-16T07:00:00Z",
+      "end": "2023-02-16T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0pemgavn810r19d08tb9l7k1lb@google.com",
+      "summary": "BK세미나_김일용 교수",
+      "eventType": "BK세미나",
+      "start": "2023-02-21T02:00:00Z",
+      "end": "2023-02-21T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7phfirauo2k3ptoj042pf62hni@google.com",
+      "summary": "BK세미나_Alex Lee 박사",
+      "eventType": "BK세미나",
+      "start": "2023-02-21T08:00:00Z",
+      "end": "2023-02-21T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "00jupmo1livqt3kg9k77mst98r@google.com",
+      "summary": "BK세미나_이지현 교수",
+      "eventType": "BK세미나",
+      "start": "2023-02-27T07:00:00Z",
+      "end": "2023-02-27T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4vt5ka4bmdmddodnd3gc53c8bh@google.com",
+      "summary": "대학원 세미나_채은미 교수",
+      "eventType": "대학원 세미나",
+      "start": "2023-03-10T04:00:00Z",
+      "end": "2023-03-10T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2mspnb2ob5f60mkgo76qb6venr@google.com",
+      "summary": "학부 세미나_나군호 박사",
+      "eventType": "학부 세미나",
+      "start": "2023-03-10T07:00:00Z",
+      "end": "2023-03-10T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "11e065ec3dduavq83uvsf1cpjp@google.com",
+      "summary": "BK세미나_전재웅 대표",
+      "eventType": "BK세미나",
+      "start": "2023-03-16T06:00:00Z",
+      "end": "2023-03-16T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4a5tmrts0pnl48ekbbph8t6lb9@google.com",
+      "summary": "대학원 세미나_이용호 박사",
+      "eventType": "대학원 세미나",
+      "start": "2023-03-17T04:00:00Z",
+      "end": "2023-03-17T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "40be2024omln0jm8ci4re71vgr@google.com",
+      "summary": "학부 세미나_Shayan Fakhraei Lahiji",
+      "eventType": "학부 세미나",
+      "start": "2023-03-17T07:00:00Z",
+      "end": "2023-03-17T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "02380lffov5v61vaf0ctcgv3g1@google.com",
+      "summary": "대학원 세미나_주정진 박사",
+      "eventType": "대학원 세미나",
+      "start": "2023-03-24T04:00:00Z",
+      "end": "2023-03-24T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2otncjpq55qd6odfsems34hiam@google.com",
+      "summary": "학부 세미나_Amin Piri",
+      "eventType": "학부 세미나",
+      "start": "2023-03-24T07:00:00Z",
+      "end": "2023-03-24T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1o35rgt4d67te4vn1si3dijrhb@google.com",
+      "summary": "대학원 세미나_문한섭 교수",
+      "eventType": "대학원 세미나",
+      "start": "2023-03-31T04:00:00Z",
+      "end": "2023-03-31T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3l3bvt5ab4iplpgql9ib2j4ec7@google.com",
+      "summary": "학부 세미나_Adriana Rivera-Piza",
+      "eventType": "학부 세미나",
+      "start": "2023-03-31T07:00:00Z",
+      "end": "2023-03-31T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4d409cr35g33ktqp469a58vaqq@google.com",
+      "summary": "대학원 세미나_김용우",
+      "eventType": "대학원 세미나",
+      "start": "2023-04-07T04:00:00Z",
+      "end": "2023-04-07T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6ccbksb3q2lsg2mm43o95ifje8@google.com",
+      "summary": "학부 세미나_김재민 박사",
+      "eventType": "학부 세미나",
+      "start": "2023-04-07T07:00:00Z",
+      "end": "2023-04-07T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4s9rf7uhkkckoadiaprrf0a3nh@google.com",
+      "summary": "대학원 세미나_유구현 위원",
+      "eventType": "대학원 세미나",
+      "start": "2023-04-14T04:00:00Z",
+      "end": "2023-04-14T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0lhd4e7hllu0au3r8opj8vr9er@google.com",
+      "summary": "학부 세미나_이광호 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-04-14T07:00:00Z",
+      "end": "2023-04-14T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7ajgurm5f30f8ihkien8viha0f@google.com",
+      "summary": "US Air Force Research Laboratory (AFRL) and Navy Research Laboratory (ONRG) Seminar",
+      "eventType": "일정",
+      "start": "2023-04-24T05:00:00Z",
+      "end": "2023-04-24T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0lu4klr3u8c9t837k5c7dicdgu@google.com",
+      "summary": "기계공학부 세미나_이유호 교수",
+      "eventType": "세미나",
+      "start": "2023-04-25T09:30:00Z",
+      "end": "2023-04-25T10:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "142ca1m0rv1ikat4r33765b15u@google.com",
+      "summary": "대학원 세미나_박신원 위원",
+      "eventType": "대학원 세미나",
+      "start": "2023-04-28T04:00:00Z",
+      "end": "2023-04-28T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "78eedhsn6v4o2p64egd8ajnrvm@google.com",
+      "summary": "학부 세미나_정구혁 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-04-28T07:00:00Z",
+      "end": "2023-04-28T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2nq0rgi10dtvbkge561kbmnv2s@google.com",
+      "summary": "BK세미나_Dr. Christopher Yoon",
+      "eventType": "BK세미나",
+      "start": "2023-05-03T07:00:00Z",
+      "end": "2023-05-03T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0t7ircir1fg2sgvn6gs9q6tppd@google.com",
+      "summary": "대학원 세미나_유용원 위원",
+      "eventType": "대학원 세미나",
+      "start": "2023-05-12T04:00:00Z",
+      "end": "2023-05-12T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3g1tttcnldcp224v3g5em1kj3i@google.com",
+      "summary": "학부 세미나_손동연 박사",
+      "eventType": "학부 세미나",
+      "start": "2023-05-12T07:00:00Z",
+      "end": "2023-05-12T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0mpbg4nkafibs1oc2ahd259u2p@google.com",
+      "summary": "BK세미나_민상기 교수",
+      "eventType": "BK세미나",
+      "start": "2023-05-16T07:00:00Z",
+      "end": "2023-05-16T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3n5ns7o6120mid0ki2g12ip76p@google.com",
+      "summary": "BK세미나_조락균 교수",
+      "eventType": "BK세미나",
+      "start": "2023-05-17T07:00:00Z",
+      "end": "2023-05-17T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3av7io37v8f6mlreoivphaptal@google.com",
+      "summary": "대학원 세미나_차원준",
+      "eventType": "대학원 세미나",
+      "start": "2023-05-19T04:00:00Z",
+      "end": "2023-05-19T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6o0vt7bck1oaqah6mgiu5h73um@google.com",
+      "summary": "학부 세미나_박재홍 대표",
+      "eventType": "학부 세미나",
+      "start": "2023-05-19T07:00:00Z",
+      "end": "2023-05-19T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7rorr2udlo4llotllcf0ofp4ts@google.com",
+      "summary": "대학원 세미나_박병서",
+      "eventType": "대학원 세미나",
+      "start": "2023-05-26T04:00:00Z",
+      "end": "2023-05-26T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1h372i3p6itqbsc6f76qeg592t@google.com",
+      "summary": "BK세미나_이택상 교수",
+      "eventType": "BK세미나",
+      "start": "2023-05-26T05:00:00Z",
+      "end": "2023-05-26T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0cntpphcebnhfbpfvtea7bonk8@google.com",
+      "summary": "학부 세미나_표순재 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-05-26T07:00:00Z",
+      "end": "2023-05-26T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1jqf9h2r96en85unls62qtl106@google.com",
+      "summary": "대학원 세미나_홍현권 대표",
+      "eventType": "대학원 세미나",
+      "start": "2023-06-02T04:00:00Z",
+      "end": "2023-06-02T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "11o278nr6ho4o4f350vbaioumu@google.com",
+      "summary": "학부 세미나_김해진 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-06-02T07:00:00Z",
+      "end": "2023-06-02T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5mlq6ijs6uhkrdv2ujmssttnea@google.com",
+      "summary": "학부 세미나_이남규 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-06-09T07:00:00Z",
+      "end": "2023-06-09T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7v4tft48qli4em5kmae7bkoqmt@google.com",
+      "summary": "BK세미나_황원묵 교수",
+      "eventType": "BK세미나",
+      "start": "2023-07-11T02:00:00Z",
+      "end": "2023-07-11T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1vfi7188vjc17d2e3t6eqdjndf@google.com",
+      "summary": "BK세미나_서가영 교수",
+      "eventType": "BK세미나",
+      "start": "2023-07-21T02:30:00Z",
+      "end": "2023-07-21T03:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "23tdadngdhp5p1be76ftpt3cvh@google.com",
+      "summary": "BK세미나_허윤석 교수",
+      "eventType": "BK세미나",
+      "start": "2023-08-07T07:00:00Z",
+      "end": "2023-08-07T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7lobftuhike75acq28r9lk0d4q@google.com",
+      "summary": "BK세미나_박근 교수",
+      "eventType": "BK세미나",
+      "start": "2023-08-10T08:00:00Z",
+      "end": "2023-08-10T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2bal70ci1r12d05kge2egotous@google.com",
+      "summary": "BK세미나_임근배 교수",
+      "eventType": "BK세미나",
+      "start": "2023-08-16T08:00:00Z",
+      "end": "2023-08-16T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3pfjkbpui1iq5944ruetrkj0md@google.com",
+      "summary": "모터/인버터 기술 워크샵",
+      "eventType": "일정",
+      "start": "2023-08-22T06:00:00Z",
+      "end": "2023-08-22T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "228hv6orn4br2m6gh3s6sds9rh@google.com",
+      "summary": "BK세미나_김병윤 박사",
+      "eventType": "BK세미나",
+      "start": "2023-08-31T05:00:00Z",
+      "end": "2023-08-31T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7v1iq10finm57efrfloojbplsu@google.com",
+      "summary": "대학원/학부세미나_박준관",
+      "eventType": "세미나",
+      "start": "2023-09-08T04:00:00Z",
+      "end": "2023-09-08T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7n4dhe285jbbt2ap3iklbbjtv9@google.com",
+      "summary": "대학원/학부세미나_곽현덕",
+      "eventType": "세미나",
+      "start": "2023-09-15T04:00:00Z",
+      "end": "2023-09-15T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2tat0rmhpdmbdgf7q8ijk5lcgp@google.com",
+      "summary": "BK세미나_조장현 박사",
+      "eventType": "BK세미나",
+      "start": "2023-09-21T02:00:00Z",
+      "end": "2023-09-21T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "33pts1blr3a2sm9d3gopsoh5s2@google.com",
+      "summary": "대학원/학부세미나_진심원",
+      "eventType": "세미나",
+      "start": "2023-09-22T04:00:00Z",
+      "end": "2023-09-22T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3dqfkhehvnj6to01hb1gslmhuj@google.com",
+      "summary": "제5회 대학원생 학술대회",
+      "eventType": "일정",
+      "start": "2023-10-05T00:00:00Z",
+      "end": "2023-10-05T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0it2hdqs1nhsiau6qubdab8bth@google.com",
+      "summary": "대학원/학부세미나_강석철",
+      "eventType": "세미나",
+      "start": "2023-10-06T04:00:00Z",
+      "end": "2023-10-06T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2mupue3uqclbms5jpuhiqlrj7r@google.com",
+      "summary": "대학원 세미나_고민석 박사",
+      "eventType": "대학원 세미나",
+      "start": "2023-10-13T04:30:00Z",
+      "end": "2023-10-13T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "65kpv309ct13igucaiu15hla5r@google.com",
+      "summary": "학부 세미나_차기철 회장",
+      "eventType": "학부 세미나",
+      "start": "2023-10-13T07:00:00Z",
+      "end": "2023-10-13T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3vembg1unckb2qid69g3lf5ng1@google.com",
+      "summary": "BK세미나_양다솜 박사",
+      "eventType": "BK세미나",
+      "start": "2023-10-17T08:00:00Z",
+      "end": "2023-10-17T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "28oa6pfdq38cmp23st8b612u25@google.com",
+      "summary": "BK세미나_김대근 교수",
+      "eventType": "BK세미나",
+      "start": "2023-10-18T08:00:00Z",
+      "end": "2023-10-18T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "15dcpe4p6no5qk510i907rj118@google.com",
+      "summary": "제2회 연세대-KISTI 물리기반 인공지능 연구 발표회",
+      "eventType": "일정",
+      "start": "2023-10-27T00:00:00Z",
+      "end": "2023-10-27T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2u8bnd6srevto2gemu45hsuf7c@google.com",
+      "summary": "대학원 세미나_박정희 팀장",
+      "eventType": "대학원 세미나",
+      "start": "2023-10-27T04:30:00Z",
+      "end": "2023-10-27T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0g7va78a9cbad8ta1uebeije7b@google.com",
+      "summary": "학부 세미나_박상조 부사장",
+      "eventType": "학부 세미나",
+      "start": "2023-10-27T07:00:00Z",
+      "end": "2023-10-27T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5bujdruc2umlsnbg28k9e4st55@google.com",
+      "summary": "대학원/학부 세미나_조건환 박사",
+      "eventType": "세미나",
+      "start": "2023-11-03T05:00:00Z",
+      "end": "2023-11-03T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "04epfet9afsiecvd53d5r2sg5c@google.com",
+      "summary": "세미나_Hamid Reza Karimi",
+      "eventType": "세미나",
+      "start": "2023-11-04T06:00:00Z",
+      "end": "2023-11-04T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "64tst0lvhmfpt549paifbgcll5@google.com",
+      "summary": "BK세미나_조한나 교수",
+      "eventType": "BK세미나",
+      "start": "2023-11-10T01:30:00Z",
+      "end": "2023-11-10T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5b3m6l2c0brtgm1pq4qfu9em8j@google.com",
+      "summary": "대학원/학부 세미나_조용 박사",
+      "eventType": "세미나",
+      "start": "2023-11-10T05:00:00Z",
+      "end": "2023-11-10T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1sk86n82hft4mu1vhcqv02gut8@google.com",
+      "summary": "대학원/학부 세미나_김길영",
+      "eventType": "세미나",
+      "start": "2023-11-17T05:00:00Z",
+      "end": "2023-11-17T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3bjj197jpd38dl7t6mmonmflil@google.com",
+      "summary": "BK세미나_Han Wei Hou",
+      "eventType": "BK세미나",
+      "start": "2023-11-20T07:00:00Z",
+      "end": "2023-11-20T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6eit30g1plepmerah3k9iighle@google.com",
+      "summary": "BK세미나_김용태 교수",
+      "eventType": "BK세미나",
+      "start": "2023-11-27T07:00:00Z",
+      "end": "2023-11-27T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5k7cqiqlsum2o3oit25ttd86np@google.com",
+      "summary": "학부 세미나_최용제 교수",
+      "eventType": "학부 세미나",
+      "start": "2023-12-01T07:00:00Z",
+      "end": "2023-12-01T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "003i0tlbcsjivk4ourblh8r5ek@google.com",
+      "summary": "BK세미나_조한솔 교수",
+      "eventType": "BK세미나",
+      "start": "2023-12-04T07:00:00Z",
+      "end": "2023-12-04T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0bv5ioo7m8g0atjt5c5ar3565v@google.com",
+      "summary": "BK세미나_Tohru Kamiya",
+      "eventType": "BK세미나",
+      "start": "2023-12-11T02:00:00Z",
+      "end": "2023-12-11T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0qh0ncnj3dsi4th68gqcqj666j@google.com",
+      "summary": "BK세미나_조철희 박사",
+      "eventType": "BK세미나",
+      "start": "2023-12-12T02:00:00Z",
+      "end": "2023-12-12T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "31qh6n4e9hhardibp310q38l3v@google.com",
+      "summary": "2023 CEO포럼",
+      "eventType": "일정",
+      "start": "2023-12-13",
+      "end": "2023-12-14",
+      "allDay": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "56pvjktm0k56i907mcminkf7o3@google.com",
+      "summary": "BK세미나_강용태 교수",
+      "eventType": "BK세미나",
+      "start": "2023-12-20T07:30:00Z",
+      "end": "2023-12-20T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6fo0tc47pmam3nf5gsf5l08ats@google.com",
+      "summary": "BK세미나_여운홍 교수",
+      "eventType": "BK세미나",
+      "start": "2023-12-28T02:00:00Z",
+      "end": "2023-12-28T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5eue29l725acufr45r6cv5igut@google.com",
+      "summary": "BK세미나_최동규박사",
+      "eventType": "BK세미나",
+      "start": "2024-01-04T05:00:00Z",
+      "end": "2024-01-04T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5svo501a4t29i1mj9cqehrri4f@google.com",
+      "summary": "BK세미나_안민성 박사",
+      "eventType": "BK세미나",
+      "start": "2024-01-04T07:00:00Z",
+      "end": "2024-01-04T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2t14f1o807d2pqni12dcjh94ih@google.com",
+      "summary": "BK세미나_황원묵 교수",
+      "eventType": "BK세미나",
+      "start": "2024-01-10T01:30:00Z",
+      "end": "2024-01-10T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2o1m9i9hi6ov7fhvdug6410fjs@google.com",
+      "summary": "BK세미나_한태희 교수",
+      "eventType": "BK세미나",
+      "start": "2024-01-12T02:00:00Z",
+      "end": "2024-01-12T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6aomkejfs57sv8vabi7dpbqpm2@google.com",
+      "summary": "BK세미나_문용락 박사",
+      "eventType": "BK세미나",
+      "start": "2024-01-25T07:00:00Z",
+      "end": "2024-01-25T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3krkrqfff14mmcaprt5tuak0ea@google.com",
+      "summary": "BK세미나_Song,Mengjie 교수",
+      "eventType": "BK세미나",
+      "start": "2024-02-26T05:00:00Z",
+      "end": "2024-02-26T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3sns23nugnuc4cs5ta48ltuhep@google.com",
+      "summary": "대학원 세미나_민태기 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-03-08T04:00:00Z",
+      "end": "2024-03-08T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "215ujil09p4jtshdngaim6abcm@google.com",
+      "summary": "학부 세미나_ 민태기 박사",
+      "eventType": "학부 세미나",
+      "start": "2024-03-08T07:00:00Z",
+      "end": "2024-03-08T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5loi305he3u9u1f05e8omnirl1@google.com",
+      "summary": "BK세미나_ Jie Liu 교수",
+      "eventType": "BK세미나",
+      "start": "2024-03-13T05:00:00Z",
+      "end": "2024-03-13T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2524s62gvot7r3jtm4otr1ji1i@google.com",
+      "summary": "대학원 세미나_김준영 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-03-15T04:00:00Z",
+      "end": "2024-03-15T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4o7bc7okp5mk0bg47o19lgeol5@google.com",
+      "summary": "학부 세미나_김민구 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-03-15T07:00:00Z",
+      "end": "2024-03-15T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4oi7ij10q1rcrro13ql6b70qnq@google.com",
+      "summary": "대학원 세미나_이홍경 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-03-22T04:00:00Z",
+      "end": "2024-03-22T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "18polgup3tbe7k6flddt310qk1@google.com",
+      "summary": "학부 세미나_이정훈 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-03-22T07:00:00Z",
+      "end": "2024-03-22T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6ivmdvks5l8eumd7ar80qbdd7j@google.com",
+      "summary": "대학원 세미나_이승철 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-03-29T04:00:00Z",
+      "end": "2024-03-29T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4jhnb0ut18qktlrlug0rr2k7le@google.com",
+      "summary": "학부 세미나_이영덕 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-03-29T07:00:00Z",
+      "end": "2024-03-29T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6thu9ih6um19j8an0t7bfn0uhp@google.com",
+      "summary": "대학원 세미나_손경찬 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-04-04T16:00:00Z",
+      "end": "2024-04-04T17:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "47ddbvded0ei7rd06mulj0kltk@google.com",
+      "summary": "학부 세미나_조은환 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-04-04T19:00:00Z",
+      "end": "2024-04-04T20:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4ob8i7r14ct8gvvvlhpvregi81@google.com",
+      "summary": "대학원 세미나_유동현 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-04-12T04:00:00Z",
+      "end": "2024-04-12T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "54uahrmg726mr8qar7lhlh0ot0@google.com",
+      "summary": "대학원 세미나_배지훈 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-04-12T07:00:00Z",
+      "end": "2024-04-12T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0iej9e41r673pmpqh6r2h0cn6i@google.com",
+      "summary": "대학원 세미나_이재선 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-04-19T04:00:00Z",
+      "end": "2024-04-19T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4c971fm5i5rct9rr5tl151pluf@google.com",
+      "summary": "학부 세미나_남보영 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-04-19T07:00:00Z",
+      "end": "2024-04-19T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4tu2jhqnsnloqt6i6f9dlqpcc7@google.com",
+      "summary": "BK세미나_박해원 교수",
+      "eventType": "BK세미나",
+      "start": "2024-04-29T06:00:00Z",
+      "end": "2024-04-29T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1togj24ftq37rpgompqc1p0tev@google.com",
+      "summary": "BK세미나_이지용 박사",
+      "eventType": "BK세미나",
+      "start": "2024-05-01T07:00:00Z",
+      "end": "2024-05-01T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4u42o7shm42gf25bbctvnlk2it@google.com",
+      "summary": "대학원 세미나_이호성 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-05-03T04:00:00Z",
+      "end": "2024-05-03T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2o639vr8b8p5ro869s4bfej0os@google.com",
+      "summary": "학부 세미나_김정민 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-05-03T07:00:00Z",
+      "end": "2024-05-03T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "52jub9our330jf2rsdv5gvoeeo@google.com",
+      "summary": "대학원 세미나_장일광 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-05-10T04:00:00Z",
+      "end": "2024-05-10T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "35aut4d0buemkaqvd96aq8q2ph@google.com",
+      "summary": "학부 세미나_박재영 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-05-10T07:00:00Z",
+      "end": "2024-05-10T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6ucu219fiak7ibnehtirb1nge8@google.com",
+      "summary": "BK세미나_Ryozo Nagamune 교수",
+      "eventType": "BK세미나",
+      "start": "2024-05-13T04:00:00Z",
+      "end": "2024-05-13T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "10acghnp465fraseosiqj6hs72@google.com",
+      "summary": "BK 세미나_윤의식 교수",
+      "eventType": "BK세미나",
+      "start": "2024-05-21T07:00:00Z",
+      "end": "2024-05-21T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0b18216i04ntkaeg82tfrkabf7@google.com",
+      "summary": "BK세미나_천영재 교수",
+      "eventType": "BK세미나",
+      "start": "2024-05-24T02:00:00Z",
+      "end": "2024-05-24T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2mpjoh88kuieafc441f4f79v03@google.com",
+      "summary": "대학원 세미나_류태규 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-05-24T04:00:00Z",
+      "end": "2024-05-24T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1as9a8ajhqvr81deq1v4m021e9@google.com",
+      "summary": "학부 세미나_이상륜 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-05-24T07:00:00Z",
+      "end": "2024-05-24T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7078dmiiock3fg65728r8vs33i@google.com",
+      "summary": "BK세미나_김태윤 박사",
+      "eventType": "BK세미나",
+      "start": "2024-05-29T04:30:00Z",
+      "end": "2024-05-29T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7t66mcqgq3dd5kmlc9ifjg1tuv@google.com",
+      "summary": "BK세미나_이진오 박사",
+      "eventType": "BK세미나",
+      "start": "2024-05-30T02:00:00Z",
+      "end": "2024-05-30T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5b5bpa54tm8rn9m7td917gh7uo@google.com",
+      "summary": "대학원 세미나_고원석 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-05-31T04:00:00Z",
+      "end": "2024-05-31T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7gjg878v85mm8c7elce6enht6d@google.com",
+      "summary": "학부 세미나_김원정 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-05-31T07:00:00Z",
+      "end": "2024-05-31T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "14rbm9shjsk15utoav0qjeqhte@google.com",
+      "summary": "BK세미나_김가람 교수",
+      "eventType": "BK세미나",
+      "start": "2024-06-10T02:00:00Z",
+      "end": "2024-06-10T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3c4sfmetv03vntktrkqlsli7of@google.com",
+      "summary": "BK세미나_최준기 교수",
+      "eventType": "BK세미나",
+      "start": "2024-06-10T04:00:00Z",
+      "end": "2024-06-10T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1r98fsnp0ft01nc8ib545vr2o8@google.com",
+      "summary": "BK세미나_Shoji Takeuchi 교수",
+      "eventType": "BK세미나",
+      "start": "2024-06-12T02:00:00Z",
+      "end": "2024-06-12T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2r9q04l1oru7enkna9vu9kidaj@google.com",
+      "summary": "BK세미나_유재현 교수",
+      "eventType": "BK세미나",
+      "start": "2024-06-17T01:30:00Z",
+      "end": "2024-06-17T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1mibudkibbmh8cvipsu04hlvv0@google.com",
+      "summary": "BK세미나_김형규 박사",
+      "eventType": "BK세미나",
+      "start": "2024-06-18T07:00:00Z",
+      "end": "2024-06-18T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "082f1ldhjc7i4st02ud184p5o5@google.com",
+      "summary": "BK세미나_정지훈 교수",
+      "eventType": "BK세미나",
+      "start": "2024-06-27T02:00:00Z",
+      "end": "2024-06-27T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3d13ftemdo9bii5j18fd2tp2jf@google.com",
+      "summary": "BK세미나_송성문 교수",
+      "eventType": "BK세미나",
+      "start": "2024-07-04T02:00:00Z",
+      "end": "2024-07-04T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "61f72icrjr9i7qlnrthoi1acib@google.com",
+      "summary": "BK세미나_이석우 교수",
+      "eventType": "BK세미나",
+      "start": "2024-07-09T02:00:00Z",
+      "end": "2024-07-09T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3vp2pts8m08mosikr8v87uj0db@google.com",
+      "summary": "BK세미나_Jennifer Barton 교수",
+      "eventType": "BK세미나",
+      "start": "2024-07-12T01:00:00Z",
+      "end": "2024-07-12T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "391e6utkk2nu25dufrscjpmh2b@google.com",
+      "summary": "BK세미나_이협 박사",
+      "eventType": "BK세미나",
+      "start": "2024-07-15T07:00:00Z",
+      "end": "2024-07-15T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "50b6q83qdak6uiv19shj5fvcri@google.com",
+      "summary": "BK세미나_Tae Chung 교수",
+      "eventType": "BK세미나",
+      "start": "2024-07-17T04:30:00Z",
+      "end": "2024-07-17T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1vnuraosn0s6mi2qr4v4gst2fb@google.com",
+      "summary": "BK세미나_황원묵 교수",
+      "eventType": "BK세미나",
+      "start": "2024-08-06T08:00:00Z",
+      "end": "2024-08-06T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2rbcai871fot75smdlkjo1mmab@google.com",
+      "summary": "BK집중강의 시리즈_ Sheng Xu 교수",
+      "eventType": "일정",
+      "start": "2024-08-13T02:00:00Z",
+      "end": "2024-08-13T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3ke3coq5384hnfkq4u09i4gnl6@google.com",
+      "summary": "BK세미나_이정민 박사",
+      "eventType": "BK세미나",
+      "start": "2024-08-14T02:00:00Z",
+      "end": "2024-08-14T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "443nvkt594bnkbth3le6p2or7q@google.com",
+      "summary": "BK세미나_Ramiro Godoy-Diana 박사",
+      "eventType": "BK세미나",
+      "start": "2024-08-16T02:00:00Z",
+      "end": "2024-08-16T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "73s1eko2431mmjnvndpnm9ht49@google.com",
+      "summary": "BK세미나_최창환 교수",
+      "eventType": "BK세미나",
+      "start": "2024-08-16T04:30:00Z",
+      "end": "2024-08-16T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4tdsdd0dpko3l3pvdgrv33ed72@google.com",
+      "summary": "BK세미나_왕준민 교수",
+      "eventType": "BK세미나",
+      "start": "2024-09-10T06:00:00Z",
+      "end": "2024-09-10T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5tp54trg5a79dgobm2c3vto1ko@google.com",
+      "summary": "대학원 세미나_이상조 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-09-27T04:00:00Z",
+      "end": "2024-09-27T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6gnb6asn22iuk9l4jot77ov3qr@google.com",
+      "summary": "학부 세미나_이규제 부사장",
+      "eventType": "학부 세미나",
+      "start": "2024-09-27T07:00:00Z",
+      "end": "2024-09-27T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "42dj6kd69tf2trbon6tujn8cnm@google.com",
+      "summary": "대학원 세미나_최영운 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-10-04T04:00:00Z",
+      "end": "2024-10-04T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3l726mmnj8t7ogjbi24fsjtk59@google.com",
+      "summary": "학부 세미나_강윤성 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-10-04T07:00:00Z",
+      "end": "2024-10-04T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1imnm0eipi15l0spd7kcbe2gjd@google.com",
+      "summary": "학부 세미나_김영주 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-10-11T07:00:00Z",
+      "end": "2024-10-11T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1206hb89jvohsaj37ebpfg0f9p@google.com",
+      "summary": "BK 세미나_박재성 교수",
+      "eventType": "BK세미나",
+      "start": "2024-10-14T07:00:00Z",
+      "end": "2024-10-14T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "366m1vsd0mlp770e8dme402enj@google.com",
+      "summary": "BK 세미나_김태진 교수",
+      "eventType": "BK세미나",
+      "start": "2024-10-24T05:00:00Z",
+      "end": "2024-10-24T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "28cbj2bcb59j0jc1hnioujfjgs@google.com",
+      "summary": "대학원 세미나_김석 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-11-01T04:00:00Z",
+      "end": "2024-11-01T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6809el10d2qnr49qf6n7ub5at7@google.com",
+      "summary": "학부 세미나_곽기웅 대표",
+      "eventType": "학부 세미나",
+      "start": "2024-11-01T07:00:00Z",
+      "end": "2024-11-01T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1sr6cknt7e8l9cci9os04pnuhe@google.com",
+      "summary": "BK 세미나_최승영 박사",
+      "eventType": "BK세미나",
+      "start": "2024-11-01T07:30:00Z",
+      "end": "2024-11-01T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3hfjasepc5upk0cladbv0hc628@google.com",
+      "summary": "대학원 세미나_박대훈 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-11-08T04:00:00Z",
+      "end": "2024-11-08T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "43pm933glrtr84igfb6bt36apf@google.com",
+      "summary": "대학원 세미나_박대훈 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-11-08T07:00:00Z",
+      "end": "2024-11-08T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3ki9ad9a0qvmadm80bq685s50u@google.com",
+      "summary": "BK세미나_Gao Zhao 교수",
+      "eventType": "BK세미나",
+      "start": "2024-11-12T01:30:00Z",
+      "end": "2024-11-12T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "55ss814jb0b55ub7j1g5rk4mia@google.com",
+      "summary": "대학원 세미나_박상진 박사",
+      "eventType": "대학원 세미나",
+      "start": "2024-11-22T07:00:00Z",
+      "end": "2024-11-22T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1741i8vgt2t4hp9bm8ge4lbs98@google.com",
+      "summary": "대학원 세미나_조승환 교수",
+      "eventType": "대학원 세미나",
+      "start": "2024-11-29T04:00:00Z",
+      "end": "2024-11-29T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "25ovf3jh0kltdn81m9nmvrfcgo@google.com",
+      "summary": "학부 세미나_김동원 박사",
+      "eventType": "학부 세미나",
+      "start": "2024-11-29T07:00:00Z",
+      "end": "2024-11-29T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "53hfs395tggqa2g0eevijp83al@google.com",
+      "summary": "학부 세미나_박우성 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-12-06T07:00:00Z",
+      "end": "2024-12-06T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0t8a6mq1iineo5co9nq39jrlpu@google.com",
+      "summary": "학부 세미나_황정호 교수",
+      "eventType": "학부 세미나",
+      "start": "2024-12-13T07:00:00Z",
+      "end": "2024-12-13T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4p1ilaj19q7972f9iavk08gado@google.com",
+      "summary": "BK세미나_김남호 교수",
+      "eventType": "BK세미나",
+      "start": "2024-12-17T07:00:00Z",
+      "end": "2024-12-17T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "78pdhnkj71evoeqcst6ighu74b@google.com",
+      "summary": " BK세미나_신상우 교수",
+      "eventType": "BK세미나",
+      "start": "2025-01-09T01:10:00Z",
+      "end": "2025-01-09T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "536fcsa2ld0cme6dtomgh21tv5@google.com",
+      "summary": "BK세미나_이태경 박사",
+      "eventType": "BK세미나",
+      "start": "2025-02-07T07:00:00Z",
+      "end": "2025-02-07T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "32csa19vakhc1h3cngvu9bfn8o@google.com",
+      "summary": "대학원 세미나_민경민 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-03-07T04:00:00Z",
+      "end": "2025-03-07T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0if7mn9utf1t0dditsmajvldpt@google.com",
+      "summary": "대학원 세미나_김형래 박사",
+      "eventType": "대학원 세미나",
+      "start": "2025-03-14T04:00:00Z",
+      "end": "2025-03-14T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2vdh8s4k3jc2363ebs1u6ai6v6@google.com",
+      "summary": "학부 세미나_김형래 박사",
+      "eventType": "학부 세미나",
+      "start": "2025-03-14T07:00:00Z",
+      "end": "2025-03-14T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "68ukd4hs8219rnoi4c12k7tb7g@google.com",
+      "summary": "대학원 세미나_이응만 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-03-21T04:00:00Z",
+      "end": "2025-03-21T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6v0umceinodfi23cslvha4thm2@google.com",
+      "summary": " 학부 세미나_양다솜 교수",
+      "eventType": "학부 세미나",
+      "start": "2025-03-21T07:00:00Z",
+      "end": "2025-03-21T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6afbincvqvm5vsso1uvu27579r@google.com",
+      "summary": "대학원 세미나_정은영 팀장",
+      "eventType": "대학원 세미나",
+      "start": "2025-03-28T04:00:00Z",
+      "end": "2025-03-28T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6b1330seb9pipr997271ca4vv2@google.com",
+      "summary": "학부 세미나_김 석 교수",
+      "eventType": "학부 세미나",
+      "start": "2025-03-28T07:00:00Z",
+      "end": "2025-03-28T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "061nvfkcvuck15r12lqj2fq591@google.com",
+      "summary": "대학원 세미나_박희성 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-04-04T04:00:00Z",
+      "end": "2025-04-04T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "72mciedtb2njte36qf96mc81no@google.com",
+      "summary": "학부 세미나_박희성 교수",
+      "eventType": "학부 세미나",
+      "start": "2025-04-04T07:00:00Z",
+      "end": "2025-04-04T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7qdia9ma2e40blkk81apr8tuh8@google.com",
+      "summary": "대학원 세미나_현경아 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-04-11T04:00:00Z",
+      "end": "2025-04-11T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5gdfh9miqdljp0kncajtv25ck3@google.com",
+      "summary": "학부 세미나_송현우",
+      "eventType": "학부 세미나",
+      "start": "2025-04-11T07:00:00Z",
+      "end": "2025-04-11T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2voibepdt1902hvso4k616l7am@google.com",
+      "summary": "BK세미나_이정표 박사",
+      "eventType": "BK세미나",
+      "start": "2025-04-15T08:00:00Z",
+      "end": "2025-04-15T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1nq7lm3fia905i1qp1mith7vup@google.com",
+      "summary": "대학원 세미나_신현우 사장",
+      "eventType": "대학원 세미나",
+      "start": "2025-04-18T04:00:00Z",
+      "end": "2025-04-18T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0bebj2562kidbt6ijnadfjfbu6@google.com",
+      "summary": "학부 세미나_김덕승 센터장",
+      "eventType": "학부 세미나",
+      "start": "2025-04-18T07:00:00Z",
+      "end": "2025-04-18T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0afk91l1l0f0irgn6n4msqranj@google.com",
+      "summary": "BK세미나_권민우 박사",
+      "eventType": "BK세미나",
+      "start": "2025-04-30T07:00:00Z",
+      "end": "2025-04-30T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "69drjbg1co18trhqbbblmor7q2@google.com",
+      "summary": "대학원 세미나_이동진 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-05-02T04:00:00Z",
+      "end": "2025-05-02T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "45unqkclmef4n5l4h9otqnecjt@google.com",
+      "summary": "학부 세미나_김형목 교수",
+      "eventType": "학부 세미나",
+      "start": "2025-05-02T07:00:00Z",
+      "end": "2025-05-02T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "71kom7ej8713614qush3oq0rqe@google.com",
+      "summary": "대학원세미나_신동규",
+      "eventType": "대학원 세미나",
+      "start": "2025-05-09T04:00:00Z",
+      "end": "2025-05-09T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5du9kieabgd4cofonmsh6n20a9@google.com",
+      "summary": "BK세미나_한범수 교수",
+      "eventType": "BK세미나",
+      "start": "2025-05-09T06:00:00Z",
+      "end": "2025-05-09T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "611o3q204tmroeolk1nv0i4ia3@google.com",
+      "summary": "학부 세미나_강기태",
+      "eventType": "학부 세미나",
+      "start": "2025-05-09T07:00:00Z",
+      "end": "2025-05-09T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1pgnm9go44cr5cmdter4q6m6n1@google.com",
+      "summary": "대학원 세미나_박용남",
+      "eventType": "대학원 세미나",
+      "start": "2025-05-16T04:00:00Z",
+      "end": "2025-05-16T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0cfqgog21dtrgf4kvl5u24dum8@google.com",
+      "summary": "학부 세미나_이강주",
+      "eventType": "학부 세미나",
+      "start": "2025-05-16T07:00:00Z",
+      "end": "2025-05-16T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4fnm0dlci9jh5n5no4afcmekve@google.com",
+      "summary": "대학원 세미나_강석철",
+      "eventType": "대학원 세미나",
+      "start": "2025-05-23T04:00:00Z",
+      "end": "2025-05-23T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7qgu01r03u71hbb541t42ijj1o@google.com",
+      "summary": "학부 세미나_김동립",
+      "eventType": "학부 세미나",
+      "start": "2025-05-23T07:00:00Z",
+      "end": "2025-05-23T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4snorst68q6sfucpph3f4ns84q@google.com",
+      "summary": "BK세미나_WU YAN",
+      "eventType": "BK세미나",
+      "start": "2025-05-29T07:30:00Z",
+      "end": "2025-05-29T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "241rbo2etbpt3so2c9rf06d05c@google.com",
+      "summary": "대학원 세미나_박재성 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-05-30T04:00:00Z",
+      "end": "2025-05-30T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5mtrhhbc3ktjiqdvkpp48hl308@google.com",
+      "summary": "학부 세미나_박재성 교수",
+      "eventType": "학부 세미나",
+      "start": "2025-05-30T07:00:00Z",
+      "end": "2025-05-30T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2n2b1rk9ehoha9go45u88hv597@google.com",
+      "summary": "학부 세미나_조상근",
+      "eventType": "학부 세미나",
+      "start": "2025-06-13T07:00:00Z",
+      "end": "2025-06-13T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5qu0lvh7bm8inf5d6qcq2h5jdh@google.com",
+      "summary": "BK세미나_Chen 교수",
+      "eventType": "BK세미나",
+      "start": "2025-06-18T07:30:00Z",
+      "end": "2025-06-18T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6okftaosf7e65b9522o0t27bu3@google.com",
+      "summary": "BK세미나_현상호 교수",
+      "eventType": "BK세미나",
+      "start": "2025-06-18T08:00:00Z",
+      "end": "2025-06-18T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6r780eurc2ls7c95egdoqf9i3m@google.com",
+      "summary": "2025 여름학기 글로벌 인사이트 강연 시리즈",
+      "eventType": "일정",
+      "start": "2025-07-01T03:00:00Z",
+      "end": "2025-07-01T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7f1fimnhfmfo4u89khph9tm6j4@google.com",
+      "summary": "BK세미나_Erhan Budak",
+      "eventType": "BK세미나",
+      "start": "2025-07-02T02:00:00Z",
+      "end": "2025-07-02T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2tmj3gfl20037fdk2eev4vn7d5@google.com",
+      "summary": "BK세미나_김대욱 교수",
+      "eventType": "BK세미나",
+      "start": "2025-07-02T05:00:00Z",
+      "end": "2025-07-02T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "77phrbmgruo8na1d0h515vuq74@google.com",
+      "summary": "2025 여름학기 글로벌 인사이트 강연 시리즈",
+      "eventType": "일정",
+      "start": "2025-07-15T03:00:00Z",
+      "end": "2025-07-15T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "76k1jcvjdtc9m9f6ob9ltmn0gr@google.com",
+      "summary": "2025 여름학기 글로벌 인사이트 강연 시리즈",
+      "eventType": "일정",
+      "start": "2025-07-22T03:00:00Z",
+      "end": "2025-07-22T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "08pp0hdme2p7hffu15drr9lbhj@google.com",
+      "summary": "BK세미나_서가영 교수",
+      "eventType": "BK세미나",
+      "start": "2025-07-23T08:00:00Z",
+      "end": "2025-07-23T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1cg2lcn6k9uvm86d4pl6mourqk@google.com",
+      "summary": "BK세미나_황원묵 교수",
+      "eventType": "BK세미나",
+      "start": "2025-07-28T04:00:00Z",
+      "end": "2025-07-28T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0qtbg1jd73nl60rq866j26j4td@google.com",
+      "summary": "2025 여름학기 글로벌 인사이트 강연 시리즈",
+      "eventType": "일정",
+      "start": "2025-07-29T03:00:00Z",
+      "end": "2025-07-29T04:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7ge088ed9ibc8gatamtmcsfovb@google.com",
+      "summary": "BK세미나_홍영표 박사",
+      "eventType": "BK세미나",
+      "start": "2025-08-06T05:00:00Z",
+      "end": "2025-08-06T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "26u2f2c6j93a3mvo0vhbv1rd3c@google.com",
+      "summary": "BK세미나_김병조 교수",
+      "eventType": "BK세미나",
+      "start": "2025-08-14T02:00:00Z",
+      "end": "2025-08-14T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "188a17m2d5lkprotq99ofatbqo@google.com",
+      "summary": "BK세미나_김성찬 교수",
+      "eventType": "BK세미나",
+      "start": "2025-08-18T04:30:00Z",
+      "end": "2025-08-18T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "61g1nsgpgmr21kbcr5bjspmqg1@google.com",
+      "summary": "BK세미나_Faheem Ershad",
+      "eventType": "BK세미나",
+      "start": "2025-08-19T02:00:00Z",
+      "end": "2025-08-19T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7bi3j5h6fiu76hbi4rhn12tun9@google.com",
+      "summary": "BK세미나_ Prof. Mitra",
+      "eventType": "BK세미나",
+      "start": "2025-09-02T06:00:00Z",
+      "end": "2025-09-02T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "56e31kll9fbdgrvg6drvcb4to1@google.com",
+      "summary": "대학원 세미나_박용운",
+      "eventType": "대학원 세미나",
+      "start": "2025-09-05T04:00:00Z",
+      "end": "2025-09-05T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2il2ovuarvdmsc8umv6gh9na8o@google.com",
+      "summary": "대학원 세미나_황정호 교수",
+      "eventType": "대학원 세미나",
+      "start": "2025-09-12T04:00:00Z",
+      "end": "2025-09-12T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "20f9p55qctl17vp8l7t1ddtehf@google.com",
+      "summary": "학부 세미나_김형래",
+      "eventType": "학부 세미나",
+      "start": "2025-09-12T07:00:00Z",
+      "end": "2025-09-12T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1m57ok99af0vc42rv617hbjctf@google.com",
+      "summary": "BK세미나_Ryozo Nagamune",
+      "eventType": "BK세미나",
+      "start": "2025-09-16T06:00:00Z",
+      "end": "2025-09-16T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "12s3mrr99v8lk38nv6lrvn2map@google.com",
+      "summary": "대학원/학부 세미나_이정훈",
+      "eventType": "세미나",
+      "start": "2025-09-19T04:00:00Z",
+      "end": "2025-09-19T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7v0eop1e5h9l4u4d1lesccocde@google.com",
+      "summary": " BK세미나_Patrick Kwon",
+      "eventType": "BK세미나",
+      "start": "2025-09-22T07:30:00Z",
+      "end": "2025-09-22T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1a8bklgo45ka7vhf3mi3h8r4rr@google.com",
+      "summary": "대학원세미나_진태은",
+      "eventType": "대학원 세미나",
+      "start": "2025-09-26T04:00:00Z",
+      "end": "2025-09-26T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5ba70m2q0b7dcgj0rcde6feoca@google.com",
+      "summary": "BK세미나_Patrick Kwon",
+      "eventType": "BK세미나",
+      "start": "2025-09-26T07:00:00Z",
+      "end": "2025-09-26T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2bnq3h4p8d6h6nut7g62somc10@google.com",
+      "summary": "학부세미나_장두준",
+      "eventType": "학부 세미나",
+      "start": "2025-09-26T07:00:00Z",
+      "end": "2025-09-26T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6sdmfn61g5v50gj69efiun2adm@google.com",
+      "summary": "대학원/학부 세미나_이준상 교수",
+      "eventType": "세미나",
+      "start": "2025-10-10T04:00:00Z",
+      "end": "2025-10-10T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "78cu9t93fseneocpmn99qvfjmc@google.com",
+      "summary": "대학원/학부세미나_박선영",
+      "eventType": "세미나",
+      "start": "2025-10-17T04:00:00Z",
+      "end": "2025-10-17T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1u9tn4dh31krsri6g72914rc24@google.com",
+      "summary": "BK세미나_Prof. Peng Xi",
+      "eventType": "BK세미나",
+      "start": "2025-10-28T01:00:00Z",
+      "end": "2025-10-28T02:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1b67gn464ncf18iserk9tivtss@google.com",
+      "summary": "대학원/학부 세미나_신현준",
+      "eventType": "세미나",
+      "start": "2025-10-31T04:00:00Z",
+      "end": "2025-10-31T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3vgp89255thfdnir44rndmsmjl@google.com",
+      "summary": "CANoe workshop",
+      "eventType": "일정",
+      "start": "2025-11-06T00:30:00Z",
+      "end": "2025-11-06T08:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2f4b4931u5109p8vnqvi8dpeg2@google.com",
+      "summary": "대학원/학부 세미나_양태헌",
+      "eventType": "세미나",
+      "start": "2025-11-07T04:00:00Z",
+      "end": "2025-11-07T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "44vplts101qitfoo42kra4fi6d@google.com",
+      "summary": "대학원/학부 세미나_차성운 교수",
+      "eventType": "세미나",
+      "start": "2025-11-14T04:00:00Z",
+      "end": "2025-11-14T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7bajm7vkprcue1u8haet8aeqv4@google.com",
+      "summary": "대학원 세미나_이동호",
+      "eventType": "대학원 세미나",
+      "start": "2025-11-21T04:00:00Z",
+      "end": "2025-11-21T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5l6cmoe8egiu32km3tg2347ppb@google.com",
+      "summary": "학부 세미나_한방우",
+      "eventType": "학부 세미나",
+      "start": "2025-11-21T07:00:00Z",
+      "end": "2025-11-21T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1n1mf63g87g3rano3u4j97j1n2@google.com",
+      "summary": "대학원 세미나_김원욱",
+      "eventType": "대학원 세미나",
+      "start": "2025-11-28T04:00:00Z",
+      "end": "2025-11-28T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7ucr1krbpsd6fro4hg2sttu9c0@google.com",
+      "summary": "학부 세미나_김학준",
+      "eventType": "학부 세미나",
+      "start": "2025-11-28T07:00:00Z",
+      "end": "2025-11-28T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "03nnis6no4r29vvu9jghaudfs2@google.com",
+      "summary": "대학원 세미나_서승우",
+      "eventType": "대학원 세미나",
+      "start": "2025-12-05T04:00:00Z",
+      "end": "2025-12-05T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3qs90k6sr7k0e0dqhqqg30iir2@google.com",
+      "summary": "학부 세미나_박재홍",
+      "eventType": "학부 세미나",
+      "start": "2025-12-05T07:00:00Z",
+      "end": "2025-12-05T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1o98bakqrqqjfekma8nsgul17e@google.com",
+      "summary": "BK세미나_이태규 박사",
+      "eventType": "BK세미나",
+      "start": "2025-12-12T07:00:00Z",
+      "end": "2025-12-12T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "20ov8b9v8dkgi4lh7tn67j1h10@google.com",
+      "summary": "BK세미나_신동식 교수",
+      "eventType": "BK세미나",
+      "start": "2025-12-12T08:00:00Z",
+      "end": "2025-12-12T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4noad5usnl1krikvo9umo2n89a@google.com",
+      "summary": "BK세미나_최종현 교수",
+      "eventType": "BK세미나",
+      "start": "2025-12-15T04:00:00Z",
+      "end": "2025-12-15T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "71v29oqhkhnk0nshhi8smb4u2p@google.com",
+      "summary": "Industry Insight Forum",
+      "eventType": "일정",
+      "start": "2026-01-07T00:00:00Z",
+      "end": "2026-01-07T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5gml4ulu9j218kcr4u4ck6p67b@google.com",
+      "summary": "여자 대학원생 선배와의 멘토링 행사",
+      "eventType": "행사",
+      "start": "2026-01-15T07:00:00Z",
+      "end": "2026-01-15T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0mb8a43b3cq3bmau8qo68h8otu@google.com",
+      "summary": "BK세미나_주재형 교수",
+      "eventType": "BK세미나",
+      "start": "2026-01-19T02:00:00Z",
+      "end": "2026-01-19T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7beng68e1v0ftm2mkn1mjogvio@google.com",
+      "summary": "BK세미나_정성훈 교수",
+      "eventType": "BK세미나",
+      "start": "2026-01-19T08:00:00Z",
+      "end": "2026-01-19T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3uj0ta49jmtp6b9antk467138v@google.com",
+      "summary": "겨울학기 해외집중강의 시리즈",
+      "eventType": "일정",
+      "start": "2026-01-26T09:00:00",
+      "end": "2026-01-26T12:00:00",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1qbp895r5t5ispmpasjnbrmedj@google.com",
+      "summary": "대학원 세미나_김동규 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-03-06T04:00:00Z",
+      "end": "2026-03-06T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4kntl1uodonn7bghh2clh83dan@google.com",
+      "summary": "대학원세미나_서나진 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-03-13T04:00:00Z",
+      "end": "2026-03-13T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1n4n780go3gc0kn1guae3q3l90@google.com",
+      "summary": "BK세미나_Prof. Kevin",
+      "eventType": "BK세미나",
+      "start": "2026-03-13T04:30:00Z",
+      "end": "2026-03-13T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4onlvuie25sr35dmkd41vfa1nd@google.com",
+      "summary": "학부세미나_하유신 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-03-13T06:00:00Z",
+      "end": "2026-03-13T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "610tnns3qojm9k5682l76n59n2@google.com",
+      "summary": "대학원 세미나_양태헌 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-03-20T04:00:00Z",
+      "end": "2026-03-20T06:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4pvmrc2f0gb6knk4ueg1aqaa1m@google.com",
+      "summary": "학부 세미나_류원형 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-03-20T06:00:00Z",
+      "end": "2026-03-20T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1f1nno1k34dmq287khd11008vp@google.com",
+      "summary": "대학원 세미나_유만선 관장",
+      "eventType": "대학원 세미나",
+      "start": "2026-03-27T04:00:00Z",
+      "end": "2026-03-27T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6kf1b6lcscij0prifmo51gr2f2@google.com",
+      "summary": "학부 세미나_이종학 소장",
+      "eventType": "학부 세미나",
+      "start": "2026-03-27T07:00:00Z",
+      "end": "2026-03-27T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "20puh90aj8unak5ku2etbvf9o1@google.com",
+      "summary": "BK세미나_Dr. Michael Tanksalvala",
+      "eventType": "BK세미나",
+      "start": "2026-04-02T04:30:00Z",
+      "end": "2026-04-02T05:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4kona719huts756jmb2udmtao8@google.com",
+      "summary": "대학원 세미나_소병식 부사장",
+      "eventType": "대학원 세미나",
+      "start": "2026-04-03T04:00:00Z",
+      "end": "2026-04-03T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4r3m8c30pm57slg7es0nglpsc2@google.com",
+      "summary": "학부 세미나_민경민 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-04-03T07:00:00Z",
+      "end": "2026-04-03T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "6irjcp8kp1qq4q71j5fq16o8dq@google.com",
+      "summary": "대학원 세미나_이은호 박사",
+      "eventType": "대학원 세미나",
+      "start": "2026-04-10T04:00:00Z",
+      "end": "2026-04-10T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "36pjfvsv1duvg3if1bq3jgr5gu@google.com",
+      "summary": "학부 세미나_이호성 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-04-10T07:00:00Z",
+      "end": "2026-04-10T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "3cj8joi5km1ebctmfkjckovlr1@google.com",
+      "summary": "BK세미나_김문일 교수",
+      "eventType": "BK세미나",
+      "start": "2026-04-16T08:00:00Z",
+      "end": "2026-04-16T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1fbilgqe9o45bbj7m735bdsbr4@google.com",
+      "summary": "대학원 세미나_표동범 박사",
+      "eventType": "대학원 세미나",
+      "start": "2026-04-17T04:00:00Z",
+      "end": "2026-04-17T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7se6hrbo32ve52ki6pt36v9n7h@google.com",
+      "summary": "학부 세미나_홍종섭 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-04-17T07:00:00Z",
+      "end": "2026-04-17T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "27kj3u4nes5e6jdpdcdsvdeqvc@google.com",
+      "summary": "대학원 세미나_차성운 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-05-08T04:00:00Z",
+      "end": "2026-05-08T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "35sf5m7db7mrb2d58apphrmtvn@google.com",
+      "summary": "학부 세미나_심상준",
+      "eventType": "학부 세미나",
+      "start": "2026-05-08T07:00:00Z",
+      "end": "2026-05-08T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "47p05mqcq4jcbja2t6tsivgs32@google.com",
+      "summary": "대학원 세미나_이성희",
+      "eventType": "대학원 세미나",
+      "start": "2026-05-15T04:00:00Z",
+      "end": "2026-05-15T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5ojj9qh61lbav0qhgnqum1o9n6@google.com",
+      "summary": "학부 세미나_유준호",
+      "eventType": "학부 세미나",
+      "start": "2026-05-15T07:00:00Z",
+      "end": "2026-05-15T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7f8cn11ga411gt3iamdjlvlh13@google.com",
+      "summary": "BK세미나_Prof. Albert Kim",
+      "eventType": "BK세미나",
+      "start": "2026-05-21T08:00:00Z",
+      "end": "2026-05-21T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "36adkd192qt1gene98hh3hilsq@google.com",
+      "summary": "대학원 세미나_강구민 박사",
+      "eventType": "대학원 세미나",
+      "start": "2026-05-22T04:00:00Z",
+      "end": "2026-05-22T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2n23uird2gcsabo35i1ttih8b0@google.com",
+      "summary": "학부 세미나_김원정 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-05-22T07:00:00Z",
+      "end": "2026-05-22T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2ang6en1s372eqbthosvsd6mv8@google.com",
+      "summary": "대학원 세미나_정성남 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-05-29T04:00:00Z",
+      "end": "2026-05-29T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2v2s7mdaqmn66gqtsaolc5j25q@google.com",
+      "summary": "학부 세미나_임근배 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-05-29T07:00:00Z",
+      "end": "2026-05-29T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2seoiot27asq01ujgt6uov5orf@google.com",
+      "summary": "BK세미나_강용태 교수",
+      "eventType": "BK세미나",
+      "start": "2026-06-01T08:00:00Z",
+      "end": "2026-06-01T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5vq1ojk8cq1o9f8gv4q3oqma11@google.com",
+      "summary": "대학원 세미나_나성수 교수",
+      "eventType": "대학원 세미나",
+      "start": "2026-06-05T04:00:00Z",
+      "end": "2026-06-05T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "0olkea54os0u04mhvj1faeji96@google.com",
+      "summary": "학부 세미나_김석 교수",
+      "eventType": "학부 세미나",
+      "start": "2026-06-05T07:00:00Z",
+      "end": "2026-06-05T10:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "2qa6l02ts0k6n3cd8oso68rnhp@google.com",
+      "summary": "BK세미나_Prof. Dvir Yelin",
+      "eventType": "BK세미나",
+      "start": "2026-06-11T04:00:00Z",
+      "end": "2026-06-11T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4nmbk2i2abf1oscghfmsk0bh7u@google.com",
+      "summary": "해외집중강의 시리즈(원창희 교수님)",
+      "eventType": "일정",
+      "start": "2026-07-01T14:00:00",
+      "end": "2026-07-01T18:00:00",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "4t4bjsjo7kloetcpgg10k7e7el@google.com",
+      "summary": "BK세미나_이지현 교수",
+      "eventType": "BK세미나",
+      "start": "2026-07-14T02:00:00Z",
+      "end": "2026-07-14T03:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7pesooimkv5mmk9euame6cf6mp@google.com",
+      "summary": "BK세미나_Prof. Robert G. Landers",
+      "eventType": "BK세미나",
+      "start": "2026-07-15T01:30:00Z",
+      "end": "2026-07-15T02:30:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "61kegl9anv4qbgr0ckeplk13c6@google.com",
+      "summary": "여름학기 해외집중강의 시리즈(2차)",
+      "eventType": "일정",
+      "start": "2026-07-20T05:00:00Z",
+      "end": "2026-07-20T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "41mvih3a94j9sn85aco5gfq63q@google.com",
+      "summary": "BK세미나_Prof. Reza Talemi",
+      "eventType": "BK세미나",
+      "start": "2026-07-21T04:00:00Z",
+      "end": "2026-07-21T05:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "41fuo7uhlai46istggtcoin291@google.com",
+      "summary": "여름학기 해외집중강의 시리즈(2차)",
+      "eventType": "일정",
+      "start": "2026-07-21T05:00:00Z",
+      "end": "2026-07-21T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "60hhfnvlr8cbf5b140mi6doaf2@google.com",
+      "summary": "여름학기 해외집중강의 시리즈(2차)",
+      "eventType": "일정",
+      "start": "2026-07-23T05:00:00Z",
+      "end": "2026-07-23T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "7oagmo7kq0f843o214e4ufi9qe@google.com",
+      "summary": "여름학기 해외집중강의 시리즈(2차)",
+      "eventType": "일정",
+      "start": "2026-07-24T05:00:00Z",
+      "end": "2026-07-24T07:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "1ai7iadr0a508ab5pbil804aua@google.com",
+      "summary": "BK세미나(김종성)",
+      "eventType": "BK세미나",
+      "start": "2026-07-28T07:00:00Z",
+      "end": "2026-07-28T08:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "uid": "5o7rqfs5fmem95mp8jmudesod6@google.com",
+      "summary": "BK세미나_히라이 교수",
+      "eventType": "BK세미나",
+      "start": "2026-07-31T08:00:00Z",
+      "end": "2026-07-31T09:00:00Z",
+      "allDay": false,
+      "status": "CONFIRMED"
+    }
+  ]
+}
