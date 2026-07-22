@@ -104,7 +104,7 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
               <div className="aspect-[16/10] overflow-hidden rounded-xl bg-surface-muted sm:aspect-square">
                 <ArticleThumb post={featured} />
               </div>
-              <div className="flex flex-col justify-center">
+              <div className="flex min-w-0 flex-col justify-center">
                 <p className="text-balance font-display text-lg font-bold text-ink group-hover:text-primary sm:text-xl">
                   {featured.title}
                 </p>

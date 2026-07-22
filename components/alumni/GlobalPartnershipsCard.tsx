@@ -35,6 +35,16 @@ export interface GlobalPartnershipsData {
   mouPendingNoticeKr: string;
   mouPendingNoticeEn: string;
   mouPartners: { nameKr: string; nameEn: string; logo: string | null }[];
+  partnerUniversitiesHeadingKr: string;
+  partnerUniversitiesHeadingEn: string;
+  partnerUniversitiesPendingNoticeKr: string;
+  partnerUniversitiesPendingNoticeEn: string;
+  partnerUniversities: { countryKr: string; countryEn: string; universityNameKr: string; universityNameEn: string; period: string; typeKr: string; typeEn: string }[];
+  internationalEventsHeadingKr: string;
+  internationalEventsHeadingEn: string;
+  internationalEventsPendingNoticeKr: string;
+  internationalEventsPendingNoticeEn: string;
+  internationalEvents: { nameKr: string; nameEn: string; period: string; locationKr: string; locationEn: string }[];
 }
 
 export default function GlobalPartnershipsCard({ data, lang }: { data: GlobalPartnershipsData; lang: Lang }) {
@@ -89,6 +99,70 @@ export default function GlobalPartnershipsCard({ data, lang }: { data: GlobalPar
           <p className="mt-1.5 text-sm text-ink/70">{lang === "ko" ? data.keioNote.descKr : data.keioNote.descEn}</p>
         </div>
       </div>
+
+      {/* 교육 교류 (협정 대학) */}
+      <h3 className="mt-8 text-xs font-medium uppercase tracking-wide text-ink/45">
+        {lang === "ko" ? data.partnerUniversitiesHeadingKr : data.partnerUniversitiesHeadingEn}
+      </h3>
+      {data.partnerUniversities.length === 0 ? (
+        <p className="mt-3 rounded-lg border border-dashed border-line px-4 py-6 text-center text-sm text-ink/50">
+          {lang === "ko" ? data.partnerUniversitiesPendingNoticeKr : data.partnerUniversitiesPendingNoticeEn}
+        </p>
+      ) : (
+        <div className="mt-3 overflow-x-auto rounded-lg border border-line">
+          <table className="w-full min-w-[480px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-surface-muted text-left">
+                <th className="px-4 py-2.5 font-display font-normal text-ink/70">
+                  {lang === "ko" ? "국가" : "Country"}
+                </th>
+                <th className="px-4 py-2.5 font-display font-normal text-ink/70">
+                  {lang === "ko" ? "협정 대학" : "University"}
+                </th>
+                <th className="px-4 py-2.5 font-display font-normal text-ink/70">
+                  {lang === "ko" ? "협정기간" : "Period"}
+                </th>
+                <th className="px-4 py-2.5 font-display font-normal text-ink/70">
+                  {lang === "ko" ? "협정형태" : "Type"}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.partnerUniversities.map((u) => (
+                <tr key={u.universityNameKr} className="border-t border-line">
+                  <td className="px-4 py-3 text-ink/70">{lang === "ko" ? u.countryKr : u.countryEn}</td>
+                  <td className="px-4 py-3 text-ink">{lang === "ko" ? u.universityNameKr : u.universityNameEn}</td>
+                  <td className="px-4 py-3 text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
+                    {u.period}
+                  </td>
+                  <td className="px-4 py-3 text-ink/70">{lang === "ko" ? u.typeKr : u.typeEn}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* 국제 행사 */}
+      <h3 className="mt-8 text-xs font-medium uppercase tracking-wide text-ink/45">
+        {lang === "ko" ? data.internationalEventsHeadingKr : data.internationalEventsHeadingEn}
+      </h3>
+      {data.internationalEvents.length === 0 ? (
+        <p className="mt-3 rounded-lg border border-dashed border-line px-4 py-6 text-center text-sm text-ink/50">
+          {lang === "ko" ? data.internationalEventsPendingNoticeKr : data.internationalEventsPendingNoticeEn}
+        </p>
+      ) : (
+        <ul className="mt-3 divide-y divide-line rounded-lg border border-line">
+          {data.internationalEvents.map((e) => (
+            <li key={e.nameKr} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-3">
+              <span className="text-sm text-ink">{lang === "ko" ? e.nameKr : e.nameEn}</span>
+              <span className="text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
+                {e.period} · {lang === "ko" ? e.locationKr : e.locationEn}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* 학과 개별 MOU */}
       <h3 className="mt-8 text-xs font-medium uppercase tracking-wide text-ink/45">

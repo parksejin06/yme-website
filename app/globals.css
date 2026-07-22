@@ -23,6 +23,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Guards against any transform-based reveal animation (e.g. .slide-in-right's
+     pre-reveal translateX) temporarily widening the document past the viewport --
+     which on mobile can throw off hit-testing for the fixed header while it's active. */
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -43,6 +47,7 @@ body {
   color: var(--color-ink);
   background: #ffffff;
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 /*

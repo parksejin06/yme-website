@@ -49,7 +49,7 @@ function LabCard({ item, lang, onPlay }: { item: LabMediaItem; lang: Lang; onPla
   const name = item.labNameKo || item.professorName || "";
 
   return (
-    <div className="overflow-hidden rounded-xl border border-line">
+    <div className="min-w-0 overflow-hidden rounded-xl border border-line">
       <button
         type="button"
         onClick={item.mediaType === "video" ? onPlay : undefined}
@@ -172,7 +172,7 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
                     </span>
                   </span>
                 </button>
-                <div className="flex flex-col justify-center p-6">
+                <div className="flex min-w-0 flex-col justify-center p-6">
                   <span className="text-xs font-bold uppercase tracking-wide text-primary/70">{t.videoLabel}</span>
                   <p className="mt-2 font-display text-lg text-ink">{featured.labNameKo}</p>
                   <p className="mt-1 text-sm text-ink/55">

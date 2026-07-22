@@ -76,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Vision teaser */}
-      <section id="vision-teaser" className="mx-auto max-w-content px-4 py-20 sm:px-6 sm:py-28">
+      <section id="vision-teaser" className="mx-auto max-w-content overflow-x-hidden px-4 py-20 sm:px-6 sm:py-28">
         <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-16">
           <ScrollSlideIn>
             <Image

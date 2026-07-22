@@ -19,21 +19,24 @@ export default function AlumniPage() {
       />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
-        <div className="grid items-start gap-4 sm:grid-cols-2">
-          <AlumniAssociationCard data={alumniInfo} lang="ko" />
-
+        <p className="font-body text-sm tracking-[0.2em] text-primary/70">ALUMNI ASSOCIATION</p>
+        <h2 className="mt-3 font-display text-xl text-ink">동문회</h2>
+        <div className="mt-6 grid items-start gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-dashed border-line px-6 py-10 text-center">
             <p className="font-display text-ink/70">동문 인터뷰·소식</p>
             <p className="mt-2 text-sm text-ink/70">[추후 제공 예정]</p>
           </div>
+
+          <AlumniAssociationCard data={alumniInfo} lang="ko" />
         </div>
 
-        <div className="mt-4">
-          <IndustryCollaborationCard data={industryPartners} lang="ko" />
-        </div>
-
-        <div className="mt-4">
-          <GlobalPartnershipsCard data={globalPartnerships} lang="ko" />
+        <div className="mt-16 border-t border-line pt-16">
+          <p className="font-body text-sm tracking-[0.2em] text-primary/70">EXTERNAL PARTNERSHIPS</p>
+          <h2 className="mt-3 font-display text-xl text-ink">대외협력</h2>
+          <div className="mt-6 space-y-4">
+            <IndustryCollaborationCard data={industryPartners} lang="ko" />
+            <GlobalPartnershipsCard data={globalPartnerships} lang="ko" />
+          </div>
         </div>
       </section>
     </>

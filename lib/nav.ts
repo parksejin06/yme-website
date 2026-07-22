@@ -40,8 +40,6 @@ export const NAV_ITEMS: NavItem[] = [
     kr: "학부",
     en: "Undergraduate",
     children: [
-      { path: "/undergraduate", kr: "학부 개요", en: "Overview" },
-      { path: "/undergraduate/goals", kr: "교육 목표", en: "Education Goals" },
       { path: "/undergraduate/graduation", kr: "졸업 요건", en: "Graduation Requirements" },
       { path: "/undergraduate/graduation-check", kr: "졸업요건 자가진단", en: "Graduation Requirement Check" },
       { path: "/undergraduate/courses", kr: "교과목 소개", en: "Courses" },

@@ -76,7 +76,7 @@ export default function LatestUpdatesSection({ lang }: { lang: Lang }) {
               <ScrollReveal key={post.id} delayMs={i * 100}>
                 <Link
                   href={postHref(lang, "news", post.sourcePostId)}
-                  className="group block h-full overflow-hidden rounded-lg border border-line transition-all duration-200 hover:-translate-y-1 hover:border-primary-soft hover:shadow-md"
+                  className="group block h-full min-w-0 overflow-hidden rounded-lg border border-line transition-all duration-200 hover:-translate-y-1 hover:border-primary-soft hover:shadow-md"
                 >
                   <div className="aspect-[16/10] w-full overflow-hidden bg-surface-muted">
                     <NewsThumb post={post} />

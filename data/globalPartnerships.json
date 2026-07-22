@@ -1,5 +1,5 @@
 {
-  "_note": "TODO(학과 행정실 확인 후 교체): 기계공학부 단독으로 체결한 개별 MOU 대학/기업 리스트가 아직 없습니다. mouPartners는 빈 배열이며, 이 동안 화면에는 mouPendingNotice 문구만 노출됩니다. 실제 리스트를 받으면 { \"nameKr\", \"nameEn\", \"logo\" } 형태로 채우면 카드가 자동으로 늘어납니다 (logo는 /public 기준 이미지 경로, 없으면 null).",
+  "_note": "TODO(학과 행정실 확인 후 교체): (1) 기계공학부 단독으로 체결한 개별 MOU 대학/기업 리스트가 아직 없습니다 — mouPartners는 빈 배열이며, 이 동안 화면에는 mouPendingNotice 문구만 노출됩니다. 실제 리스트를 받으면 { \"nameKr\", \"nameEn\", \"logo\" } 형태로 채우면 카드가 자동으로 늘어납니다 (logo는 /public 기준 이미지 경로, 없으면 null). (2) partnerUniversities(교육 교류 협정 대학)와 internationalEvents(국제 행사)도 마찬가지로 학과 확인 전까지 빈 배열입니다 — 아래 각 스키마 주석 참고.",
   "news": {
     "badgeKr": "최근 소식",
     "badgeEn": "Recent",
@@ -32,5 +32,15 @@
   "mouHeadingEn": "Department-level MOUs",
   "mouPendingNoticeKr": "학과 개별 MOU 체결 현황은 준비 중입니다.",
   "mouPendingNoticeEn": "Department-level MOU partnerships are being compiled and will be added here.",
-  "mouPartners": []
+  "mouPartners": [],
+  "partnerUniversitiesHeadingKr": "교육 교류 (협정 대학)",
+  "partnerUniversitiesHeadingEn": "Educational Exchange (Partner Universities)",
+  "partnerUniversitiesPendingNoticeKr": "학생 교환·복수학위 등 교육 교류 협정을 맺은 해외 대학 목록은 확인 중이며, 국가·협정기간·협정형태와 함께 순차적으로 업데이트될 예정입니다.",
+  "partnerUniversitiesPendingNoticeEn": "The list of partner universities for student exchange and dual-degree agreements is being confirmed and will be added with country, agreement period, and type.",
+  "partnerUniversities": [],
+  "internationalEventsHeadingKr": "국제 행사",
+  "internationalEventsHeadingEn": "International Events",
+  "internationalEventsPendingNoticeKr": "학과가 주최하거나 참여한 국제 워크숍·심포지엄 등의 목록은 준비 중입니다.",
+  "internationalEventsPendingNoticeEn": "A list of international workshops and symposia hosted or attended by the department is being prepared.",
+  "internationalEvents": []
 }
