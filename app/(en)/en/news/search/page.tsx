@@ -15,7 +15,7 @@ export default async function CommunitySearchPageEn({ searchParams }: { searchPa
 
   return (
     <>
-      <PageHero eyebrow="NEWS & COMMUNITY" title="Search" description="Search notices, news, thesis reviews, resources, jobs, events, and seminars all at once." />
+      <PageHero eyebrow="NEWS & COMMUNITY" title="Search" description="Search notices, news, thesis reviews, resources, events, and seminars all at once." />
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Search" }]} />
 

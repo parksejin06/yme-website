@@ -58,6 +58,9 @@ export interface BoardMeta {
   sourceUrl: string;
   /** URL segment under /news (or /en/news) for this board's list + [id] detail route. */
   routeSegment: string;
+  /** Overrides the default "/news" section root -- jobs lives under 입학·진로 (/admissions), not
+   * 뉴스및공지사항, to avoid the duplicate listing the two sections used to share. */
+  basePath?: string;
 }
 
 export const BOARD_META: Record<BoardKey, BoardMeta> = {
@@ -112,10 +115,11 @@ export const BOARD_META: Record<BoardKey, BoardMeta> = {
   },
   jobs: {
     key: "jobs",
-    labelKo: "취업정보",
-    labelEn: "Jobs",
+    labelKo: "채용정보·인턴십",
+    labelEn: "Jobs & Internships",
     sourceUrl: "https://me.yonsei.ac.kr/me/community/job.do",
     routeSegment: "jobs",
+    basePath: "/admissions",
   },
   events: {
     key: "events",
@@ -146,13 +150,15 @@ export function boardLabel(key: BoardKey, lang: Lang): string {
 
 export function postHref(lang: Lang, board: BoardKey, id: string): string {
   const prefix = lang === "ko" ? "" : "/en";
-  return `${prefix}/news/${BOARD_META[board].routeSegment}/${id}`;
+  const base = BOARD_META[board].basePath ?? "/news";
+  return `${prefix}${base}/${BOARD_META[board].routeSegment}/${id}`;
 }
 
 export function listHref(lang: Lang, board: BoardKey): string {
   const prefix = lang === "ko" ? "" : "/en";
   if ((NOTICE_BOARDS as readonly BoardKey[]).includes(board)) return `${prefix}/news`;
-  return `${prefix}/news/${BOARD_META[board].routeSegment}`;
+  const base = BOARD_META[board].basePath ?? "/news";
+  return `${prefix}${base}/${BOARD_META[board].routeSegment}`;
 }
 
 /** Official calendar event, imported verbatim from the public Google Calendar iCal feed embedded

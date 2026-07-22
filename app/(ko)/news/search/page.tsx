@@ -15,7 +15,7 @@ export default async function CommunitySearchPage({ searchParams }: { searchPara
 
   return (
     <>
-      <PageHero eyebrow="NEWS & COMMUNITY" title="통합검색" description="공지사항, 뉴스, 학위논문심사, 자료실, 취업정보, 행사, 세미나를 한 번에 검색합니다." />
+      <PageHero eyebrow="NEWS & COMMUNITY" title="통합검색" description="공지사항, 뉴스, 학위논문심사, 자료실, 채용정보·인턴십, 행사, 세미나를 한 번에 검색합니다." />
       <SectionSubNav items={NEWS_NAV} lang="ko" label="뉴스 및 공지사항 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "통합검색" }]} />
 
