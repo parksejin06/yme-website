@@ -1,0 +1,39 @@
+{
+  "_note": "HistoryAccordion용 구간별 한 줄 소개 문구입니다. 키는 lib/history.ts의 groupHistoryByRange가 생성하는 '${startYear}-${endYear}' 형식과 반드시 일치해야 노출됩니다 (windowSize=5 기준). data/history.json이 갱신되어 새 구간이 생기면 이 파일에도 해당 키를 추가하세요 — 없으면 컴포넌트의 기본 문구로 대체됩니다.",
+  "2020-2024": {
+    "kr": "국가 연구지원 사업 선정으로 연구 경쟁력을 한층 강화했습니다.",
+    "en": "Selected for a national research program, further strengthening research competitiveness."
+  },
+  "2015-2019": {
+    "kr": "지속적인 연구비 지원 체계를 구축하며 연구 역량을 확대했습니다.",
+    "en": "Built a sustained research funding framework, expanding research capacity."
+  },
+  "2010-2014": {
+    "kr": "창립 50주년을 맞아 반세기의 역사를 돌아보았습니다.",
+    "en": "Marked the 50th anniversary of founding, reflecting on half a century of history."
+  },
+  "2000-2004": {
+    "kr": "독립 학부로 새 출발하며 공학교육 인증 체계를 도입했습니다.",
+    "en": "Became an independent school and introduced an engineering education accreditation system."
+  },
+  "1995-1999": {
+    "kr": "학과 통합을 통해 교육 체계를 재정비했습니다.",
+    "en": "Reorganized the academic structure through departmental integration."
+  },
+  "1980-1984": {
+    "kr": "대학원 과정의 전공 명칭을 정비하며 내실을 다졌습니다.",
+    "en": "Refined graduate program naming, strengthening its academic foundation."
+  },
+  "1970-1974": {
+    "kr": "대학원 석·박사 과정을 잇달아 신설하며 연구 기반을 확립했습니다.",
+    "en": "Established consecutive master's and doctoral programs, laying the foundation for research."
+  },
+  "1960-1964": {
+    "kr": "기계공학과로 독립하여 첫 입학생과 졸업생을 배출했습니다.",
+    "en": "Became an independent Department of Mechanical Engineering and produced its first students and graduates."
+  },
+  "1955-1959": {
+    "kr": "기계공학부의 모태가 된 건설공학과가 문을 열었습니다.",
+    "en": "The Department of Construction Engineering, the origin of today's School, was founded."
+  }
+}

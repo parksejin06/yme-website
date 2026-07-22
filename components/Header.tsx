@@ -1,31 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import DesktopNav from "@/components/DesktopNav";
 import MobileNav from "@/components/MobileNav";
 import LanguageToggle from "@/components/LanguageToggle";
 import { localizePath, type Lang } from "@/lib/nav";
+import { useScrolled } from "@/lib/useScrolled";
 
 export default function Header({ lang }: { lang: Lang }) {
   const home = localizePath("/", lang);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 80);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const scrolled = useScrolled();
 
   const light = !scrolled;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[1000] h-20 transition-colors duration-300 sm:h-24 ${
+      style={{ top: scrolled ? "0px" : "var(--utility-bar-h)" }}
+      className={`fixed inset-x-0 z-[1000] h-20 transition-all duration-300 sm:h-24 ${
         scrolled
           ? "border-b border-line bg-white/97 backdrop-blur"
           : "border-b border-transparent bg-gradient-to-b from-black/50 via-black/15 to-transparent"
@@ -46,10 +38,10 @@ export default function Header({ lang }: { lang: Lang }) {
             className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12"
           />
           <span
-            className={`min-w-0 break-keep font-display leading-tight transition-colors duration-300 ${
+            className={`min-w-0 break-keep font-wanted font-semibold leading-tight transition-colors duration-300 ${
               light ? "text-white" : "text-primary"
             }`}
-            style={{ fontSize: "clamp(0.8125rem, 0.5rem + 1vw, 1.25rem)" }}
+            style={{ fontSize: "clamp(0.8125rem, 0.5rem + 1vw, 1.1875rem)" }}
           >
             {lang === "ko" ? (
               <>

@@ -26,7 +26,7 @@ export default async function FacultyDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <section className="bg-gradient-to-b from-primary to-primary-strong px-4 py-14 sm:px-6 sm:py-20">
+      <section className="bg-gradient-to-b from-primary to-primary-strong px-4 pb-14 pt-[calc(var(--utility-bar-h)+6.5rem)] sm:px-6 sm:pb-20 sm:pt-[calc(var(--utility-bar-h)+8rem)]">
         <div className="mx-auto max-w-content">
           <nav aria-label="브레드크럼" className="flex items-center gap-1.5 text-sm text-white/70">
             <Link href="/" className="flex items-center hover:text-white" aria-label="홈">
@@ -108,7 +108,7 @@ export default async function FacultyDetailPage({ params }: { params: Promise<{ 
                   href={member.labUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block rounded-full border border-primary px-5 py-2 text-primary transition-colors hover:bg-primary hover:text-white"
+                  className="inline-block rounded-sm border border-primary px-5 py-2 text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   연구실 홈페이지 →
                 </a>

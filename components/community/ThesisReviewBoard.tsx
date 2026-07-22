@@ -38,7 +38,7 @@ export default function ThesisReviewBoard({ items, lang }: { items: CommunityPos
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <div className="mt-8 overflow-x-auto border border-line">
+        <div className="mt-8 overflow-x-auto overflow-y-hidden border border-line">
           <table className="w-full min-w-[640px] border-collapse">
             <thead>
               <tr className="border-b border-line bg-surface-muted text-left text-sm">

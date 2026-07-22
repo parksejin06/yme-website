@@ -1,10 +1,8 @@
 {
-  "_note": "TODO(학과 행정실 확인 후 교체): 동문회 조직/연혁/회장단 등 구체적 정보가 아직 없습니다. status가 \"draft\"인 동안 화면에는 안내 문구(pendingNotice)만 노출됩니다. 실제 자료를 받으면 organization 필드를 추가하고 status를 \"published\"로 바꿔 컴포넌트를 확장하세요.",
-  "status": "draft",
-  "introKr": "연세대학교 기계공학부는 오랜 역사 속에서 산업, 연구, 공공 등 다양한 분야로 진출한 졸업생들의 네트워크를 이어가고 있습니다.",
-  "introEn": "Yonsei University's Department of Mechanical Engineering has built a long-standing network of graduates active across industry, research, and public service.",
-  "pendingNoticeKr": "동문회 조직 및 연혁 정보는 준비 중이며, 순차적으로 업데이트될 예정입니다.",
-  "pendingNoticeEn": "Information on the alumni association's organization and history is being prepared and will be updated progressively.",
-  "contactCtaKr": "동문 네트워크 문의",
-  "contactCtaEn": "Contact the Alumni Network"
+  "_note": "총동문회는 연세대학교 차원에서 운영하는 외부 조직으로, 학과에서 별도로 관리하는 정보가 아닙니다. 아래 문구는 소개용 안내 텍스트이며 필요 시 자유롭게 교체하세요.",
+  "introKr": "연세대학교 총동문회는 국내외 각지에서 활동하는 연세인들의 네트워크를 잇는 구심점입니다. 우리 학부 동문 여러분도 총동문회 홈페이지에서 다양한 소식과 활동을 확인하실 수 있습니다.",
+  "introEn": "The Yonsei University Alumni Association connects Yonsei graduates active across Korea and around the world. Alumni of our department can also find news and activities through the association's website.",
+  "ctaUrl": "https://www.yonsei.net/",
+  "ctaLabelKr": "총동문회 홈페이지 바로가기",
+  "ctaLabelEn": "Visit the Alumni Association Website"
 }

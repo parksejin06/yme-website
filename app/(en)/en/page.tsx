@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollSlideIn from "@/components/ScrollSlideIn";
 import StatCounter from "@/components/StatCounter";
+import HistoryAccordion from "@/components/HistoryAccordion";
 import SocialSection from "@/components/home/SocialSection";
 import LatestUpdatesSection from "@/components/home/LatestUpdatesSection";
 import history from "@/data/history.json";
@@ -13,12 +14,12 @@ const foundingYear = 1962;
 const currentYear = new Date().getFullYear();
 
 export default function HomePageEn() {
-  const recentHistory = history.slice(-5).reverse();
+  const recentHistory = history.slice(-5);
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      {/* Hero — asymmetric, bottom-left anchored editorial composition */}
+      <section className="relative flex min-h-screen items-end overflow-hidden">
         <Image
           src="/images/main-bg.png"
           alt="Aerial view of Yonsei University's Sinchon campus"
@@ -31,47 +32,51 @@ export default function HomePageEn() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(15,42,87,0.4) 0%, rgba(15,42,87,0.45) 55%, rgba(15,42,87,0.55) 100%)",
+              "linear-gradient(to bottom, rgba(8,29,64,0.5) 0%, rgba(8,29,64,0.18) 30%, rgba(8,29,64,0.32) 62%, rgba(8,29,64,0.78) 100%)",
           }}
         />
-        <div
-          className="absolute inset-0"
-          aria-hidden="true"
-          style={{
-            background:
-              "radial-gradient(ellipse 65% 55% at 50% 48%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.14) 55%, transparent 78%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto w-full max-w-content px-4 py-28 text-center sm:px-6">
-          <h1 className="font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl md:text-7xl">
-            <span className="block">YONSEI UNIVERSITY</span>
-            <span className="mt-1 block text-[0.73em] sm:mt-2 md:mt-3">MECHANICAL ENGINEERING</span>
-          </h1>
-          <p className="mt-6 text-balance font-body text-base text-white/90 sm:text-lg">
-            Relentless challenge, creating value for the world.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/en/about"
-              className="rounded-full bg-white px-6 py-3 text-sm font-body text-primary transition-colors hover:bg-white/90"
-            >
-              About the School
-            </Link>
-            <Link
-              href="/en/labs"
-              className="rounded-full border border-white/60 px-6 py-3 text-sm font-body text-white transition-colors hover:bg-white/10"
-            >
-              Explore Research Labs
-            </Link>
+
+        <div className="relative z-10 mx-auto w-full max-w-content px-[var(--page-gutter)] pb-24 pt-40 sm:pb-28">
+          <div className="max-w-3xl">
+            <p className="font-body text-xs font-medium tracking-[0.3em] text-white/70 sm:text-sm">
+              YONSEI UNIVERSITY · SINCE {foundingYear}
+            </p>
+            <h1 className="mt-5 font-display leading-[1.08] text-white" style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)" }}>
+              MECHANICAL
+              <br />
+              ENGINEERING
+            </h1>
+            <p className="mt-7 max-w-md border-l border-white/40 pl-5 font-body text-base leading-relaxed text-white/85 sm:text-lg">
+              Relentless challenge,
+              <br />
+              creating value for the world.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+              <Link href="/en/about" className="link-rule font-body text-sm tracking-wide text-white">
+                About the School <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="/en/labs" className="link-rule font-body text-sm tracking-wide text-white">
+                Explore Research Labs <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
         </div>
 
+        {/* Vertical editorial caption, bottom-right */}
+        <p
+          className="absolute bottom-24 right-6 z-10 hidden font-body text-[11px] tracking-[0.35em] text-white/50 md:block lg:right-10"
+          style={{ writingMode: "vertical-rl" }}
+          aria-hidden="true"
+        >
+          SEOUL · SINCHON CAMPUS
+        </p>
+
         <a
           href="#vision-teaser"
-          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/90 drop-shadow-md transition-colors hover:text-white sm:bottom-10"
+          className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/80 transition-colors hover:text-white md:flex lg:right-10"
+          aria-label="Scroll down"
         >
-          <span className="font-body text-xs font-medium tracking-[0.2em]">Scroll to Explore</span>
-          <ChevronDown className="h-5 w-5 animate-soft-bounce" aria-hidden="true" />
+          <ChevronDown className="h-4 w-4 animate-soft-bounce" aria-hidden="true" />
         </a>
       </section>
 
@@ -84,46 +89,45 @@ export default function HomePageEn() {
               alt="Students studying in the Yonsei University College of Engineering lounge"
               width={640}
               height={800}
-              className="h-auto w-full rounded-lg object-cover"
+              className="h-auto w-full object-cover"
             />
           </ScrollSlideIn>
           <ScrollReveal delayMs={120}>
-            <p className="font-body text-sm tracking-[0.2em] text-primary/70">SINCE {foundingYear}</p>
-            <h2 className="mt-4 text-balance font-display text-2xl text-ink sm:text-3xl">
+            <p className="font-body text-xs font-medium tracking-[0.25em] text-accent">SINCE {foundingYear}</p>
+            <h2 className="mt-5 text-balance font-display text-[1.75rem] leading-snug text-ink sm:text-4xl">
               {currentYear - foundingYear} years of relentless challenge
             </h2>
-            <p className="mt-5 text-ink/70">
+            <p className="mt-6 leading-relaxed text-ink/70">
               Since its founding as the Department of Mechanical Engineering in 1962, Yonsei University&apos;s
               School of Mechanical Engineering has continually pushed the boundaries of industry and academia —
               from precision machinery to robotics, nanotechnology, and energy systems — creating value for the
               world through research every day.
             </p>
-            <Link
-              href="/en/about"
-              className="mt-6 inline-block border-b border-primary text-sm font-body text-primary"
-            >
-              View full history →
+            <Link href="/en/about" className="link-rule mt-8 inline-block text-sm font-body text-primary">
+              View full history <span aria-hidden="true">→</span>
             </Link>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-primary py-14 sm:py-16">
-        <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 divide-y divide-white/15 px-4 sm:px-6 md:grid-cols-4 md:divide-x md:divide-y-0">
-          <div className="py-5 pr-6 md:py-0 md:pr-8">
-            <StatCounter value={currentYear - foundingYear} suffix="th" label="Years since founding" />
+      {/* Stats — inverted navy ledger band: hairline-divided figures, no icons */}
+      <section className="bg-primary py-16 sm:py-20">
+        <div className="mx-auto max-w-content px-[var(--page-gutter)]">
+          <div className="grid grid-cols-2 gap-y-10 border-t border-white/15 pt-10 md:grid-cols-4 md:divide-x md:divide-white/15 md:gap-y-0">
+            <div className="md:pr-10">
+              <StatCounter value={currentYear - foundingYear} suffix="th" label="Years since founding" />
+            </div>
+            <div className="md:px-10">
+              <StatCounter value={labs.length} label="Research labs" />
+            </div>
+            <div className="md:px-10">
+              <StatCounter value={6} label="Research fields" />
+            </div>
+            <div className="md:pl-10">
+              <StatCounter value={10} label="Industry-Academia Partnerships" />
+            </div>
           </div>
-          <div className="py-5 pl-6 md:py-0 md:px-8">
-            <StatCounter value={labs.length} label="Research labs" />
-          </div>
-          <div className="py-5 pr-6 md:py-0 md:px-8">
-            <StatCounter value={6} label="Research fields" />
-          </div>
-          <div className="py-5 pl-6 md:py-0 md:pl-8">
-            <StatCounter value={10} label="Industry-Academia Partnerships" />
-          </div>
-        </ScrollReveal>
+        </div>
       </section>
 
       <LatestUpdatesSection lang="en" />
@@ -131,25 +135,28 @@ export default function HomePageEn() {
       {/* History teaser */}
       <section className="bg-surface-muted py-20 sm:py-28">
         <div className="mx-auto max-w-content px-4 sm:px-6">
-          <ScrollReveal>
-            <h2 className="text-balance font-display text-2xl text-ink sm:text-3xl">Recent History</h2>
-          </ScrollReveal>
-          <ol className="mt-10 space-y-0 border-l border-line pl-8">
-            {recentHistory.map((h, i) => (
-              <ScrollReveal key={h.year + h.month} delayMs={i * 70}>
-                <li className="relative pb-8 last:pb-0">
-                  <span className="absolute -left-[2.35rem] top-1 h-3 w-3 rounded-full border-2 border-primary bg-white" />
-                  <p className="font-display text-sm text-primary">
-                    {h.year}.{h.month}
-                  </p>
-                  <p className="mt-1 text-ink/80">{h.en}</p>
-                </li>
-              </ScrollReveal>
-            ))}
-          </ol>
-          <Link href="/en/about" className="mt-4 inline-block border-b border-primary text-sm font-body text-primary">
-            View full history →
-          </Link>
+          <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
+            <ScrollReveal>
+              <p className="font-body text-xs font-medium tracking-[0.25em] text-accent">HISTORY</p>
+              <h2 className="mt-5 text-balance font-display text-[1.75rem] leading-snug text-ink sm:text-4xl">
+                A History Proven Through Challenge,
+                <br />
+                A School Moving Forward
+              </h2>
+              <p className="mt-6 leading-relaxed text-ink/70">
+                Since taking its first steps as the Department of Construction Engineering in 1958, more than six
+                decades of challenge and growth have shaped what is now Yonsei University&apos;s School of Mechanical
+                Engineering.
+              </p>
+            </ScrollReveal>
+
+            <div>
+              <HistoryAccordion entries={recentHistory} lang="en" />
+              <Link href="/en/about/history" className="link-rule mt-8 inline-block text-sm font-body text-primary">
+                View full history <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

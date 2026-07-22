@@ -72,7 +72,7 @@ export default function StaffDirectory({ staff, lang }: { staff: Staff[]; lang: 
       ) : (
         <>
           {/* Desktop/tablet: full directory table */}
-          <div className="mt-8 hidden overflow-x-auto border border-line sm:block">
+          <div className="mt-8 hidden overflow-x-auto overflow-y-hidden border border-line sm:block">
             <table className="w-full min-w-[760px] border-collapse">
               <thead>
                 <tr className="border-b border-line bg-surface-muted text-left text-sm">

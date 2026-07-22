@@ -19,17 +19,26 @@ export default function ScrollSlideIn({
 
     el.classList.add("slide-pending");
 
+    // Keeps observing (never unobserve/disconnect early) and toggles
+    // is-visible both ways, so the slide-in replays every time the section
+    // re-enters the viewport instead of only on its first appearance.
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          window.setTimeout(() => el.classList.add("is-visible"), delayMs);
-          observer.unobserve(el);
+          timeoutId = setTimeout(() => el.classList.add("is-visible"), delayMs);
+        } else {
+          clearTimeout(timeoutId);
+          el.classList.remove("is-visible");
         }
       },
       { threshold: 0.2 }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeoutId);
+    };
   }, [delayMs]);
 
   return (

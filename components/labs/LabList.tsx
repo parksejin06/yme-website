@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Globe, ImageOff, MapPin, PlayCircle, UserRound } from "lucide-react";
+import { Globe, MapPin, PlayCircle, UserRound } from "lucide-react";
 import { MailIcon, PhoneIcon } from "@/components/icons";
 import { positionLabel } from "@/lib/faculty";
 import { fieldLabel, type LabEntry } from "@/lib/labs";
@@ -16,7 +16,6 @@ const COPY = {
     visitSite: "홈페이지 방문",
     research: "대표 연구",
     mediaView: "대표 연구 자료 보기",
-    mediaPending: "대표 연구 자료 준비 중",
     empty: "선택한 연구분야의 연구실 정보가 아직 없습니다.",
   },
   en: {
@@ -26,7 +25,6 @@ const COPY = {
     visitSite: "Visit website",
     research: "Representative Research",
     mediaView: "View research media",
-    mediaPending: "Research media coming soon",
     empty: "No laboratory information is available for this field yet.",
   },
 };
@@ -102,24 +100,19 @@ function LabCard({ lab, lang }: { lab: LabEntry; lang: Lang }) {
         </div>
       )}
 
-      <div className="mt-4">
-        {lab.researchMediaUrl ? (
+      {lab.researchMediaUrl && (
+        <div className="mt-4">
           <a
             href={lab.researchMediaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 px-3 py-1.5 text-sm text-primary transition-colors hover:bg-primary/5"
+            className="inline-flex items-center gap-1.5 rounded-sm border border-primary/30 px-3 py-1.5 text-sm text-primary transition-colors hover:bg-primary/5"
           >
             <PlayCircle className="h-4 w-4" aria-hidden="true" />
             {t.mediaView} ↗
           </a>
-        ) : (
-          <div className="flex items-center gap-2 rounded-lg bg-surface-muted px-3 py-2 text-xs text-ink/50">
-            <ImageOff className="h-4 w-4" aria-hidden="true" />
-            {t.mediaPending}
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </article>
   );
 }

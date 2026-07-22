@@ -133,7 +133,7 @@ export default function CourseExplorer({
       <div
         role="tablist"
         aria-label={lang === "ko" ? "학년 선택" : "Select year"}
-        className="mt-6 flex gap-1 overflow-x-auto"
+        className="mt-6 flex gap-1 overflow-x-auto overflow-y-hidden"
       >
         {YEAR_GROUPS.map((g) => (
           <button

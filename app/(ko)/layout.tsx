@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { fontVariables } from "@/lib/fonts";
+import UtilityBar from "@/components/UtilityBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../globals.css";
@@ -24,6 +25,7 @@ export default function KoLayout({ children }: { children: React.ReactNode }) {
         <a href="#main" className="skip-link">
           본문 바로가기
         </a>
+        <UtilityBar lang="ko" />
         <Header lang="ko" />
         <main id="main" className="flex-1">
           {children}

@@ -41,7 +41,7 @@ export default async function UndergraduateGraduationYearPageEn({
 
   return (
     <>
-      <section className="bg-gradient-to-b from-primary to-primary-strong px-4 py-14 sm:px-6 sm:py-20">
+      <section className="bg-gradient-to-b from-primary to-primary-strong px-4 pb-14 pt-[calc(var(--utility-bar-h)+6.5rem)] sm:px-6 sm:pb-20 sm:pt-[calc(var(--utility-bar-h)+8rem)]">
         <div className="mx-auto max-w-content">
           <Link href="/en/undergraduate/graduation" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
             <ArrowLeftIcon /> Back to Graduation Requirements
@@ -78,7 +78,7 @@ export default async function UndergraduateGraduationYearPageEn({
             <h2 className="font-display text-xl text-ink">Required Major Courses</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {entry.mandatoryCourses.map((c) => (
-                <span key={c} className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-sm text-primary">
+                <span key={c} className="rounded-sm border border-primary/30 bg-primary/5 px-3 py-1.5 text-sm text-primary">
                   {c}
                 </span>
               ))}

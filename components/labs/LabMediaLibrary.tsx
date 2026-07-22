@@ -59,7 +59,7 @@ function LabCard({ item, lang, onPlay }: { item: LabMediaItem; lang: Lang; onPla
       >
         {thumb ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={thumb} alt="" className="h-full w-full object-cover transition-transform group-hover:scale-105" loading="lazy" />
+          <img src={thumb} alt="" className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85" loading="lazy" />
         ) : (
           <MediaFallback label={name} />
         )}
@@ -149,7 +149,7 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
                     <img
                       src={featured.video?.localThumbnail || featured.video?.thumbnailUrl || ""}
                       alt=""
-                      className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                      className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85"
                     />
                   ) : (
                     <MediaFallback label={featured.labNameKo ?? ""} />

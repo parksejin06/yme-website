@@ -120,7 +120,7 @@ export default function GraduationRequirements({ data, lang }: { data: GraduateR
       {/* Min-credit comparison */}
       <section>
         <h2 className="font-display text-lg text-ink">{t.comparison}</h2>
-        <div className="mt-5 overflow-x-auto rounded-lg border border-line">
+        <div className="mt-5 overflow-x-auto overflow-y-hidden rounded-lg border border-line">
           <table className="w-full min-w-[480px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-line bg-surface-muted text-left">
@@ -246,7 +246,7 @@ export default function GraduationRequirements({ data, lang }: { data: GraduateR
         <p className="mt-3 text-sm text-ink/70">
           {lang === "ko" ? data.englishRequirement.introKr : data.englishRequirement.introEn}
         </p>
-        <div className="mt-5 overflow-x-auto rounded-lg border border-line">
+        <div className="mt-5 overflow-x-auto overflow-y-hidden rounded-lg border border-line">
           <table className="w-full min-w-[640px] border-collapse text-sm">
             <thead>
               <tr className="bg-surface-muted text-left">

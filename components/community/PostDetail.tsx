@@ -30,7 +30,7 @@ export default function PostDetail({
   const t = COPY[lang];
 
   return (
-    <article className="mx-auto max-w-reading px-[var(--page-gutter)] py-14 sm:py-20">
+    <article className="mx-auto max-w-reading px-[var(--page-gutter)] pb-14 pt-[calc(var(--utility-bar-h)+6.5rem)] sm:pb-20 sm:pt-[calc(var(--utility-bar-h)+8rem)]">
       <div className="mb-5 flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-primary/80">
         <span>{post.category}</span>
         {post.isPinned && (

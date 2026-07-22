@@ -41,7 +41,7 @@ function FacultyCard({ member, lang }: { member: FacultyMember; lang: Lang }) {
             alt=""
             width={480}
             height={480}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-primary/25">

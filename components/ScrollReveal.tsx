@@ -21,17 +21,26 @@ export default function ScrollReveal({
     // no-JS or slow-JS clients simply see the content already in place.
     el.classList.add("reveal-pending");
 
+    // Keeps observing (never unobserve/disconnect early) and toggles
+    // is-visible both ways, so the reveal replays every time the section
+    // re-enters the viewport instead of only on its first appearance.
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          window.setTimeout(() => el.classList.add("is-visible"), delayMs);
-          observer.unobserve(el);
+          timeoutId = setTimeout(() => el.classList.add("is-visible"), delayMs);
+        } else {
+          clearTimeout(timeoutId);
+          el.classList.remove("is-visible");
         }
       },
       { threshold: 0.15 }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeoutId);
+    };
   }, [delayMs]);
 
   return (

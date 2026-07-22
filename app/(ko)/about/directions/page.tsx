@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
+import { ExternalLink } from "lucide-react";
 import { ABOUT_NAV } from "@/lib/nav";
 import contact from "@/data/contact.json";
 import staff from "@/data/staff.json";
@@ -16,15 +17,35 @@ const OSM_EMBED_SRC =
 const FULL_ADDRESS = `${contact.address.kr} (${contact.address.postal})`;
 
 const MAP_LINKS = [
-  { label: "네이버 지도에서 보기", href: `https://map.naver.com/v5/search/${encodeURIComponent(FULL_ADDRESS)}` },
-  { label: "카카오맵에서 보기", href: `https://map.kakao.com/link/search/${encodeURIComponent(FULL_ADDRESS)}` },
-  { label: "Google Maps에서 보기", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FULL_ADDRESS)}` },
+  {
+    label: "네이버 지도에서 보기",
+    href: `https://map.naver.com/v5/search/${encodeURIComponent(FULL_ADDRESS)}`,
+    badgeBg: "#03C75A",
+    badgeText: "N",
+    badgeTextColor: "#ffffff",
+  },
+  {
+    label: "카카오맵에서 보기",
+    href: `https://map.kakao.com/link/search/${encodeURIComponent(FULL_ADDRESS)}`,
+    badgeBg: "#FEE500",
+    badgeText: "K",
+    badgeTextColor: "#191919",
+  },
+  {
+    label: "Google Maps에서 보기",
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(FULL_ADDRESS)}`,
+    badgeBg: "#4285F4",
+    badgeText: "G",
+    badgeTextColor: "#ffffff",
+  },
 ];
 
 function BusRow({ colorLabel, colorClass, routes }: { colorLabel: string; colorClass: string; routes: string[] }) {
   return (
     <div className="flex gap-4">
-      <span className={`mt-0.5 h-fit shrink-0 rounded px-2 py-0.5 text-xs text-white ${colorClass}`}>{colorLabel}</span>
+      <span className={`mt-0.5 h-fit shrink-0 rounded-full px-3 py-1 text-xs font-medium text-white ${colorClass}`}>
+        {colorLabel}
+      </span>
       <p className="text-sm text-ink/70">{routes.join(", ")}</p>
     </div>
   );
@@ -80,16 +101,24 @@ export default function DirectionsPage() {
               )}
             </dl>
 
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-col gap-3">
               {MAP_LINKS.map((m) => (
                 <a
                   key={m.label}
                   href={m.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink/75 transition-colors hover:border-primary hover:text-primary"
+                  className="group flex items-center gap-2.5 border border-line bg-white px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-primary/50 hover:bg-surface-muted/60"
                 >
-                  {m.label}
+                  <span
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-bold"
+                    style={{ backgroundColor: m.badgeBg, color: m.badgeTextColor }}
+                    aria-hidden="true"
+                  >
+                    {m.badgeText}
+                  </span>
+                  <span className="min-w-0 flex-1 truncate">{m.label}</span>
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-colors group-hover:text-primary" />
                 </a>
               ))}
             </div>
@@ -103,9 +132,9 @@ export default function DirectionsPage() {
 
             <h2 className="mt-10 font-display text-2xl text-ink">버스 노선</h2>
             <div className="mt-5 space-y-3.5 text-[15px]">
-              <BusRow colorLabel="초록 (지선)" colorClass="bg-emerald-600" routes={contact.bus.green} />
-              <BusRow colorLabel="파랑 (간선)" colorClass="bg-primary" routes={contact.bus.blue} />
-              <BusRow colorLabel="빨강 (광역)" colorClass="bg-rose-600" routes={contact.bus.red} />
+              <BusRow colorLabel="지선" colorClass="bg-emerald-600" routes={contact.bus.green} />
+              <BusRow colorLabel="간선" colorClass="bg-primary" routes={contact.bus.blue} />
+              <BusRow colorLabel="광역" colorClass="bg-rose-600" routes={contact.bus.red} />
             </div>
           </div>
 

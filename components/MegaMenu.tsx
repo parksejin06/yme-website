@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS, localizePath, type Lang } from "@/lib/nav";
+import { useScrolled } from "@/lib/useScrolled";
 
 export default function MegaMenu({ open, onClose, lang }: { open: boolean; onClose: () => void; lang: Lang }) {
   const pathname = usePathname();
+  const scrolled = useScrolled();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -21,10 +23,13 @@ export default function MegaMenu({ open, onClose, lang }: { open: boolean; onClo
       role="region"
       aria-hidden={!open}
       aria-label={lang === "ko" ? "전체 메뉴" : "Full site menu"}
-      className={`fixed inset-x-0 top-24 z-40 border-t border-white/10 bg-black/85 shadow-2xl backdrop-blur-sm transition-all ${
+      style={{
+        top: scrolled ? "6rem" : "calc(var(--utility-bar-h) + 6rem)",
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+      className={`fixed inset-x-0 z-40 border-t border-white/10 bg-black/85 shadow-2xl backdrop-blur-sm transition-all ${
         open ? "opacity-100 translate-y-0 duration-[520ms]" : "pointer-events-none opacity-0 -translate-y-4 duration-[320ms]"
       }`}
-      style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <div
         className="grid grid-cols-8 gap-x-5 pb-8 pt-10"

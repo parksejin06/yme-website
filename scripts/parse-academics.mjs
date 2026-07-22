@@ -218,7 +218,6 @@ async function main() {
         entry.specialNotes.push({
           category: noteRow["구분"],
           content: noteRow["내용"],
-          importance: noteRow["중요도"],
           _sortKey: sortKey,
         });
       }

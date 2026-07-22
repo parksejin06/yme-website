@@ -273,7 +273,7 @@ export default function CurriculumMap({
 
       {/* Mobile vertical navigator */}
       <div className={`${mobileFullMap ? "hidden" : "block"} mt-6 sm:hidden`}>
-        <div className="flex gap-1 overflow-x-auto">
+        <div className="flex gap-1 overflow-x-auto overflow-y-hidden">
           {YEAR_GROUPS.map((g) => (
             <button
               key={g.key}

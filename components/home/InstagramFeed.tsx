@@ -50,7 +50,7 @@ function PostCard({ post, lang, featured = false }: { post: InstagramPost; lang:
           alt=""
           fill
           sizes="(min-width: 640px) 33vw, 78vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-opacity duration-300 group-hover:opacity-85"
           onError={() => setBroken(true)}
         />
       ) : (
@@ -95,7 +95,7 @@ export default function InstagramFeed({ accounts, lang }: { accounts: InstagramA
       <h3 className="mt-2 font-display text-xl text-ink sm:text-2xl">{t.title}</h3>
 
       {/* Account selector */}
-      <div className="mt-6 flex gap-1 overflow-x-auto sm:flex-wrap">
+      <div className="mt-6 flex gap-1 overflow-x-auto overflow-y-hidden sm:flex-wrap">
         {accounts.map((a) => (
           <button
             key={a.handle}
@@ -132,14 +132,14 @@ export default function InstagramFeed({ accounts, lang }: { accounts: InstagramA
           href={active.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-line px-4 py-2 text-xs font-medium text-ink/75 transition-colors hover:border-primary hover:text-primary sm:self-auto"
+          className="inline-flex shrink-0 items-center gap-1 self-start rounded-sm border border-line px-4 py-2 text-xs font-medium text-ink/75 transition-colors hover:border-primary hover:text-primary sm:self-auto"
         >
           {t.viewOnInstagram} <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
 
       {/* Post preview */}
-      <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible">
+      <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible">
         {active.posts.map((post, i) => (
           <PostCard key={post.permalink} post={post} lang={lang} featured={i === 0} />
         ))}

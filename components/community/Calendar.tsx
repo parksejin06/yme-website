@@ -172,32 +172,34 @@ export default function Calendar({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-1.5">
-          <button
-            onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() - 1, 1))}
-            aria-label={lang === "ko" ? "이전 달" : "Previous month"}
-            className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <p className="w-48 text-center font-display text-xl text-ink">{monthLabel}</p>
-          <button
-            onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() + 1, 1))}
-            aria-label={lang === "ko" ? "다음 달" : "Next month"}
-            className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-          <button
-            onClick={() => setViewDate(new Date(today.getFullYear(), today.getMonth(), 1))}
-            className="ml-1 min-h-11 rounded-md border border-line px-4 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
-          >
-            {t.today}
-          </button>
-        </div>
+      <div className="flex flex-wrap items-center gap-3">
+        {view === "month" && (
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() - 1, 1))}
+              aria-label={lang === "ko" ? "이전 달" : "Previous month"}
+              className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <p className="w-48 text-center font-display text-xl text-ink">{monthLabel}</p>
+            <button
+              onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() + 1, 1))}
+              aria-label={lang === "ko" ? "다음 달" : "Next month"}
+              className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => setViewDate(new Date(today.getFullYear(), today.getMonth(), 1))}
+              className="ml-1 min-h-11 rounded-md border border-line px-4 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
+            >
+              {t.today}
+            </button>
+          </div>
+        )}
 
-        <div className="inline-flex rounded-md border border-line p-0.5">
+        <div className="ml-auto inline-flex rounded-md border border-line p-0.5">
           <button
             onClick={() => setView("month")}
             aria-pressed={view === "month"}

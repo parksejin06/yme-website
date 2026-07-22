@@ -55,7 +55,8 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
     });
   }, [articles, query, year]);
 
-  const [featured, ...rest] = filtered;
+  const featured = filtered.slice(0, 3);
+  const rest = filtered.slice(3);
 
   return (
     <div>
@@ -63,7 +64,7 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setYear("all")}
-            className={`inline-flex min-h-9 items-center justify-center rounded-full border px-3 text-xs font-medium ${
+            className={`inline-flex min-h-9 items-center justify-center rounded-sm border px-3 text-xs font-medium ${
               year === "all" ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
             }`}
           >
@@ -73,7 +74,7 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
             <button
               key={y}
               onClick={() => setYear(y)}
-              className={`inline-flex min-h-9 items-center justify-center rounded-full border px-3 text-xs font-medium ${
+              className={`inline-flex min-h-9 items-center justify-center rounded-sm border px-3 text-xs font-medium ${
                 year === y ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
               }`}
             >
@@ -96,25 +97,30 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
         <p className="py-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
         <div className="mt-8">
-          {featured && (
-            <Link
-              href={postHref(lang, "news", featured.sourcePostId)}
-              className="group grid gap-5 rounded-2xl border border-line p-4 hover:border-primary-soft sm:grid-cols-[16rem_1fr] sm:p-6"
-            >
-              <div className="aspect-[16/10] overflow-hidden rounded-xl bg-surface-muted sm:aspect-square">
-                <ArticleThumb post={featured} />
-              </div>
-              <div className="flex min-w-0 flex-col justify-center">
-                <p className="text-balance font-display text-lg font-bold text-ink group-hover:text-primary sm:text-xl">
-                  {featured.title}
-                </p>
-                <p className="mt-2 line-clamp-2 text-sm text-ink/60">{featured.excerpt}</p>
-                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink/45">
-                  {featured.author && <span>{featured.author}</span>}
-                  <span style={{ fontVariantNumeric: "tabular-nums" }}>{featured.publishedAt}</span>
-                </div>
-              </div>
-            </Link>
+          {featured.length > 0 && (
+            <div className="grid gap-5 sm:grid-cols-3">
+              {featured.map((a) => (
+                <Link
+                  key={a.id}
+                  href={postHref(lang, "news", a.sourcePostId)}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-line hover:border-primary-soft"
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-surface-muted">
+                    <ArticleThumb post={a} />
+                  </div>
+                  <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
+                    <p className="line-clamp-2 text-balance font-display text-base font-bold text-ink group-hover:text-primary">
+                      {a.title}
+                    </p>
+                    <p className="mt-2 line-clamp-2 text-sm text-ink/60">{a.excerpt}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink/45">
+                      {a.author && <span>{a.author}</span>}
+                      <span style={{ fontVariantNumeric: "tabular-nums" }}>{a.publishedAt}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           )}
 
           {rest.length > 0 && (

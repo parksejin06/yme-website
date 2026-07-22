@@ -39,13 +39,13 @@ export default function SocialSection({ lang }: { lang: Lang }) {
           <div className="flex gap-2">
             <a
               href="#social-instagram"
-              className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink/70 transition-colors hover:border-primary hover:text-primary"
+              className="rounded-sm border border-line px-4 py-2 text-xs font-medium text-ink/70 transition-colors hover:border-primary hover:text-primary"
             >
               {t.navInstagram}
             </a>
             <a
               href="#social-youtube"
-              className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink/70 transition-colors hover:border-primary hover:text-primary"
+              className="rounded-sm border border-line px-4 py-2 text-xs font-medium text-ink/70 transition-colors hover:border-primary hover:text-primary"
             >
               {t.navYoutube}
             </a>

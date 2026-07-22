@@ -17,7 +17,7 @@ export default function NoticeTable({ lang, board, notices }: { lang: Lang; boar
   return (
     <>
       {/* Desktop/tablet: full data table */}
-      <div className="hidden overflow-x-auto sm:block">
+      <div className="hidden overflow-x-auto overflow-y-hidden sm:block">
         <table className="w-full min-w-[720px] border-collapse">
           <thead>
             <tr className="border-y border-line text-left text-sm text-ink/70">

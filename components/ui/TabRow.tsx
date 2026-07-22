@@ -34,7 +34,7 @@ export default function TabRow({
     <div
       role="tablist"
       aria-label={ariaLabel}
-      className="flex gap-x-5 overflow-x-auto border-b border-line sm:flex-wrap sm:gap-x-7"
+      className="flex gap-x-5 overflow-x-auto overflow-y-hidden border-b border-line sm:flex-wrap sm:gap-x-7"
     >
       {items.map((item) => {
         const active = item.value === value;

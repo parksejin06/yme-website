@@ -45,16 +45,18 @@ export default function StatCounter({
     return () => observer.disconnect();
   }, [value, duration]);
 
+  // Ledger-row styling for the inverted navy stats band: small tracked label
+  // on top, large serif figure below, no icons.
   return (
     <div ref={ref}>
+      <p className="font-body text-[11px] font-medium tracking-[0.22em] text-white/55 sm:text-xs">{label}</p>
       <p
-        className="font-display text-3xl font-bold text-white sm:text-4xl"
+        className="mt-2.5 font-display text-4xl text-white sm:text-5xl"
         style={{ fontVariantNumeric: "tabular-nums" }}
       >
         {display}
-        {suffix}
+        <span className="ml-1 text-[0.45em] text-white/70">{suffix}</span>
       </p>
-      <p className="mt-1.5 text-xs tracking-wide text-white/70 sm:text-sm">{label}</p>
     </div>
   );
 }

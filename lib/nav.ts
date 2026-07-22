@@ -20,7 +20,6 @@ export const NAV_ITEMS: NavItem[] = [
     en: "About",
     children: [
       { path: "/about", kr: "학부 개요", en: "Overview" },
-      { path: "/about/vision", kr: "비전·교육목표", en: "Vision & Mission" },
       { path: "/about/history", kr: "연혁", en: "History" },
       { path: "/about/staff", kr: "교직원", en: "Staff" },
       { path: "/about/directions", kr: "오시는 길", en: "Directions" },

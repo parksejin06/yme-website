@@ -37,7 +37,7 @@ export default function AlumniStories({ stories, lang }: { stories: AlumniStory[
             key={s.id}
             type="button"
             onClick={() => setOpenId(s.id)}
-            className="group flex flex-col items-start rounded-lg border border-line bg-white p-5 text-left transition-all hover:-translate-y-1 hover:border-primary-soft hover:shadow-md"
+            className="group flex flex-col items-start border border-line bg-white p-5 text-left transition-colors hover:border-primary/50"
           >
             <p className="text-xs text-ink/45">{t.gradYear(s.gradYear)}</p>
             <p className="mt-2 font-display text-lg text-ink">{lang === "ko" ? s.nameKr : s.nameEn}</p>

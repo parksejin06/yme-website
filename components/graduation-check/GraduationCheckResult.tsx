@@ -121,7 +121,7 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
           <h2 className="font-display text-lg text-ink">{t.missingMandatory}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {result.missingMandatoryCourses.map((name) => (
-              <span key={name} className="rounded-full border border-rose-300 bg-rose-50 px-3 py-1.5 text-sm text-rose-700">
+              <span key={name} className="rounded-sm border border-rose-300 bg-rose-50 px-3 py-1.5 text-sm text-rose-700">
                 {name}
               </span>
             ))}
@@ -140,7 +140,7 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
                   {result.recommendations[cat.key].map((c) => (
                     <span
                       key={c.courseCode}
-                      className="rounded-full border border-line bg-surface-muted/60 px-3 py-1.5 text-sm text-ink/75"
+                      className="rounded-sm border border-line bg-surface-muted/60 px-3 py-1.5 text-sm text-ink/75"
                     >
                       {c.nameKr} · {c.credit}
                       {lang === "ko" ? "학점" : "cr"}

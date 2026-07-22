@@ -118,7 +118,7 @@ export default function GraduationCheckWizard({ lang }: { lang: Lang }) {
             type="button"
             disabled={!state.admissionSlug}
             onClick={() => router.push(localizePath("/undergraduate/graduation-check/result", lang))}
-            className="rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-strong disabled:cursor-not-allowed disabled:bg-ink/20"
+            className="rounded-sm bg-primary px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-strong disabled:cursor-not-allowed disabled:bg-ink/20"
           >
             {t.result}
           </button>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { fontVariables } from "@/lib/fonts";
+import UtilityBar from "@/components/UtilityBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../globals.css";
@@ -24,6 +25,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
+        <UtilityBar lang="en" />
         <Header lang="en" />
         <main id="main" className="flex-1">
           {children}

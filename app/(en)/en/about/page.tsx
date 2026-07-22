@@ -9,7 +9,6 @@ import { ChevronRightIcon } from "@/components/icons";
 export const metadata: Metadata = { title: "Overview" };
 
 const QUICK_LINKS = [
-  { path: "/about/vision", title: "Vision & Mission", desc: "The vision and education goals Yonsei Mechanical Engineering pursues." },
   { path: "/about/history", title: "History", desc: "The department's path since 1958." },
   { path: "/about/staff", title: "Staff", desc: "Find administrative contacts for undergraduate, graduate, and research affairs." },
   { path: "/about/directions", title: "Directions", desc: "Campus location and how to get here." },
@@ -39,13 +38,30 @@ export default function AboutPageEn() {
             range of research fields — precision design, thermofluids, robotics/mechatronics, materials/structures,
             nano/bio, and energy — cultivating talent who contribute to industry.
           </p>
+
+          <div className="mt-14 border-t border-line pt-14">
+            <p className="font-body text-sm tracking-[0.2em] text-primary/70">EDUCATIONAL OBJECTIVE</p>
+            <p className="mt-3 max-w-2xl text-balance font-display text-xl text-ink sm:text-2xl">
+              Cultivating talent with creative thinking and comprehensive design capability who create value
+              beneficial to a global society.
+            </p>
+            <p className="mt-5 text-sm text-ink/60">
+              See the undergraduate program&apos;s 5 detailed learning objectives on the Undergraduate page.
+            </p>
+            <Link
+              href="/en/undergraduate/goals"
+              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            >
+              View Undergraduate Education Goals <ChevronRightIcon className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 
       <section className="border-t border-line bg-surface-muted/60 py-20">
         <div className="mx-auto max-w-content px-4 sm:px-6">
           <h2 className="font-display text-xl text-ink">Explore About</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {QUICK_LINKS.map((q) => (
               <Link
                 key={q.path}

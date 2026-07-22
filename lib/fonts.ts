@@ -25,4 +25,26 @@ export const pretendard = localFont({
   weight: "45 920",
 });
 
-export const fontVariables = `${yonseiBold.variable} ${yonseiLight.variable} ${pretendard.variable}`;
+// Wanted Sans variable font - used specifically for the header's fixed
+// "연세대학교 기계공학부" wordmark text, not the site-wide body/display font.
+export const wantedSans = localFont({
+  src: "../public/fonts/WantedSansVariable.ttf",
+  variable: "--font-wanted-sans",
+  display: "swap",
+  weight: "100 900",
+});
+
+// MaruBuri (마루 부리) - Naver's free serif typeface. Display/heading font for
+// the 2026-07 editorial redesign: serif headings + Pretendard body.
+// Source: https://hangeul.naver.com (무료 배포, 라이선스 고지 불필요)
+export const maruBuri = localFont({
+  src: [
+    { path: "../public/fonts/MaruBuri-Regular.woff2", weight: "400" },
+    { path: "../public/fonts/MaruBuri-SemiBold.woff2", weight: "600" },
+    { path: "../public/fonts/MaruBuri-Bold.woff2", weight: "700" },
+  ],
+  variable: "--font-maruburi",
+  display: "swap",
+});
+
+export const fontVariables = `${yonseiBold.variable} ${yonseiLight.variable} ${pretendard.variable} ${wantedSans.variable} ${maruBuri.variable}`;

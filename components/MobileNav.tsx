@@ -6,11 +6,13 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import Collapse from "@/components/ui/Collapse";
 import { NAV_ITEMS, localizePath, type Lang } from "@/lib/nav";
+import { useScrolled } from "@/lib/useScrolled";
 
 export default function MobileNav({ lang, light = false }: { lang: Lang; light?: boolean }) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const scrolled = useScrolled();
 
   useEffect(() => setMounted(true), []);
 
@@ -53,7 +55,11 @@ export default function MobileNav({ lang, light = false }: { lang: Lang; light?:
       {mounted &&
         open &&
         createPortal(
-          <div id="mobile-nav-panel" className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-white">
+          <div
+            id="mobile-nav-panel"
+            style={{ top: scrolled ? "4rem" : "calc(var(--utility-bar-h) + 4rem)" }}
+            className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white"
+          >
             <nav aria-label={lang === "ko" ? "모바일 내비게이션" : "Mobile navigation"}>
               <ul className="flex flex-col divide-y divide-line px-6">
                 {NAV_ITEMS.map((item) => {

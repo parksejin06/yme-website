@@ -83,7 +83,7 @@ export default function YouTubeFeature({ data, lang }: { data: YouTubeData; lang
             >
               <Thumbnail video={active} onError={() => setEmbedFailed(true)} />
               <span className="absolute inset-0 bg-ink/25 transition-colors group-hover:bg-ink/40" />
-              <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 shadow-lg transition-transform group-hover:scale-105">
+              <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-colors group-hover:bg-white">
                 <Play className="ml-1 h-6 w-6 fill-primary text-primary" />
               </span>
             </button>
@@ -101,7 +101,7 @@ export default function YouTubeFeature({ data, lang }: { data: YouTubeData; lang
             href={`https://youtu.be/${active.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex w-fit items-center gap-1 rounded-full border border-line px-4 py-2 text-xs font-medium text-ink/75 transition-colors hover:border-primary hover:text-primary"
+            className="mt-4 inline-flex w-fit items-center gap-1 rounded-sm border border-line px-4 py-2 text-xs font-medium text-ink/75 transition-colors hover:border-primary hover:text-primary"
           >
             {t.watch} <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
@@ -111,7 +111,7 @@ export default function YouTubeFeature({ data, lang }: { data: YouTubeData; lang
       {/* Recent list */}
       <div className="mt-8">
         <p className="text-xs font-medium tracking-wide text-ink/45">{t.recent}</p>
-        <div className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:overflow-visible">
+        <div className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden pb-2 sm:grid sm:grid-cols-4 sm:overflow-visible">
           {data.recent.map((v) => (
             <button
               key={v.videoId}
