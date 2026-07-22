@@ -191,7 +191,7 @@ export default function Calendar({
           </button>
           <button
             onClick={() => setViewDate(new Date(today.getFullYear(), today.getMonth(), 1))}
-            className="ml-1 min-h-11 rounded-full border border-line px-4 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
+            className="ml-1 min-h-11 rounded-md border border-line px-4 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
           >
             {t.today}
           </button>
@@ -215,26 +215,31 @@ export default function Calendar({
         </div>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-1 border-b border-line">
         <button
           onClick={() => setTypeFilter("all")}
-          className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-medium ${typeFilter === "all" ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"}`}
+          className={`-mb-px flex min-h-11 items-center border-b-[3px] px-1 text-sm font-medium transition-colors ${
+            typeFilter === "all" ? "border-primary font-bold text-primary" : "border-transparent text-ink/55 hover:text-ink"
+          }`}
         >
           {t.all}
         </button>
-        {types.map((type) => (
-          <button
-            key={type}
-            onClick={() => setTypeFilter(type)}
-            className={`inline-flex min-h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition-colors ${
-              typeFilter === type ? "text-white" : "border-line text-ink/60 hover:border-primary-soft"
-            }`}
-            style={typeFilter === type ? { backgroundColor: typeColor(type), borderColor: typeColor(type) } : undefined}
-          >
-            <EventDot type={type} />
-            {type}
-          </button>
-        ))}
+        {types.map((type) => {
+          const active = typeFilter === type;
+          return (
+            <button
+              key={type}
+              onClick={() => setTypeFilter(type)}
+              className={`-mb-px flex min-h-11 items-center gap-1.5 border-b-[3px] px-1 text-sm font-medium transition-colors ${
+                active ? "font-bold" : "border-transparent text-ink/55 hover:text-ink"
+              }`}
+              style={{ borderColor: active ? typeColor(type) : "transparent", color: active ? typeColor(type) : undefined }}
+            >
+              <EventDot type={type} />
+              {type}
+            </button>
+          );
+        })}
       </div>
 
       {view === "month" ? (

@@ -191,6 +191,60 @@ export function extractLeadingBracketTag(title: string): string | null {
   return m ? m[1].trim() : null;
 }
 
+const EVENT_DATE_TOKEN = /(\d{1,2})\/(\d{1,2})(?:\s*\([^)]*\))?/g;
+
+export interface EventOccurrence {
+  startYear: number;
+  startMonth: number;
+  startDay: number;
+  endYear: number;
+  endMonth: number;
+  endDay: number;
+  /** the bracket held 3+ distinct dates (a recurring series) rather than a single day or one range */
+  isMultiSession: boolean;
+  sessionCount: number;
+}
+
+/**
+ * Resolves the calendar year for a parsed event month. The title bracket never carries a year, so it's
+ * inferred from the post's publish date: boards announce events 0-2 months ahead, so a >=6-month
+ * "backward" gap (posted Dec, event dated Jan) means the event actually lands in the following year.
+ */
+function resolveEventYear(publishedAt: string | null, eventMonth: number): number {
+  if (!publishedAt) return new Date().getFullYear();
+  const pubYear = Number(publishedAt.slice(0, 4));
+  const pubMonth = Number(publishedAt.slice(5, 7));
+  return pubMonth - eventMonth >= 6 ? pubYear + 1 : pubYear;
+}
+
+/**
+ * Derives the event's actual occurrence date from its official title bracket (e.g. "[7/20~7/24]",
+ * "[4/13(월)]", "[12/8(목), 12/15(목), 12/20(화)]") -- the events board has no structured date field,
+ * so this is the only source of truth for when an event happens. Returns null when the bracket holds
+ * no date (e.g. "[공지]"), which callers must treat as "date unknown", never fabricate one.
+ */
+export function eventOccurrence(post: CommunityPost): EventOccurrence | null {
+  const tag = extractLeadingBracketTag(post.title);
+  if (!tag) return null;
+  const matches = [...tag.matchAll(EVENT_DATE_TOKEN)];
+  if (matches.length === 0) return null;
+  const dates = matches.map((m) => ({ month: Number(m[1]), day: Number(m[2]) }));
+  const first = dates[0];
+  const last = dates[dates.length - 1];
+  const startYear = resolveEventYear(post.publishedAt, first.month);
+  const endYear = last.month < first.month ? startYear + 1 : startYear;
+  return {
+    startYear,
+    startMonth: first.month,
+    startDay: first.day,
+    endYear,
+    endMonth: last.month,
+    endDay: last.day,
+    isMultiSession: dates.length > 2,
+    sessionCount: dates.length,
+  };
+}
+
 /** Best-effort, conservative link from an official calendar entry to an internal post we imported:
  * only links when the calendar's summary text appears verbatim inside the post's title or plain text
  * (or vice versa). No fuzzy/AI matching — an unmatched event just has no link, which is correct. */

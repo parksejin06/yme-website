@@ -32,6 +32,15 @@
   --container-reading: 60rem; /* 960px */
   --container-content: 96.25rem; /* 1540px (was 72rem/1152px) */
   --container-wide: 107.5rem; /* 1720px */
+
+  /*
+   * Flat, academic filter/tab system (2026-07): interactive filters and tabs
+   * use these instead of rounded-full pills -- circular radius is reserved
+   * for small non-interactive status labels (NEW, 공지, 전공필수, ...).
+   */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 }
 
 :root {

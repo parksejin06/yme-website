@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X, Minus, Plus, RotateCcw, LayoutGrid, List } from "lucide-react";
+import { Minus, Plus, RotateCcw, LayoutGrid, List } from "lucide-react";
 import { courseTypeMeta, YEAR_GROUPS, SEMESTERS } from "@/lib/academics";
 import { FIELD_ROWS, MAP_COLUMNS, rowForEntry, rowLabel, relatedCodesFor, type FieldRow } from "@/lib/curriculumMap";
 import CourseDetailDrawer from "@/components/undergraduate/CourseDetailDrawer";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import type { CurriculumEntry, CourseDetail } from "@/components/academics/CourseExplorer";
 import type { Lang } from "@/lib/nav";
 
@@ -44,12 +46,6 @@ const ZOOM_STEPS = [
   { col: "160px", font: "text-xs", pad: "px-2.5 py-2" },
   { col: "196px", font: "text-[13px]", pad: "px-3 py-2.5" },
 ];
-
-function chipClass(active: boolean) {
-  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
 
 interface NodeState {
   lang: Lang;
@@ -178,48 +174,29 @@ export default function CurriculumMap({
 
       {/* Controls */}
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative min-w-[220px] max-w-sm flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-              className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+        <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="min-w-[220px] max-w-sm flex-1" />
 
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-            {t.all}
-          </button>
-          <button onClick={() => setTypeFilter("전필")} className={chipClass(typeFilter === "전필")}>
-            {t.required}
-          </button>
-          <button onClick={() => setTypeFilter("전선")} className={chipClass(typeFilter === "전선")}>
-            {t.elective}
-          </button>
-        </div>
+        <TabRow
+          ariaLabel={lang === "ko" ? "이수구분 선택" : "Select course type"}
+          size="sm"
+          value={typeFilter}
+          onChange={setTypeFilter}
+          items={[
+            { value: "all", label: t.all },
+            { value: "전필", label: t.required },
+            { value: "전선", label: t.elective },
+          ]}
+        />
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        <button onClick={() => setFieldFilter("all")} className={chipClass(fieldFilter === "all")}>
-          {t.all}
-        </button>
-        {FIELD_ROWS.map((r) => (
-          <button key={r.key} onClick={() => setFieldFilter(r.key)} className={chipClass(fieldFilter === r.key)}>
-            {rowLabel(r, lang)}
-          </button>
-        ))}
+      <div className="mt-4">
+        <TabRow
+          ariaLabel={lang === "ko" ? "분야 선택" : "Select field"}
+          size="sm"
+          value={fieldFilter}
+          onChange={setFieldFilter}
+          items={[{ value: "all", label: t.all }, ...FIELD_ROWS.map((r) => ({ value: r.key, label: rowLabel(r, lang) }))]}
+        />
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line pt-4 text-xs text-ink/60">
@@ -269,7 +246,7 @@ export default function CurriculumMap({
           </div>
           <button
             onClick={() => setMobileFullMap(false)}
-            className="flex min-h-9 items-center gap-1.5 rounded-full border border-line px-3 text-xs text-ink/60 sm:hidden"
+            className="flex min-h-9 items-center gap-1.5 rounded-md border border-line px-3 text-xs text-ink/60 sm:hidden"
           >
             <List className="h-3.5 w-3.5" /> {t.backToList}
           </button>

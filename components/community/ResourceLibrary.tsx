@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, FileDown, FileText } from "lucide-react";
+import { FileDown, FileText } from "lucide-react";
+import SearchField from "@/components/ui/SearchField";
 import type { CommunityPost } from "@/lib/community-content";
 import { postHref } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
@@ -24,16 +25,7 @@ export default function ResourceLibrary({ items, lang }: { items: CommunityPost[
 
   return (
     <div>
-      <div className="relative max-w-md">
-        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t.search}
-          className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-3 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-        />
-      </div>
+      <SearchField value={query} onChange={setQuery} placeholder={t.search} className="max-w-md" />
 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
@@ -58,7 +50,7 @@ export default function ResourceLibrary({ items, lang }: { items: CommunityPost[
                     <a
                       href={firstFile.localPath || firstFile.fileUrl}
                       download={!!firstFile.localPath}
-                      className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
+                      className="mt-3 inline-flex h-9 items-center gap-1.5 rounded-md border border-line px-3.5 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
                     >
                       <FileDown className="h-4 w-4" /> {lang === "ko" ? "다운로드" : "Download"}
                     </a>

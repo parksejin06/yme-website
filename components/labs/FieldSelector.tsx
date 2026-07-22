@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { LayoutGroup, motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
+import TabRow from "@/components/ui/TabRow";
 import { RESEARCH_FIELDS, fieldLabel } from "@/lib/labs";
 import type { Lang } from "@/lib/nav";
 
@@ -50,39 +51,16 @@ export default function FieldSelector({
             </div>
           </motion.button>
 
-          <div
-            role="tablist"
-            aria-label={lang === "ko" ? "연구분야" : "Research fields"}
-            className="-mx-4 mt-5 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
-          >
-            <button
-              type="button"
-              role="tab"
-              aria-selected={false}
-              onClick={() => onSelect("all")}
-              className="shrink-0 rounded-full border border-line px-4 py-1.5 text-sm text-ink/70 transition-colors hover:border-primary hover:text-primary"
-            >
-              {ALL_LABEL[lang]}
-            </button>
-            {RESEARCH_FIELDS.map((field) => {
-              const isActive = field.key === activeField.key;
-              return (
-                <button
-                  key={field.key}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => onSelect(field.key)}
-                  className={
-                    isActive
-                      ? "shrink-0 rounded-full border border-primary bg-primary px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-primary-strong"
-                      : "shrink-0 rounded-full border border-line px-4 py-1.5 text-sm text-ink/70 transition-colors hover:border-primary hover:text-primary"
-                  }
-                >
-                  {fieldLabel(field.key, lang)}
-                </button>
-              );
-            })}
+          <div className="mt-5">
+            <TabRow
+              ariaLabel={lang === "ko" ? "연구분야" : "Research fields"}
+              value={activeField.key}
+              onChange={onSelect}
+              items={[
+                { value: "all", label: ALL_LABEL[lang] },
+                ...RESEARCH_FIELDS.map((field) => ({ value: field.key, label: fieldLabel(field.key, lang) })),
+              ]}
+            />
           </div>
         </div>
       ) : (

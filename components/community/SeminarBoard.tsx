@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Paperclip } from "lucide-react";
+import TabRow from "@/components/ui/TabRow";
 import type { CommunityPost } from "@/lib/community-content";
 import { postHref, extractLeadingBracketTag } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
@@ -11,12 +12,6 @@ const COPY = {
   ko: { all: "전체", noResults: "등록된 세미나가 없습니다." },
   en: { all: "All", noResults: "No seminars posted." },
 };
-
-function chipClass(active: boolean) {
-  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
 
 export default function SeminarBoard({ items, lang }: { items: CommunityPost[]; lang: Lang }) {
   const t = COPY[lang];
@@ -36,16 +31,13 @@ export default function SeminarBoard({ items, lang }: { items: CommunityPost[]; 
   return (
     <div>
       {types.length > 0 && (
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-            {t.all}
-          </button>
-          {types.map((type) => (
-            <button key={type} onClick={() => setTypeFilter(type)} className={chipClass(typeFilter === type)}>
-              {type}
-            </button>
-          ))}
-        </div>
+        <TabRow
+          ariaLabel={lang === "ko" ? "세미나 구분" : "Seminar type"}
+          size="sm"
+          value={typeFilter}
+          onChange={setTypeFilter}
+          items={[{ value: "all", label: t.all }, ...types.map((type) => ({ value: type, label: type }))]}
+        />
       )}
 
       {filtered.length === 0 ? (

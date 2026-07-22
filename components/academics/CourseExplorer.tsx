@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, Search, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Collapse from "@/components/ui/Collapse";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import {
   YEAR_GROUPS,
   SEMESTERS,
@@ -80,14 +82,6 @@ const COPY = {
 };
 
 const GRID_COLS = "sm:grid-cols-[1fr_140px_120px_80px_100px_24px]";
-
-function chipClass(active: boolean) {
-  return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active
-      ? "border-primary bg-primary text-white"
-      : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
 
 export default function CourseExplorer({
   entries,
@@ -182,36 +176,15 @@ export default function CourseExplorer({
           ))}
         </div>
 
-        <div className="relative min-w-[200px] flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-              className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+        <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="min-w-[200px] flex-1" />
 
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-            {t.all}
-          </button>
-          {COURSE_TYPES.map((ct) => (
-            <button key={ct.key} onClick={() => setTypeFilter(ct.key)} className={chipClass(typeFilter === ct.key)}>
-              {lang === "ko" ? ct.labelKr : ct.labelEn}
-            </button>
-          ))}
-        </div>
+        <TabRow
+          ariaLabel={lang === "ko" ? "이수구분 선택" : "Select course type"}
+          size="sm"
+          value={typeFilter}
+          onChange={setTypeFilter}
+          items={[{ value: "all", label: t.all }, ...COURSE_TYPES.map((ct) => ({ value: ct.key, label: lang === "ko" ? ct.labelKr : ct.labelEn }))]}
+        />
       </div>
 
       <p className="mt-4 text-xs text-ink/45">

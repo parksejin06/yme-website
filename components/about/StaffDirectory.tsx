@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import type { Lang } from "@/lib/nav";
 
 export interface Staff {
@@ -37,12 +39,6 @@ const COPY = {
   },
 };
 
-function chipClass(active: boolean) {
-  return `inline-flex min-h-10 shrink-0 items-center justify-center rounded-full border px-4 text-sm font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
-
 export default function StaffDirectory({ staff, lang }: { staff: Staff[]; lang: Lang }) {
   const t = COPY[lang];
   const [query, setQuery] = useState("");
@@ -60,27 +56,15 @@ export default function StaffDirectory({ staff, lang }: { staff: Staff[]; lang: 
 
   return (
     <div>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative min-w-[240px] max-w-md flex-1">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-3 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-        </div>
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTeamFilter("all")} className={chipClass(teamFilter === "all")}>
-            {t.all}
-          </button>
-          {teams.map((team) => (
-            <button key={team} onClick={() => setTeamFilter(team)} className={chipClass(teamFilter === team)}>
-              {team}
-            </button>
-          ))}
-        </div>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="min-w-[240px] max-w-md flex-1" />
+        <TabRow
+          ariaLabel={lang === "ko" ? "담당업무 필터" : "Team filter"}
+          size="sm"
+          value={teamFilter}
+          onChange={setTeamFilter}
+          items={[{ value: "all", label: t.all }, ...teams.map((team) => ({ value: team, label: team }))]}
+        />
       </div>
 
       {filtered.length === 0 ? (

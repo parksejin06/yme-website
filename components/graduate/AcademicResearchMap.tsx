@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import TabRow from "@/components/ui/TabRow";
 import {
   RESEARCH_AREAS,
   RESEARCH_AREA_TO_FACULTY_FIELD,
@@ -101,18 +102,14 @@ export default function AcademicResearchMap({
         <p className="mt-1.5 text-sm text-ink/50">{t.exploreHint}</p>
         <p className="mt-1 text-xs text-ink/35">{t.disclaimer}</p>
 
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {RESEARCH_AREAS.map((a) => (
-            <button
-              key={a.key}
-              onClick={() => setArea(a.key)}
-              className={`min-h-11 shrink-0 rounded-full border px-4 text-sm font-medium transition-colors ${
-                area === a.key ? "border-primary bg-primary text-white" : "border-line text-ink/65 hover:border-primary-soft hover:text-primary"
-              }`}
-            >
-              {lang === "ko" ? a.labelKr : a.labelEn}
-            </button>
-          ))}
+        <div className="mt-5">
+          <TabRow
+            ariaLabel={lang === "ko" ? "연구분야 탐색" : "Explore by research area"}
+            size="sm"
+            value={area}
+            onChange={setArea}
+            items={RESEARCH_AREAS.map((a) => ({ value: a.key, label: lang === "ko" ? a.labelKr : a.labelEn }))}
+          />
         </div>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">

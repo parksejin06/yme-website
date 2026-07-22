@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Newspaper, Search } from "lucide-react";
+import { Newspaper } from "lucide-react";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import type { CommunityPost } from "@/lib/community-content";
 import { postHref } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
@@ -59,37 +61,15 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
-          <button
-            onClick={() => setYear("all")}
-            className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-medium ${
-              year === "all" ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
-            }`}
-          >
-            {t.all}
-          </button>
-          {years.map((y) => (
-            <button
-              key={y}
-              onClick={() => setYear(y)}
-              className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-medium ${
-                year === y ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
-              }`}
-            >
-              {y}
-            </button>
-          ))}
-        </div>
-        <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.search}
-            className="min-h-11 w-full rounded-full border border-line bg-white pl-10 pr-3 text-[15px] outline-none focus:border-primary"
-          />
-        </div>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <TabRow
+          ariaLabel={lang === "ko" ? "연도 선택" : "Select year"}
+          size="sm"
+          value={year}
+          onChange={setYear}
+          items={[{ value: "all", label: t.all }, ...years.map((y) => ({ value: y, label: y }))]}
+        />
+        <SearchField value={query} onChange={setQuery} placeholder={t.search} className="w-full sm:w-72" />
       </div>
 
       {filtered.length === 0 ? (

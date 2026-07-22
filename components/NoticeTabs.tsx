@@ -1,18 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
 import NoticeTable from "./NoticeTable";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import { NOTICE_BOARDS, boardLabel, type CommunityPost } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
 
 type NoticeBoardKey = (typeof NOTICE_BOARDS)[number];
-
-function chipClass(active: boolean) {
-  return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-5 text-[15px] font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
 
 export default function NoticeTabs({
   lang,
@@ -38,35 +33,14 @@ export default function NoticeTabs({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
-          {NOTICE_BOARDS.map((b) => (
-            <button key={b} onClick={() => setActive(b)} className={chipClass(active === b)}>
-              {boardLabel(b, lang)}
-              <span className="ml-1.5 text-xs opacity-60">{boards[b]?.length ?? 0}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="relative w-full sm:w-80">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={searchPlaceholder}
-            className="min-h-11 w-full rounded-full border border-line bg-white pl-10 pr-9 text-[15px] outline-none focus:border-primary"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              aria-label="clear"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink/35 hover:text-ink/60"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <TabRow
+          ariaLabel={lang === "ko" ? "공지사항 게시판 선택" : "Select notice board"}
+          value={active}
+          onChange={(v) => setActive(v as NoticeBoardKey)}
+          items={NOTICE_BOARDS.map((b) => ({ value: b, label: boardLabel(b, lang), count: boards[b]?.length ?? 0 }))}
+        />
+        <SearchField value={query} onChange={setQuery} placeholder={searchPlaceholder} className="w-full sm:w-80" />
       </div>
 
       <div className="mt-6">

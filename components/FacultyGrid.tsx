@@ -3,10 +3,11 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, X } from "lucide-react";
 import type { Lang } from "@/lib/nav";
 import { fieldLabel, positionLabel, romanizedName, type FacultyMember } from "@/lib/faculty";
 import { PhoneIcon, MailIcon } from "@/components/icons";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 
 const COPY = {
   ko: {
@@ -107,46 +108,15 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
 
   return (
     <div>
-      <div className="relative max-w-md">
-        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t.searchPlaceholder}
-          className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-9 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-        />
-        {query && (
-          <button
-            onClick={() => setQuery("")}
-            aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-            className="absolute right-0 top-1/2 flex h-12 w-10 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        )}
-      </div>
+      <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="max-w-md" />
 
-      <div
-        role="tablist"
-        aria-label={lang === "ko" ? "연구분야 그룹" : "Research field groups"}
-        className="-mx-4 mt-5 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
-      >
-        {[t.all, ...groups].map((g) => (
-          <button
-            key={g}
-            role="tab"
-            aria-selected={active === g}
-            onClick={() => setActive(g)}
-            className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-              active === g
-                ? "border-primary bg-primary text-white"
-                : "border-line text-ink/70 hover:border-primary hover:text-primary"
-            }`}
-          >
-            {g === t.all ? g : fieldLabel(g, lang)}
-          </button>
-        ))}
+      <div className="mt-5">
+        <TabRow
+          ariaLabel={lang === "ko" ? "연구분야 그룹" : "Research field groups"}
+          value={active}
+          onChange={setActive}
+          items={[t.all, ...groups].map((g) => ({ value: g, label: g === t.all ? g : fieldLabel(g, lang) }))}
+        />
       </div>
 
       {filtered.length === 0 ? (
