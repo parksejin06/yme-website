@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, Search, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Collapse from "@/components/ui/Collapse";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import {
   YEAR_GROUPS,
   SEMESTERS,
@@ -79,15 +81,7 @@ const COPY = {
   },
 };
 
-const GRID_COLS = "sm:grid-cols-[1fr_112px_100px_60px_84px_20px]";
-
-function chipClass(active: boolean) {
-  return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active
-      ? "border-primary bg-primary text-white"
-      : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
+const GRID_COLS = "sm:grid-cols-[1fr_140px_120px_80px_100px_24px]";
 
 export default function CourseExplorer({
   entries,
@@ -182,36 +176,15 @@ export default function CourseExplorer({
           ))}
         </div>
 
-        <div className="relative min-w-[200px] flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-              className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+        <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="min-w-[200px] flex-1" />
 
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-            {t.all}
-          </button>
-          {COURSE_TYPES.map((ct) => (
-            <button key={ct.key} onClick={() => setTypeFilter(ct.key)} className={chipClass(typeFilter === ct.key)}>
-              {lang === "ko" ? ct.labelKr : ct.labelEn}
-            </button>
-          ))}
-        </div>
+        <TabRow
+          ariaLabel={lang === "ko" ? "이수구분 선택" : "Select course type"}
+          size="sm"
+          value={typeFilter}
+          onChange={setTypeFilter}
+          items={[{ value: "all", label: t.all }, ...COURSE_TYPES.map((ct) => ({ value: ct.key, label: lang === "ko" ? ct.labelKr : ct.labelEn }))]}
+        />
       </div>
 
       <p className="mt-4 text-xs text-ink/45">
@@ -227,7 +200,7 @@ export default function CourseExplorer({
 
       <div className="mt-2 border-t border-line">
         {filtered.length > 0 && (
-          <div className={`hidden border-b border-line px-4 py-2 text-xs text-ink/40 sm:grid sm:items-center sm:gap-3 ${GRID_COLS}`}>
+          <div className={`hidden border-b border-line px-4 py-3 text-sm text-ink/40 sm:grid sm:items-center sm:gap-3 ${GRID_COLS}`}>
             <span>{t.courseCol}</span>
             <span>{t.codeCol}</span>
             <span>{t.typeCol}</span>
@@ -250,10 +223,10 @@ export default function CourseExplorer({
               <button
                 onClick={() => setOpenCode(open ? null : c.courseCode)}
                 aria-expanded={open}
-                className={`grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-surface-muted sm:py-3 ${GRID_COLS}`}
+                className={`grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-left transition-colors hover:bg-surface-muted sm:py-4 ${GRID_COLS}`}
               >
                 <span className="min-w-0">
-                  <span className="block truncate font-display text-[15px] text-ink sm:text-sm">
+                  <span className="block truncate font-display text-[15px] text-ink sm:text-base">
                     {lang === "ko" ? c.nameKr : c.nameEn ?? c.nameKr}
                   </span>
                   <span className="mt-0.5 block text-xs text-ink/45 sm:hidden">
@@ -262,10 +235,10 @@ export default function CourseExplorer({
                   </span>
                 </span>
 
-                <span className="hidden text-xs text-ink/60 sm:block">{c.courseCode}</span>
+                <span className="hidden text-sm text-ink/60 sm:block">{c.courseCode}</span>
                 <span className="hidden sm:block">
                   {meta && (
-                    <span className={`inline-flex rounded px-2 py-0.5 text-[11px] font-medium ${meta.badgeClass}`}>
+                    <span className={`inline-flex rounded px-2.5 py-1 text-xs font-medium ${meta.badgeClass}`}>
                       {typeLabel}
                     </span>
                   )}

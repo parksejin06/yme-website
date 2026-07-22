@@ -41,11 +41,11 @@ export default function DirectionsPage() {
       <SectionSubNav items={ABOUT_NAV} lang="ko" label="학부소개 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부소개", path: "/about" }, { label: "오시는 길" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-2">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
+        <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-16">
           <div>
-            <h2 className="font-display text-xl text-ink">주소·연락처</h2>
-            <dl className="mt-4 space-y-2 text-sm text-ink/70">
+            <h2 className="font-display text-2xl text-ink">주소·연락처</h2>
+            <dl className="mt-5 space-y-2.5 text-[15px] text-ink/70">
               <div className="flex gap-2">
                 <dt className="w-20 shrink-0 text-ink/70">주소</dt>
                 <dd>{FULL_ADDRESS}</dd>
@@ -94,22 +94,22 @@ export default function DirectionsPage() {
               ))}
             </div>
 
-            <h2 className="mt-10 font-display text-xl text-ink">지하철 출구안내</h2>
-            <ul className="mt-4 space-y-2 text-sm text-ink/70">
+            <h2 className="mt-10 font-display text-2xl text-ink">지하철 출구안내</h2>
+            <ul className="mt-5 space-y-2.5 text-[15px] text-ink/70">
               {contact.subway.map((s) => (
                 <li key={s.exit}>{s.kr}</li>
               ))}
             </ul>
 
-            <h2 className="mt-10 font-display text-xl text-ink">버스 노선</h2>
-            <div className="mt-4 space-y-3">
+            <h2 className="mt-10 font-display text-2xl text-ink">버스 노선</h2>
+            <div className="mt-5 space-y-3.5 text-[15px]">
               <BusRow colorLabel="초록 (지선)" colorClass="bg-emerald-600" routes={contact.bus.green} />
               <BusRow colorLabel="파랑 (간선)" colorClass="bg-primary" routes={contact.bus.blue} />
               <BusRow colorLabel="빨강 (광역)" colorClass="bg-rose-600" routes={contact.bus.red} />
             </div>
           </div>
 
-          <div className="h-[340px] overflow-hidden rounded-lg border border-line sm:h-full sm:min-h-[420px]">
+          <div className="h-[400px] overflow-hidden rounded-lg border border-line md:h-full md:min-h-[560px]">
             <iframe title="연세대학교 위치 지도" src={OSM_EMBED_SRC} className="h-full w-full" loading="lazy" />
           </div>
         </div>

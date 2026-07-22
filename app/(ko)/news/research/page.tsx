@@ -18,7 +18,7 @@ export default function NewsResearchPage() {
       />
       <SectionSubNav items={NEWS_NAV} lang="ko" label="뉴스 및 공지사항 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "뉴스" }]} />
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
         <NewsArticleBoard lang="ko" articles={BOARD_DATA.news} />
       </section>
     </>

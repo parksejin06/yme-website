@@ -19,7 +19,7 @@ export default function UndergraduateCurriculumMapPage() {
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부", path: "/undergraduate" }, { label: "교과목 체계도" }]} />
 
-      <section className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <CurriculumMap entries={curriculum} courseMap={courseMap} lang="ko" />
       </section>
     </>

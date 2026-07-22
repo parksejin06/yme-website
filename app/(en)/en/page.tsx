@@ -109,12 +109,20 @@ export default function HomePageEn() {
       </section>
 
       {/* Stats */}
-      <section className="bg-primary py-16 sm:py-20">
-        <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4">
-          <StatCounter value={currentYear - foundingYear} suffix="th" label="Years since founding" />
-          <StatCounter value={labs.length} label="Research labs" />
-          <StatCounter value={6} label="Research fields" />
-          <StatCounter value={10} label="Industry-Academia Partnerships" />
+      <section className="bg-primary py-14 sm:py-16">
+        <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 divide-y divide-white/15 px-4 sm:px-6 md:grid-cols-4 md:divide-x md:divide-y-0">
+          <div className="py-5 pr-6 md:py-0 md:pr-8">
+            <StatCounter value={currentYear - foundingYear} suffix="th" label="Years since founding" />
+          </div>
+          <div className="py-5 pl-6 md:py-0 md:px-8">
+            <StatCounter value={labs.length} label="Research labs" />
+          </div>
+          <div className="py-5 pr-6 md:py-0 md:px-8">
+            <StatCounter value={6} label="Research fields" />
+          </div>
+          <div className="py-5 pl-6 md:py-0 md:pl-8">
+            <StatCounter value={10} label="Industry-Academia Partnerships" />
+          </div>
         </ScrollReveal>
       </section>
 

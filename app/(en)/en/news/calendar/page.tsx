@@ -25,7 +25,7 @@ export default function CalendarPageEn() {
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Calendar" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <Calendar events={calendarData.events} relatedPosts={relatedPosts} lang="en" />
       </section>
     </>

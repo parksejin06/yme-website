@@ -21,7 +21,7 @@ export default async function LabsPage({ searchParams }: { searchParams: Promise
       />
       <SectionSubNav items={LABS_NAV} lang="ko" label="연구실 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "연구실" }]} />
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <LabsExplorer lang="ko" labs={labs as LabEntry[]} initialField={field} />
       </section>
     </>

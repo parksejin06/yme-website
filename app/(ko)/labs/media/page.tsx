@@ -22,7 +22,7 @@ export default function LabsMediaPage() {
       <SectionSubNav items={LABS_NAV} lang="ko" label="연구실 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "연구실", path: "/labs" }, { label: "연구실 소개 자료 및 영상" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <LabMediaLibrary items={data.items} lang="ko" />
       </section>
     </>

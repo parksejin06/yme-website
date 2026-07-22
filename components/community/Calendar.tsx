@@ -173,25 +173,25 @@ export default function Calendar({
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <button
             onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() - 1, 1))}
             aria-label={lang === "ko" ? "이전 달" : "Previous month"}
-            className="flex h-9 w-9 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
+            className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-5 w-5" />
           </button>
-          <p className="w-40 text-center font-display text-base text-ink">{monthLabel}</p>
+          <p className="w-48 text-center font-display text-xl text-ink">{monthLabel}</p>
           <button
             onClick={() => setViewDate((d) => new Date(d.getFullYear(), d.getMonth() + 1, 1))}
             aria-label={lang === "ko" ? "다음 달" : "Next month"}
-            className="flex h-9 w-9 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
+            className="flex h-11 w-11 items-center justify-center rounded border border-line text-ink/60 hover:border-primary hover:text-primary"
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-5 w-5" />
           </button>
           <button
             onClick={() => setViewDate(new Date(today.getFullYear(), today.getMonth(), 1))}
-            className="ml-1 min-h-9 rounded-full border border-line px-3 text-xs font-medium text-ink/70 hover:border-primary hover:text-primary"
+            className="ml-1 min-h-11 rounded-md border border-line px-4 text-sm font-medium text-ink/70 hover:border-primary hover:text-primary"
           >
             {t.today}
           </button>
@@ -201,47 +201,52 @@ export default function Calendar({
           <button
             onClick={() => setView("month")}
             aria-pressed={view === "month"}
-            className={`flex min-h-9 items-center gap-1.5 rounded px-3 text-xs font-medium ${view === "month" ? "bg-primary-strong text-white" : "text-ink/60"}`}
+            className={`flex min-h-11 items-center gap-1.5 rounded px-4 text-sm font-medium ${view === "month" ? "bg-primary-strong text-white" : "text-ink/60"}`}
           >
-            <LayoutGrid className="h-3.5 w-3.5" /> {t.month}
+            <LayoutGrid className="h-4 w-4" /> {t.month}
           </button>
           <button
             onClick={() => setView("list")}
             aria-pressed={view === "list"}
-            className={`flex min-h-9 items-center gap-1.5 rounded px-3 text-xs font-medium ${view === "list" ? "bg-primary-strong text-white" : "text-ink/60"}`}
+            className={`flex min-h-11 items-center gap-1.5 rounded px-4 text-sm font-medium ${view === "list" ? "bg-primary-strong text-white" : "text-ink/60"}`}
           >
-            <List className="h-3.5 w-3.5" /> {t.list}
+            <List className="h-4 w-4" /> {t.list}
           </button>
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-1.5">
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-1 border-b border-line">
         <button
           onClick={() => setTypeFilter("all")}
-          className={`inline-flex min-h-9 items-center justify-center rounded-full border px-3 text-xs font-medium ${typeFilter === "all" ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"}`}
+          className={`-mb-px flex min-h-11 items-center border-b-[3px] px-1 text-sm font-medium transition-colors ${
+            typeFilter === "all" ? "border-primary font-bold text-primary" : "border-transparent text-ink/55 hover:text-ink"
+          }`}
         >
           {t.all}
         </button>
-        {types.map((type) => (
-          <button
-            key={type}
-            onClick={() => setTypeFilter(type)}
-            className={`inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition-colors ${
-              typeFilter === type ? "text-white" : "border-line text-ink/60 hover:border-primary-soft"
-            }`}
-            style={typeFilter === type ? { backgroundColor: typeColor(type), borderColor: typeColor(type) } : undefined}
-          >
-            <EventDot type={type} />
-            {type}
-          </button>
-        ))}
+        {types.map((type) => {
+          const active = typeFilter === type;
+          return (
+            <button
+              key={type}
+              onClick={() => setTypeFilter(type)}
+              className={`-mb-px flex min-h-11 items-center gap-1.5 border-b-[3px] px-1 text-sm font-medium transition-colors ${
+                active ? "font-bold" : "border-transparent text-ink/55 hover:text-ink"
+              }`}
+              style={{ borderColor: active ? typeColor(type) : "transparent", color: active ? typeColor(type) : undefined }}
+            >
+              <EventDot type={type} />
+              {type}
+            </button>
+          );
+        })}
       </div>
 
       {view === "month" ? (
-        <div className="mt-6 hidden sm:block">
-          <div className="grid grid-cols-7 border-b border-line text-center text-xs text-ink/45">
+        <div className="mt-8 hidden sm:block">
+          <div className="grid grid-cols-7 border-b border-line text-center text-sm text-ink/45">
             {t.weekdays.map((w) => (
-              <div key={w} className="py-2">
+              <div key={w} className="py-3">
                 {w}
               </div>
             ))}
@@ -256,28 +261,28 @@ export default function Calendar({
                 <button
                   key={key}
                   onClick={() => setSelectedDay(key)}
-                  className={`flex min-h-[92px] flex-col items-start gap-1 border-b border-r border-line p-1.5 text-left align-top last:border-r-0 ${
+                  className={`flex min-h-[128px] flex-col items-start gap-1.5 border-b border-r border-line p-2.5 text-left align-top last:border-r-0 ${
                     inMonth ? "bg-white" : "bg-surface-muted/40"
                   }`}
                 >
                   <span
-                    className={`flex h-6 w-6 items-center justify-center rounded-full text-xs ${
+                    className={`flex h-7 w-7 items-center justify-center rounded-full text-sm ${
                       isToday ? "bg-primary text-white" : inMonth ? "text-ink/70" : "text-ink/30"
                     }`}
                   >
                     {date.getDate()}
                   </span>
-                  <div className="w-full space-y-0.5">
+                  <div className="w-full space-y-1">
                     {visible.map((e, i) => (
                       <span
                         key={`${e.uid ?? e.summary}-${i}`}
-                        className="block truncate rounded px-1 py-0.5 text-[10px] text-white"
+                        className="block truncate rounded px-1.5 py-1 text-xs text-white"
                         style={{ backgroundColor: typeColor(e.eventType) }}
                       >
                         {e.summary}
                       </span>
                     ))}
-                    {overflow > 0 && <span className="block text-[10px] text-ink/45">{t.moreCount(overflow)}</span>}
+                    {overflow > 0 && <span className="block text-xs text-ink/45">{t.moreCount(overflow)}</span>}
                   </div>
                 </button>
               );

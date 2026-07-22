@@ -1,111 +1,100 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { NAV_ITEMS, localizePath, type Lang } from "@/lib/nav";
+import { type Lang } from "@/lib/nav";
+import MegaMenu from "@/components/MegaMenu";
+
+const OPEN_DELAY = 200;
+const CLOSE_DELAY = 200;
+
+function HamburgerIcon({ open }: { open: boolean }) {
+  return (
+    <span className="relative block h-[22px] w-[30px] shrink-0" aria-hidden="true">
+      <span
+        className={`absolute left-0 right-0 h-[2.5px] rounded-full bg-current transition-all duration-300 ${
+          open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
+        }`}
+      />
+      <span
+        className={`absolute left-0 right-0 top-1/2 h-[2.5px] -translate-y-1/2 rounded-full bg-current transition-opacity duration-200 ${
+          open ? "opacity-0" : "opacity-100"
+        }`}
+      />
+      <span
+        className={`absolute left-0 right-0 h-[2.5px] rounded-full bg-current transition-all duration-300 ${
+          open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
+        }`}
+      />
+    </span>
+  );
+}
 
 export default function DesktopNav({ lang, light = false }: { lang: Lang; light?: boolean }) {
-  const pathname = usePathname();
-  const [openPath, setOpenPath] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function clearTimers() {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }
+
+  function scheduleOpen() {
+    clearTimers();
+    openTimer.current = setTimeout(() => setOpen(true), OPEN_DELAY);
+  }
+
+  function scheduleClose() {
+    clearTimers();
+    closeTimer.current = setTimeout(() => setOpen(false), CLOSE_DELAY);
+  }
+
+  function closeAndRefocus() {
+    clearTimers();
+    setOpen(false);
+    triggerRef.current?.focus();
+  }
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpenPath(null);
+      if (e.key === "Escape" && open) closeAndRefocus();
+    }
+    function onPointerDown(e: PointerEvent) {
+      if (open && rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
     }
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [open]);
 
-  function scheduleClose() {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpenPath(null), 150);
-  }
+  useEffect(() => () => clearTimers(), []);
 
-  function cancelClose() {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }
+  const textClass = light ? "text-white" : "text-ink";
 
   return (
-    <nav aria-label={lang === "ko" ? "주 내비게이션" : "Main navigation"} className="hidden xl:block">
-      <ul className="flex items-center gap-4 whitespace-nowrap">
-        {NAV_ITEMS.map((item) => {
-          const href = localizePath(item.path, lang);
-          const active = pathname === href || (item.children && item.children.some((c) => pathname === localizePath(c.path, lang)));
-          const activeClass = light ? "text-white after:w-full after:bg-white" : "text-primary after:w-full after:bg-primary";
-          const inactiveClass = light
-            ? "text-white/85 after:w-0 after:bg-white hover:text-white hover:after:w-full"
-            : "text-ink/75 after:w-0 after:bg-primary hover:text-primary hover:after:w-full";
-          const linkClass = `relative shrink-0 py-1 text-[13px] font-body font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:transition-all ${
-            active ? activeClass : inactiveClass
-          }`;
+    <div ref={rootRef} className="hidden xl:block" onMouseEnter={scheduleOpen} onMouseLeave={scheduleClose}>
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls="mega-menu-panel"
+        onClick={() => {
+          clearTimers();
+          setOpen((v) => !v);
+        }}
+        className={`flex items-center gap-3 transition-colors duration-300 ${textClass}`}
+      >
+        <span className="text-[15px] font-body font-medium tracking-wide">{lang === "ko" ? "메뉴" : "MENU"}</span>
+        <HamburgerIcon open={open} />
+      </button>
 
-          if (!item.children) {
-            return (
-              <li key={item.path}>
-                <Link
-                  href={href}
-                  aria-current={active ? "page" : undefined}
-                  onClick={() => setOpenPath(null)}
-                  className={linkClass}
-                >
-                  {lang === "ko" ? item.kr : item.en}
-                </Link>
-              </li>
-            );
-          }
-
-          const isOpen = openPath === item.path;
-          const twoColumn = item.children.length > 5;
-
-          return (
-            <li key={item.path} className="relative" onMouseEnter={() => { cancelClose(); setOpenPath(item.path); }} onMouseLeave={scheduleClose}>
-              <button
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={isOpen}
-                onClick={() => setOpenPath(isOpen ? null : item.path)}
-                className={linkClass}
-              >
-                {lang === "ko" ? item.kr : item.en}
-              </button>
-
-              {isOpen && (
-                <div
-                  className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 ${twoColumn ? "w-80" : "w-56"}`}
-                  onFocus={cancelClose}
-                >
-                  <div className="overflow-hidden rounded-lg border border-line bg-white shadow-lg">
-                    <p className="border-b border-line bg-surface-muted px-4 py-2.5 text-xs font-display tracking-wide text-ink/50">
-                      {lang === "ko" ? item.kr : item.en}
-                    </p>
-                    <ul className={`py-1.5 ${twoColumn ? "grid grid-cols-2" : ""}`}>
-                      {item.children.map((sub) => {
-                        const subHref = localizePath(sub.path, lang);
-                        const subActive = pathname === subHref;
-                        return (
-                          <li key={sub.path}>
-                            <Link
-                              href={subHref}
-                              onClick={() => setOpenPath(null)}
-                              className={`block px-4 py-2.5 text-sm transition-colors ${
-                                subActive ? "bg-primary/5 font-medium text-primary" : "text-ink/75 hover:bg-surface-muted hover:text-primary"
-                              }`}
-                            >
-                              {lang === "ko" ? sub.kr : sub.en}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+      <MegaMenu open={open} onClose={closeAndRefocus} lang={lang} />
+    </div>
   );
 }

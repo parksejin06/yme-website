@@ -76,7 +76,6 @@ export const NAV_ITEMS: NavItem[] = [
       { path: "/news/research", kr: "뉴스", en: "News" },
       { path: "/news/thesis-review", kr: "학위논문심사", en: "Thesis Review" },
       { path: "/news/resources", kr: "자료실", en: "Resources" },
-      { path: "/news/jobs", kr: "취업정보", en: "Jobs" },
       { path: "/news/events", kr: "행사", en: "Events" },
       { path: "/news/seminars", kr: "세미나", en: "Seminars" },
       { path: "/news/calendar", kr: "일정", en: "Calendar" },

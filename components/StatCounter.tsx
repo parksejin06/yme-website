@@ -46,15 +46,15 @@ export default function StatCounter({
   }, [value, duration]);
 
   return (
-    <div ref={ref} className="text-center">
+    <div ref={ref}>
       <p
-        className="font-display text-4xl font-extrabold text-white sm:text-5xl"
+        className="font-display text-3xl font-bold text-white sm:text-4xl"
         style={{ fontVariantNumeric: "tabular-nums" }}
       >
         {display}
         {suffix}
       </p>
-      <p className="mt-2 text-sm text-white/80">{label}</p>
+      <p className="mt-1.5 text-xs tracking-wide text-white/70 sm:text-sm">{label}</p>
     </div>
   );
 }

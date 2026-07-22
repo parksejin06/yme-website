@@ -15,11 +15,11 @@ export default async function CommunitySearchPageEn({ searchParams }: { searchPa
 
   return (
     <>
-      <PageHero eyebrow="NEWS & COMMUNITY" title="Search" description="Search notices, news, thesis reviews, resources, jobs, events, and seminars all at once." />
+      <PageHero eyebrow="NEWS & COMMUNITY" title="Search" description="Search notices, news, thesis reviews, resources, events, and seminars all at once." />
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Search" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
         <CommunitySearchBar lang="en" initialQuery={q} />
         <div className="mt-8">
           <SearchResults results={results} query={q} lang="en" />

@@ -15,66 +15,99 @@ export default function NoticeTable({ lang, board, notices }: { lang: Lang; boar
   const numbered = rest.map((n, i) => ({ n, no: rest.length - i }));
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[640px] border-collapse text-sm">
-        <thead>
-          <tr className="border-y border-line text-left text-ink/70">
-            <th scope="col" className="w-20 px-3 py-3 font-display font-normal">
-              {label.no}
-            </th>
-            <th scope="col" className="px-3 py-3 font-display font-normal">
-              {label.title}
-            </th>
-            <th scope="col" className="w-32 px-3 py-3 font-display font-normal">
-              {label.author}
-            </th>
-            <th scope="col" className="w-28 px-3 py-3 font-display font-normal">
-              {label.date}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {pinned.map((n) => (
-            <tr key={n.id} className="border-b border-line bg-surface-muted/50 hover:bg-surface-muted">
-              <td className="px-3 py-4 text-ink/40">
-                <span className="rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">{label.notice}</span>
-              </td>
-              <td className="px-3 py-4">
-                <Link href={postHref(lang, board, n.sourcePostId)} className="flex items-center gap-2 hover:text-primary">
-                  <span className="line-clamp-1 text-ink/85">{n.title}</span>
-                  {n.attachments.length > 0 && (
-                    <Paperclip className="h-3.5 w-3.5 shrink-0 text-ink/35" aria-label={label.attachment} />
-                  )}
-                </Link>
-              </td>
-              <td className="px-3 py-4 text-ink/70">{n.author}</td>
-              <td className="px-3 py-4 text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
-                {n.publishedAt}
-              </td>
+    <>
+      {/* Desktop/tablet: full data table */}
+      <div className="hidden overflow-x-auto sm:block">
+        <table className="w-full min-w-[720px] border-collapse">
+          <thead>
+            <tr className="border-y border-line text-left text-sm text-ink/70">
+              <th scope="col" className="w-20 px-4 py-4 font-display font-normal">
+                {label.no}
+              </th>
+              <th scope="col" className="px-4 py-4 font-display font-normal">
+                {label.title}
+              </th>
+              <th scope="col" className="w-40 px-4 py-4 font-display font-normal">
+                {label.author}
+              </th>
+              <th scope="col" className="w-32 px-4 py-4 font-display font-normal">
+                {label.date}
+              </th>
             </tr>
-          ))}
-          {numbered.map(({ n, no }) => (
-            <tr key={n.id} className="border-b border-line hover:bg-surface-muted">
-              <td className="px-3 py-4 text-ink/70">{no}</td>
-              <td className="px-3 py-4">
-                <Link href={postHref(lang, board, n.sourcePostId)} className="flex items-center gap-2 hover:text-primary">
-                  {n.isNew && (
+          </thead>
+          <tbody>
+            {pinned.map((n) => (
+              <tr key={n.id} className="border-b border-line bg-surface-muted/50 hover:bg-surface-muted">
+                <td className="px-4 py-6 text-sm text-ink/40">
+                  <span className="rounded bg-accent px-1.5 py-0.5 text-xs font-bold text-white">{label.notice}</span>
+                </td>
+                <td className="px-4 py-6">
+                  <Link href={postHref(lang, board, n.sourcePostId)} className="flex items-center gap-2.5 hover:text-primary">
+                    <span className="line-clamp-1 text-[17px] text-ink/85 sm:text-lg">{n.title}</span>
+                    {n.attachments.length > 0 && (
+                      <Paperclip className="h-4 w-4 shrink-0 text-ink/35" aria-label={label.attachment} />
+                    )}
+                  </Link>
+                </td>
+                <td className="px-4 py-6 text-sm text-ink/70">{n.author}</td>
+                <td className="px-4 py-6 text-sm text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {n.publishedAt}
+                </td>
+              </tr>
+            ))}
+            {numbered.map(({ n, no }) => (
+              <tr key={n.id} className="border-b border-line hover:bg-surface-muted">
+                <td className="px-4 py-6 text-sm text-ink/70">{no}</td>
+                <td className="px-4 py-6">
+                  <Link href={postHref(lang, board, n.sourcePostId)} className="flex items-center gap-2.5 hover:text-primary">
+                    {n.isNew && (
+                      <span className="shrink-0 rounded bg-primary/10 px-1.5 py-0.5 text-xs font-bold text-primary">NEW</span>
+                    )}
+                    <span className="line-clamp-1 text-[17px] text-ink/85 sm:text-lg">{n.title}</span>
+                    {n.attachments.length > 0 && (
+                      <Paperclip className="h-4 w-4 shrink-0 text-ink/35" aria-label={label.attachment} />
+                    )}
+                  </Link>
+                </td>
+                <td className="px-4 py-6 text-sm text-ink/70">{n.author}</td>
+                <td className="px-4 py-6 text-sm text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {n.publishedAt}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile: stacked list -- category/title/date/attachment, no horizontal scroll */}
+      <ul className="divide-y divide-line border-y border-line sm:hidden">
+        {[...pinned.map((n) => ({ n, pinnedRow: true })), ...numbered.map(({ n }) => ({ n, pinnedRow: false }))].map(
+          ({ n, pinnedRow }) => (
+            <li key={n.id} className={pinnedRow ? "bg-surface-muted/50" : undefined}>
+              <Link href={postHref(lang, board, n.sourcePostId)} className="block px-1 py-4">
+                <div className="flex items-center gap-2">
+                  {pinnedRow && (
+                    <span className="shrink-0 rounded bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">
+                      {label.notice}
+                    </span>
+                  )}
+                  {!pinnedRow && n.isNew && (
                     <span className="shrink-0 rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold text-primary">NEW</span>
                   )}
-                  <span className="line-clamp-1 text-ink/85">{n.title}</span>
+                  <span className="line-clamp-2 flex-1 text-[15px] text-ink/85">{n.title}</span>
                   {n.attachments.length > 0 && (
-                    <Paperclip className="h-3.5 w-3.5 shrink-0 text-ink/35" aria-label={label.attachment} />
+                    <Paperclip className="h-4 w-4 shrink-0 text-ink/35" aria-label={label.attachment} />
                   )}
-                </Link>
-              </td>
-              <td className="px-3 py-4 text-ink/70">{n.author}</td>
-              <td className="px-3 py-4 text-ink/70" style={{ fontVariantNumeric: "tabular-nums" }}>
-                {n.publishedAt}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                </div>
+                <div className="mt-1.5 flex gap-3 text-xs text-ink/50">
+                  <span>{n.author}</span>
+                  <span style={{ fontVariantNumeric: "tabular-nums" }}>{n.publishedAt}</span>
+                </div>
+              </Link>
+            </li>
+          )
+        )}
+      </ul>
+    </>
   );
 }

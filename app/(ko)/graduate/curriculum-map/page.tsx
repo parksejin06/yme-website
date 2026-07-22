@@ -17,7 +17,7 @@ export default function GraduateCurriculumMapPage() {
       <SectionSubNav items={GRADUATE_NAV} lang="ko" label="대학원 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "대학원", path: "/graduate" }, { label: "교육·연구 체계도" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <AcademicResearchMap roadmap={gradRequirements.roadmap} courses={graduateCourses} faculty={faculty} lang="ko" />
       </section>
     </>

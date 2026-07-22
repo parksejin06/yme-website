@@ -16,7 +16,10 @@ export default function PageHero({
   imagePosition?: string;
 }) {
   return (
-    <section className="relative flex h-[300px] items-end overflow-hidden sm:h-[360px] md:h-[400px]">
+    <section
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ height: "var(--hero-height)" }}
+    >
       <Image
         src={image}
         alt={imageAlt}
@@ -29,12 +32,29 @@ export default function PageHero({
       {/* Brand-blue tinted overlay (RGB 15,42,87) for text legibility over the photo */}
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, rgba(15,42,87,0.88), rgba(15,42,87,0.35))" }}
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(15,42,87,0.58) 0%, rgba(15,42,87,0.7) 55%, rgba(15,42,87,0.82) 100%)",
+        }}
       />
-      <div className="relative z-10 mx-auto w-full max-w-content px-4 pb-10 sm:px-6">
-        <p className="font-body text-sm tracking-[0.2em] text-white/80">{eyebrow}</p>
-        <h1 className="mt-3 text-balance font-display text-3xl text-white sm:text-4xl">{title}</h1>
-        {description && <p className="mt-3 max-w-2xl text-white/80">{description}</p>}
+      <div className="relative z-10 mx-auto w-full max-w-content px-[var(--page-gutter)] text-center">
+        <p className="font-body text-[15px] tracking-[0.22em] text-white/80 sm:text-base md:text-lg">
+          {eyebrow}
+        </p>
+        <h1
+          className="mx-auto mt-4 text-balance font-display text-white"
+          style={{ fontSize: "clamp(2.25rem, 4vw, 4.5rem)", lineHeight: 1.15 }}
+        >
+          {title}
+        </h1>
+        {description && (
+          <p
+            className="mx-auto mt-5 max-w-2xl text-balance text-white/85"
+            style={{ fontSize: "clamp(1.0625rem, 1vw + 0.75rem, 1.375rem)", lineHeight: 1.6 }}
+          >
+            {description}
+          </p>
+        )}
       </div>
     </section>
   );

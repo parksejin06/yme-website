@@ -11,10 +11,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const post = BOARD_DATA["jobs"].find((p) => p.sourcePostId === id);
-  return { title: post?.title ?? "취업정보" };
+  return { title: post?.title ?? "Jobs & Internships" };
 }
 
-export default async function JobsDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function AdmissionsJobsDetailPageEn({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const post = BOARD_DATA["jobs"].find((p) => p.sourcePostId === id);
   if (!post) notFound();
@@ -24,10 +24,10 @@ export default async function JobsDetailPage({ params }: { params: Promise<{ id:
   return (
     <PostDetail
       post={post}
-      lang="ko"
-      backHref={listHref("ko", "jobs")}
-      prev={prev ? { href: postHref("ko", "jobs", prev.sourcePostId), title: prev.title } : null}
-      next={next ? { href: postHref("ko", "jobs", next.sourcePostId), title: next.title } : null}
+      lang="en"
+      backHref={listHref("en", "jobs")}
+      prev={prev ? { href: postHref("en", "jobs", prev.sourcePostId), title: prev.title } : null}
+      next={next ? { href: postHref("en", "jobs", next.sourcePostId), title: next.title } : null}
     />
   );
 }

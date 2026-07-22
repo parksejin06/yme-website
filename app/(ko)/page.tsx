@@ -108,12 +108,20 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-primary py-16 sm:py-20">
-        <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4">
-          <StatCounter value={currentYear - foundingYear} suffix="주년" label="설립 이래" />
-          <StatCounter value={labs.length} suffix="개" label="연구실" />
-          <StatCounter value={6} suffix="개" label="전문 연구분야" />
-          <StatCounter value={10} suffix="개" label="산학협력 네트워크" />
+      <section className="bg-primary py-14 sm:py-16">
+        <ScrollReveal className="mx-auto grid max-w-content grid-cols-2 divide-y divide-white/15 px-4 sm:px-6 md:grid-cols-4 md:divide-x md:divide-y-0">
+          <div className="py-5 pr-6 md:py-0 md:pr-8">
+            <StatCounter value={currentYear - foundingYear} suffix="주년" label="설립 이래" />
+          </div>
+          <div className="py-5 pl-6 md:py-0 md:px-8">
+            <StatCounter value={labs.length} suffix="개" label="연구실" />
+          </div>
+          <div className="py-5 pr-6 md:py-0 md:px-8">
+            <StatCounter value={6} suffix="개" label="전문 연구분야" />
+          </div>
+          <div className="py-5 pl-6 md:py-0 md:pl-8">
+            <StatCounter value={10} suffix="개" label="산학협력 네트워크" />
+          </div>
         </ScrollReveal>
       </section>
 

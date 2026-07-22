@@ -72,11 +72,14 @@ export default function GraduatePageEn() {
             ))}
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="mt-6 grid divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {gradRequirements.programs.map((p) => (
-              <div key={p.key} className="rounded-lg border border-line bg-white p-4">
+              <div key={p.key} className="py-4 sm:px-5 sm:py-4 sm:first:pl-0">
                 <p className="text-xs text-ink/45">{p.labelEn}</p>
-                <p className="mt-1 font-display text-xl text-ink">Min. {p.credits} credits</p>
+                <p className="mt-1 font-display text-xl font-bold text-primary">
+                  Min. {p.credits}
+                  <span className="text-sm font-normal text-ink/60"> credits</span>
+                </p>
               </div>
             ))}
           </div>

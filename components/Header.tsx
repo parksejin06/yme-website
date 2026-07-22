@@ -25,28 +25,31 @@ export default function Header({ lang }: { lang: Lang }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[1000] h-20 transition-colors duration-300 sm:h-24 ${
         scrolled
-          ? "border-b border-line bg-white/95 backdrop-blur"
-          : "border-b border-transparent bg-gradient-to-b from-black/45 via-black/10 to-transparent"
+          ? "border-b border-line bg-white/97 backdrop-blur"
+          : "border-b border-transparent bg-gradient-to-b from-black/50 via-black/15 to-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between gap-1.5 px-2 sm:gap-4 sm:px-6">
-        <Link href={home} className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5">
+      <div
+        className="flex h-full w-full items-center justify-between"
+        style={{ paddingInline: "clamp(1.25rem, 4vw, 3rem)" }}
+      >
+        <Link href={home} className="flex min-w-0 shrink-0 items-center gap-3">
           {/* 연세대학교 공식 심볼 - 학과 사무실 사용 승인 확인 필요 */}
           <Image
             src="/images/new_transparent_logo.png"
             alt=""
-            width={40}
-            height={40}
+            width={48}
+            height={48}
             priority
-            className="h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
+            className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12"
           />
           <span
             className={`min-w-0 break-keep font-display leading-tight transition-colors duration-300 ${
               light ? "text-white" : "text-primary"
             }`}
-            style={{ fontSize: "clamp(0.6875rem, 0.4rem + 1.1vw, 1.125rem)" }}
+            style={{ fontSize: "clamp(0.8125rem, 0.5rem + 1vw, 1.25rem)" }}
           >
             {lang === "ko" ? (
               <>
@@ -62,9 +65,9 @@ export default function Header({ lang }: { lang: Lang }) {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2 sm:gap-4">
-          <DesktopNav lang={lang} light={light} />
+        <div className="flex shrink-0 items-center gap-5 sm:gap-8">
           <LanguageToggle lang={lang} light={light} />
+          <DesktopNav lang={lang} light={light} />
           <MobileNav lang={lang} light={light} />
         </div>
       </div>

@@ -50,14 +50,20 @@ const FIELD_ORDER: (keyof GradSummary)[] = [
 
 export default function GraduationSummary({ summary, lang }: { summary: GradSummary; lang: Lang }) {
   const fields = FIELD_ORDER.filter((k) => summary[k] != null);
+  const mid = Math.ceil(fields.length / 2);
+  const columns = [fields.slice(0, mid), fields.slice(mid)];
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {fields.map((k) => (
-        <div key={k} className="rounded-lg border border-line p-4">
-          <p className="text-xs text-ink/50">{LABELS[k][lang]}</p>
-          <p className="mt-1 font-display text-base text-ink">{summary[k]}</p>
-        </div>
+    <div className="grid gap-x-10 sm:grid-cols-2">
+      {columns.map((col, i) => (
+        <dl key={i} className="divide-y divide-line border-t border-line sm:border-t-0 sm:first:border-t">
+          {col.map((k) => (
+            <div key={k} className="flex items-baseline justify-between gap-4 py-3.5">
+              <dt className="text-sm text-ink/60">{LABELS[k][lang]}</dt>
+              <dd className="text-right font-display text-base font-bold text-primary">{summary[k]}</dd>
+            </div>
+          ))}
+        </dl>
       ))}
     </div>
   );

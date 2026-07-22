@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import TabRow from "@/components/ui/TabRow";
 import { DECADES, groupsForDecade, academicsPath, type Lang } from "@/lib/academics";
 
 export default function DecadeYearPicker({ lang }: { lang: Lang }) {
@@ -12,33 +13,25 @@ export default function DecadeYearPicker({ lang }: { lang: Lang }) {
 
   return (
     <div>
-      {/* Desktop / tablet: two-step tab UI */}
+      {/* Desktop / tablet: two-step flat tab UI */}
       <div className="hidden sm:block">
-        <div role="tablist" aria-label={lang === "ko" ? "학번 시대 선택" : "Select cohort decade"} className="flex flex-wrap gap-2">
-          {DECADES.map((d) => (
-            <button
-              key={d.slug}
-              role="tab"
-              aria-selected={activeDecade === d.slug}
-              onClick={() => setActiveDecade(d.slug)}
-              className={`rounded-full border px-5 py-2 text-sm transition-colors ${
-                activeDecade === d.slug
-                  ? "border-primary bg-primary text-white"
-                  : "border-line text-ink/70 hover:border-primary hover:text-primary"
-              }`}
-            >
-              {lang === "ko" ? d.labelKr : d.labelEn}
-              <span className="ml-1.5 opacity-70">({lang === "ko" ? d.rangeKr : d.rangeEn})</span>
-            </button>
-          ))}
-        </div>
+        <TabRow
+          ariaLabel={lang === "ko" ? "학번 시대 선택" : "Select cohort decade"}
+          value={activeDecade}
+          onChange={(v) => setActiveDecade(v as typeof activeDecade)}
+          items={DECADES.map((d) => ({
+            value: d.slug,
+            label: `${lang === "ko" ? d.labelKr : d.labelEn} (${lang === "ko" ? d.rangeKr : d.rangeEn})`,
+          }))}
+        />
 
-        <div className="mt-6 flex flex-wrap gap-2 rounded-lg border border-dashed border-line p-4">
+        <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3 border-b border-line pb-5">
+          <span className="text-sm font-medium text-ink/45">{lang === "ko" ? "세부 학번" : "Cohort"}</span>
           {years.map((y) => (
             <Link
               key={y.slug}
               href={academicsPath(lang, activeDecade, y.slug)}
-              className="rounded-full border border-line px-4 py-1.5 text-sm text-ink/80 transition-colors hover:border-primary hover:text-primary"
+              className="min-h-11 text-[15px] font-medium text-ink/75 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-primary hover:decoration-primary"
             >
               {lang === "ko" ? y.labelKr : y.labelEn}
             </Link>
@@ -53,7 +46,7 @@ export default function DecadeYearPicker({ lang }: { lang: Lang }) {
           <select
             value={activeDecade}
             onChange={(e) => setActiveDecade(e.target.value as typeof activeDecade)}
-            className="mt-1 block w-full rounded-md border border-line px-3 py-2 text-ink"
+            className="mt-1 block h-14 w-full rounded-md border border-line px-3 text-ink"
           >
             {DECADES.map((d) => (
               <option key={d.slug} value={d.slug}>
@@ -70,7 +63,7 @@ export default function DecadeYearPicker({ lang }: { lang: Lang }) {
             onChange={(e) => {
               if (e.target.value) router.push(academicsPath(lang, activeDecade, e.target.value));
             }}
-            className="mt-1 block w-full rounded-md border border-line px-3 py-2 text-ink"
+            className="mt-1 block h-14 w-full rounded-md border border-line px-3 text-ink"
           >
             <option value="" disabled>
               {lang === "ko" ? "선택하세요" : "Select…"}

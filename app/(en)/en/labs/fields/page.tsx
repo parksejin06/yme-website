@@ -21,15 +21,15 @@ export default function LabsFieldsPageEn() {
       <SectionSubNav items={LABS_NAV} lang="en" label="Research Labs sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Research Labs", path: "/labs" }, { label: "Research Fields" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {RESEARCH_FIELDS.map((field, i) => (
             <ScrollReveal key={field.key} delayMs={i * 90}>
               <Link
                 href={`/en/labs?field=${encodeURIComponent(field.key)}`}
-                className="group block overflow-hidden rounded-lg border border-line transition-colors hover:border-primary"
+                className="group block overflow-hidden border border-line transition-colors hover:border-primary"
               >
-                <div className="relative h-40 w-full overflow-hidden sm:h-44">
+                <div className="relative h-52 w-full overflow-hidden sm:h-60">
                   <Image
                     src={field.image}
                     alt=""
@@ -38,9 +38,9 @@ export default function LabsFieldsPageEn() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
-                  <p className="font-display text-lg font-bold text-ink">{fieldLabel(field.key, "en")}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/70">{FIELD_DESCRIPTIONS[field.key]?.en}</p>
+                <div className="p-6">
+                  <p className="font-display text-xl font-bold text-ink">{fieldLabel(field.key, "en")}</p>
+                  <p className="mt-2.5 text-[15px] leading-relaxed text-ink/70">{FIELD_DESCRIPTIONS[field.key]?.en}</p>
                   <span className="mt-4 inline-block text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
                     View labs →
                   </span>

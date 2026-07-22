@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { Info } from "lucide-react";
+import SearchField from "@/components/ui/SearchField";
+import SelectField from "@/components/ui/SelectField";
 import { RESEARCH_AREAS, researchAreaLabel, type GraduateCourse } from "@/lib/graduate";
 import type { Lang } from "@/lib/nav";
 
@@ -34,12 +36,6 @@ const COPY = {
   },
 };
 
-function chipClass(active: boolean) {
-  return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
-    active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-  }`;
-}
-
 export default function GraduateCourseExplorer({ courses, lang }: { courses: GraduateCourse[]; lang: Lang }) {
   const t = COPY[lang];
   const [query, setQuery] = useState("");
@@ -59,42 +55,23 @@ export default function GraduateCourseExplorer({ courses, lang }: { courses: Gra
 
   return (
     <div>
-      <p className="text-xs text-ink/40">{t.areaDisclaimer}</p>
-
-      <div className="mt-5 flex flex-wrap items-center gap-3">
-        <div className="relative min-w-[220px] flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-              className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+      <div className="flex items-start gap-2.5 rounded-md bg-surface-muted px-4 py-3 text-sm text-ink/65">
+        <Info className="mt-0.5 h-4 w-4 shrink-0 text-ink/40" aria-hidden="true" />
+        <p>{t.areaDisclaimer}</p>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        <button onClick={() => setAreaFilter("all")} className={chipClass(areaFilter === "all")}>
-          {t.all}
-        </button>
-        {RESEARCH_AREAS.map((a) => (
-          <button key={a.key} onClick={() => setAreaFilter(a.key)} className={chipClass(areaFilter === a.key)}>
-            {lang === "ko" ? a.labelKr : a.labelEn}
-          </button>
-        ))}
-        <button onClick={() => setAreaFilter("uncategorized")} className={chipClass(areaFilter === "uncategorized")}>
-          {t.uncategorized}
-        </button>
+      <div className="mt-5 flex flex-wrap items-center gap-3">
+        <SearchField value={query} onChange={setQuery} placeholder={t.searchPlaceholder} className="min-w-[240px] flex-1" />
+        <SelectField
+          ariaLabel={t.areaCol}
+          value={areaFilter}
+          onChange={setAreaFilter}
+          options={[
+            { value: "all", label: t.all },
+            ...RESEARCH_AREAS.map((a) => ({ value: a.key, label: lang === "ko" ? a.labelKr : a.labelEn })),
+            { value: "uncategorized", label: t.uncategorized },
+          ]}
+        />
       </div>
 
       <p className="mt-4 text-xs text-ink/45">
@@ -104,7 +81,7 @@ export default function GraduateCourseExplorer({ courses, lang }: { courses: Gra
 
       <div className="mt-2 border-t border-line">
         {filtered.length > 0 && (
-          <div className="hidden border-b border-line px-4 py-2 text-xs text-ink/40 sm:grid sm:grid-cols-[1fr_140px_160px_64px] sm:items-center sm:gap-3">
+          <div className="hidden border-b border-line px-4 py-3 text-sm text-ink/40 sm:grid sm:grid-cols-[1fr_160px_200px_80px] sm:items-center sm:gap-3">
             <span>{t.courseCol}</span>
             <span>{t.codeCol}</span>
             <span>{t.areaCol}</span>
@@ -119,21 +96,21 @@ export default function GraduateCourseExplorer({ courses, lang }: { courses: Gra
           return (
             <div
               key={c.courseCode}
-              className="grid grid-cols-1 gap-1 border-b border-line px-4 py-3.5 sm:grid-cols-[1fr_140px_160px_64px] sm:items-center sm:gap-3 sm:py-3"
+              className="grid grid-cols-1 gap-1 border-b border-line px-4 py-4 sm:grid-cols-[1fr_160px_200px_80px] sm:items-center sm:gap-3"
             >
               <span className="min-w-0">
-                <span className="block truncate font-display text-[15px] text-ink sm:text-sm">
+                <span className="block truncate font-display text-[15px] text-ink sm:text-base">
                   {lang === "ko" ? c.nameKr : c.nameEn ?? c.nameKr}
                 </span>
-                {lang === "ko" && c.nameEn && <span className="block truncate text-xs text-ink/45">{c.nameEn}</span>}
+                {lang === "ko" && c.nameEn && <span className="block truncate text-sm text-ink/45">{c.nameEn}</span>}
                 <span className="mt-0.5 block text-xs text-ink/45 sm:hidden">
                   {c.courseCode}
                   {areaLabel ? ` · ${areaLabel}` : ""} · {c.credit}
                   {t.credit}
                 </span>
               </span>
-              <span className="hidden text-xs text-ink/60 sm:block">{c.courseCode}</span>
-              <span className="hidden text-xs text-ink/60 sm:block">{areaLabel ?? "—"}</span>
+              <span className="hidden text-sm text-ink/60 sm:block">{c.courseCode}</span>
+              <span className="hidden text-sm text-ink/60 sm:block">{areaLabel ?? "—"}</span>
               <span className="hidden text-sm text-ink/70 sm:block">{c.credit}</span>
             </div>
           );

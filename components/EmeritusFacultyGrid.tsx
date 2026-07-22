@@ -62,20 +62,20 @@ export default function EmeritusFacultyGrid({ faculty, lang }: { faculty: Emerit
 
   return (
     <div>
-      <div className="relative max-w-sm">
-        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+      <div className="relative max-w-md">
+        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t.searchPlaceholder}
-          className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+          className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-9 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
         />
         {query && (
           <button
             onClick={() => setQuery("")}
             aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-            className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
+            className="absolute right-0 top-1/2 flex h-12 w-10 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
           >
             <X className="h-4 w-4" />
           </button>
@@ -85,23 +85,23 @@ export default function EmeritusFacultyGrid({ faculty, lang }: { faculty: Emerit
       {filtered.length === 0 ? (
         <p className="mt-10 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <ul className="mt-8 divide-y divide-line border-y border-line">
+        <ul className="mt-10 grid divide-y divide-line border-y border-line lg:grid-cols-2 lg:gap-x-10 lg:divide-y-0">
           {filtered.map((f) => (
-            <li key={f.slug}>
+            <li key={f.slug} className="lg:border-b lg:border-line">
               <button
                 onClick={() => setSelected(f)}
-                className="flex w-full items-center gap-5 py-4 text-left transition-colors hover:bg-surface-muted/60"
+                className="flex w-full items-center gap-5 py-5 text-left transition-colors hover:bg-surface-muted/60"
               >
-                <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full bg-surface-muted">
+                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-muted">
                   {f.photoPath ? (
-                    <Image src={f.photoPath} alt="" width={56} height={56} className="h-full w-full object-cover" />
+                    <Image src={f.photoPath} alt="" width={64} height={64} className="h-full w-full object-cover" />
                   ) : (
                     <FallbackAvatar />
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-display text-base text-ink">{f.name}</p>
-                  <p className="mt-0.5 truncate text-xs text-ink/45">
+                  <p className="font-display text-lg text-ink">{f.name}</p>
+                  <p className="mt-1 truncate text-sm text-ink/45">
                     {[f.field, f.tenure].filter(Boolean).join(" · ")}
                   </p>
                 </div>

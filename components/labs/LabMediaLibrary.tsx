@@ -2,8 +2,10 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Play, Search, FlaskConical, ExternalLink } from "lucide-react";
+import { Play, FlaskConical, ExternalLink } from "lucide-react";
 import LabVideoModal from "./LabVideoModal";
+import TabRow from "@/components/ui/TabRow";
+import SearchField from "@/components/ui/SearchField";
 import type { LabMediaItem } from "@/lib/lab-media";
 import type { Lang } from "@/lib/nav";
 
@@ -113,35 +115,21 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
   const featured = useMemo(() => filtered.find((i) => i.mediaType === "video") ?? null, [filtered]);
   const rest = filtered.filter((i) => i !== featured);
 
-  function chipClass(active: boolean) {
-    return `inline-flex min-h-10 shrink-0 items-center justify-center rounded-full border px-4 text-sm font-medium transition-colors ${
-      active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
-    }`;
-  }
-
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setTypeFilter("all")} className={chipClass(typeFilter === "all")}>
-            {t.all}
-          </button>
-          <button onClick={() => setTypeFilter("video")} className={chipClass(typeFilter === "video")}>
-            {t.video}
-          </button>
-          <button onClick={() => setTypeFilter("image")} className={chipClass(typeFilter === "image")}>
-            {t.image}
-          </button>
-        </div>
-        <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t.search}
-            className="min-h-10 w-full rounded-full border border-line bg-white pl-9 pr-3 text-sm outline-none focus:border-primary"
-          />
-        </div>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <TabRow
+          ariaLabel={lang === "ko" ? "미디어 유형" : "Media type"}
+          size="sm"
+          value={typeFilter}
+          onChange={(v) => setTypeFilter(v as "all" | "video" | "image")}
+          items={[
+            { value: "all", label: t.all },
+            { value: "video", label: t.video },
+            { value: "image", label: t.image },
+          ]}
+        />
+        <SearchField value={query} onChange={setQuery} placeholder={t.search} className="w-full sm:w-80" />
       </div>
 
       {filtered.length === 0 ? (
@@ -181,7 +169,7 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
                   </p>
                   <button
                     onClick={() => setPlaying(featured)}
-                    className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-strong"
+                    className="mt-4 inline-flex h-12 w-fit items-center gap-1.5 rounded-md bg-primary px-5 text-sm font-medium text-white hover:bg-primary-strong"
                   >
                     <Play className="h-3.5 w-3.5" fill="currentColor" /> {t.watchVideo}
                   </button>
@@ -190,7 +178,7 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
             </div>
           )}
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {rest.map((item) => (
               <LabCard key={item.labId} item={item} lang={lang} onPlay={() => setPlaying(item)} />
             ))}
