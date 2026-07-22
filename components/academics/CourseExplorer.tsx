@@ -79,7 +79,7 @@ const COPY = {
   },
 };
 
-const GRID_COLS = "sm:grid-cols-[1fr_112px_100px_60px_84px_20px]";
+const GRID_COLS = "sm:grid-cols-[1fr_140px_120px_80px_100px_24px]";
 
 function chipClass(active: boolean) {
   return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
@@ -227,7 +227,7 @@ export default function CourseExplorer({
 
       <div className="mt-2 border-t border-line">
         {filtered.length > 0 && (
-          <div className={`hidden border-b border-line px-4 py-2 text-xs text-ink/40 sm:grid sm:items-center sm:gap-3 ${GRID_COLS}`}>
+          <div className={`hidden border-b border-line px-4 py-3 text-sm text-ink/40 sm:grid sm:items-center sm:gap-3 ${GRID_COLS}`}>
             <span>{t.courseCol}</span>
             <span>{t.codeCol}</span>
             <span>{t.typeCol}</span>
@@ -250,10 +250,10 @@ export default function CourseExplorer({
               <button
                 onClick={() => setOpenCode(open ? null : c.courseCode)}
                 aria-expanded={open}
-                className={`grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-surface-muted sm:py-3 ${GRID_COLS}`}
+                className={`grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-left transition-colors hover:bg-surface-muted sm:py-4 ${GRID_COLS}`}
               >
                 <span className="min-w-0">
-                  <span className="block truncate font-display text-[15px] text-ink sm:text-sm">
+                  <span className="block truncate font-display text-[15px] text-ink sm:text-base">
                     {lang === "ko" ? c.nameKr : c.nameEn ?? c.nameKr}
                   </span>
                   <span className="mt-0.5 block text-xs text-ink/45 sm:hidden">
@@ -262,10 +262,10 @@ export default function CourseExplorer({
                   </span>
                 </span>
 
-                <span className="hidden text-xs text-ink/60 sm:block">{c.courseCode}</span>
+                <span className="hidden text-sm text-ink/60 sm:block">{c.courseCode}</span>
                 <span className="hidden sm:block">
                   {meta && (
-                    <span className={`inline-flex rounded px-2 py-0.5 text-[11px] font-medium ${meta.badgeClass}`}>
+                    <span className={`inline-flex rounded px-2.5 py-1 text-xs font-medium ${meta.badgeClass}`}>
                       {typeLabel}
                     </span>
                   )}

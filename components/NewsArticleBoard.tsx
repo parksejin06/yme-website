@@ -63,7 +63,7 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setYear("all")}
-            className={`inline-flex min-h-9 items-center justify-center rounded-full border px-3 text-xs font-medium ${
+            className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-medium ${
               year === "all" ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
             }`}
           >
@@ -73,7 +73,7 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
             <button
               key={y}
               onClick={() => setYear(y)}
-              className={`inline-flex min-h-9 items-center justify-center rounded-full border px-3 text-xs font-medium ${
+              className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-medium ${
                 year === y ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft"
               }`}
             >
@@ -81,13 +81,13 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
             </button>
           ))}
         </div>
-        <div className="relative w-full sm:w-64">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
+        <div className="relative w-full sm:w-72">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.search}
-            className="min-h-10 w-full rounded-full border border-line bg-white pl-9 pr-3 text-sm outline-none focus:border-primary"
+            className="min-h-11 w-full rounded-full border border-line bg-white pl-10 pr-3 text-[15px] outline-none focus:border-primary"
           />
         </div>
       </div>
@@ -99,17 +99,20 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
           {featured && (
             <Link
               href={postHref(lang, "news", featured.sourcePostId)}
-              className="group grid gap-5 rounded-2xl border border-line p-4 hover:border-primary-soft sm:grid-cols-[16rem_1fr] sm:p-6"
+              className="group grid gap-6 border border-line p-5 hover:border-primary-soft sm:grid-cols-[26rem_1fr] sm:p-8 lg:grid-cols-[32rem_1fr]"
             >
-              <div className="aspect-[16/10] overflow-hidden rounded-xl bg-surface-muted sm:aspect-square">
+              <div className="aspect-[16/10] overflow-hidden rounded-lg bg-surface-muted sm:aspect-[4/3]">
                 <ArticleThumb post={featured} />
               </div>
               <div className="flex flex-col justify-center">
-                <p className="text-balance font-display text-lg font-bold text-ink group-hover:text-primary sm:text-xl">
+                <p
+                  className="text-balance font-display font-bold text-ink group-hover:text-primary"
+                  style={{ fontSize: "clamp(1.375rem, 1.6vw, 2.125rem)", lineHeight: 1.3 }}
+                >
                   {featured.title}
                 </p>
-                <p className="mt-2 line-clamp-2 text-sm text-ink/60">{featured.excerpt}</p>
-                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink/45">
+                <p className="mt-3 line-clamp-2 text-base text-ink/60">{featured.excerpt}</p>
+                <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink/45">
                   {featured.author && <span>{featured.author}</span>}
                   <span style={{ fontVariantNumeric: "tabular-nums" }}>{featured.publishedAt}</span>
                 </div>
@@ -118,16 +121,19 @@ export default function NewsArticleBoard({ lang, articles }: { lang: Lang; artic
           )}
 
           {rest.length > 0 && (
-            <ul className="mt-6 divide-y divide-line border-y border-line">
+            <ul className="mt-8 grid gap-x-8 gap-y-0 divide-y divide-line border-y border-line sm:grid-cols-2 sm:gap-y-0 sm:divide-y-0 lg:grid-cols-3">
               {rest.map((a) => (
-                <li key={a.id}>
-                  <Link href={postHref(lang, "news", a.sourcePostId)} className="group flex items-center gap-4 py-4 sm:gap-5 sm:py-5">
-                    <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-surface-muted sm:h-20 sm:w-20">
+                <li key={a.id} className="sm:border-b sm:border-line">
+                  <Link href={postHref(lang, "news", a.sourcePostId)} className="group flex items-center gap-4 py-5 sm:items-start sm:gap-0 sm:py-0">
+                    <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-surface-muted sm:hidden">
                       <ArticleThumb post={a} />
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-balance text-sm font-medium text-ink group-hover:text-primary sm:text-base">{a.title}</p>
-                      <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink/50">
+                    <div className="hidden aspect-[16/10] w-full overflow-hidden rounded-lg bg-surface-muted sm:block">
+                      <ArticleThumb post={a} />
+                    </div>
+                    <div className="min-w-0 flex-1 sm:mt-4 sm:pb-6">
+                      <p className="text-balance text-[17px] font-medium text-ink group-hover:text-primary sm:text-lg">{a.title}</p>
+                      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink/50">
                         {a.author && <span>{a.author}</span>}
                         <span style={{ fontVariantNumeric: "tabular-nums" }}>{a.publishedAt}</span>
                       </div>

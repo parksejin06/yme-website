@@ -15,7 +15,7 @@ export default function GraduateCoursesPageEn() {
       <SectionSubNav items={GRADUATE_NAV} lang="en" label="Graduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Graduate", path: "/graduate" }, { label: "Courses" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <GraduateCourseExplorer courses={graduateCourses} lang="en" />
       </section>
     </>

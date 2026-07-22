@@ -39,8 +39,10 @@ export default async function FacultyDetailPageEn({ params }: { params: Promise<
             <ChevronRightIcon />
             <span className="text-white">{member.name}</span>
           </nav>
-          <h1 className="mt-6 font-display text-3xl text-white sm:text-4xl">{member.name}</h1>
-          <p className="mt-2 text-white/70">{positionLabel(member.position, "en")}</p>
+          <h1 className="mt-6 font-display text-white" style={{ fontSize: "clamp(2rem, 3vw, 3.25rem)" }}>
+            {member.name}
+          </h1>
+          <p className="mt-3 text-lg text-white/70">{positionLabel(member.position, "en")}</p>
         </div>
       </section>
 

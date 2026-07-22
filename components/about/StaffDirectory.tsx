@@ -38,7 +38,7 @@ const COPY = {
 };
 
 function chipClass(active: boolean) {
-  return `inline-flex min-h-9 shrink-0 items-center justify-center rounded-full border px-3 text-xs font-medium transition-colors ${
+  return `inline-flex min-h-10 shrink-0 items-center justify-center rounded-full border px-4 text-sm font-medium transition-colors ${
     active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
   }`;
 }
@@ -61,14 +61,14 @@ export default function StaffDirectory({ staff, lang }: { staff: Staff[]; lang: 
   return (
     <div>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative min-w-[220px] max-w-sm flex-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+        <div className="relative min-w-[240px] max-w-md flex-1">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.searchPlaceholder}
-            className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-3 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+            className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-3 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
           />
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -86,38 +86,61 @@ export default function StaffDirectory({ staff, lang }: { staff: Staff[]; lang: 
       {filtered.length === 0 ? (
         <p className="mt-10 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <div className="mt-6 overflow-x-auto rounded-lg border border-line">
-          <table className="w-full min-w-[640px] border-collapse text-sm">
-            <thead>
-              <tr className="bg-surface-muted text-left">
-                <th className="px-4 py-3 font-display font-normal text-ink/70">{t.name}</th>
-                <th className="px-4 py-3 font-display font-normal text-ink/70">{t.team}</th>
-                <th className="px-4 py-3 font-display font-normal text-ink/70">{t.phone}</th>
-                <th className="px-4 py-3 font-display font-normal text-ink/70">{t.email}</th>
-                <th className="px-4 py-3 font-display font-normal text-ink/70">{t.office}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((s) => (
-                <tr key={s.staffId} className="border-t border-line hover:bg-surface-muted/60">
-                  <td className="px-4 py-3.5 font-display text-ink">{s.nameKo}</td>
-                  <td className="px-4 py-3.5 text-ink/70">{s.team}</td>
-                  <td className="px-4 py-3.5">
-                    <a href={`tel:${s.phone}`} className="inline-flex items-center gap-1.5 text-ink/70 hover:text-primary">
-                      <Phone className="h-3.5 w-3.5" aria-hidden="true" /> {s.phone}
-                    </a>
-                  </td>
-                  <td className="px-4 py-3.5">
-                    <a href={`mailto:${s.email}`} className="inline-flex items-center gap-1.5 text-ink/70 hover:text-primary">
-                      <Mail className="h-3.5 w-3.5" aria-hidden="true" /> {s.email}
-                    </a>
-                  </td>
-                  <td className="px-4 py-3.5 text-ink/70">{s.office}</td>
+        <>
+          {/* Desktop/tablet: full directory table */}
+          <div className="mt-8 hidden overflow-x-auto border border-line sm:block">
+            <table className="w-full min-w-[760px] border-collapse">
+              <thead>
+                <tr className="border-b border-line bg-surface-muted text-left text-sm">
+                  <th className="w-40 px-5 py-4 font-display font-normal text-ink/70">{t.name}</th>
+                  <th className="px-5 py-4 font-display font-normal text-ink/70">{t.team}</th>
+                  <th className="w-44 px-5 py-4 font-display font-normal text-ink/70">{t.phone}</th>
+                  <th className="w-64 px-5 py-4 font-display font-normal text-ink/70">{t.email}</th>
+                  <th className="w-40 px-5 py-4 font-display font-normal text-ink/70">{t.office}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {filtered.map((s) => (
+                  <tr key={s.staffId} className="border-t border-line hover:bg-surface-muted/60">
+                    <td className="px-5 py-5 font-display text-base text-ink">{s.nameKo}</td>
+                    <td className="px-5 py-5 text-[15px] text-ink/70">{s.team}</td>
+                    <td className="px-5 py-5">
+                      <a href={`tel:${s.phone}`} className="inline-flex items-center gap-2 text-[15px] text-ink/70 hover:text-primary">
+                        <Phone className="h-4 w-4" aria-hidden="true" /> {s.phone}
+                      </a>
+                    </td>
+                    <td className="px-5 py-5">
+                      <a href={`mailto:${s.email}`} className="inline-flex items-center gap-2 text-[15px] text-ink/70 hover:text-primary">
+                        <Mail className="h-4 w-4" aria-hidden="true" /> {s.email}
+                      </a>
+                    </td>
+                    <td className="px-5 py-5 text-[15px] text-ink/70">{s.office}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile: stacked cards */}
+          <ul className="mt-8 divide-y divide-line border-y border-line sm:hidden">
+            {filtered.map((s) => (
+              <li key={s.staffId} className="py-4">
+                <p className="font-display text-base text-ink">{s.nameKo}</p>
+                <p className="mt-0.5 text-sm text-ink/50">
+                  {s.team} · {s.office}
+                </p>
+                <div className="mt-2 flex flex-col gap-1">
+                  <a href={`tel:${s.phone}`} className="inline-flex items-center gap-1.5 text-sm text-ink/70 hover:text-primary">
+                    <Phone className="h-3.5 w-3.5" aria-hidden="true" /> {s.phone}
+                  </a>
+                  <a href={`mailto:${s.email}`} className="inline-flex items-center gap-1.5 text-sm text-ink/70 hover:text-primary">
+                    <Mail className="h-3.5 w-3.5" aria-hidden="true" /> {s.email}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

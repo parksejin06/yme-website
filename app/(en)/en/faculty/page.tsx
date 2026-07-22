@@ -19,7 +19,7 @@ export default function FacultyPageEn() {
       <SectionSubNav items={FACULTY_NAV} lang="en" label="Faculty sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Faculty" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <FacultyGrid lang="en" members={faculty} />
       </section>
     </>

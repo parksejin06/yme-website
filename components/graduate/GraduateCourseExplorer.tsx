@@ -104,7 +104,7 @@ export default function GraduateCourseExplorer({ courses, lang }: { courses: Gra
 
       <div className="mt-2 border-t border-line">
         {filtered.length > 0 && (
-          <div className="hidden border-b border-line px-4 py-2 text-xs text-ink/40 sm:grid sm:grid-cols-[1fr_140px_160px_64px] sm:items-center sm:gap-3">
+          <div className="hidden border-b border-line px-4 py-3 text-sm text-ink/40 sm:grid sm:grid-cols-[1fr_160px_200px_80px] sm:items-center sm:gap-3">
             <span>{t.courseCol}</span>
             <span>{t.codeCol}</span>
             <span>{t.areaCol}</span>
@@ -119,21 +119,21 @@ export default function GraduateCourseExplorer({ courses, lang }: { courses: Gra
           return (
             <div
               key={c.courseCode}
-              className="grid grid-cols-1 gap-1 border-b border-line px-4 py-3.5 sm:grid-cols-[1fr_140px_160px_64px] sm:items-center sm:gap-3 sm:py-3"
+              className="grid grid-cols-1 gap-1 border-b border-line px-4 py-4 sm:grid-cols-[1fr_160px_200px_80px] sm:items-center sm:gap-3"
             >
               <span className="min-w-0">
-                <span className="block truncate font-display text-[15px] text-ink sm:text-sm">
+                <span className="block truncate font-display text-[15px] text-ink sm:text-base">
                   {lang === "ko" ? c.nameKr : c.nameEn ?? c.nameKr}
                 </span>
-                {lang === "ko" && c.nameEn && <span className="block truncate text-xs text-ink/45">{c.nameEn}</span>}
+                {lang === "ko" && c.nameEn && <span className="block truncate text-sm text-ink/45">{c.nameEn}</span>}
                 <span className="mt-0.5 block text-xs text-ink/45 sm:hidden">
                   {c.courseCode}
                   {areaLabel ? ` · ${areaLabel}` : ""} · {c.credit}
                   {t.credit}
                 </span>
               </span>
-              <span className="hidden text-xs text-ink/60 sm:block">{c.courseCode}</span>
-              <span className="hidden text-xs text-ink/60 sm:block">{areaLabel ?? "—"}</span>
+              <span className="hidden text-sm text-ink/60 sm:block">{c.courseCode}</span>
+              <span className="hidden text-sm text-ink/60 sm:block">{areaLabel ?? "—"}</span>
               <span className="hidden text-sm text-ink/70 sm:block">{c.credit}</span>
             </div>
           );

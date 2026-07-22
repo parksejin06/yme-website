@@ -51,14 +51,14 @@ export default function SeminarBoard({ items, lang }: { items: CommunityPost[]; 
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <ul className="mt-6 divide-y divide-line border-y border-line">
+        <ul className="mt-8 grid divide-y divide-line border-y border-line lg:grid-cols-2 lg:gap-x-10 lg:divide-y-0">
           {filtered.map((s) => (
-            <li key={s.id} className="py-4">
-              <Link href={postHref(lang, "seminars", s.sourcePostId)} className="flex items-start gap-2 hover:text-primary">
-                <span className="line-clamp-2 font-display text-sm text-ink">{s.title}</span>
-                {s.attachments.length > 0 && <Paperclip className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink/35" />}
+            <li key={s.id} className="py-5 lg:border-b lg:border-line">
+              <Link href={postHref(lang, "seminars", s.sourcePostId)} className="flex items-start gap-2.5 hover:text-primary">
+                <span className="line-clamp-2 text-balance font-display text-[17px] text-ink">{s.title}</span>
+                {s.attachments.length > 0 && <Paperclip className="mt-1 h-4 w-4 shrink-0 text-ink/35" />}
               </Link>
-              <p className="mt-1 text-xs text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
+              <p className="mt-2 text-sm text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
                 {s.author} · {s.publishedAt}
               </p>
             </li>

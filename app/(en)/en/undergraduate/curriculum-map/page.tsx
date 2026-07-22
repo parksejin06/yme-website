@@ -19,7 +19,7 @@ export default function UndergraduateCurriculumMapPageEn() {
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Undergraduate", path: "/undergraduate" }, { label: "Curriculum Map" }]} />
 
-      <section className="mx-auto max-w-[1600px] px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-wide px-[var(--page-gutter)] py-[var(--section-space)]">
         <CurriculumMap entries={curriculum} courseMap={courseMap} lang="en" />
       </section>
     </>

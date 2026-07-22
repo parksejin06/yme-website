@@ -15,7 +15,7 @@ export default function EventsPage() {
       <SectionSubNav items={NEWS_NAV} lang="ko" label="뉴스 및 공지사항 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "행사" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
         <EventBoard items={BOARD_DATA["events"]} lang="ko" />
       </section>
     </>

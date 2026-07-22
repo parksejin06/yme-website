@@ -19,7 +19,7 @@ export default async function CommunitySearchPageEn({ searchParams }: { searchPa
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Search" }]} />
 
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
         <CommunitySearchBar lang="en" initialQuery={q} />
         <div className="mt-8">
           <SearchResults results={results} query={q} lang="en" />

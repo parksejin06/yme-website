@@ -50,15 +50,15 @@ export default function EventBoard({ items, lang }: { items: CommunityPost[]; la
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((e) => (
-            <Link key={e.id} href={postHref(lang, "events", e.sourcePostId)} className="rounded-lg border border-line p-5 hover:border-primary-soft">
-              <div className="flex items-start justify-between gap-2">
-                <p className="font-display text-base text-ink">{e.title}</p>
-                {e.attachments.length > 0 && <Paperclip className="mt-0.5 h-4 w-4 shrink-0 text-ink/35" />}
+            <Link key={e.id} href={postHref(lang, "events", e.sourcePostId)} className="border border-line p-6 hover:border-primary-soft">
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-balance font-display text-lg text-ink">{e.title}</p>
+                {e.attachments.length > 0 && <Paperclip className="mt-1 h-4 w-4 shrink-0 text-ink/35" />}
               </div>
-              <p className="mt-2 line-clamp-2 text-sm text-ink/60">{e.excerpt}</p>
-              <p className="mt-3 text-xs text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
+              <p className="mt-2.5 line-clamp-2 text-[15px] text-ink/60">{e.excerpt}</p>
+              <p className="mt-4 text-sm text-ink/45" style={{ fontVariantNumeric: "tabular-nums" }}>
                 {e.author} · {e.publishedAt}
               </p>
             </Link>

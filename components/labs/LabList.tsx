@@ -34,7 +34,7 @@ const COPY = {
 function LabCard({ lab, lang }: { lab: LabEntry; lang: Lang }) {
   const t = COPY[lang];
   return (
-    <article className="rounded-lg border border-line p-6">
+    <article className="h-full border border-line p-6 sm:p-7">
       <div className="flex flex-wrap items-start gap-4">
         {/*
           photoPath comes exclusively from the "교수 사진" column (the
@@ -154,7 +154,7 @@ export default function LabList({ lang, labs }: { lang: Lang; labs: LabEntry[] }
 
   return (
     <div
-      className={`grid gap-5 transition-opacity duration-200 ${fading ? "opacity-0" : "opacity-100"}`}
+      className={`grid gap-6 transition-opacity duration-200 lg:grid-cols-2 lg:items-start xl:gap-8 ${fading ? "opacity-0" : "opacity-100"}`}
     >
       {displayed.map((lab) => (
         <LabCard key={lab.slug} lab={lab} lang={lang} />

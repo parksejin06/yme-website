@@ -32,30 +32,35 @@ function FacultyCard({ member, lang }: { member: FacultyMember; lang: Lang }) {
   const href = lang === "ko" ? `/faculty/${encodeURIComponent(member.slug)}` : `/en/faculty/${encodeURIComponent(member.slug)}`;
 
   return (
-    <Link
-      href={href}
-      aria-label={`${member.name} ${t.detail}`}
-      className="group relative flex gap-4 rounded-lg border border-line p-5 transition-colors hover:border-primary"
-    >
-      <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full bg-surface-muted sm:h-24 sm:w-24">
-        {member.photoPath && (
+    <Link href={href} aria-label={`${member.name} ${t.detail}`} className="group block">
+      <div className="aspect-square w-full overflow-hidden rounded-lg bg-surface-muted">
+        {member.photoPath ? (
           <Image
             src={member.photoPath}
             alt=""
-            width={96}
-            height={96}
-            className="h-full w-full object-cover"
+            width={480}
+            height={480}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
           />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-primary/25">
+            <svg viewBox="0 0 40 40" className="h-12 w-12" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="1.4" />
+              <path d="M20 4a4 4 0 0 1 0 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              <path d="M20 4a4 4 0 0 0 0 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+            </svg>
+          </div>
         )}
       </div>
 
-      <div className="min-w-0 flex-1">
-        <p className="font-display text-lg text-ink">{member.name}</p>
-        <p className="text-sm text-ink/50">{positionLabel(member.position, lang)}</p>
+      <div className="mt-4">
+        <p className="font-display text-xl text-ink group-hover:text-primary">{member.name}</p>
+        <p className="mt-0.5 text-sm text-ink/50">{positionLabel(member.position, lang)}</p>
+        {member.field && <p className="mt-2 text-sm font-medium text-primary">{fieldLabel(member.field, lang)}</p>}
 
-        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink/70">
+        <div className="mt-3 space-y-1 border-t border-line pt-3 text-sm text-ink/70">
           <span className="flex items-center gap-1.5">
-            <PhoneIcon className="h-3.5 w-3.5 text-primary/70" />
+            <PhoneIcon className="h-3.5 w-3.5 shrink-0 text-primary/70" />
             {member.phone ?? t.noPhone}
           </span>
           {member.email && (
@@ -65,14 +70,6 @@ function FacultyCard({ member, lang }: { member: FacultyMember; lang: Lang }) {
             </span>
           )}
         </div>
-
-        {member.labName && <p className="mt-2 truncate text-sm text-ink/70">{member.labName}</p>}
-        {member.office && <p className="text-sm text-ink/70">{member.office}</p>}
-        {member.field && <p className="mt-1 text-xs text-primary">{fieldLabel(member.field, lang)}</p>}
-
-        <span className="mt-3 block text-right text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
-          {t.detail} →
-        </span>
       </div>
     </Link>
   );
@@ -110,20 +107,20 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
 
   return (
     <div>
-      <div className="relative max-w-sm">
-        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
+      <div className="relative max-w-md">
+        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/30" aria-hidden="true" />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t.searchPlaceholder}
-          className="min-h-11 w-full rounded-md border border-line bg-white pl-9 pr-8 text-sm text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
+          className="min-h-12 w-full rounded-md border border-line bg-white pl-10 pr-9 text-base text-ink placeholder:text-ink/35 focus:border-primary focus:outline-none"
         />
         {query && (
           <button
             onClick={() => setQuery("")}
             aria-label={lang === "ko" ? "검색어 지우기" : "Clear search"}
-            className="absolute right-0 top-1/2 flex h-11 w-9 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
+            className="absolute right-0 top-1/2 flex h-12 w-10 -translate-y-1/2 items-center justify-center text-ink/30 hover:text-ink/60"
           >
             <X className="h-4 w-4" />
           </button>
@@ -133,7 +130,7 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
       <div
         role="tablist"
         aria-label={lang === "ko" ? "연구분야 그룹" : "Research field groups"}
-        className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        className="-mx-4 mt-5 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
       >
         {[t.all, ...groups].map((g) => (
           <button
@@ -141,7 +138,7 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
             role="tab"
             aria-selected={active === g}
             onClick={() => setActive(g)}
-            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm transition-colors ${
+            className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
               active === g
                 ? "border-primary bg-primary text-white"
                 : "border-line text-ink/70 hover:border-primary hover:text-primary"
@@ -155,7 +152,7 @@ export default function FacultyGrid({ lang, members }: { lang: Lang; members: Fa
       {filtered.length === 0 ? (
         <p className="mt-10 text-center text-sm text-ink/40">{t.noResults}</p>
       ) : (
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((m) => (
             <FacultyCard key={m.slug} member={m} lang={lang} />
           ))}

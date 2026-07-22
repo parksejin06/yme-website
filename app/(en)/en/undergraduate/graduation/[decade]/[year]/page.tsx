@@ -46,10 +46,10 @@ export default async function UndergraduateGraduationYearPageEn({
           <Link href="/en/undergraduate/graduation" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
             <ArrowLeftIcon /> Back to Graduation Requirements
           </Link>
-          <h1 className="mt-4 font-display text-3xl text-white sm:text-4xl">
+          <h1 className="mt-4 font-display text-white" style={{ fontSize: "clamp(1.75rem, 3vw, 3rem)" }}>
             {groupMeta?.labelEn ?? entry.label} Graduation Requirements
           </h1>
-          <p className="mt-2 max-w-2xl text-white/70">
+          <p className="mt-3 max-w-2xl text-lg text-white/70">
             Requirement details are sourced directly from the department&apos;s official records and are shown in
             Korean where no official English translation exists, to avoid mistranslating graduation policy.
           </p>

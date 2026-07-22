@@ -11,14 +11,14 @@ export default function CommunitySearchBar({ lang, initialQuery = "" }: { lang: 
 
   return (
     <form action={action} method="get" className="relative w-full">
-      <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
+      <Search className="pointer-events-none absolute left-5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-ink/35" />
       <input
         type="text"
         name="q"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="min-h-12 w-full rounded-full border border-line bg-white pl-11 pr-4 text-sm outline-none focus:border-primary"
+        className="min-h-14 w-full rounded-full border border-line bg-white pl-12 pr-5 text-base outline-none focus:border-primary"
       />
     </form>
   );

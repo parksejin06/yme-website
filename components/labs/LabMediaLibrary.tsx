@@ -133,13 +133,13 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
             {t.image}
           </button>
         </div>
-        <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
+        <div className="relative w-full sm:w-80">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.search}
-            className="min-h-10 w-full rounded-full border border-line bg-white pl-9 pr-3 text-sm outline-none focus:border-primary"
+            className="min-h-11 w-full rounded-full border border-line bg-white pl-10 pr-3 text-[15px] outline-none focus:border-primary"
           />
         </div>
       </div>
@@ -190,7 +190,7 @@ export default function LabMediaLibrary({ items, lang }: { items: LabMediaItem[]
             </div>
           )}
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {rest.map((item) => (
               <LabCard key={item.labId} item={item} lang={lang} onPlay={() => setPlaying(item)} />
             ))}

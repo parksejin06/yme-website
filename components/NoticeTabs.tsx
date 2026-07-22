@@ -9,7 +9,7 @@ import type { Lang } from "@/lib/nav";
 type NoticeBoardKey = (typeof NOTICE_BOARDS)[number];
 
 function chipClass(active: boolean) {
-  return `inline-flex min-h-10 shrink-0 items-center justify-center rounded-full border px-4 text-sm font-medium transition-colors ${
+  return `inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-5 text-[15px] font-medium transition-colors ${
     active ? "border-primary bg-primary text-white" : "border-line text-ink/60 hover:border-primary-soft hover:text-primary"
   }`;
 }
@@ -48,14 +48,14 @@ export default function NoticeTabs({
           ))}
         </div>
 
-        <div className="relative w-full sm:w-64">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
+        <div className="relative w-full sm:w-80">
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/35" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={searchPlaceholder}
-            className="min-h-10 w-full rounded-full border border-line bg-white pl-9 pr-9 text-sm outline-none focus:border-primary"
+            className="min-h-11 w-full rounded-full border border-line bg-white pl-10 pr-9 text-[15px] outline-none focus:border-primary"
           />
           {query && (
             <button

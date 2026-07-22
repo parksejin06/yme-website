@@ -43,8 +43,10 @@ export default async function UndergraduateGraduationYearPage({
           <Link href="/undergraduate/graduation" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white">
             <ArrowLeftIcon /> 졸업 요건으로
           </Link>
-          <h1 className="mt-4 font-display text-3xl text-white sm:text-4xl">{entry.label} 졸업요건</h1>
-          {entry.note && <p className="mt-2 max-w-2xl text-white/70">{entry.note}</p>}
+          <h1 className="mt-4 font-display text-white" style={{ fontSize: "clamp(1.75rem, 3vw, 3rem)" }}>
+            {entry.label} 졸업요건
+          </h1>
+          {entry.note && <p className="mt-3 max-w-2xl text-lg text-white/70">{entry.note}</p>}
         </div>
       </section>
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />

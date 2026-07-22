@@ -18,7 +18,7 @@ export default function NewsResearchPageEn() {
       />
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Research News" }]} />
-      <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
         <NewsArticleBoard lang="en" articles={BOARD_DATA.news} />
       </section>
     </>

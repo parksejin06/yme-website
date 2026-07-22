@@ -18,7 +18,26 @@
   --font-sans: var(--font-pretendard), "Malgun Gothic", "Apple SD Gothic Neo",
     sans-serif;
 
-  --container-content: 72rem;
+  /*
+   * Layout width scale (site-wide redesign, 2026-07). Three tiers by content
+   * purpose, not one blanket max-width:
+   *  - reading: long-form article/prose bodies (detail pages)
+   *  - content: the default subpage container (was 72rem/1152px, too narrow
+   *    on 1440-1920px screens -- bumped to the "Standard" tier)
+   *  - wide: boards, grids, tables, diagrams that benefit from using more
+   *    of the viewport (faculty grid, curriculum map, staff directory, ...)
+   * Bumping --container-content alone widens ~90 existing max-w-content call
+   * sites across the site without touching each page.
+   */
+  --container-reading: 60rem; /* 960px */
+  --container-content: 96.25rem; /* 1540px (was 72rem/1152px) */
+  --container-wide: 107.5rem; /* 1720px */
+}
+
+:root {
+  --page-gutter: clamp(1.5rem, 4vw, 5rem);
+  --section-space: clamp(5rem, 9vw, 9.375rem);
+  --hero-height: clamp(400px, 34vw, 540px);
 }
 
 html {
