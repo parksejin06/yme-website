@@ -94,19 +94,23 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
         </div>
       )}
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 divide-y divide-line border-y border-line">
         {result.categories.map((cat) => (
-          <div key={cat.key} className="rounded-lg border border-line bg-white p-5">
-            <p className="font-display text-sm text-ink">{lang === "ko" ? cat.labelKr : cat.labelEn}</p>
+          <div key={cat.key} className="py-5">
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="font-display text-sm text-ink">{lang === "ko" ? cat.labelKr : cat.labelEn}</p>
+              {cat.supported && cat.requiredCredits != null && (
+                <p className="shrink-0 text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {cat.earnedCredits} / {cat.requiredCredits} {lang === "ko" ? "학점" : "credits"}
+                </p>
+              )}
+            </div>
             {cat.supported && cat.requiredCredits != null ? (
               <div className="mt-3">
                 <ProgressBar earned={cat.earnedCredits} required={cat.requiredCredits} />
-                <p className="mt-1.5 text-xs text-ink/50" style={{ fontVariantNumeric: "tabular-nums" }}>
-                  {cat.earnedCredits} / {cat.requiredCredits} {lang === "ko" ? "학점" : "credits"}
-                </p>
               </div>
             ) : (
-              <p className="mt-3 text-xs text-ink/40">{t.unsupported}</p>
+              <p className="mt-2 text-xs text-ink/40">{t.unsupported}</p>
             )}
           </div>
         ))}

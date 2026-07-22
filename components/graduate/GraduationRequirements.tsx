@@ -120,26 +120,45 @@ export default function GraduationRequirements({ data, lang }: { data: GraduateR
       {/* Min-credit comparison */}
       <section>
         <h2 className="font-display text-lg text-ink">{t.comparison}</h2>
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          {data.programs.map((p) => (
-            <div
-              key={p.key}
-              className={`rounded-lg border p-5 transition-colors ${
-                p.key === program ? "border-primary bg-primary/5" : "border-line"
-              }`}
-            >
-              <p className="font-display text-sm text-ink">{lang === "ko" ? p.labelKr : p.labelEn}</p>
-              <p className="mt-3 font-display text-3xl text-primary">
-                {p.credits}
-                <span className="ml-1 text-base text-ink/50">{t.credit}</span>
-              </p>
-              <p className="mt-1 text-xs text-ink/45">{t.creditsFrom2026}</p>
-              <p className="mt-3 text-xs text-ink/60">
-                {t.creditsBefore2026}: {p.creditsBefore2026}
-                {t.credit}
-              </p>
-            </div>
-          ))}
+        <div className="mt-5 overflow-x-auto rounded-lg border border-line">
+          <table className="w-full min-w-[480px] border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-line bg-surface-muted text-left">
+                <th className="px-4 py-3 font-display font-normal text-ink/50"> </th>
+                {data.programs.map((p) => (
+                  <th
+                    key={p.key}
+                    className={`px-4 py-3 font-display font-normal ${p.key === program ? "text-primary" : "text-ink/70"}`}
+                  >
+                    {lang === "ko" ? p.labelKr : p.labelEn}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-line">
+                <td className="px-4 py-3.5 text-ink/60">{t.creditsFrom2026}</td>
+                {data.programs.map((p) => (
+                  <td
+                    key={p.key}
+                    className={`px-4 py-3.5 font-display ${p.key === program ? "text-base font-bold text-primary" : "text-ink"}`}
+                  >
+                    {p.credits}
+                    {t.credit}
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td className="px-4 py-3.5 text-ink/60">{t.creditsBefore2026}</td>
+                {data.programs.map((p) => (
+                  <td key={p.key} className="px-4 py-3.5 text-ink/70">
+                    {p.creditsBefore2026}
+                    {t.credit}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

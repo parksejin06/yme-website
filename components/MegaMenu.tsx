@@ -21,13 +21,13 @@ export default function MegaMenu({ open, onClose, lang }: { open: boolean; onClo
       role="region"
       aria-hidden={!open}
       aria-label={lang === "ko" ? "전체 메뉴" : "Full site menu"}
-      className={`fixed inset-x-0 top-24 z-40 border-t border-white/10 bg-black/90 shadow-2xl transition-all ${
-        open ? "opacity-100 translate-y-0 duration-[380ms]" : "pointer-events-none opacity-0 -translate-y-6 duration-[260ms]"
+      className={`fixed inset-x-0 top-24 z-40 border-t border-white/10 bg-black/85 shadow-2xl backdrop-blur-sm transition-all ${
+        open ? "opacity-100 translate-y-0 duration-[520ms]" : "pointer-events-none opacity-0 -translate-y-4 duration-[320ms]"
       }`}
-      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+      style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <div
-        className="grid grid-cols-8 gap-x-5 py-10"
+        className="grid grid-cols-8 gap-x-5 pb-8 pt-10"
         style={{ paddingInline: "clamp(2rem, 4vw, 6rem)" }}
       >
         {NAV_ITEMS.map((item) => {
@@ -68,6 +68,8 @@ export default function MegaMenu({ open, onClose, lang }: { open: boolean; onClo
           );
         })}
       </div>
+      {/* Soft fade into the page below instead of a hard-edged cutoff line. */}
+      <div className="h-14 bg-gradient-to-b from-black/85 to-transparent" aria-hidden="true" />
     </div>
   );
 }
