@@ -111,12 +111,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats — light tinted band, soft-fades into the white sections above/below */}
+      {/* Stats — light tinted band, soft-fades into the paper background above/below */}
       <section
         className="py-24 sm:py-28"
         style={{
           background:
-            "linear-gradient(to bottom, #ffffff 0%, color-mix(in srgb, var(--color-primary) 10%, white) 22%, color-mix(in srgb, var(--color-primary) 10%, white) 78%, #ffffff 100%)",
+            "linear-gradient(to bottom, var(--color-paper) 0%, color-mix(in srgb, var(--color-primary) 8%, var(--color-paper)) 35%, color-mix(in srgb, var(--color-primary) 8%, var(--color-paper)) 65%, var(--color-paper) 100%)",
         }}
       >
         <div className="mx-auto max-w-content px-[var(--page-gutter)]">
