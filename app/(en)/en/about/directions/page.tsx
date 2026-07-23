@@ -109,14 +109,14 @@ export default function DirectionsPageEn() {
                   className="group flex items-center gap-2.5 border border-line bg-white px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-primary/50 hover:bg-surface-muted/60"
                 >
                   <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-bold"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold"
                     style={{ backgroundColor: m.badgeBg, color: m.badgeTextColor }}
                     aria-hidden="true"
                   >
                     {m.badgeText}
                   </span>
                   <span className="min-w-0 flex-1 truncate">{m.label}</span>
-                  <ExternalLink className="h-3.5 w-3.5 shrink-0 text-ink/30 transition-colors group-hover:text-primary" />
+                  <ExternalLink className="h-4 w-4 shrink-0 text-ink/30 transition-colors group-hover:text-primary" />
                 </a>
               ))}
             </div>

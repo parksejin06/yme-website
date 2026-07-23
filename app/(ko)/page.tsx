@@ -111,23 +111,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats — inverted navy ledger band: hairline-divided figures, no icons */}
-      <section className="bg-primary py-16 sm:py-20">
+      {/* Stats — light tinted band, soft-fades into the white sections above/below */}
+      <section
+        className="py-24 sm:py-28"
+        style={{
+          background:
+            "linear-gradient(to bottom, #ffffff 0%, color-mix(in srgb, var(--color-primary) 10%, white) 22%, color-mix(in srgb, var(--color-primary) 10%, white) 78%, #ffffff 100%)",
+        }}
+      >
         <div className="mx-auto max-w-content px-[var(--page-gutter)]">
-          <div className="grid grid-cols-2 gap-y-10 border-t border-white/15 pt-10 md:grid-cols-4 md:divide-x md:divide-white/15 md:gap-y-0">
-            <div className="md:pr-10">
-              <StatCounter value={currentYear - foundingYear} suffix="주년" label="설립 이래" />
+          <ScrollReveal className="grid grid-cols-2 gap-y-12 divide-primary/15 md:grid-cols-4 md:gap-y-0 md:divide-x">
+            <div className="pr-6 md:pr-8">
+              <StatCounter
+                icon="/images/메인_설립이래.png.png"
+                value={currentYear - foundingYear}
+                suffix="주년"
+                label="설립 이래"
+              />
             </div>
-            <div className="md:px-10">
-              <StatCounter value={labs.length} suffix="개" label="연구실" />
+            <div className="pl-6 md:px-8">
+              <StatCounter icon="/images/메인_연구실.png.png" value={labs.length} suffix="개" label="연구실" />
             </div>
-            <div className="md:px-10">
-              <StatCounter value={6} suffix="개" label="전문 연구분야" />
+            <div className="pr-6 md:px-8">
+              <StatCounter icon="/images/메인_전문연구분야.png.png" value={6} suffix="개" label="전문 연구분야" />
             </div>
-            <div className="md:pl-10">
-              <StatCounter value={10} suffix="개" label="산학협력 네트워크" />
+            <div className="pl-6 md:pl-8">
+              <StatCounter icon="/images/메인_네트워크.png.png" value={10} suffix="개" label="산학협력 네트워크" />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
