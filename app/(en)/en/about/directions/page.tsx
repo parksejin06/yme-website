@@ -56,7 +56,7 @@ export default function DirectionsPageEn() {
 
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="Directions" image="/images/campus-aerial.jpg" imageAlt="Aerial view of Yonsei University's Sinchon campus" />
+      <PageHero eyebrow="ABOUT US" title="Directions" image="/images/new_mainbg/학부소개_배경사진2.jpg" imageAlt="Night view of Yonsei University's Baekyang-ro walkway" />
       <SectionSubNav items={ABOUT_NAV} lang="en" label="About sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "About", path: "/about" }, { label: "Directions" }]} />
 

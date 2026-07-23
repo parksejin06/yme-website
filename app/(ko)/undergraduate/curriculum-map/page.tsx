@@ -15,7 +15,7 @@ export default function UndergraduateCurriculumMapPage() {
 
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="교과목 체계도" description="1학년부터 4학년까지 이어지는 교과목의 구조를 확인할 수 있습니다." />
+      <PageHero eyebrow="UNDERGRADUATE" title="교과목 체계도" description="1학년부터 4학년까지 이어지는 교과목의 구조를 확인할 수 있습니다." image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="연세대학교 언더우드관" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부", path: "/undergraduate" }, { label: "교과목 체계도" }]} />
 

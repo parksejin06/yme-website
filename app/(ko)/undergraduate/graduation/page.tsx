@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "졸업 요건" };
 export default function UndergraduateGraduationPage() {
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="졸업 요건" description="학번을 선택하면 나에게 해당하는 졸업 요건을 확인할 수 있습니다." />
+      <PageHero eyebrow="UNDERGRADUATE" title="졸업 요건" description="학번을 선택하면 나에게 해당하는 졸업 요건을 확인할 수 있습니다." image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="연세대학교 언더우드관" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부", path: "/undergraduate" }, { label: "졸업 요건" }]} />
 

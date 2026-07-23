@@ -17,7 +17,7 @@ const GOALS = [
 export default function GoalsPage() {
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="교육 목표" />
+      <PageHero eyebrow="UNDERGRADUATE" title="교육 목표" image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="연세대학교 언더우드관" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부", path: "/undergraduate" }, { label: "교육 목표" }]} />
 

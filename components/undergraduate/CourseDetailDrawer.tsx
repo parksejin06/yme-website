@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { X } from "lucide-react";
+import { useScrolled } from "@/lib/useScrolled";
 import { courseTypeMeta, yearLabelFromBucket, semesterLabelFromBucket } from "@/lib/academics";
 import { rowForEntry, rowLabel, relatedCodesFor } from "@/lib/curriculumMap";
 import type { CurriculumEntry, CourseDetail } from "@/components/academics/CourseExplorer";
@@ -51,6 +52,7 @@ export default function CourseDetailDrawer({
 }) {
   const t = COPY[lang];
   const open = !!entry;
+  const scrolled = useScrolled();
 
   useEffect(() => {
     if (!open) return;
@@ -77,9 +79,10 @@ export default function CourseDetailDrawer({
         aria-modal="true"
         aria-hidden={!open}
         aria-labelledby="course-drawer-title"
+        style={{ "--drawer-top": scrolled ? "6rem" : "calc(var(--utility-bar-h) + 6rem)" } as React.CSSProperties}
         className={`fixed z-50 flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-out
           inset-x-0 bottom-0 max-h-[82vh] rounded-t-2xl
-          sm:inset-y-0 sm:right-0 sm:left-auto sm:max-h-none sm:h-full sm:w-full sm:max-w-sm sm:rounded-none sm:border-l sm:border-line
+          sm:[top:var(--drawer-top)] sm:bottom-0 sm:right-0 sm:left-auto sm:max-h-none sm:h-auto sm:w-full sm:max-w-sm sm:rounded-none sm:border-l sm:border-line
           ${open ? "translate-y-0 sm:translate-x-0" : "translate-y-full sm:translate-y-0 sm:translate-x-full"}`}
       >
         {entry && (

@@ -15,6 +15,8 @@ export default function AdmissionsPage() {
         eyebrow="ADMISSIONS"
         title="신입학·편입학 안내"
         description="연세대학교 기계공학부 입학 전형 개요와 전형별 모집요강 안내입니다."
+        image="/images/new_mainbg/신입학_편입학_배경사진.jpg"
+        imageAlt="연세대학교 운동장에서 운동하는 학생들"
       />
       <SectionSubNav items={ADMISSIONS_NAV} lang="ko" label="입학·진로 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "입학·진로" }]} />

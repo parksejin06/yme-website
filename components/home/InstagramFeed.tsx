@@ -94,22 +94,44 @@ export default function InstagramFeed({ accounts, lang }: { accounts: InstagramA
       <p className="font-body text-xs tracking-[0.2em] text-primary/70">{t.eyebrow}</p>
       <h3 className="mt-2 font-display text-xl text-ink sm:text-2xl">{t.title}</h3>
 
-      {/* Account selector */}
-      <div className="mt-6 flex gap-1 overflow-x-auto overflow-y-hidden sm:flex-wrap">
-        {accounts.map((a) => (
-          <button
-            key={a.handle}
-            onClick={() => setActiveHandle(a.handle)}
-            className={`min-h-11 shrink-0 rounded-md px-4 text-left transition-colors ${
-              activeHandle === a.handle ? "bg-primary text-white" : "bg-surface-muted text-ink/70 hover:bg-line/60"
-            }`}
-          >
-            <span className="block text-sm font-display leading-tight">@{a.handle}</span>
-            <span className={`block text-[11px] leading-tight ${activeHandle === a.handle ? "text-white/70" : "text-ink/45"}`}>
-              {lang === "ko" ? a.nameKr : a.nameEn}
-            </span>
-          </button>
-        ))}
+      {/* Account selector — same underline-tab language as TabRow (notice
+          boards etc.): selection reads from color/weight + a bottom indicator
+          line, not from a filled chip. */}
+      <div
+        role="tablist"
+        aria-label={lang === "ko" ? "인스타그램 계정 선택" : "Select Instagram account"}
+        className="mt-6 flex gap-x-12 overflow-x-auto overflow-y-hidden border-b border-line sm:gap-x-16"
+      >
+        {accounts.map((a) => {
+          const isActive = activeHandle === a.handle;
+          return (
+            <button
+              key={a.handle}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActiveHandle(a.handle)}
+              className={`group -mb-px shrink-0 border-b-[3px] pb-3.5 pt-1.5 text-left transition-colors ${
+                isActive ? "border-primary" : "border-transparent"
+              }`}
+            >
+              <span
+                className={`block font-display text-sm leading-tight transition-colors sm:text-[15px] ${
+                  isActive ? "font-bold text-primary" : "text-ink/55 group-hover:text-ink"
+                }`}
+              >
+                @{a.handle}
+              </span>
+              <span
+                className={`mt-1 block text-[11px] leading-tight transition-colors ${
+                  isActive ? "text-primary/70" : "text-ink/40 group-hover:text-ink/60"
+                }`}
+              >
+                {lang === "ko" ? a.nameKr : a.nameEn}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Account info */}

@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Graduate Courses" };
 export default function GraduateCoursesPageEn() {
   return (
     <>
-      <PageHero eyebrow="GRADUATE" title="Courses" description="Search graduate-level courses and browse them by research area." />
+      <PageHero eyebrow="GRADUATE" title="Courses" description="Search graduate-level courses and browse them by research area." image="/images/new_mainbg/대학원_new.png" imageAlt="Graduate students conducting a lab experiment" />
       <SectionSubNav items={GRADUATE_NAV} lang="en" label="Graduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Graduate", path: "/graduate" }, { label: "Courses" }]} />
 

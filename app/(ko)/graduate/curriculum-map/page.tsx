@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "교육·연구 체계도" };
 export default function GraduateCurriculumMapPage() {
   return (
     <>
-      <PageHero eyebrow="GRADUATE" title="교육·연구 체계도" description="관심 연구분야를 중심으로 대학원 과정과 교과목, 교수진을 탐색할 수 있습니다." />
+      <PageHero eyebrow="GRADUATE" title="교육·연구 체계도" description="관심 연구분야를 중심으로 대학원 과정과 교과목, 교수진을 탐색할 수 있습니다." image="/images/new_mainbg/대학원_new.png" imageAlt="기계공학부 대학원 연구실 실험 장면" />
       <SectionSubNav items={GRADUATE_NAV} lang="ko" label="대학원 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "대학원", path: "/graduate" }, { label: "교육·연구 체계도" }]} />
 

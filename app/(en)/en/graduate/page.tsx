@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
+import ParallaxImage from "@/components/ParallaxImage";
+import ScrollReveal from "@/components/ScrollReveal";
 import { GRADUATE_NAV } from "@/lib/nav";
 import { ChevronRightIcon } from "@/components/icons";
 import gradRequirements from "@/data/graduate-graduation-requirements.json";
@@ -22,34 +25,53 @@ export default function GraduatePageEn() {
         eyebrow="GRADUATE"
         title="Graduate Overview"
         description="The graduate program at Yonsei Mechanical Engineering trains specialized researchers and industry leaders through research-focused advanced education."
-        image="/images/robotics-lab.jpg"
+        image="/images/new_mainbg/대학원_new.png"
         imageAlt="Graduate students conducting a lab experiment"
       />
       <SectionSubNav items={GRADUATE_NAV} lang="en" label="Graduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Graduate" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <p className="font-body text-sm tracking-[0.2em] text-primary/70">GRADUATE PROGRAM</p>
-        <p className="mt-4 max-w-2xl text-ink/70">
-          After admission, graduate students are assigned an advisor and combine major coursework with lab research,
-          then complete a comprehensive exam and a thesis preliminary and final review to earn their degree.
-          Program-specific requirements are on the Graduation Requirements page, offered courses on the Courses
-          page, and research-interest-based connections to courses and faculty on the Academic &amp; Research Map
-          page.
-        </p>
+        <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:items-center md:gap-16">
+          <div>
+            <p className="font-body text-sm tracking-[0.2em] text-primary/70">GRADUATE PROGRAM</p>
+            <p className="mt-4 max-w-2xl text-ink/70">
+              After admission, graduate students are assigned an advisor and combine major coursework with lab research,
+              then complete a comprehensive exam and a thesis preliminary and final review to earn their degree.
+              Program-specific requirements are on the Graduation Requirements page, offered courses on the Courses
+              page, and research-interest-based connections to courses and faculty on the Academic &amp; Research Map
+              page.
+            </p>
 
-        <div className="mt-10 rounded-lg border border-line bg-surface-muted/60 p-5">
-          <p className="text-xs text-ink/45">
-            For detailed graduate admissions information, see the Yonsei University Graduate School website.
-          </p>
-          <a
-            href="https://graduate.yonsei.ac.kr/graduate/index.do"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-1.5 inline-block text-sm font-medium text-primary hover:underline"
-          >
-            Graduate School Admissions ↗
-          </a>
+            <div className="mt-10 rounded-lg border border-line bg-surface-muted/60 p-5">
+              <p className="text-xs text-ink/45">
+                For detailed graduate admissions information, see the Yonsei University Graduate School website.
+              </p>
+              <a
+                href="https://graduate.yonsei.ac.kr/graduate/index.do"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1.5 inline-block text-sm font-medium text-primary hover:underline"
+              >
+                Graduate School Admissions ↗
+              </a>
+            </div>
+          </div>
+
+          {/* CAD design scene — frameless soft-masked edges, asymmetric bleed
+              toward the right gutter */}
+          <ScrollReveal delayMs={100}>
+            <ParallaxImage className="aspect-[4/3] md:-mr-8 lg:-mr-14" strength={20}>
+              <Image
+                src="/images/redesign_image/thisisengineering-83udtzyaTS4-unsplash.jpg"
+                alt="Engineer designing a vehicle chassis in CAD software"
+                fill
+                sizes="(min-width: 768px) 46vw, 100vw"
+                className="object-cover"
+                style={{ filter: "sepia(0.12) saturate(0.94)" }}
+              />
+            </ParallaxImage>
+          </ScrollReveal>
         </div>
       </section>
 

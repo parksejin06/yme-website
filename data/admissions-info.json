@@ -8,7 +8,12 @@
       "labelEn": "Susi (Rolling Admissions)",
       "descKr": "학생부종합전형·학생부교과전형 등 다양한 전형으로 신입생을 선발합니다. 전형별 세부 요건과 일정은 매년 변경되므로 반드시 최신 모집요강을 확인하세요.",
       "descEn": "New students are selected through several tracks, including holistic and academic-record-based review. Requirements and schedules change every year, so always check the current admissions guide.",
-      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/rolling/guide.asp"
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/rolling/guide.asp",
+      "guidePdf": {
+        "src": "/documents/2027학년도 서울캠퍼스 학부 신입학 수시모집요강.pdf",
+        "yearKr": "2027학년도",
+        "yearEn": "2027 academic year"
+      }
     },
     {
       "key": "jeongsi",
@@ -16,7 +21,12 @@
       "labelEn": "Jeongsi (Regular Admissions)",
       "descKr": "대학수학능력시험 성적을 중심으로 신입생을 선발하는 전형입니다. 모집 단위와 전형요소 반영 비율은 매년 공고되는 모집요강을 따릅니다.",
       "descEn": "Students are selected primarily based on the College Scholastic Ability Test (CSAT). Recruitment units and the weighting of evaluation elements follow the guide published each year.",
-      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/regular/guide.asp"
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/regular/guide.asp",
+      "guidePdf": {
+        "src": "/documents/251229_서울캠퍼스_신입학 정시모집 요강_수시이월반영.pdf",
+        "yearKr": "2026학년도",
+        "yearEn": "2026 academic year"
+      }
     },
     {
       "key": "transfer",
@@ -24,7 +34,12 @@
       "labelEn": "Transfer Admissions",
       "descKr": "신입학과 별도로 진행되는 편입학 전형을 통해 재학생을 선발합니다. 모집 시기, 정원, 전형 방법이 신입학과 다르게 운영되므로 편입학 전용 모집요강을 확인하세요.",
       "descEn": "Transfer students are admitted through a track separate from first-year admissions. Timing, seats, and evaluation methods differ from new-student admissions, so check the transfer-specific guide.",
-      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/transfer/guide.asp"
+      "url": "https://admission.yonsei.ac.kr/seoul/admission/html/transfer/guide.asp",
+      "guidePdf": {
+        "src": "/documents/2026학년도 편입학전형 모집요강.pdf",
+        "yearKr": "2026학년도",
+        "yearEn": "2026 academic year"
+      }
     }
   ]
 }

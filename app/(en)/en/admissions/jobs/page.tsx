@@ -17,6 +17,8 @@ export default function AdmissionsJobsPageEn() {
         eyebrow="ADMISSIONS"
         title="Jobs & Internships"
         description="Job and internship postings from the department's employment information board."
+        image="/images/new_mainbg/신입학_편입학_배경사진.jpg"
+        imageAlt="Students on the athletic field at Yonsei University"
       />
       <SectionSubNav items={ADMISSIONS_NAV} lang="en" label="Admissions sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Admissions", path: "/admissions" }, { label: "Jobs & Internships" }]} />

@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Graduation Requirements" };
 export default function UndergraduateGraduationPageEn() {
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="Graduation Requirements" description="Select your cohort year to view the graduation requirements that apply to you." />
+      <PageHero eyebrow="UNDERGRADUATE" title="Graduation Requirements" description="Select your cohort year to view the graduation requirements that apply to you." image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="Underwood Hall at Yonsei University" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Undergraduate", path: "/undergraduate" }, { label: "Graduation Requirements" }]} />
 

@@ -15,6 +15,8 @@ export default function AdmissionsPageEn() {
         eyebrow="ADMISSIONS"
         title="New & Transfer Admissions"
         description="An overview of admission tracks at Yonsei Mechanical Engineering, with links to each track's official guide."
+        image="/images/new_mainbg/신입학_편입학_배경사진.jpg"
+        imageAlt="Students on the athletic field at Yonsei University"
       />
       <SectionSubNav items={ADMISSIONS_NAV} lang="en" label="Admissions sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Admissions" }]} />

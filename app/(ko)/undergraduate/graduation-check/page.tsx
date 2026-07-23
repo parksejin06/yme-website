@@ -14,6 +14,8 @@ export default function GraduationCheckPage() {
         eyebrow="UNDERGRADUATE"
         title="졸업요건 자가진단"
         description="학기별로 수강한 과목을 입력하면 졸업요건 대비 이수 현황을 확인할 수 있습니다."
+        image="/images/new_mainbg/학부_배경사진.jpg"
+        imageAlt="연세대학교 언더우드관"
       />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부", path: "/undergraduate" }, { label: "졸업요건 자가진단" }]} />

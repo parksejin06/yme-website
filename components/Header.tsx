@@ -38,10 +38,10 @@ export default function Header({ lang }: { lang: Lang }) {
             className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12"
           />
           <span
-            className={`min-w-0 break-keep font-wanted font-semibold leading-tight transition-colors duration-300 ${
+            className={`min-w-0 break-keep font-display font-semibold leading-tight transition-colors duration-300 ${
               light ? "text-white" : "text-primary"
             }`}
-            style={{ fontSize: "clamp(0.8125rem, 0.5rem + 1vw, 1.1875rem)" }}
+            style={{ fontSize: "clamp(0.875rem, 0.55rem + 1vw, 1.25rem)" }}
           >
             {lang === "ko" ? (
               <>

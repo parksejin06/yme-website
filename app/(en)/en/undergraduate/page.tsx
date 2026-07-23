@@ -22,8 +22,8 @@ export default function UndergraduatePageEn() {
         eyebrow="UNDERGRADUATE"
         title="Undergraduate Overview"
         description="The undergraduate program at Yonsei Mechanical Engineering cultivates creative thinkers with strong systems-design capability."
-        image="/images/engine-exploded.jpg"
-        imageAlt="Undergraduate students in a mechanical engineering lab"
+        image="/images/new_mainbg/학부_배경사진.jpg"
+        imageAlt="Underwood Hall at Yonsei University"
       />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Undergraduate" }]} />

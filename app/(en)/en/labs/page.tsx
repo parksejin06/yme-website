@@ -18,6 +18,8 @@ export default async function LabsPageEn({ searchParams }: { searchParams: Promi
         eyebrow="RESEARCH"
         title="Research Labs"
         description={`Explore ${labs.length} laboratories across 6 research fields: Mechanics & Materials, Energy & Thermofluids, Robotics & Control, Design & Manufacturing, Micro & Nano, and Bio & Photonics. Select a field to see its laboratories.`}
+        image="/images/new_mainbg/연구실_배경사진.jpg"
+        imageAlt="Yonsei University's eagle statue at night" imagePosition="center 88%"
       />
       <SectionSubNav items={LABS_NAV} lang="en" label="Research Labs sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Research Labs" }]} />

@@ -36,7 +36,10 @@ export default function MegaMenu({ open, onClose, lang }: { open: boolean; onClo
         style={{ paddingInline: "clamp(2rem, 4vw, 6rem)" }}
       >
         {NAV_ITEMS.map((item) => {
-          const topHref = localizePath(item.path, lang);
+          // Group titles link to their first sub-item (so "학부" lands on
+          // 졸업 요건, not the /undergraduate landing page whose title reads
+          // like About's 학부 개요). Leaf items link to their own path.
+          const topHref = localizePath(item.children?.[0]?.path ?? item.path, lang);
           return (
             <div key={item.path}>
               <Link

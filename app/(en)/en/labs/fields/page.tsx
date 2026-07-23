@@ -17,6 +17,8 @@ export default function LabsFieldsPageEn() {
         eyebrow="RESEARCH"
         title="Research Fields"
         description="An overview of the 6 research fields at Yonsei University's School of Mechanical Engineering. Click a field to see its research labs."
+        image="/images/new_mainbg/연구실_배경사진.jpg"
+        imageAlt="Yonsei University's eagle statue at night" imagePosition="center 88%"
       />
       <SectionSubNav items={LABS_NAV} lang="en" label="Research Labs sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Research Labs", path: "/labs" }, { label: "Research Fields" }]} />

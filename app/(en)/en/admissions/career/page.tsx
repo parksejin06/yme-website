@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import ParallaxImage from "@/components/ParallaxImage";
+import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -21,17 +24,40 @@ export default function AdmissionsCareerPageEn() {
         eyebrow="ADMISSIONS"
         title="Career Outcomes"
         description="A look at where our graduates go next, told through their own stories."
+        image="/images/new_mainbg/신입학_편입학_배경사진.jpg"
+        imageAlt="Students on the athletic field at Yonsei University"
       />
       <SectionSubNav items={ADMISSIONS_NAV} lang="en" label="Admissions sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Admissions", path: "/admissions" }, { label: "Career Outcomes" }]} />
 
       <section className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20">
-        <p className="font-body text-sm tracking-[0.2em] text-primary/70">ALUMNI STORIES</p>
-        <h2 className="mt-3 font-display text-2xl text-ink">Alumni Stories</h2>
-        <p className="mt-3 max-w-2xl text-ink/70">
-          Graduates of our department share their experiences moving into corporate R&amp;D, graduate school, and
-          startups.
-        </p>
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-16">
+          <div>
+            <p className="font-body text-sm tracking-[0.2em] text-primary/70">ALUMNI STORIES</p>
+            <h2 className="mt-3 font-display text-2xl text-ink">Alumni Stories</h2>
+            <p className="mt-3 max-w-2xl text-ink/70">
+              Graduates of our department share their experiences moving into corporate R&amp;D, graduate school, and
+              startups.
+            </p>
+          </div>
+
+          {/* Industry (robotic production line) image — mask-faded into the page
+              background; soft navy overlay + warm grade keep the orange tones
+              within the brand palette */}
+          <ScrollReveal delayMs={100} className="hidden md:block">
+            <ParallaxImage className="aspect-[3/2] md:-mr-8 lg:-mr-14" strength={20}>
+              <Image
+                src="/images/redesign_image/simon-kadula-8gr6bObQLOI-unsplash.jpg"
+                alt="Automated production line with industrial robots in operation"
+                fill
+                sizes="(min-width: 768px) 42vw, 0px"
+                className="object-cover"
+                style={{ filter: "sepia(0.12) saturate(0.88)" }}
+              />
+              <div className="absolute inset-0 bg-primary/15" aria-hidden="true" />
+            </ParallaxImage>
+          </ScrollReveal>
+        </div>
 
         <div className="mt-10">
           <AlumniStories stories={alumniStories} lang="en" />

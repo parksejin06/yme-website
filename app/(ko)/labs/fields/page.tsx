@@ -17,6 +17,8 @@ export default function LabsFieldsPage() {
         eyebrow="RESEARCH"
         title="연구분야 소개"
         description="연세대학교 기계공학부의 6개 연구분야를 소개합니다. 관심 있는 분야를 클릭하면 소속 연구실 목록으로 이동합니다."
+        image="/images/new_mainbg/연구실_배경사진.jpg"
+        imageAlt="연세대학교 독수리상 야경" imagePosition="center 88%"
       />
       <SectionSubNav items={LABS_NAV} lang="ko" label="연구실 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "연구실", path: "/labs" }, { label: "연구분야 소개" }]} />

@@ -20,7 +20,7 @@ export default function StaffPageEn() {
 
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="Staff" description="Find administrative contacts for undergraduate, graduate, and research affairs by team." />
+      <PageHero eyebrow="ABOUT US" title="Staff" description="Find administrative contacts for undergraduate, graduate, and research affairs by team." image="/images/new_mainbg/학부소개_배경사진2.jpg" imageAlt="Night view of Yonsei University's Baekyang-ro walkway" />
       <SectionSubNav items={ABOUT_NAV} lang="en" label="About sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "About", path: "/about" }, { label: "Staff" }]} />
 

@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Academic & Research Map" };
 export default function GraduateCurriculumMapPageEn() {
   return (
     <>
-      <PageHero eyebrow="GRADUATE" title="Academic & Research Map" description="Explore graduate programs, courses, and faculty around your research interests." />
+      <PageHero eyebrow="GRADUATE" title="Academic & Research Map" description="Explore graduate programs, courses, and faculty around your research interests." image="/images/new_mainbg/대학원_new.png" imageAlt="Graduate students conducting a lab experiment" />
       <SectionSubNav items={GRADUATE_NAV} lang="en" label="Graduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Graduate", path: "/graduate" }, { label: "Academic & Research Map" }]} />
 

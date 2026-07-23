@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import HistoryAccordion from "@/components/HistoryAccordion";
+import ParallaxImage from "@/components/ParallaxImage";
+import ScrollReveal from "@/components/ScrollReveal";
 import { ABOUT_NAV } from "@/lib/nav";
 import history from "@/data/history.json";
 
@@ -11,7 +14,12 @@ export const metadata: Metadata = { title: "History" };
 export default function HistoryPageEn() {
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="History" />
+      <PageHero
+        eyebrow="ABOUT US"
+        title="History"
+        image="/images/new_mainbg/학부소개_배경사진2.jpg"
+        imageAlt="Night view of Yonsei University's Baekyang-ro walkway"
+      />
       <SectionSubNav items={ABOUT_NAV} lang="en" label="About sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "About", path: "/about" }, { label: "History" }]} />
 
@@ -29,6 +37,22 @@ export default function HistoryPageEn() {
               decades of challenge and growth have shaped what is now Yonsei University&apos;s School of Mechanical
               Engineering.
             </p>
+
+            {/* Campus photo, soft-blended into the paper background — bleeds
+                slightly past the column's left edge for an asymmetric, editorial
+                feel. Hidden on mobile where the accordion follows directly. */}
+            <ScrollReveal className="mt-12 hidden md:block">
+              <ParallaxImage className="-ml-8 aspect-[3/4] w-[105%] lg:-ml-12" strength={26}>
+                <Image
+                  src="/images/subpage_image/연혁_사용.jpg"
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 32vw, 0px"
+                  className="object-cover"
+                  style={{ filter: "sepia(0.14) saturate(0.92)" }}
+                />
+              </ParallaxImage>
+            </ScrollReveal>
           </div>
 
           <div>

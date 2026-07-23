@@ -18,6 +18,8 @@ export default function LabsMediaPage() {
         eyebrow="RESEARCH"
         title="연구실 소개 자료 및 영상"
         description="관심 연구실의 소개 영상과 홍보 이미지를 통해 연구 주제와 연구 환경을 확인할 수 있습니다."
+        image="/images/new_mainbg/연구실_배경사진.jpg"
+        imageAlt="연세대학교 독수리상 야경" imagePosition="center 88%"
       />
       <SectionSubNav items={LABS_NAV} lang="ko" label="연구실 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "연구실", path: "/labs" }, { label: "연구실 소개 자료 및 영상" }]} />

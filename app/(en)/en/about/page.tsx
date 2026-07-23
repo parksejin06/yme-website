@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
@@ -20,24 +21,37 @@ export default function AboutPageEn() {
       <PageHero
         eyebrow="ABOUT US"
         title="Overview"
-        image="/images/eagle-statue.jpg"
-        imageAlt="Yonsei University's eagle statue and 'YONSEI, where we make history' signage"
-        imagePosition="center 30%"
+        image="/images/new_mainbg/학부소개_배경사진2.jpg"
+        imageAlt="Night view of Yonsei University's Baekyang-ro walkway"
       />
       <SectionSubNav items={ABOUT_NAV} lang="en" label="About sub-navigation" />
 
       <section className="mx-auto max-w-content px-4 py-20 sm:px-6">
         <ScrollReveal>
-          <p className="font-body text-sm tracking-[0.2em] text-primary/70">OVERVIEW</p>
-          <blockquote className="mt-4 text-balance font-display text-2xl leading-snug text-ink sm:text-4xl">
-            &ldquo;Relentless challenge, creating value for the world.&rdquo;
-          </blockquote>
-          <p className="mt-6 max-w-2xl text-ink/70">
-            Since its founding in 1962, Yonsei University&apos;s School of Mechanical Engineering has led mechanical
-            engineering education and research in Korea for over 60 years. Numerous labs are active across a wide
-            range of research fields — precision design, thermofluids, robotics/mechatronics, materials/structures,
-            nano/bio, and energy — cultivating talent who contribute to industry.
-          </p>
+          <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-16">
+            <div>
+              <p className="font-body text-sm tracking-[0.2em] text-primary/70">OVERVIEW</p>
+              <blockquote className="mt-4 text-balance font-display text-2xl leading-snug text-ink sm:text-4xl">
+                &ldquo;Relentless challenge, creating value for the world.&rdquo;
+              </blockquote>
+              <p className="mt-6 max-w-2xl text-ink/70">
+                Since its founding in 1962, Yonsei University&apos;s School of Mechanical Engineering has led mechanical
+                engineering education and research in Korea for over 60 years. Numerous labs are active across a wide
+                range of research fields — precision design, thermofluids, robotics/mechatronics, materials/structures,
+                nano/bio, and energy — cultivating talent who contribute to industry.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-lg">
+              <Image
+                src="/images/redesign_image/kirill-prikhodko-kRp5woiVDaY-unsplash.jpg"
+                alt="Cutaway view of a mechanical transmission gear train"
+                width={960}
+                height={640}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          </div>
 
           <div className="mt-14 border-t border-line pt-14">
             <p className="font-body text-sm tracking-[0.2em] text-primary/70">EDUCATIONAL OBJECTIVE</p>

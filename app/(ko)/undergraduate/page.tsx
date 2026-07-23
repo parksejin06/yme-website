@@ -22,8 +22,8 @@ export default function UndergraduatePage() {
         eyebrow="UNDERGRADUATE"
         title="학부 개요"
         description="연세대학교 기계공학부 학부 과정은 창의적 사고와 종합 설계 능력을 갖춘 인재를 기릅니다."
-        image="/images/engine-exploded.jpg"
-        imageAlt="기계공학부 학부 실습 장면"
+        image="/images/new_mainbg/학부_배경사진.jpg"
+        imageAlt="연세대학교 언더우드관"
       />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부" }]} />

@@ -18,6 +18,8 @@ export default function LabsMediaPageEn() {
         eyebrow="RESEARCH"
         title="Lab Introduction Media"
         description="Browse video and photo introductions from Yonsei ME research labs to explore research topics and the research environment."
+        image="/images/new_mainbg/연구실_배경사진.jpg"
+        imageAlt="Yonsei University's eagle statue at night" imagePosition="center 88%"
       />
       <SectionSubNav items={LABS_NAV} lang="en" label="Research Labs sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Research Labs", path: "/labs" }, { label: "Lab Media" }]} />

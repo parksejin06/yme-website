@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: "교직원" };
 export default function StaffPage() {
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="교직원" description="학부·대학원·연구행정 담당자를 업무별로 빠르게 확인할 수 있습니다." />
+      <PageHero eyebrow="ABOUT US" title="교직원" description="학부·대학원·연구행정 담당자를 업무별로 빠르게 확인할 수 있습니다." image="/images/new_mainbg/학부소개_배경사진2.jpg" imageAlt="연세대학교 백양로 야경" />
       <SectionSubNav items={ABOUT_NAV} lang="ko" label="학부소개 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부소개", path: "/about" }, { label: "교직원" }]} />
 

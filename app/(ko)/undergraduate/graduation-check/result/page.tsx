@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "졸업요건 자가진단 결과" };
 export default function GraduationCheckResultPage() {
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="졸업요건 자가진단 결과" />
+      <PageHero eyebrow="UNDERGRADUATE" title="졸업요건 자가진단 결과" image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="연세대학교 언더우드관" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="ko" label="학부 서브 내비게이션" />
       <Breadcrumb
         lang="ko"

@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Graduate Graduation Requirements" };
 export default function GraduateGraduationPageEn() {
   return (
     <>
-      <PageHero eyebrow="GRADUATE" title="Graduation Requirements" description="Select a program to see its minimum graduation credits and degree procedures." />
+      <PageHero eyebrow="GRADUATE" title="Graduation Requirements" description="Select a program to see its minimum graduation credits and degree procedures." image="/images/new_mainbg/대학원_new.png" imageAlt="Graduate students conducting a lab experiment" />
       <SectionSubNav items={GRADUATE_NAV} lang="en" label="Graduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Graduate", path: "/graduate" }, { label: "Graduation Requirements" }]} />
 

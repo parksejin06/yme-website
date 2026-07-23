@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionSubNav from "@/components/SectionSubNav";
@@ -20,25 +21,38 @@ export default function AboutPage() {
       <PageHero
         eyebrow="ABOUT US"
         title="학부 개요"
-        image="/images/eagle-statue.jpg"
-        imageAlt="연세대학교 독수리상과 'YONSEI, where we make history' 사이니지"
-        imagePosition="center 30%"
+        image="/images/new_mainbg/학부소개_배경사진2.jpg"
+        imageAlt="연세대학교 백양로 야경"
       />
       <SectionSubNav items={ABOUT_NAV} lang="ko" label="학부소개 서브 내비게이션" />
 
       <section className="mx-auto max-w-content px-4 py-20 sm:px-6">
         <ScrollReveal>
-          <p className="font-body text-sm tracking-[0.2em] text-primary/70">OVERVIEW</p>
-          <blockquote className="mt-4 text-balance font-display text-2xl leading-snug text-ink sm:text-4xl">
-            &ldquo;멈추지 않는 도전으로
-            <br />
-            세상에 유익한 가치를 만듭니다.&rdquo;
-          </blockquote>
-          <p className="mt-6 max-w-2xl text-ink/70">
-            연세대학교 기계공학부는 1962년 설립 이래 60여 년간 대한민국 기계공학 교육과 연구를 선도해 왔습니다.
-            정밀·설계, 열유체, 로봇·메카트로닉스, 재료·구조, 나노·바이오, 에너지 등 폭넓은 연구분야에서 다수의
-            연구실이 활발히 연구를 이어가고 있으며, 산업 현장에 기여하는 인재 양성을 목표로 합니다.
-          </p>
+          <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-16">
+            <div>
+              <p className="font-body text-sm tracking-[0.2em] text-primary/70">OVERVIEW</p>
+              <blockquote className="mt-4 text-balance font-display text-2xl leading-snug text-ink sm:text-4xl">
+                &ldquo;멈추지 않는 도전으로
+                <br />
+                세상에 유익한 가치를 만듭니다.&rdquo;
+              </blockquote>
+              <p className="mt-6 max-w-2xl text-ink/70">
+                연세대학교 기계공학부는 1962년 설립 이래 60여 년간 대한민국 기계공학 교육과 연구를 선도해 왔습니다.
+                정밀·설계, 열유체, 로봇·메카트로닉스, 재료·구조, 나노·바이오, 에너지 등 폭넓은 연구분야에서 다수의
+                연구실이 활발히 연구를 이어가고 있으며, 산업 현장에 기여하는 인재 양성을 목표로 합니다.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-lg">
+              <Image
+                src="/images/redesign_image/kirill-prikhodko-kRp5woiVDaY-unsplash.jpg"
+                alt="기계 변속기 기어 트레인 단면"
+                width={960}
+                height={640}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          </div>
 
           <div className="mt-14 border-t border-line pt-14">
             <p className="font-body text-sm tracking-[0.2em] text-primary/70">교육목적</p>

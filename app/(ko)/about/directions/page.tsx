@@ -58,7 +58,7 @@ export default function DirectionsPage() {
 
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="오시는 길" image="/images/campus-aerial.jpg" imageAlt="연세대학교 신촌캠퍼스 항공뷰" />
+      <PageHero eyebrow="ABOUT US" title="오시는 길" image="/images/new_mainbg/학부소개_배경사진2.jpg" imageAlt="연세대학교 백양로 야경" />
       <SectionSubNav items={ABOUT_NAV} lang="ko" label="학부소개 서브 내비게이션" />
       <Breadcrumb lang="ko" items={[{ label: "학부소개", path: "/about" }, { label: "오시는 길" }]} />
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Graduation Requirement Check Results
 export default function GraduationCheckResultPageEn() {
   return (
     <>
-      <PageHero eyebrow="UNDERGRADUATE" title="Graduation Requirement Check Results" />
+      <PageHero eyebrow="UNDERGRADUATE" title="Graduation Requirement Check Results" image="/images/new_mainbg/학부_배경사진.jpg" imageAlt="Underwood Hall at Yonsei University" />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
       <Breadcrumb
         lang="en"

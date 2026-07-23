@@ -14,6 +14,8 @@ export default function GraduationCheckPageEn() {
         eyebrow="UNDERGRADUATE"
         title="Graduation Requirement Check"
         description="Enter the courses you've taken each semester to see how you stack up against your cohort's graduation requirements."
+        image="/images/new_mainbg/학부_배경사진.jpg"
+        imageAlt="Underwood Hall at Yonsei University"
       />
       <SectionSubNav items={UNDERGRADUATE_NAV} lang="en" label="Undergraduate sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "Undergraduate", path: "/undergraduate" }, { label: "Graduation Requirement Check" }]} />
