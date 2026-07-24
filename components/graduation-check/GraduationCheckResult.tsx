@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { AlertTriangle } from "lucide-react";
 import ProgressBar from "./ProgressBar";
@@ -25,6 +25,9 @@ const COPY = {
     rulesTitle: "이 학번의 세부 이수 규정",
     rulesIntro: "학점 수 외에 반드시 확인해야 할 규정입니다. 과목명 기반 자동 확인이 어려워 규정 원문을 안내합니다.",
     freeElectiveNote: "일반선택은 전공·교양 어디에도 배정되지 않은 학점의 합계입니다. 특정 과목의 인정 영역은 학사팀 확인이 필요합니다.",
+    areaDone: "완료",
+    areaMissing: "미이수",
+    areaCount: (done: number, required: number) => `${done}/${required}개 영역 완료`,
     empty: "입력된 학번 또는 과목 정보가 없습니다. 먼저 자가진단 입력 화면에서 학번과 수강 과목을 선택해주세요.",
     backToInput: "← 입력 화면으로 돌아가기",
   },
@@ -39,28 +42,54 @@ const COPY = {
     rulesTitle: "Detailed requirements for your cohort",
     rulesIntro: "Rules beyond credit counts that you must verify. These can't be auto-checked from course names, so the original text is shown.",
     freeElectiveNote: "Free electives are the sum of credits not assigned to any major or liberal-arts category. Confirm how specific courses count with the Academic Affairs team.",
+    areaDone: "Done",
+    areaMissing: "Not yet",
+    areaCount: (done: number, required: number) => `${done}/${required} areas completed`,
     empty: "No cohort or course selections found. Please go back and select your cohort and courses first.",
     backToInput: "← Back to input",
   },
 };
 
+interface LoadedCheck {
+  /** undefined = not loaded yet (server render / pre-hydration); null = loaded
+   * but no cohort saved; GradEntry = loaded with a matching cohort. */
+  entry: GradEntry | null | undefined;
+  result: ComparisonResult | null;
+}
+
+/** loadState() reads localStorage, which only exists client-side, so the saved
+ * cohort/courses can't be known during server rendering -- getServerSnapshot
+ * below returns this "not loaded yet" value to match what the server (and the
+ * client's first hydration pass) render, avoiding a hydration mismatch. */
+const SERVER_SNAPSHOT: LoadedCheck = { entry: undefined, result: null };
+
+function noopSubscribe() {
+  return () => {};
+}
+
+function computeLoadedCheck(): LoadedCheck {
+  const saved = loadState();
+  const found = saved.admissionSlug
+    ? ((gradRequirements as GradEntry[]).find((g) => g.slug === saved.admissionSlug) ?? null)
+    : null;
+  const result = found ? compareRequirements(found, SEMESTER_KEYS.flatMap((k) => saved.semesters[k])) : null;
+  return { entry: found, result };
+}
+
 export default function GraduationCheckResult({ lang }: { lang: Lang }) {
   const t = COPY[lang];
-  const [entry, setEntry] = useState<GradEntry | null | undefined>(undefined);
-  const [result, setResult] = useState<ComparisonResult | null>(null);
+  // Computed once per mount (lazily, on first read) and cached in the ref so
+  // useSyncExternalStore's getSnapshot keeps returning the same reference --
+  // this is the "read an external, browser-only store safely" pattern React
+  // recommends in place of loading state via a plain useEffect + setState.
+  const snapshotRef = useRef<LoadedCheck | null>(null);
+  const loaded = useSyncExternalStore(
+    noopSubscribe,
+    () => (snapshotRef.current ??= computeLoadedCheck()),
+    () => SERVER_SNAPSHOT
+  );
 
-  useEffect(() => {
-    const state = loadState();
-    const found = state.admissionSlug
-      ? (gradRequirements as GradEntry[]).find((g) => g.slug === state.admissionSlug)
-      : null;
-    setEntry(found ?? null);
-    if (found) {
-      const allSelected = SEMESTER_KEYS.flatMap((k) => state.semesters[k]);
-      setResult(compareRequirements(found, allSelected));
-    }
-  }, []);
-
+  const { entry, result } = loaded;
   if (entry === undefined) return null;
 
   if (!entry || !result) {
@@ -115,6 +144,28 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
               <div className="mt-3">
                 <ProgressBar earned={cat.earnedCredits} required={cat.requiredCredits} />
                 {cat.leftover && <p className="mt-2 text-xs text-ink/45">{t.freeElectiveNote}</p>}
+                {cat.areaGroups && cat.requiredAreaCount != null && (
+                  <div className="mt-3">
+                    <p className="text-xs font-medium text-ink/60">
+                      {t.areaCount(cat.completedAreas?.length ?? 0, cat.requiredAreaCount)}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {Object.keys(cat.areaGroups).map((area) => {
+                        const done = cat.completedAreas?.includes(area) ?? false;
+                        return (
+                          <span
+                            key={area}
+                            className={`rounded-sm border px-2.5 py-1 text-xs ${
+                              done ? "border-primary/30 bg-primary/5 text-primary" : "border-line text-ink/40"
+                            }`}
+                          >
+                            {area} · {done ? t.areaDone : t.areaMissing}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
                 {(cat.caveatKr || cat.caveatEn) && (
                   <p className="mt-2 text-xs text-amber-700">{lang === "ko" ? cat.caveatKr : cat.caveatEn}</p>
                 )}

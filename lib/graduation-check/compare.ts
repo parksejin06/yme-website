@@ -57,12 +57,51 @@ export function compareRequirements(entry: RequirementEntry, allSelected: Select
     claimedTotal += course.credit;
   }
 
+  // Categories like 대학교양(선택) have a hard cap (4 영역 x 3학점 = 12) -- credits
+  // beyond that don't count toward the category. Uncap them from claimedTotal too
+  // so the overflow flows into 일반선택 below instead of vanishing.
+  for (const cat of claimable) {
+    if (!cat.capExcessToLeftover || cat.requiredCredits == null) continue;
+    const earned = earnedByKey.get(cat.key) ?? 0;
+    if (earned > cat.requiredCredits) {
+      claimedTotal -= earned - cat.requiredCredits;
+      earnedByKey.set(cat.key, cat.requiredCredits);
+    }
+  }
+
+  // Area-diversity tracking (e.g. 대학교양(선택)'s 6개 영역 중 4개): a course only
+  // counts toward an area if it also belongs to this category in the first place
+  // (categoryMatches), so courseType-matched-but-unlisted courses still add credit
+  // above but don't count toward any area.
+  const completedAreasByKey = new Map<string, Set<string>>();
+  for (const cat of claimable) {
+    if (!cat.areaGroups) continue;
+    const completed = new Set<string>();
+    for (const course of unique) {
+      if (!categoryMatches(cat, course)) continue;
+      const normalized = normalizeName(course.nameKr);
+      for (const [area, names] of Object.entries(cat.areaGroups)) {
+        if (names.some((n) => normalized.includes(normalizeName(n)))) {
+          completed.add(area);
+          break;
+        }
+      }
+    }
+    completedAreasByKey.set(cat.key, completed);
+  }
+
   const categoryResults: CategoryResult[] = categories.map((cat) => {
     if (cat.leftover) {
       return { ...cat, earnedCredits: Math.max(totalEarnedCredits - claimedTotal, 0), supported: true };
     }
     if (cat.matchCourseTypes == null && !cat.matchCourseNames) return { ...cat, earnedCredits: 0, supported: false };
-    return { ...cat, earnedCredits: earnedByKey.get(cat.key) ?? 0, supported: true };
+    const completedAreas = completedAreasByKey.get(cat.key);
+    return {
+      ...cat,
+      earnedCredits: earnedByKey.get(cat.key) ?? 0,
+      supported: true,
+      completedAreas: completedAreas ? [...completedAreas] : undefined,
+    };
   });
 
   const completedMandatoryCourses = entry.mandatoryCourses.filter((name) =>

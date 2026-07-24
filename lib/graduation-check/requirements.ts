@@ -1,4 +1,5 @@
 import type { RequirementCategory } from "./types";
+import liberalArtsAreas from "@/data/graduation-check/liberal-arts-areas.json";
 
 export interface GradSummaryLike {
   liberalArtsBasic: string | null;
@@ -46,7 +47,9 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       labelEn: "Basic Liberal Arts",
       requiredCredits: liberalArtsBasic,
       matchCourseTypes: null,
-      matchCourseNames: ["채플", "글쓰기", "기독교의 이해"],
+      // 기독교와현대사회/기독교와세계문화/성서와기독교 중 하나만 들으면 인정 (통칭
+      // "기독교의 이해"는 실제 과목명이 아니라서 매칭에서 제외).
+      matchCourseNames: ["채플", "글쓰기", "기독교와현대사회", "기독교와세계문화", "성서와기독교"],
     });
   }
 
@@ -122,8 +125,13 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       // Catch-all for remaining generic liberal-arts-coded courses not
       // already claimed by name above (문학과예술/인간과역사/... 영역 과목들).
       matchCourseTypes: ["대교", "교기", "교필", "교선", "공기", "학기", "학필", "학선", "계기"],
-      caveatKr: "6개 영역 중 4개 영역을 이수해야 하는데, 영역별 이수 여부는 과목명만으로 자동 확인이 어렵습니다. 학점 수만 참고하고 영역 충족은 직접 확인해주세요.",
-      caveatEn: "4 of 6 subject areas are required; area coverage can't be verified automatically from course names alone. Use this credit count as a reference only and confirm area coverage yourself.",
+      // 6개 영역 중 4개 영역, 영역당 3학점까지만 인정 -- 초과분은 일반선택으로 이월.
+      capExcessToLeftover: true,
+      // 영역별 실제 개설 과목 목록 (학부대학 교양교육과정 공개 페이지에서 확인, 로그인 불필요).
+      areaGroups: liberalArtsAreas,
+      requiredAreaCount: 4,
+      caveatKr: "영역 매칭은 과목명 기준이라, 과목명이 바뀌었거나 목록에 없는 과목이면 실제와 다를 수 있습니다. 정확한 인정 여부는 학사팀 확인이 필요합니다.",
+      caveatEn: "Area matching is based on course names, so renamed or unlisted courses may not match correctly. Confirm exact credit recognition with the Academic Affairs team.",
     });
   }
 

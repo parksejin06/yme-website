@@ -52,11 +52,25 @@ export interface RequirementCategory {
   /** 일반선택(자유선택): its earned credits are whatever's left after every
    * other category (in priority order) has claimed its courses. */
   leftover?: boolean;
+  /** Hard cap at requiredCredits: e.g. 대학교양(선택) is "6개 영역 중 4개, 영역당
+   * 3학점" -- credits beyond the 4x3=12 cap don't count toward this category,
+   * they overflow into 일반선택 instead (see compare.ts). */
+  capExcessToLeftover?: boolean;
+  /** Area name -> course names, for categories that require diversity across
+   * named areas (e.g. 대학교양(선택)'s 6개 영역). Sourced from the public
+   * 학부대학 교양교육과정 pages (universitycollege.yonsei.ac.kr/uc/refinement/
+   * course-necessary0N.do), not invented. */
+  areaGroups?: Record<string, string[]>;
+  /** How many distinct areaGroups keys must be covered (e.g. 4 of 6). */
+  requiredAreaCount?: number;
 }
 
 export interface CategoryResult extends RequirementCategory {
   earnedCredits: number;
   supported: boolean;
+  /** Distinct areaGroups keys the student's courses actually cover (only set
+   * when the category has areaGroups). */
+  completedAreas?: string[];
 }
 
 export interface ComparisonResult {
