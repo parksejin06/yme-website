@@ -245,6 +245,48 @@ export default function Calendar({
       </div>
 
       {view === "month" ? (
+        <>
+        {/* Mobile month view: compact grid with event dots -- tapping a day opens the day modal.
+            (The desktop grid's text pills don't fit a phone column; dots keep 월간 usable.) */}
+        <div className="mt-6 sm:hidden">
+          <div className="grid grid-cols-7 border-b border-line text-center text-xs text-ink/45">
+            {t.weekdays.map((w) => (
+              <div key={w} className="py-2">
+                {w}
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-7">
+            {cells.map(({ date, key, inMonth }) => {
+              const dayEvts = eventsOnDate(key);
+              const isToday = key === todayKey;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSelectedDay(key)}
+                  className={`flex min-h-[54px] flex-col items-center gap-1 border-b border-r border-line pt-1.5 last:border-r-0 ${
+                    inMonth ? "bg-white" : "bg-surface-muted/40"
+                  }`}
+                >
+                  <span
+                    className={`flex h-6 w-6 items-center justify-center rounded-full text-xs ${
+                      isToday ? "bg-primary text-white" : inMonth ? "text-ink/70" : "text-ink/30"
+                    }`}
+                  >
+                    {date.getDate()}
+                  </span>
+                  <span className="flex gap-0.5">
+                    {dayEvts.slice(0, 3).map((e, i) => (
+                      <EventDot key={`${e.uid ?? e.summary}-${i}`} type={e.eventType} />
+                    ))}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          {filteredEvents.length === 0 && <p className="mt-6 text-center text-sm text-ink/40">{t.noEventsMonth}</p>}
+        </div>
+
         <div className="mt-8 hidden sm:block">
           <div className="grid grid-cols-7 border-b border-line text-center text-sm text-ink/45">
             {t.weekdays.map((w) => (
@@ -292,17 +334,14 @@ export default function Calendar({
           </div>
           {filteredEvents.length === 0 && <p className="mt-6 text-center text-sm text-ink/40">{t.noEventsMonth}</p>}
         </div>
+        </>
       ) : null}
 
       {view === "list" && (
-        <div className="mt-6 hidden sm:block">
+        <div className="mt-6">
           <EventListView events={filteredEvents} noEventsLabel={t.noEventsList} onSelect={setSelectedEvent} />
         </div>
       )}
-
-      <div className="mt-6 sm:hidden">
-        <EventListView events={filteredEvents} noEventsLabel={t.noEventsList} onSelect={setSelectedEvent} />
-      </div>
 
       <Modal open={!!selectedDay} onClose={() => setSelectedDay(null)} panelClassName="max-w-sm">
         {selectedDay && (
