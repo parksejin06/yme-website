@@ -86,8 +86,28 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       labelKr: "교양(대학교양 등)",
       labelEn: "Liberal Arts (University Liberal Arts, etc.)",
       requiredCredits: liberalFields.reduce((a, b) => a + b, 0),
-      matchCourseTypes: ["대교", "교기", "교필", "교선", "공기", "학기", "학필", "학선", "계기"],
+      // 채플(교기/CC)·RC·글쓰기(공기)·학문영역(학기/학필/학선)·계열기초(계기)까지
+      // 교양기초 안에서 인정되므로 교양으로 집계한다.
+      matchCourseTypes: ["대교", "교기", "교필", "교선", "공기", "학기", "학필", "학선", "계기", "CC", "RC"],
     });
+  }
+
+  // 일반선택(자유선택): 졸업 총학점에서 전공·교양 필수치를 뺀 나머지. 이 학점이 빠져
+  // 있으면 130학점의 상당 부분(예: 25학번 21학점)이 어디에도 표시되지 않는다.
+  const graduationTotal = toNumber(summary.graduationTotal);
+  if (graduationTotal != null) {
+    const accounted = categories.reduce((sum, c) => sum + (c.requiredCredits ?? 0), 0);
+    const freeElective = graduationTotal - accounted;
+    if (freeElective > 0) {
+      categories.push({
+        key: "freeElective",
+        labelKr: "일반선택",
+        labelEn: "Free Elective",
+        requiredCredits: freeElective,
+        matchCourseTypes: [],
+        leftover: true,
+      });
+    }
   }
 
   return categories;

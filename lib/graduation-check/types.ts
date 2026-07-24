@@ -37,6 +37,9 @@ export interface RequirementCategory {
    * (data doesn't distinguish it), so it's shown as "unsupported" instead of
    * a misleading 0/N progress bar. */
   matchCourseTypes: string[] | null;
+  /** 일반선택(자유선택): its earned credits are the leftover — every earned
+   * credit not counted by any other category — rather than a courseType match. */
+  leftover?: boolean;
 }
 
 export interface CategoryResult extends RequirementCategory {

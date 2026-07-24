@@ -22,6 +22,9 @@ const COPY = {
     missingMandatory: "아직 이수하지 않은 필수 과목",
     recommendTitle: "부족한 학점을 채우려면?",
     draftShort: "확인 필요",
+    rulesTitle: "이 학번의 세부 이수 규정",
+    rulesIntro: "학점 수 외에 반드시 확인해야 할 규정입니다. 과목명 기반 자동 확인이 어려워 규정 원문을 안내합니다.",
+    freeElectiveNote: "일반선택은 전공·교양 어디에도 배정되지 않은 학점의 합계입니다. 특정 과목의 인정 영역은 학사팀 확인이 필요합니다.",
     empty: "입력된 학번 또는 과목 정보가 없습니다. 먼저 자가진단 입력 화면에서 학번과 수강 과목을 선택해주세요.",
     backToInput: "← 입력 화면으로 돌아가기",
   },
@@ -33,6 +36,9 @@ const COPY = {
     missingMandatory: "Required courses not yet completed",
     recommendTitle: "Need more credits?",
     draftShort: "Unverified",
+    rulesTitle: "Detailed requirements for your cohort",
+    rulesIntro: "Rules beyond credit counts that you must verify. These can't be auto-checked from course names, so the original text is shown.",
+    freeElectiveNote: "Free electives are the sum of credits not assigned to any major or liberal-arts category. Confirm how specific courses count with the Academic Affairs team.",
     empty: "No cohort or course selections found. Please go back and select your cohort and courses first.",
     backToInput: "← Back to input",
   },
@@ -108,6 +114,7 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
             {cat.supported && cat.requiredCredits != null ? (
               <div className="mt-3">
                 <ProgressBar earned={cat.earnedCredits} required={cat.requiredCredits} />
+                {cat.leftover && <p className="mt-2 text-xs text-ink/45">{t.freeElectiveNote}</p>}
               </div>
             ) : (
               <p className="mt-2 text-xs text-ink/40">{t.unsupported}</p>
@@ -151,6 +158,21 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {lang === "ko" && Array.isArray(entry.specialNotes) && entry.specialNotes.length > 0 && (
+        <div className="mt-12 border-t border-line pt-8">
+          <h2 className="font-display text-lg text-ink">{t.rulesTitle}</h2>
+          <p className="mt-1.5 text-sm text-ink/55">{t.rulesIntro}</p>
+          <dl className="mt-5 divide-y divide-line border-y border-line">
+            {entry.specialNotes.map((note, i) => (
+              <div key={i} className="grid gap-1 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6">
+                <dt className="font-display text-sm text-primary">{note.category}</dt>
+                <dd className="text-sm leading-relaxed text-ink/70">{note.content}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       )}
 

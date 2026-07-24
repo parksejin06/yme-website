@@ -27,16 +27,28 @@ export function compareRequirements(entry: RequirementEntry, allSelected: Select
   for (const c of allSelected) uniqueByCode.set(c.courseCode, c);
   const unique = [...uniqueByCode.values()];
 
+  const graduationTotal = entry.summary.graduationTotal != null ? parseInt(entry.summary.graduationTotal, 10) : null;
+  const totalEarnedCredits = unique.reduce((sum, c) => sum + c.credit, 0);
+
   const categories = getRequirementCategories(entry.summary);
+  // Sum credits matched by the courseType-based categories first; 일반선택
+  // (leftover) is then whatever earned credit none of them claimed.
+  const matchedByOthers = unique.reduce((sum, c) => {
+    const claimed = categories.some(
+      (cat) => !cat.leftover && cat.matchCourseTypes && cat.matchCourseTypes.includes(c.courseType)
+    );
+    return claimed ? sum + c.credit : sum;
+  }, 0);
+
   const categoryResults: CategoryResult[] = categories.map((cat) => {
+    if (cat.leftover) {
+      return { ...cat, earnedCredits: Math.max(totalEarnedCredits - matchedByOthers, 0), supported: true };
+    }
     if (!cat.matchCourseTypes) return { ...cat, earnedCredits: 0, supported: false };
     const matchTypes = cat.matchCourseTypes;
     const earnedCredits = unique.filter((c) => matchTypes.includes(c.courseType)).reduce((sum, c) => sum + c.credit, 0);
     return { ...cat, earnedCredits, supported: true };
   });
-
-  const graduationTotal = entry.summary.graduationTotal != null ? parseInt(entry.summary.graduationTotal, 10) : null;
-  const totalEarnedCredits = unique.reduce((sum, c) => sum + c.credit, 0);
 
   const completedMandatoryCourses = entry.mandatoryCourses.filter((name) =>
     unique.some((c) => normalizeName(c.nameKr) === normalizeName(name))
