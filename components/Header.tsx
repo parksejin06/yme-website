@@ -37,23 +37,22 @@ export default function Header({ lang }: { lang: Lang }) {
             priority
             className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12"
           />
-          <span
-            className={`min-w-0 break-keep font-display font-semibold leading-tight transition-colors duration-300 ${
-              light ? "text-white" : "text-primary"
-            }`}
-            style={{ fontSize: "clamp(0.875rem, 0.55rem + 1vw, 1.25rem)" }}
-          >
-            {lang === "ko" ? (
-              <>
-                연세대학교
-                <br className="sm:hidden" /> 기계공학부
-              </>
-            ) : (
-              <>
-                Yonsei University
-                <br /> Mechanical Engineering
-              </>
-            )}
+          {/* Two-line lockup: school name as a small tracked eyebrow, department as the identity.
+              font-display (not Wanted Sans) per the latest wordmark font decision. */}
+          <span className="flex min-w-0 flex-col break-keep font-display leading-tight">
+            <span
+              className={`text-[10px] font-medium tracking-[0.2em] transition-colors duration-300 sm:text-[11px] ${
+                light ? "text-white/75" : "text-primary/70"
+              }`}
+            >
+              {lang === "ko" ? "연세대학교" : "YONSEI UNIVERSITY"}
+            </span>
+            <span
+              className={`mt-0.5 font-bold transition-colors duration-300 ${light ? "text-white" : "text-primary"}`}
+              style={{ fontSize: "clamp(1rem, 0.75rem + 0.8vw, 1.3125rem)" }}
+            >
+              {lang === "ko" ? "기계공학부" : "Mechanical Engineering"}
+            </span>
           </span>
         </Link>
 
