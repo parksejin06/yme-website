@@ -20,16 +20,20 @@ function toNumber(v: string | null | undefined): number | null {
 /**
  * Normalizes a cohort's flat, historically-evolved summary fields (see
  * data/graduation-requirements.json) into a fixed set of comparable
- * categories. The course catalog (data/courses.json) only distinguishes
- * courseType 전필/전선/대교, so the mapping is necessarily coarse:
+ * categories. courseType values come from two sources: the ME catalog
+ * (전필/전선/대교) and, since transcript import, the portal's raw 과목종별
+ * codes (전기, 계기, 교기, 공기, 학기, 학필, 학선, ...). Mapping stays coarse:
  * - majorRequired / majorElective map 1:1 onto courseType 전필 / 전선.
- * - majorBasic (전공기초) has no matching courseType anywhere in the course
- *   data, so it's marked unsupported (matchCourseTypes: null) rather than
- *   rendered as a misleading 0/N progress bar.
+ * - majorBasic (전공기초) matches the portal's 전기 code. The ME catalog has
+ *   no 전기 courses, so manual catalog-only input still shows 0/N here —
+ *   transcript import is the supported path for this category.
  * - The various liberal-arts fields (liberalArtsBasic / universityLiberalElective /
  *   universityLiberalRequired / basicEducation) are summed into one aggregate
- *   "교양" bucket matched against courseType 대교, since the course data
- *   doesn't subdivide liberal-arts courses any further than that.
+ *   "교양" bucket matched against 대교 plus the portal's liberal/basic codes
+ *   (계기 counts here because basicEducation is part of the aggregate).
+ * - RC/CC(채플) and 일반선택-type codes stay uncategorized on purpose: they
+ *   count toward the graduation total only, mirroring how the portal treats
+ *   them outside the 교양 credit areas.
  */
 export function getRequirementCategories(summary: GradSummaryLike): RequirementCategory[] {
   const categories: RequirementCategory[] = [];
@@ -63,7 +67,7 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       labelKr: "전공기초",
       labelEn: "Major Basic",
       requiredCredits: majorBasic,
-      matchCourseTypes: null,
+      matchCourseTypes: ["전기"],
     });
   }
 
@@ -82,7 +86,7 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       labelKr: "교양(대학교양 등)",
       labelEn: "Liberal Arts (University Liberal Arts, etc.)",
       requiredCredits: liberalFields.reduce((a, b) => a + b, 0),
-      matchCourseTypes: ["대교"],
+      matchCourseTypes: ["대교", "교기", "교필", "교선", "공기", "학기", "학필", "학선", "계기"],
     });
   }
 

@@ -6,9 +6,12 @@ import AdmissionYearSelect from "./AdmissionYearSelect";
 import SemesterTabs from "./SemesterTabs";
 import SemesterCourseList from "./SemesterCourseList";
 import CourseSearchCombobox from "./CourseSearchCombobox";
+import TranscriptImport from "./TranscriptImport";
+import ManualCourseAdd from "./ManualCourseAdd";
 import { emptyState, loadState, saveState, clearState } from "@/lib/graduation-check/storage";
 import { SEMESTER_KEYS } from "@/lib/graduation-check/constants";
-import type { GraduationCheckState, SemesterKey, CourseOption } from "@/lib/graduation-check/types";
+import { slugForAdmissionYear } from "@/lib/graduation-check/transcript-parser";
+import type { GraduationCheckState, SemesterKey, SemesterMap, CourseOption } from "@/lib/graduation-check/types";
 import { localizePath, type Lang } from "@/lib/nav";
 
 const COPY = {
@@ -71,11 +74,20 @@ export default function GraduationCheckWizard({ lang }: { lang: Lang }) {
     setState(emptyState());
   }
 
+  function handleImport(semesters: SemesterMap, admissionYear: number | null) {
+    const slug = admissionYear != null ? slugForAdmissionYear(admissionYear) : null;
+    setState((s) => ({ admissionSlug: slug ?? s.admissionSlug, semesters }));
+  }
+
+  const hasAnyCourses = SEMESTER_KEYS.some((k) => state.semesters[k].length > 0);
+
   const totalCredits = SEMESTER_KEYS.reduce((sum, k) => sum + state.semesters[k].reduce((s2, c) => s2 + c.credit, 0), 0);
   const currentCourses = state.semesters[activeSemester];
 
   return (
     <div className="space-y-10">
+      <TranscriptImport lang={lang} hasExistingCourses={hasAnyCourses} onImport={handleImport} />
+
       <div>
         <h2 className="font-display text-lg text-ink">{t.admissionLabel}</h2>
         <div className="mt-3">
@@ -98,6 +110,7 @@ export default function GraduationCheckWizard({ lang }: { lang: Lang }) {
           <div className="mt-2">
             <CourseSearchCombobox onSelect={addCourse} excludeCodes={currentCourses.map((c) => c.courseCode)} lang={lang} />
           </div>
+          <ManualCourseAdd lang={lang} onAdd={addCourse} />
           <SemesterCourseList courses={currentCourses} onRemove={removeCourse} lang={lang} />
         </div>
       </div>

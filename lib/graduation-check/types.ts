@@ -1,12 +1,21 @@
-export type SemesterKey = "1-1" | "1-2" | "2-1" | "2-2" | "3-1" | "3-2" | "4-1" | "4-2";
+/** Regular + seasonal (여름/겨울) semesters, in academic order per year. */
+export type SemesterKey =
+  | "1-1" | "1-su" | "1-2" | "1-wi"
+  | "2-1" | "2-su" | "2-2" | "2-wi"
+  | "3-1" | "3-su" | "3-2" | "3-wi"
+  | "4-1" | "4-su" | "4-2" | "4-wi";
 
 export interface CourseOption {
   courseCode: string;
   nameKr: string;
   nameEn: string | null;
-  courseType: string; // "전필" | "전선" | "대교"
+  /** ME catalog courses use 전필/전선/대교; transcript-imported and manually
+   * added courses carry the portal's raw 과목종별 code (전기, 계기, 교기, ...). */
+  courseType: string;
   credit: number;
-  status: "confirmed" | "draft";
+  /** confirmed/draft = from the ME course catalog; imported = parsed from a
+   * pasted portal transcript; manual = free-form user entry. */
+  status: "confirmed" | "draft" | "imported" | "manual";
 }
 
 export type SelectedCourse = CourseOption;
