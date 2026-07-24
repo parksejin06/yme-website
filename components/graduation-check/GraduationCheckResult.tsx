@@ -115,6 +115,9 @@ export default function GraduationCheckResult({ lang }: { lang: Lang }) {
               <div className="mt-3">
                 <ProgressBar earned={cat.earnedCredits} required={cat.requiredCredits} />
                 {cat.leftover && <p className="mt-2 text-xs text-ink/45">{t.freeElectiveNote}</p>}
+                {(cat.caveatKr || cat.caveatEn) && (
+                  <p className="mt-2 text-xs text-amber-700">{lang === "ko" ? cat.caveatKr : cat.caveatEn}</p>
+                )}
               </div>
             ) : (
               <p className="mt-2 text-xs text-ink/40">{t.unsupported}</p>

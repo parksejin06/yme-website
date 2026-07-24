@@ -32,13 +32,25 @@ export interface RequirementCategory {
   labelKr: string;
   labelEn: string;
   requiredCredits: number | null;
-  /** courseType values in the course data that count toward this category.
-   * null means the category can't be matched against any known courseType
-   * (data doesn't distinguish it), so it's shown as "unsupported" instead of
-   * a misleading 0/N progress bar. */
+  /** courseType values (portal 과목종별 codes, or 전필/전선 from the ME catalog)
+   * that count toward this category. Checked only when matchCourseNames
+   * doesn't already claim the course — see compare.ts's exclusive assignment.
+   * null (with matchCourseNames also unset) means the category can't be
+   * matched at all, so it's shown as "unsupported" instead of a misleading
+   * 0/N progress bar. */
   matchCourseTypes: string[] | null;
-  /** 일반선택(자유선택): its earned credits are the leftover — every earned
-   * credit not counted by any other category — rather than a courseType match. */
+  /** Exact course names (department-mandated, e.g. "공학수학(1)") that count
+   * toward this category regardless of their portal 과목종별 code — needed
+   * because the portal tags the *same* course inconsistently across
+   * semesters (e.g. 공학수학(1)/(2) show as 계기, 공학수학(3) shows as 전기). */
+  matchCourseNames?: string[];
+  /** Caveat shown under the progress bar even though the category is
+   * "supported" — e.g. 대학교양(선택) counts credits but can't verify the
+   * 4-영역 diversity requirement from course data alone. */
+  caveatKr?: string;
+  caveatEn?: string;
+  /** 일반선택(자유선택): its earned credits are whatever's left after every
+   * other category (in priority order) has claimed its courses. */
   leftover?: boolean;
 }
 
