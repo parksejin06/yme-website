@@ -7,6 +7,8 @@ import { NEWS_NAV } from "@/lib/nav";
 import { BOARD_DATA } from "@/lib/community-data";
 import calendarData from "@/data/community/calendar-official.json";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Calendar" };
 
 export default function CalendarPageEn() {

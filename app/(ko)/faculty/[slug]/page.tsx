@@ -4,24 +4,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { HomeIcon, ChevronRightIcon, ArrowLeftIcon } from "@/components/icons";
-import { fieldLabel, type FacultyMember } from "@/lib/faculty";
-import faculty from "@/data/faculty.json";
+import { fieldLabel } from "@/lib/faculty";
+import { getFaculty } from "@/lib/faculty-data";
 
-const members = faculty as FacultyMember[];
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
-  return members.map((m) => ({ slug: m.slug }));
+  return getFaculty().map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const member = members.find((m) => m.slug === slug);
+  const member = getFaculty().find((m) => m.slug === slug);
   return { title: member ? `${member.name} 교수` : "교수진" };
 }
 
 export default async function FacultyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const member = members.find((m) => m.slug === slug);
+  const member = getFaculty().find((m) => m.slug === slug);
   if (!member) notFound();
 
   return (

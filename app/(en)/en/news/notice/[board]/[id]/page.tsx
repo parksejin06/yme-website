@@ -4,6 +4,8 @@ import PostDetail from "@/components/community/PostDetail";
 import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
 import { postHref, listHref, type BoardKey } from "@/lib/community-content";
 
+export const dynamic = "force-dynamic";
+
 const BOARD_PARAM: Record<string, BoardKey> = {
   undergraduate: "notices-undergraduate",
   graduate: "notices-graduate",

@@ -6,6 +6,8 @@ import EventBoard from "@/components/community/EventBoard";
 import { NEWS_NAV } from "@/lib/nav";
 import { BOARD_DATA } from "@/lib/community-data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Events" };
 
 export default function EventsPageEn() {

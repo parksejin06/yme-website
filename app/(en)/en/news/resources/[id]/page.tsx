@@ -4,6 +4,8 @@ import PostDetail from "@/components/community/PostDetail";
 import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
 import { postHref, listHref } from "@/lib/community-content";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return BOARD_DATA["resources"].map((p) => ({ id: p.sourcePostId }));
 }

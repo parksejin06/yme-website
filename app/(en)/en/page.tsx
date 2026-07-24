@@ -10,6 +10,8 @@ import LatestUpdatesSection from "@/components/home/LatestUpdatesSection";
 import history from "@/data/history.json";
 import labs from "@/data/labs.json";
 
+export const dynamic = "force-dynamic";
+
 const foundingYear = 1962;
 const currentYear = new Date().getFullYear();
 

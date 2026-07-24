@@ -7,6 +7,8 @@ import CommunitySearchBar from "@/components/community/CommunitySearchBar";
 import { BOARD_DATA } from "@/lib/community-data";
 import { NEWS_NAV } from "@/lib/nav";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Notices" };
 
 export default function NewsPageEn() {

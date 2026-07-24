@@ -60,16 +60,18 @@ export default function PostDetail({
 
       <PostAttachments attachments={post.attachments} lang={lang} />
 
-      <div className="mt-8">
-        <a
-          href={post.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm text-ink/40 hover:text-ink/70"
-        >
-          {t.original} <ExternalLink className="h-3.5 w-3.5" />
-        </a>
-      </div>
+      {post.sourceUrl && (
+        <div className="mt-8">
+          <a
+            href={post.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-ink/40 hover:text-ink/70"
+          >
+            {t.original} <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      )}
 
       <div className="mt-12 divide-y divide-line border-y border-line">
         {next && (

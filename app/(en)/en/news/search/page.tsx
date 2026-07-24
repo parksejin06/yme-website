@@ -7,6 +7,8 @@ import SearchResults from "@/components/community/SearchResults";
 import { NEWS_NAV } from "@/lib/nav";
 import { searchAllPosts } from "@/lib/community-data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Search" };
 
 export default async function CommunitySearchPageEn({ searchParams }: { searchParams: Promise<{ q?: string }> }) {

@@ -8,6 +8,8 @@ import { ADMISSIONS_NAV } from "@/lib/nav";
 import { BOARD_DATA } from "@/lib/community-data";
 import { BOARD_META } from "@/lib/community-content";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "채용정보·인턴십" };
 
 export default function AdmissionsJobsPage() {

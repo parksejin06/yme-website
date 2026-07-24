@@ -4,11 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import FacultyGrid from "@/components/FacultyGrid";
 import { FACULTY_NAV } from "@/lib/nav";
-import faculty from "@/data/faculty.json";
+import { getFaculty } from "@/lib/faculty-data";
 
 export const metadata: Metadata = { title: "Full-time Faculty" };
+export const dynamic = "force-dynamic";
 
 export default function FacultyPageEn() {
+  const faculty = getFaculty();
   return (
     <>
       <PageHero

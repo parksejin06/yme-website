@@ -4,11 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import EmeritusFacultyGrid from "@/components/EmeritusFacultyGrid";
 import { FACULTY_NAV } from "@/lib/nav";
-import emeritus from "@/data/faculty-emeritus.json";
+import { getFacultyEmeritus } from "@/lib/faculty-data";
 
 export const metadata: Metadata = { title: "명예·퇴임 교수" };
+export const dynamic = "force-dynamic";
 
 export default function EmeritusFacultyPage() {
+  const emeritus = getFacultyEmeritus();
   return (
     <>
       <PageHero

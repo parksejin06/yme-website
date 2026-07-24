@@ -6,6 +6,8 @@ import NewsArticleBoard from "@/components/NewsArticleBoard";
 import { NEWS_NAV } from "@/lib/nav";
 import { BOARD_DATA } from "@/lib/community-data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "Research News" };
 
 export default function NewsResearchPageEn() {

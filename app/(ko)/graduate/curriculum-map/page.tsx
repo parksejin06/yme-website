@@ -6,11 +6,13 @@ import AcademicResearchMap from "@/components/graduate/AcademicResearchMap";
 import { GRADUATE_NAV } from "@/lib/nav";
 import gradRequirements from "@/data/graduate-graduation-requirements.json";
 import graduateCourses from "@/data/graduate-courses.json";
-import faculty from "@/data/faculty.json";
+import { getFaculty } from "@/lib/faculty-data";
 
 export const metadata: Metadata = { title: "교육·연구 체계도" };
+export const dynamic = "force-dynamic";
 
 export default function GraduateCurriculumMapPage() {
+  const faculty = getFaculty();
   return (
     <>
       <PageHero eyebrow="GRADUATE" title="교육·연구 체계도" description="관심 연구분야를 중심으로 대학원 과정과 교과목, 교수진을 탐색할 수 있습니다." image="/images/new_mainbg/대학원_new.png" imageAlt="기계공학부 대학원 연구실 실험 장면" />

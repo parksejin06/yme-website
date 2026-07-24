@@ -6,11 +6,13 @@ import AcademicResearchMap from "@/components/graduate/AcademicResearchMap";
 import { GRADUATE_NAV } from "@/lib/nav";
 import gradRequirements from "@/data/graduate-graduation-requirements.json";
 import graduateCourses from "@/data/graduate-courses.json";
-import faculty from "@/data/faculty.json";
+import { getFaculty } from "@/lib/faculty-data";
 
 export const metadata: Metadata = { title: "Academic & Research Map" };
+export const dynamic = "force-dynamic";
 
 export default function GraduateCurriculumMapPageEn() {
+  const faculty = getFaculty();
   return (
     <>
       <PageHero eyebrow="GRADUATE" title="Academic & Research Map" description="Explore graduate programs, courses, and faculty around your research interests." image="/images/new_mainbg/대학원_new.png" imageAlt="Graduate students conducting a lab experiment" />
