@@ -40,7 +40,7 @@ export interface ParsedTranscript {
 /** 과목종별 codes seen on official transcripts. Unknown codes still parse —
  * they just land in "기타" so their credits count toward the total only. */
 const KNOWN_CATEGORY_CODES = new Set([
-  "전필", "전선", "전기", "대교", "교기", "교필", "교선", "계기", "공기",
+  "전필", "전선", "전기", "대교", "교기", "교필", "교선", "필교", "계기", "공기",
   "학기", "학필", "학선", "일선", "자선", "군사", "RC", "CC",
 ]);
 

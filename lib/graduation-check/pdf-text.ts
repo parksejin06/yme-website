@@ -48,6 +48,17 @@ function rowText(items: TextItemLike[]): string {
  * rebuilding reading order from glyph positions: items are bucketed into rows
  * by y-coordinate (top to bottom), then each row is reconstructed with
  * gap-aware spacing. Runs entirely client-side.
+ *
+ * Narrow cells (학기, 교과목명, ...) word-wrap onto their own extra physical
+ * lines rather than sharing a line with other columns, so each wrapped
+ * fragment is left as its own line here — semester headers and course rows
+ * (transcript-parser.ts) are matched with `\s*`-tolerant regexes specifically
+ * so a label like "2026학년도 1학" / "기" still matches across that line break.
+ * (An earlier version tried to splice wrapped fragments back onto their
+ * source column by nearest x-position; against a real transcript that did
+ * more harm than good — it mismatched fragments whose x drifted between
+ * lines under center-aligned cells — so plain per-line joining, which this
+ * data already parses correctly, replaced it.)
  */
 export async function extractPdfText(file: File): Promise<string> {
   ensureWorker();

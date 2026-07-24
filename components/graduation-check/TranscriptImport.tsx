@@ -1,17 +1,24 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { FileUp, ShieldCheck, Loader2, ChevronDown } from "lucide-react";
+import { FileUp, ShieldCheck, Loader2, ChevronDown, ExternalLink } from "lucide-react";
 import { parseTranscript, toSemesterKey } from "@/lib/graduation-check/transcript-parser";
 import { SEMESTER_KEYS } from "@/lib/graduation-check/constants";
 import type { SemesterMap } from "@/lib/graduation-check/types";
 import type { Lang } from "@/lib/nav";
+
+// Base SSO login entry point for the Yonsei academic portal — deliberately the
+// bare login URL, not a deep link into the 성적 > 전체성적조회 report itself,
+// since that report URL carries a short-lived requestTimeStr query param.
+const PORTAL_LOGIN_URL = "https://underwood1.yonsei.ac.kr/com/lgin/SsoCtr/initPageWork.do";
 
 const COPY = {
   ko: {
     title: "성적표 PDF로 한 번에 입력",
     guide: "연세포탈 → 성적 → 전체성적조회 → 출력에서 인쇄(Ctrl+P) 후 “PDF로 저장”한 파일을 올려주세요. 캡쳐 이미지가 아니라 PDF 파일이어야 글자를 정확히 읽을 수 있습니다.",
     privacy: "업로드한 PDF는 브라우저 안에서만 처리되며 서버로 전송·저장되지 않습니다.",
+    portalHint: "학교 포털에서 로그인 후 성적증명서를 다운로드받아 아래에 업로드해주세요.",
+    portalCta: "성적표 발급받기",
     pick: "성적표 PDF 선택",
     reading: "PDF를 읽는 중…",
     detected: (n: number, sems: number, credits: number) => `${n}개 과목 · ${sems}개 학기 · ${credits}학점 인식됨`,
@@ -29,6 +36,8 @@ const COPY = {
     title: "Import everything from your transcript PDF",
     guide: "In the Yonsei portal, open Grades → Full Grade Report → Print, use your browser's Print (Ctrl+P) and “Save as PDF,” then upload that file. It must be a PDF, not a screenshot image, so the text can be read accurately.",
     privacy: "The uploaded PDF is processed only in your browser and is never sent to or stored on a server.",
+    portalHint: "Log in to the school portal, download your transcript, then upload it below.",
+    portalCta: "Get your transcript",
     pick: "Choose transcript PDF",
     reading: "Reading PDF…",
     detected: (n: number, sems: number, credits: number) => `Detected ${n} courses · ${sems} semesters · ${credits} credits`,
@@ -124,7 +133,19 @@ export default function TranscriptImport({
         {t.privacy}
       </p>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3">
+      <div className="mt-4 flex flex-wrap items-center gap-3 rounded-md border border-line bg-white px-4 py-3">
+        <a
+          href={PORTAL_LOGIN_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-sm border border-primary/40 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/5"
+        >
+          {t.portalCta} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+        <p className="text-xs text-ink/55">{t.portalHint}</p>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-3">
         <input
           ref={fileRef}
           type="file"
