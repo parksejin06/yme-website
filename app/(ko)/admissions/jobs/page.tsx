@@ -5,14 +5,14 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import JobBoard from "@/components/community/JobBoard";
 import { ADMISSIONS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import { BOARD_META } from "@/lib/community-content";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "채용정보·인턴십" };
 
-export default function AdmissionsJobsPage() {
+export default async function AdmissionsJobsPage() {
   return (
     <>
       <PageHero
@@ -36,7 +36,7 @@ export default function AdmissionsJobsPage() {
         </a>
 
         <div className="mt-6">
-          <JobBoard items={BOARD_DATA["jobs"]} lang="ko" />
+          <JobBoard items={await getBoard("jobs")} lang="ko" />
         </div>
       </section>
     </>

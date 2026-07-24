@@ -4,13 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import ThesisReviewBoard from "@/components/community/ThesisReviewBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Thesis Review" };
 
-export default function ThesisReviewPageEn() {
+export default async function ThesisReviewPageEn() {
   return (
     <>
       <PageHero eyebrow="NEWS & COMMUNITY" title="Thesis Review" description="Thesis review notices for Master's, Doctoral, and Combined program students." />
@@ -18,7 +18,7 @@ export default function ThesisReviewPageEn() {
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Thesis Review" }]} />
 
       <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
-        <ThesisReviewBoard items={BOARD_DATA["thesis-reviews"]} lang="en" />
+        <ThesisReviewBoard items={await getBoard("thesis-reviews")} lang="en" />
       </section>
     </>
   );

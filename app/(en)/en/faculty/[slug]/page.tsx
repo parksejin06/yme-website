@@ -9,19 +9,19 @@ import { getFaculty } from "@/lib/faculty-data";
 
 export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  return getFaculty().map((m) => ({ slug: m.slug }));
+export async function generateStaticParams() {
+  return (await getFaculty()).map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const member = getFaculty().find((m) => m.slug === slug);
+  const member = (await getFaculty()).find((m) => m.slug === slug);
   return { title: member ? member.name : "Faculty" };
 }
 
 export default async function FacultyDetailPageEn({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const member = getFaculty().find((m) => m.slug === slug);
+  const member = (await getFaculty()).find((m) => m.slug === slug);
   if (!member) notFound();
 
   return (

@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostDetail from "@/components/community/PostDetail";
-import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
+import { getBoard, getAdjacent } from "@/lib/community-data";
 import { postHref, listHref } from "@/lib/community-content";
 
 export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  return BOARD_DATA["resources"].map((p) => ({ id: p.sourcePostId }));
+export async function generateStaticParams() {
+  return (await getBoard("resources")).map((p) => ({ id: p.sourcePostId }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
-  const post = BOARD_DATA["resources"].find((p) => p.sourcePostId === id);
+  const post = (await getBoard("resources")).find((p) => p.sourcePostId === id);
   return { title: post?.title ?? "Resources" };
 }
 
 export default async function ResourcesDetailPageEn({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const post = BOARD_DATA["resources"].find((p) => p.sourcePostId === id);
+  const post = (await getBoard("resources")).find((p) => p.sourcePostId === id);
   if (!post) notFound();
 
-  const { prev, next } = getAdjacent("resources", id);
+  const { prev, next } = await getAdjacent("resources", id);
 
   return (
     <PostDetail

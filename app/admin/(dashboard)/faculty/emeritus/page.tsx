@@ -6,8 +6,8 @@ import ConfirmSubmitButton from "@/components/admin/ConfirmSubmitButton";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "명예·퇴임 교수" };
 
-export default function AdminEmeritusListPage() {
-  const emeritus = getFacultyEmeritus();
+export default async function AdminEmeritusListPage() {
+  const emeritus = await getFacultyEmeritus();
 
   return (
     <div>

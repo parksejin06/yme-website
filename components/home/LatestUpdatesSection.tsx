@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Newspaper } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import { postHref } from "@/lib/community-content";
 import type { CommunityPost } from "@/lib/community-content";
 import type { Lang } from "@/lib/nav";
@@ -52,13 +52,13 @@ function NewsThumb({ post }: { post: CommunityPost }) {
   );
 }
 
-export default function LatestUpdatesSection({ lang }: { lang: Lang }) {
+export default async function LatestUpdatesSection({ lang }: { lang: Lang }) {
   const t = COPY[lang];
 
-  const latestNews = sortByDateDesc(BOARD_DATA.news).slice(0, 3);
+  const [news, noticeSource] = await Promise.all([getBoard("news"), getBoard("notices-undergraduate")]);
+  const latestNews = sortByDateDesc(news).slice(0, 3);
   const [leadNews, ...restNews] = latestNews;
 
-  const noticeSource = BOARD_DATA["notices-undergraduate"];
   const pinnedNotices = sortByDateDesc(noticeSource.filter((n) => n.isPinned));
   const restNotices = sortByDateDesc(noticeSource.filter((n) => !n.isPinned));
   const latestNotices = [...pinnedNotices, ...restNotices].slice(0, 4);

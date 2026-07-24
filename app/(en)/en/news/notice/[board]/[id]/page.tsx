@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostDetail from "@/components/community/PostDetail";
-import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
+import { getBoard, getAdjacent } from "@/lib/community-data";
 import { postHref, listHref, type BoardKey } from "@/lib/community-content";
 
 export const dynamic = "force-dynamic";
@@ -13,16 +13,16 @@ const BOARD_PARAM: Record<string, BoardKey> = {
   scholarship: "notices-scholarship",
 };
 
-export function generateStaticParams() {
-  return Object.entries(BOARD_PARAM).flatMap(([board, key]) =>
-    BOARD_DATA[key].map((p) => ({ board, id: p.sourcePostId }))
-  );
+export async function generateStaticParams() {
+  const entries = Object.entries(BOARD_PARAM);
+  const boards = await Promise.all(entries.map(([, key]) => getBoard(key)));
+  return entries.flatMap(([board], i) => boards[i].map((p) => ({ board, id: p.sourcePostId })));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ board: string; id: string }> }): Promise<Metadata> {
   const { board, id } = await params;
   const key = BOARD_PARAM[board];
-  const post = key ? BOARD_DATA[key].find((p) => p.sourcePostId === id) : null;
+  const post = key ? (await getBoard(key)).find((p) => p.sourcePostId === id) : null;
   return { title: post?.title ?? "Notices" };
 }
 
@@ -30,10 +30,10 @@ export default async function NoticeDetailPageEn({ params }: { params: Promise<{
   const { board, id } = await params;
   const key = BOARD_PARAM[board];
   if (!key) notFound();
-  const post = BOARD_DATA[key].find((p) => p.sourcePostId === id);
+  const post = (await getBoard(key)).find((p) => p.sourcePostId === id);
   if (!post) notFound();
 
-  const { prev, next } = getAdjacent(key, id);
+  const { prev, next } = await getAdjacent(key, id);
 
   return (
     <PostDetail

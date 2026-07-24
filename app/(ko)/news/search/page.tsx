@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "통합검색" };
 
 export default async function CommunitySearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { q = "" } = await searchParams;
-  const results = searchAllPosts(q);
+  const results = await searchAllPosts(q);
 
   return (
     <>

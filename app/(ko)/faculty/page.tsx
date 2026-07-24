@@ -9,8 +9,8 @@ import { getFaculty } from "@/lib/faculty-data";
 export const metadata: Metadata = { title: "전임교수" };
 export const dynamic = "force-dynamic";
 
-export default function FacultyPage() {
-  const faculty = getFaculty();
+export default async function FacultyPage() {
+  const faculty = await getFaculty();
   return (
     <>
       <PageHero

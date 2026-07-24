@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { BOARD_DATA, writeBoardData } from "@/lib/community-data";
+import { getBoard, writeBoardData } from "@/lib/community-data";
 import { BOARD_META, type BoardKey, type CommunityPost } from "@/lib/community-content";
 
 function toParagraphHtml(text: string): string {
@@ -46,24 +46,25 @@ function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost
 
 export async function createPostAction(board: BoardKey, formData: FormData) {
   const post = buildPost(board, formData);
-  writeBoardData(board, [post, ...BOARD_DATA[board]]);
+  await writeBoardData(board, [post, ...(await getBoard(board))]);
   redirect(`/admin/board/${board}`);
 }
 
 export async function updatePostAction(board: BoardKey, sourcePostId: string, formData: FormData) {
-  const list = BOARD_DATA[board];
+  const list = await getBoard(board);
   const idx = list.findIndex((p) => p.sourcePostId === sourcePostId);
   if (idx === -1) redirect(`/admin/board/${board}`);
   const next = [...list];
   next[idx] = buildPost(board, formData, list[idx]);
-  writeBoardData(board, next);
+  await writeBoardData(board, next);
   redirect(`/admin/board/${board}`);
 }
 
 export async function deletePostAction(board: BoardKey, sourcePostId: string) {
-  writeBoardData(
+  const list = await getBoard(board);
+  await writeBoardData(
     board,
-    BOARD_DATA[board].filter((p) => p.sourcePostId !== sourcePostId)
+    list.filter((p) => p.sourcePostId !== sourcePostId)
   );
   redirect(`/admin/board/${board}`);
 }

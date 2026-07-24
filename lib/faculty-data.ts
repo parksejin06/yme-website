@@ -1,27 +1,34 @@
 import fs from "node:fs";
 import path from "node:path";
 import hangulRomanization from "hangul-romanization";
+import { redis } from "./redis";
 import type { FacultyMember } from "./faculty";
 import type { EmeritusFaculty } from "@/components/EmeritusFacultyGrid";
 
 const FACULTY_FILE = path.join(process.cwd(), "data", "faculty.json");
 const EMERITUS_FILE = path.join(process.cwd(), "data", "faculty-emeritus.json");
 
-/** Fresh off disk on every call so admin edits show up without a server restart. */
-export function getFaculty(): FacultyMember[] {
-  return JSON.parse(fs.readFileSync(FACULTY_FILE, "utf-8"));
+const FACULTY_KEY = "faculty:active";
+const EMERITUS_KEY = "faculty:emeritus";
+
+/** Reads from Redis, falling back to the checked-in seed JSON file if that
+ * key hasn't been migrated/written yet (same pattern as community-data.ts). */
+export async function getFaculty(): Promise<FacultyMember[]> {
+  const stored = await redis.get<FacultyMember[]>(FACULTY_KEY);
+  return stored ?? JSON.parse(fs.readFileSync(FACULTY_FILE, "utf-8"));
 }
 
-export function getFacultyEmeritus(): EmeritusFaculty[] {
-  return JSON.parse(fs.readFileSync(EMERITUS_FILE, "utf-8"));
+export async function getFacultyEmeritus(): Promise<EmeritusFaculty[]> {
+  const stored = await redis.get<EmeritusFaculty[]>(EMERITUS_KEY);
+  return stored ?? JSON.parse(fs.readFileSync(EMERITUS_FILE, "utf-8"));
 }
 
-export function writeFaculty(list: FacultyMember[]): void {
-  fs.writeFileSync(FACULTY_FILE, JSON.stringify(list, null, 2) + "\n", "utf-8");
+export async function writeFaculty(list: FacultyMember[]): Promise<void> {
+  await redis.set(FACULTY_KEY, list);
 }
 
-export function writeFacultyEmeritus(list: EmeritusFaculty[]): void {
-  fs.writeFileSync(EMERITUS_FILE, JSON.stringify(list, null, 2) + "\n", "utf-8");
+export async function writeFacultyEmeritus(list: EmeritusFaculty[]): Promise<void> {
+  await redis.set(EMERITUS_KEY, list);
 }
 
 /** Same Revised-Romanization scheme as scripts/parse-faculty.mjs (surname + given name,

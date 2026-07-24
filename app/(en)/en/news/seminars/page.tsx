@@ -4,13 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import SeminarBoard from "@/components/community/SeminarBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Seminars" };
 
-export default function SeminarsPageEn() {
+export default async function SeminarsPageEn() {
   return (
     <>
       <PageHero eyebrow="NEWS & COMMUNITY" title="Seminars" description="Academic seminar schedules and speaker information by research field." />
@@ -18,7 +18,7 @@ export default function SeminarsPageEn() {
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Seminars" }]} />
 
       <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
-        <SeminarBoard items={BOARD_DATA["seminars"]} lang="en" />
+        <SeminarBoard items={await getBoard("seminars")} lang="en" />
       </section>
     </>
   );

@@ -4,13 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import NewsArticleBoard from "@/components/NewsArticleBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Research News" };
 
-export default function NewsResearchPageEn() {
+export default async function NewsResearchPageEn() {
   return (
     <>
       <PageHero
@@ -21,7 +21,7 @@ export default function NewsResearchPageEn() {
       <SectionSubNav items={NEWS_NAV} lang="en" label="News & Community sub-navigation" />
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Research News" }]} />
       <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
-        <NewsArticleBoard lang="en" articles={BOARD_DATA.news} />
+        <NewsArticleBoard lang="en" articles={await getBoard("news")} />
       </section>
     </>
   );

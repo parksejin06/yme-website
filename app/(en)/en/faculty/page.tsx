@@ -9,8 +9,8 @@ import { getFaculty } from "@/lib/faculty-data";
 export const metadata: Metadata = { title: "Full-time Faculty" };
 export const dynamic = "force-dynamic";
 
-export default function FacultyPageEn() {
-  const faculty = getFaculty();
+export default async function FacultyPageEn() {
+  const faculty = await getFaculty();
   return (
     <>
       <PageHero

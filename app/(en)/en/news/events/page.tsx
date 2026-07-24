@@ -4,13 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import EventBoard from "@/components/community/EventBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Events" };
 
-export default function EventsPageEn() {
+export default async function EventsPageEn() {
   return (
     <>
       <PageHero eyebrow="NEWS & COMMUNITY" title="Events" description="Department events, info sessions, competitions, and alumni gatherings." />
@@ -18,7 +18,7 @@ export default function EventsPageEn() {
       <Breadcrumb lang="en" items={[{ label: "News & Community", path: "/news" }, { label: "Events" }]} />
 
       <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
-        <EventBoard items={BOARD_DATA["events"]} lang="en" />
+        <EventBoard items={await getBoard("events")} lang="en" />
       </section>
     </>
   );

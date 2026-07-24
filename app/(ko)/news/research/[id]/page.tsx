@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostDetail from "@/components/community/PostDetail";
-import { BOARD_DATA, getAdjacent } from "@/lib/community-data";
+import { getBoard, getAdjacent } from "@/lib/community-data";
 import { postHref, listHref } from "@/lib/community-content";
 
 export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  return BOARD_DATA.news.map((p) => ({ id: p.sourcePostId }));
+export async function generateStaticParams() {
+  return (await getBoard("news")).map((p) => ({ id: p.sourcePostId }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
-  const post = BOARD_DATA.news.find((p) => p.sourcePostId === id);
+  const post = (await getBoard("news")).find((p) => p.sourcePostId === id);
   return { title: post?.title ?? "뉴스" };
 }
 
 export default async function NewsArticleDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const post = BOARD_DATA.news.find((p) => p.sourcePostId === id);
+  const post = (await getBoard("news")).find((p) => p.sourcePostId === id);
   if (!post) notFound();
 
-  const { prev, next } = getAdjacent("news", id);
+  const { prev, next } = await getAdjacent("news", id);
 
   return (
     <PostDetail

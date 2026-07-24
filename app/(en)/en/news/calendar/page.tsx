@@ -4,17 +4,18 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import Calendar from "@/components/community/Calendar";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import calendarData from "@/data/community/calendar-official.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Calendar" };
 
-export default function CalendarPageEn() {
+export default async function CalendarPageEn() {
+  const [events, seminars] = await Promise.all([getBoard("events"), getBoard("seminars")]);
   const relatedPosts = [
-    ...BOARD_DATA.events.map((post) => ({ board: "events" as const, post })),
-    ...BOARD_DATA.seminars.map((post) => ({ board: "seminars" as const, post })),
+    ...events.map((post) => ({ board: "events" as const, post })),
+    ...seminars.map((post) => ({ board: "seminars" as const, post })),
   ];
 
   return (

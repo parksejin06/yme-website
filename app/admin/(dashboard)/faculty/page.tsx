@@ -6,8 +6,8 @@ import ConfirmSubmitButton from "@/components/admin/ConfirmSubmitButton";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "전임교수" };
 
-export default function AdminFacultyListPage() {
-  const faculty = getFaculty();
+export default async function AdminFacultyListPage() {
+  const faculty = await getFaculty();
 
   return (
     <div>

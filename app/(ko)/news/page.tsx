@@ -4,14 +4,20 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import NoticeTabs from "@/components/NoticeTabs";
 import CommunitySearchBar from "@/components/community/CommunitySearchBar";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import { NEWS_NAV } from "@/lib/nav";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "공지사항" };
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const [undergraduate, graduate, external, scholarship] = await Promise.all([
+    getBoard("notices-undergraduate"),
+    getBoard("notices-graduate"),
+    getBoard("notices-external"),
+    getBoard("notices-scholarship"),
+  ]);
   return (
     <>
       <PageHero
@@ -28,10 +34,10 @@ export default function NewsPage() {
         <NoticeTabs
           lang="ko"
           boards={{
-            "notices-undergraduate": BOARD_DATA["notices-undergraduate"],
-            "notices-graduate": BOARD_DATA["notices-graduate"],
-            "notices-external": BOARD_DATA["notices-external"],
-            "notices-scholarship": BOARD_DATA["notices-scholarship"],
+            "notices-undergraduate": undergraduate,
+            "notices-graduate": graduate,
+            "notices-external": external,
+            "notices-scholarship": scholarship,
           }}
         />
       </section>

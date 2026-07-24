@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { redis } from "./redis";
 import type { CommunityPost, BoardKey } from "./community-content";
 
 const FILE_NAME: Record<BoardKey, string> = {
@@ -15,63 +16,64 @@ const FILE_NAME: Record<BoardKey, string> = {
   seminars: "seminars.json",
 };
 
+export const BOARD_KEYS = Object.keys(FILE_NAME) as BoardKey[];
+
+/** Redis key holding a board's full post array as JSON. Kept as a single
+ * blob per board (matching the old one-file-per-board layout) rather than
+ * one Redis entry per post, since boards are always read/written whole. */
+function redisKey(board: BoardKey): string {
+  return `board:${board}`;
+}
+
+// Local dev fallback: if Redis has no data yet for a board (e.g. before the
+// one-time migration has run), fall back to the checked-in data/community/*.json
+// so `next dev` still works out of the box against the original seed data.
 const DATA_DIR = path.join(process.cwd(), "data", "community");
-
-function boardFilePath(board: BoardKey): string {
-  return path.join(DATA_DIR, FILE_NAME[board]);
+function readSeedFile(board: BoardKey): CommunityPost[] {
+  return JSON.parse(fs.readFileSync(path.join(DATA_DIR, FILE_NAME[board]), "utf-8"));
 }
 
-/** Reads a board's JSON file fresh off disk on every call (not cached at the module
- * level) so that admin edits made via the filesystem show up without a server restart. */
-function loadBoard(board: BoardKey): CommunityPost[] {
-  return JSON.parse(fs.readFileSync(boardFilePath(board), "utf-8"));
+/** Reads a board's posts from Redis (falling back to the seed JSON file if
+ * that board hasn't been migrated/written yet). Always fetched fresh — never
+ * cached at the module level — so admin edits show up immediately. */
+export async function getBoard(board: BoardKey): Promise<CommunityPost[]> {
+  const stored = await redis.get<CommunityPost[]>(redisKey(board));
+  return stored ?? readSeedFile(board);
 }
 
-export function writeBoardData(board: BoardKey, posts: CommunityPost[]): void {
-  fs.writeFileSync(boardFilePath(board), JSON.stringify(posts, null, 2) + "\n", "utf-8");
+export async function getAllBoards(): Promise<Record<BoardKey, CommunityPost[]>> {
+  const entries = await Promise.all(BOARD_KEYS.map(async (board) => [board, await getBoard(board)] as const));
+  return Object.fromEntries(entries) as Record<BoardKey, CommunityPost[]>;
 }
 
-// Proxy so existing call sites (`BOARD_DATA[key]`, `Object.keys(BOARD_DATA)`) keep
-// working unchanged while every property access re-reads the file from disk.
-export const BOARD_DATA: Record<BoardKey, CommunityPost[]> = new Proxy(
-  {} as Record<BoardKey, CommunityPost[]>,
-  {
-    get(_target, prop) {
-      if (typeof prop !== "string" || !(prop in FILE_NAME)) return undefined;
-      return loadBoard(prop as BoardKey);
-    },
-    has(_target, prop) {
-      return typeof prop === "string" && prop in FILE_NAME;
-    },
-    ownKeys() {
-      return Object.keys(FILE_NAME);
-    },
-    getOwnPropertyDescriptor(_target, prop) {
-      if (typeof prop !== "string" || !(prop in FILE_NAME)) return undefined;
-      return { enumerable: true, configurable: true, value: loadBoard(prop as BoardKey) };
-    },
-  }
-);
-
-export function getPost(board: BoardKey, id: string): CommunityPost | undefined {
-  return loadBoard(board).find((p) => p.sourcePostId === id);
+export async function writeBoardData(board: BoardKey, posts: CommunityPost[]): Promise<void> {
+  await redis.set(redisKey(board), posts);
 }
 
-export function getAdjacent(board: BoardKey, id: string): { prev: CommunityPost | null; next: CommunityPost | null } {
-  const list = loadBoard(board);
+export async function getPost(board: BoardKey, id: string): Promise<CommunityPost | undefined> {
+  return (await getBoard(board)).find((p) => p.sourcePostId === id);
+}
+
+export async function getAdjacent(
+  board: BoardKey,
+  id: string
+): Promise<{ prev: CommunityPost | null; next: CommunityPost | null }> {
+  const list = await getBoard(board);
   const idx = list.findIndex((p) => p.sourcePostId === id);
   if (idx === -1) return { prev: null, next: null };
   return { prev: idx > 0 ? list[idx - 1] : null, next: idx < list.length - 1 ? list[idx + 1] : null };
 }
 
-export function allPostsFlat(): { board: BoardKey; post: CommunityPost }[] {
-  return (Object.keys(FILE_NAME) as BoardKey[]).flatMap((board) => loadBoard(board).map((post) => ({ board, post })));
+export async function allPostsFlat(): Promise<{ board: BoardKey; post: CommunityPost }[]> {
+  const all = await getAllBoards();
+  return BOARD_KEYS.flatMap((board) => all[board].map((post) => ({ board, post })));
 }
 
-export function searchAllPosts(query: string): { board: BoardKey; post: CommunityPost }[] {
+export async function searchAllPosts(query: string): Promise<{ board: BoardKey; post: CommunityPost }[]> {
   const q = query.trim().toLowerCase();
   if (!q) return [];
-  return allPostsFlat().filter(({ post }) => {
+  const posts = await allPostsFlat();
+  return posts.filter(({ post }) => {
     if (post.title.toLowerCase().includes(q)) return true;
     if ((post.author ?? "").toLowerCase().includes(q)) return true;
     if (post.plainText.toLowerCase().includes(q)) return true;

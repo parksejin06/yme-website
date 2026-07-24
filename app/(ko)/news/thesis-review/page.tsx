@@ -4,13 +4,13 @@ import SectionSubNav from "@/components/SectionSubNav";
 import Breadcrumb from "@/components/Breadcrumb";
 import ThesisReviewBoard from "@/components/community/ThesisReviewBoard";
 import { NEWS_NAV } from "@/lib/nav";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "학위논문심사" };
 
-export default function ThesisReviewPage() {
+export default async function ThesisReviewPage() {
   return (
     <>
       <PageHero eyebrow="NEWS & COMMUNITY" title="학위논문심사" description="석사·박사·석박사통합 과정 학위논문심사 공고를 확인합니다." />
@@ -18,7 +18,7 @@ export default function ThesisReviewPage() {
       <Breadcrumb lang="ko" items={[{ label: "뉴스 및 공지사항", path: "/news" }, { label: "학위논문심사" }]} />
 
       <section className="mx-auto max-w-content px-[var(--page-gutter)] py-[var(--section-space)]">
-        <ThesisReviewBoard items={BOARD_DATA["thesis-reviews"]} lang="ko" />
+        <ThesisReviewBoard items={await getBoard("thesis-reviews")} lang="ko" />
       </section>
     </>
   );

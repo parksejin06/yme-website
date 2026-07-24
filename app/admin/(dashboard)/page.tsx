@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getAllBoards } from "@/lib/community-data";
 import { BOARD_META, type BoardKey } from "@/lib/community-content";
 import { getFaculty, getFacultyEmeritus } from "@/lib/faculty-data";
 
@@ -18,9 +18,8 @@ const NAV_BOARDS: BoardKey[] = [
   "resources",
 ];
 
-export default function AdminDashboardPage() {
-  const faculty = getFaculty();
-  const emeritus = getFacultyEmeritus();
+export default async function AdminDashboardPage() {
+  const [boards, faculty, emeritus] = await Promise.all([getAllBoards(), getFaculty(), getFacultyEmeritus()]);
 
   return (
     <div>
@@ -37,7 +36,7 @@ export default function AdminDashboardPage() {
             className="rounded-lg border border-line bg-white px-4 py-4 transition-colors hover:border-primary"
           >
             <p className="text-sm font-medium text-ink">{BOARD_META[key].labelKo}</p>
-            <p className="mt-1 text-xs text-ink/45">{BOARD_DATA[key].length}건</p>
+            <p className="mt-1 text-xs text-ink/45">{boards[key].length}건</p>
           </Link>
         ))}
         <Link

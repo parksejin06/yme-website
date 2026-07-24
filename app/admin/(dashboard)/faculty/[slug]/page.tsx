@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EditFacultyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const member = getFaculty().find((f) => f.slug === slug);
+  const member = (await getFaculty()).find((f) => f.slug === slug);
   if (!member) notFound();
   const action = updateFacultyAction.bind(null, slug);
 

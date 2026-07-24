@@ -9,8 +9,8 @@ import { getFacultyEmeritus } from "@/lib/faculty-data";
 export const metadata: Metadata = { title: "Emeritus & Retired Faculty" };
 export const dynamic = "force-dynamic";
 
-export default function EmeritusFacultyPageEn() {
-  const emeritus = getFacultyEmeritus();
+export default async function EmeritusFacultyPageEn() {
+  const emeritus = await getFacultyEmeritus();
   return (
     <>
       <PageHero

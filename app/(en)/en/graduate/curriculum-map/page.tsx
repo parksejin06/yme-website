@@ -11,8 +11,8 @@ import { getFaculty } from "@/lib/faculty-data";
 export const metadata: Metadata = { title: "Academic & Research Map" };
 export const dynamic = "force-dynamic";
 
-export default function GraduateCurriculumMapPageEn() {
-  const faculty = getFaculty();
+export default async function GraduateCurriculumMapPageEn() {
+  const faculty = await getFaculty();
   return (
     <>
       <PageHero eyebrow="GRADUATE" title="Academic & Research Map" description="Explore graduate programs, courses, and faculty around your research interests." image="/images/new_mainbg/대학원_new.png" imageAlt="Graduate students conducting a lab experiment" />

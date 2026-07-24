@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import { BOARD_META, type BoardKey } from "@/lib/community-content";
 import { deletePostAction } from "@/lib/admin/community-actions";
 import ConfirmSubmitButton from "@/components/admin/ConfirmSubmitButton";
@@ -11,7 +11,7 @@ export default async function AdminBoardListPage({ params }: { params: Promise<{
   const { key } = await params;
   if (!(key in BOARD_META)) notFound();
   const board = key as BoardKey;
-  const posts = [...BOARD_DATA[board]].sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
+  const posts = [...(await getBoard(board))].sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? ""));
 
   return (
     <div>

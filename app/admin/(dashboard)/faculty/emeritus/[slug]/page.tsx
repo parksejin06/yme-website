@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EditEmeritusPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const member = getFacultyEmeritus().find((f) => f.slug === slug);
+  const member = (await getFacultyEmeritus()).find((f) => f.slug === slug);
   if (!member) notFound();
   const action = updateEmeritusAction.bind(null, slug);
 

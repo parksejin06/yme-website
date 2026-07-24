@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import PostForm from "@/components/admin/PostForm";
-import { BOARD_DATA } from "@/lib/community-data";
+import { getBoard } from "@/lib/community-data";
 import { BOARD_META, type BoardKey } from "@/lib/community-content";
 import { updatePostAction } from "@/lib/admin/community-actions";
 
@@ -10,7 +10,7 @@ export default async function EditPostPage({ params }: { params: Promise<{ key: 
   const { key, id } = await params;
   if (!(key in BOARD_META)) notFound();
   const board = key as BoardKey;
-  const post = BOARD_DATA[board].find((p) => p.sourcePostId === id);
+  const post = (await getBoard(board)).find((p) => p.sourcePostId === id);
   if (!post) notFound();
   const action = updatePostAction.bind(null, board, id);
 
