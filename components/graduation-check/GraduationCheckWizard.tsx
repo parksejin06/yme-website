@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import AdmissionYearSelect from "./AdmissionYearSelect";
 import SemesterTabs from "./SemesterTabs";
@@ -37,6 +37,10 @@ const COPY = {
   },
 };
 
+function noopSubscribe() {
+  return () => {};
+}
+
 export default function GraduationCheckWizard({ lang }: { lang: Lang }) {
   const t = COPY[lang];
   const router = useRouter();
@@ -44,10 +48,23 @@ export default function GraduationCheckWizard({ lang }: { lang: Lang }) {
   const [activeSemester, setActiveSemester] = useState<SemesterKey>("1-1");
   const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
-    setState(loadState());
+  // loadState() reads localStorage, which doesn't exist during server rendering,
+  // so getServerSnapshot returns null there (and on the client's first hydration
+  // pass, to match) -- getSnapshot is memoized in the ref so it keeps returning
+  // the same reference once computed. Once the real value shows up post-hydration,
+  // it's copied into `state` below via React's "adjusting state during render"
+  // pattern instead of an effect, so it counts as a derived update rather than
+  // the setState-in-effect anti-pattern.
+  const loadedRef = useRef<GraduationCheckState | null>(null);
+  const loaded = useSyncExternalStore(
+    noopSubscribe,
+    () => (loadedRef.current ??= loadState()),
+    () => null
+  );
+  if (loaded !== null && !hydrated) {
+    setState(loaded);
     setHydrated(true);
-  }, []);
+  }
 
   useEffect(() => {
     if (!hydrated) return;
