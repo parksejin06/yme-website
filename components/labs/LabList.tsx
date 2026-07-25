@@ -120,18 +120,26 @@ function LabCard({ lab, lang }: { lab: LabEntry; lang: Lang }) {
 export default function LabList({ lang, labs }: { lang: Lang; labs: LabEntry[] }) {
   const t = COPY[lang];
   const [displayed, setDisplayed] = useState(labs);
+  const [prevLabs, setPrevLabs] = useState(labs);
   const [fading, setFading] = useState(false);
 
-  useEffect(() => {
-    if (labs === displayed) return;
+  // Starts the fade-out the instant `labs` changes, in the same render pass
+  // (React's documented "adjusting state during render" pattern) rather than
+  // via an effect + setState -- only the delayed swap-back below needs an
+  // effect, since it genuinely has to wait out the CSS transition.
+  if (labs !== prevLabs) {
+    setPrevLabs(labs);
     setFading(true);
+  }
+
+  useEffect(() => {
+    if (!fading) return;
     const timeout = window.setTimeout(() => {
       setDisplayed(labs);
       setFading(false);
     }, 220);
     return () => window.clearTimeout(timeout);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [labs]);
+  }, [fading, labs]);
 
   if (displayed.length === 0) {
     return (

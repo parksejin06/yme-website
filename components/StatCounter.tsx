@@ -1,7 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
+
+const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribeReduceMotion(callback: () => void) {
+  const mql = window.matchMedia(REDUCE_MOTION_QUERY);
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+function getReduceMotionSnapshot() {
+  return window.matchMedia(REDUCE_MOTION_QUERY).matches;
+}
+function getReduceMotionServerSnapshot() {
+  return false;
+}
+
+/** Reads the OS-level "prefers reduced motion" setting reactively (and safely
+ * across server rendering, where `window` doesn't exist). Used instead of a
+ * useEffect + setState so skipping the count-up animation doesn't itself
+ * require a synchronous setState inside an effect body. */
+function useReduceMotion(): boolean {
+  return useSyncExternalStore(subscribeReduceMotion, getReduceMotionSnapshot, getReduceMotionServerSnapshot);
+}
 
 export default function StatCounter({
   value,
@@ -18,16 +40,12 @@ export default function StatCounter({
 }) {
   const [display, setDisplay] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReduceMotion();
 
   useEffect(() => {
+    if (reduceMotion) return;
     const el = ref.current;
     if (!el) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      setDisplay(value);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -46,7 +64,9 @@ export default function StatCounter({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [value, duration]);
+  }, [value, duration, reduceMotion]);
+
+  const shown = reduceMotion ? value : display;
 
   // Light stats band styling (ported from main's ac71c14): centered icon over
   // the figure, navy-on-light colors, with the redesign's serif figure and
@@ -65,7 +85,7 @@ export default function StatCounter({
         className="mt-3 font-display text-4xl text-primary-strong sm:mt-4 sm:text-5xl"
         style={{ fontVariantNumeric: "tabular-nums" }}
       >
-        {display}
+        {shown}
         <span className="ml-1 text-[0.45em] text-primary-strong/70">{suffix}</span>
       </p>
       <p className="mt-1.5 text-xs tracking-wide text-ink/70 sm:text-sm">{label}</p>

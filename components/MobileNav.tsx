@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
@@ -8,13 +8,30 @@ import Collapse from "@/components/ui/Collapse";
 import { NAV_ITEMS, localizePath, type Lang } from "@/lib/nav";
 import { useScrolled } from "@/lib/useScrolled";
 
+function subscribeNever() {
+  return () => {};
+}
+function getMountedSnapshot() {
+  return true;
+}
+function getMountedServerSnapshot() {
+  return false;
+}
+
+/** True only once mounted on the client -- portals need `document.body`,
+ * which doesn't exist during server rendering, so this must stay false until
+ * after hydration to avoid a mismatch. useSyncExternalStore (rather than a
+ * useEffect + setState) is React's documented way to do this without
+ * triggering the "adjusting/synchronizing state in an effect" anti-pattern. */
+function useHasMounted(): boolean {
+  return useSyncExternalStore(subscribeNever, getMountedSnapshot, getMountedServerSnapshot);
+}
+
 export default function MobileNav({ lang, light = false }: { lang: Lang; light?: boolean }) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHasMounted();
   const scrolled = useScrolled();
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
