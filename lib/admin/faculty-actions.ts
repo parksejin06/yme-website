@@ -8,6 +8,7 @@ import {
   writeFacultyEmeritus,
   generateUniqueSlug,
 } from "@/lib/faculty-data";
+import { uploadPhoto } from "./upload";
 import type { FacultyMember } from "@/lib/faculty";
 import type { EmeritusFaculty } from "@/components/EmeritusFacultyGrid";
 
@@ -16,7 +17,11 @@ function str(formData: FormData, key: string): string | null {
   return v || null;
 }
 
-function buildFaculty(formData: FormData): Omit<FacultyMember, "slug" | "labSlug"> {
+async function buildFaculty(
+  formData: FormData,
+  existingPhotoPath: string | null
+): Promise<Omit<FacultyMember, "slug" | "labSlug">> {
+  const uploaded = await uploadPhoto(formData.get("photo"), "assets/faculty");
   return {
     name: String(formData.get("name") ?? "").trim(),
     position: "교수",
@@ -26,13 +31,13 @@ function buildFaculty(formData: FormData): Omit<FacultyMember, "slug" | "labSlug
     office: str(formData, "office"),
     labName: str(formData, "labName"),
     labUrl: str(formData, "labUrl"),
-    photoPath: str(formData, "photoPath"),
+    photoPath: uploaded ?? existingPhotoPath,
   };
 }
 
 export async function createFacultyAction(formData: FormData) {
   const list = await getFaculty();
-  const built = buildFaculty(formData);
+  const built = await buildFaculty(formData, null);
   const slug = generateUniqueSlug(built.name, list.map((f) => f.slug));
   await writeFaculty([...list, { ...built, slug, labSlug: slug }]);
   redirect("/admin/faculty");
@@ -42,7 +47,7 @@ export async function updateFacultyAction(slug: string, formData: FormData) {
   const list = await getFaculty();
   const idx = list.findIndex((f) => f.slug === slug);
   if (idx === -1) redirect("/admin/faculty");
-  const built = buildFaculty(formData);
+  const built = await buildFaculty(formData, list[idx].photoPath);
   const next = [...list];
   next[idx] = { ...built, slug, labSlug: slug };
   await writeFaculty(next);
@@ -54,20 +59,24 @@ export async function deleteFacultyAction(slug: string) {
   redirect("/admin/faculty");
 }
 
-function buildEmeritus(formData: FormData): Omit<EmeritusFaculty, "slug"> {
+async function buildEmeritus(
+  formData: FormData,
+  existingPhotoPath: string | null
+): Promise<Omit<EmeritusFaculty, "slug">> {
+  const uploaded = await uploadPhoto(formData.get("photo"), "assets/faculty/emeritus");
   return {
     name: String(formData.get("name") ?? "").trim(),
     nameEn: str(formData, "nameEn"),
     field: str(formData, "field"),
     tenure: str(formData, "tenure"),
     email: str(formData, "email"),
-    photoPath: str(formData, "photoPath"),
+    photoPath: uploaded ?? existingPhotoPath,
   };
 }
 
 export async function createEmeritusAction(formData: FormData) {
   const list = await getFacultyEmeritus();
-  const built = buildEmeritus(formData);
+  const built = await buildEmeritus(formData, null);
   const slug = generateUniqueSlug(built.name, list.map((f) => f.slug));
   await writeFacultyEmeritus([...list, { ...built, slug }]);
   redirect("/admin/faculty/emeritus");
@@ -77,7 +86,7 @@ export async function updateEmeritusAction(slug: string, formData: FormData) {
   const list = await getFacultyEmeritus();
   const idx = list.findIndex((f) => f.slug === slug);
   if (idx === -1) redirect("/admin/faculty/emeritus");
-  const built = buildEmeritus(formData);
+  const built = await buildEmeritus(formData, list[idx].photoPath);
   const next = [...list];
   next[idx] = { ...built, slug };
   await writeFacultyEmeritus(next);
