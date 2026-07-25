@@ -125,11 +125,14 @@ export function getRequirementCategories(summary: GradSummaryLike): RequirementC
       // Catch-all for remaining generic liberal-arts-coded courses not
       // already claimed by name above (문학과예술/인간과역사/... 영역 과목들).
       matchCourseTypes: ["대교", "교기", "교필", "교선", "공기", "학기", "학필", "학선", "계기"],
-      // 6개 영역 중 4개 영역, 영역당 3학점까지만 인정 -- 초과분은 일반선택으로 이월.
+      // 6개 영역 중 N개 영역, 영역당 3학점까지만 인정 -- 초과분은 일반선택으로 이월.
+      // N은 학번마다 다름: 19~21학번은 5개 영역(15학점), 22학번 이후는 4개 영역(12학점)으로
+      // 축소됐음(졸업요건 결과의 "세부 이수 규정"에도 나오는 변경사항) -- summary의 학점
+      // 총량에서 역산하므로 학번별로 하드코딩할 필요가 없다.
       capExcessToLeftover: true,
       // 영역별 실제 개설 과목 목록 (학부대학 교양교육과정 공개 페이지에서 확인, 로그인 불필요).
       areaGroups: liberalArtsAreas,
-      requiredAreaCount: 4,
+      requiredAreaCount: Math.round(universityLiberalElective / 3),
       caveatKr: "영역 매칭은 과목명 기준이라, 과목명이 바뀌었거나 목록에 없는 과목이면 실제와 다를 수 있습니다. 정확한 인정 여부는 학사팀 확인이 필요합니다.",
       caveatEn: "Area matching is based on course names, so renamed or unlisted courses may not match correctly. Confirm exact credit recognition with the Academic Affairs team.",
     });
