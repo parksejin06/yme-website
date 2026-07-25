@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { redis } from "./redis";
+import { redis, getWithFallback } from "./redis";
 import type { CommunityPost, BoardKey } from "./community-content";
 
 const FILE_NAME: Record<BoardKey, string> = {
@@ -37,8 +37,7 @@ function readSeedFile(board: BoardKey): CommunityPost[] {
  * that board hasn't been migrated/written yet). Always fetched fresh — never
  * cached at the module level — so admin edits show up immediately. */
 export async function getBoard(board: BoardKey): Promise<CommunityPost[]> {
-  const stored = await redis.get<CommunityPost[]>(redisKey(board));
-  return stored ?? readSeedFile(board);
+  return getWithFallback(redisKey(board), () => readSeedFile(board));
 }
 
 export async function getAllBoards(): Promise<Record<BoardKey, CommunityPost[]>> {

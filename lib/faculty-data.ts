@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import hangulRomanization from "hangul-romanization";
-import { redis } from "./redis";
+import { redis, getWithFallback } from "./redis";
 import type { FacultyMember } from "./faculty";
 import type { EmeritusFaculty } from "@/components/EmeritusFacultyGrid";
 
@@ -14,13 +14,11 @@ const EMERITUS_KEY = "faculty:emeritus";
 /** Reads from Redis, falling back to the checked-in seed JSON file if that
  * key hasn't been migrated/written yet (same pattern as community-data.ts). */
 export async function getFaculty(): Promise<FacultyMember[]> {
-  const stored = await redis.get<FacultyMember[]>(FACULTY_KEY);
-  return stored ?? JSON.parse(fs.readFileSync(FACULTY_FILE, "utf-8"));
+  return getWithFallback(FACULTY_KEY, () => JSON.parse(fs.readFileSync(FACULTY_FILE, "utf-8")));
 }
 
 export async function getFacultyEmeritus(): Promise<EmeritusFaculty[]> {
-  const stored = await redis.get<EmeritusFaculty[]>(EMERITUS_KEY);
-  return stored ?? JSON.parse(fs.readFileSync(EMERITUS_FILE, "utf-8"));
+  return getWithFallback(EMERITUS_KEY, () => JSON.parse(fs.readFileSync(EMERITUS_FILE, "utf-8")));
 }
 
 export async function writeFaculty(list: FacultyMember[]): Promise<void> {
