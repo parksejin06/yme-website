@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import GraduationSummary from "@/components/academics/GraduationSummary";
+import GraduationDetailTable from "@/components/academics/GraduationDetailTable";
 import SpecialNotes from "@/components/academics/SpecialNotes";
 import DualMajorInfo from "@/components/academics/DualMajorInfo";
 import SectionSubNav from "@/components/SectionSubNav";
@@ -9,9 +10,14 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { ArrowLeftIcon, ChevronRightIcon } from "@/components/icons";
 import { UNDERGRADUATE_NAV } from "@/lib/nav";
 import gradRequirements from "@/data/graduation-requirements.json";
+import gradDetail from "@/data/graduation-requirements-detail.json";
 import dualMajor from "@/data/dual-major.json";
 
 type GradEntry = (typeof gradRequirements)[number];
+const gradDetailBySlug = gradDetail as Record<
+  string,
+  { label: string; groups: import("@/components/academics/GraduationDetailTable").GradDetailGroup[] }
+>;
 
 export function generateStaticParams() {
   return (gradRequirements as GradEntry[]).map((g) => ({ decade: g.decade, year: g.slug }));
@@ -61,13 +67,20 @@ export default async function UndergraduateGraduationYearPage({
 
       <section className="mx-auto max-w-content space-y-16 px-4 py-16 sm:px-6 sm:py-20">
         <div>
-          <h2 className="font-display text-xl text-ink">졸업요건 요약</h2>
+          <h2 className="font-display text-xl text-ink">졸업요건</h2>
           <div className="mt-5">
-            <GraduationSummary summary={entry.summary} lang="ko" />
+            {gradDetailBySlug[entry.slug] ? (
+              <GraduationDetailTable
+                groups={gradDetailBySlug[entry.slug].groups}
+                totalLabel={entry.summary.graduationTotal ? `${entry.summary.graduationTotal}학점` : null}
+              />
+            ) : (
+              <GraduationSummary summary={entry.summary} lang="ko" />
+            )}
           </div>
         </div>
 
-        {entry.mandatoryCourses.length > 0 && (
+        {!gradDetailBySlug[entry.slug] && entry.mandatoryCourses.length > 0 && (
           <div>
             <h2 className="font-display text-xl text-ink">전공필수 교과목</h2>
             <div className="mt-4 flex flex-wrap gap-2">
