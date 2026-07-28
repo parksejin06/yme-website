@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",
+    "@vercel/blob": "^2.6.1",
     "framer-motion": "^12.42.2",
     "hangul-romanization": "^1.0.1",
     "lucide-react": "^1.25.0",
