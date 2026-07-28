@@ -91,23 +91,16 @@ export default function FacultyForm({
       </div>
 
       <label className="flex flex-col gap-1.5 text-sm text-ink/70">
-        사진
-        {member?.photoPath && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={member.photoPath}
-            alt=""
-            className="h-24 w-24 rounded-md border border-line object-cover"
-          />
-        )}
+        사진 경로
         <input
-          type="file"
-          name="photo"
-          accept="image/*"
-          className="rounded-md border border-line bg-white px-3 py-2 text-ink outline-none file:mr-3 file:rounded-sm file:border-0 file:bg-surface-muted file:px-3 file:py-1.5 file:text-sm focus:border-primary"
+          type="text"
+          name="photoPath"
+          defaultValue={member?.photoPath ?? ""}
+          placeholder="/assets/faculty/이름.png"
+          className="rounded-md border border-line bg-white px-3 py-2 text-ink outline-none focus:border-primary"
         />
         <span className="text-xs text-ink/45">
-          {member ? "새 사진을 올리지 않으면 기존 사진이 유지됩니다." : "비워두면 사진 없이 표시됩니다."}
+          사진 파일을 public/assets/faculty/ 폴더에 직접 올린 뒤 경로를 입력해주세요. 비워두면 사진 없이 표시됩니다.
         </span>
       </label>
 
