@@ -50,15 +50,9 @@ Vercel 대시보드 → 프로젝트 → Settings → Environment Variables에 �
 - `ADMIN_PASSWORD` — 관리자 로그인 비밀번호
 - `UPSTASH_REDIS_REST_URL` — Upstash Redis 연결 시 자동 추가
 - `UPSTASH_REDIS_REST_TOKEN` — Upstash Redis 연결 시 자동 추가
-- `BLOB_READ_WRITE_TOKEN` — 교수 사진 업로드용. Vercel 대시보드 → 프로젝트 → Storage 탭에서
-  Blob 스토어를 만들어 이 프로젝트에 연결하면 자동으로 추가됨
 
 기존 `data/*.json`의 데이터를 Redis로 옮기려면(최초 1회): `node --env-file=.env.local
 scripts/migrate-to-redis.mjs` (이미 Redis에 값이 있는 키는 건너뛰며, 덮어쓰려면 `--force` 추가)
-
-`BLOB_READ_WRITE_TOKEN`이 없는 환경(로컬 개발 등)에서는 교수 사진 업로드가 자동으로
-`public/assets/faculty/`(또는 `public/assets/faculty/emeritus/`)에 직접 저장되도록 대체
-동작합니다 — 별도 설정 없이 로컬에서도 바로 테스트할 수 있습니다.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
