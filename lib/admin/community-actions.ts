@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { getBoard, writeBoardData } from "@/lib/community-data";
 import { BOARD_META, type BoardKey, type CommunityPost } from "@/lib/community-content";
+import { uploadAttachments } from "./upload";
 
 function toParagraphHtml(text: string): string {
   return text
@@ -11,7 +12,7 @@ function toParagraphHtml(text: string): string {
     .join("");
 }
 
-function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost): CommunityPost {
+async function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost): Promise<CommunityPost> {
   const title = String(formData.get("title") ?? "").trim();
   const author = String(formData.get("author") ?? "").trim() || null;
   const publishedAtInput = String(formData.get("publishedAt") ?? "").trim();
@@ -23,6 +24,9 @@ function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost
   const isNew = formData.get("isNew") === "on";
 
   const sourcePostId = existing?.sourcePostId ?? `admin-${Date.now()}`;
+
+  const newFiles = formData.getAll("attachments").filter((v): v is File => v instanceof File);
+  const uploaded = await uploadAttachments(newFiles, `content/community/${board}/${sourcePostId}/attachments`);
 
   return {
     id: existing?.id ?? `${board}-${sourcePostId}`,
@@ -37,7 +41,7 @@ function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost
     originalHtml: toParagraphHtml(plainText),
     plainText,
     excerpt: plainText.slice(0, 140),
-    attachments: existing?.attachments ?? [],
+    attachments: [...(existing?.attachments ?? []), ...uploaded],
     contentImages: existing?.contentImages ?? [],
     sourceUrl: existing?.sourceUrl ?? "",
     importedAt: existing?.importedAt ?? new Date().toISOString(),
@@ -45,7 +49,7 @@ function buildPost(board: BoardKey, formData: FormData, existing?: CommunityPost
 }
 
 export async function createPostAction(board: BoardKey, formData: FormData) {
-  const post = buildPost(board, formData);
+  const post = await buildPost(board, formData);
   await writeBoardData(board, [post, ...(await getBoard(board))]);
   redirect(`/admin/board/${board}`);
 }
@@ -55,7 +59,7 @@ export async function updatePostAction(board: BoardKey, sourcePostId: string, fo
   const idx = list.findIndex((p) => p.sourcePostId === sourcePostId);
   if (idx === -1) redirect(`/admin/board/${board}`);
   const next = [...list];
-  next[idx] = buildPost(board, formData, list[idx]);
+  next[idx] = await buildPost(board, formData, list[idx]);
   await writeBoardData(board, next);
   redirect(`/admin/board/${board}`);
 }
