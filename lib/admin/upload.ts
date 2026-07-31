@@ -1,20 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
+import { put } from "@vercel/blob";
 
 const MAX_PHOTO_BYTES = 8 * 1024 * 1024; // 8MB
 
 /**
- * Uploads an admin-submitted photo and returns the path to store as
- * photoPath, or `null` if no file was submitted. Writes straight into
- * `public/<dir>/` -- works for local dev with zero extra setup. NOTE:
- * Vercel's serverless functions have a read-only filesystem at runtime, so
- * this write silently won't persist in production until this is wired back
- * up to Vercel Blob (removed for now -- @vercel/blob broke Vercel deploys
- * for this project in a way we couldn't get logs for; revisit once that's
- * diagnosed). Until then, production photo uploads should keep using the
- * "paste a path under public/assets/faculty/" fallback the admin form
- * already documents.
+ * Uploads an admin-submitted photo and returns the path/URL to store as
+ * photoPath, or `null` if no file was submitted. Vercel's serverless
+ * functions have a read-only filesystem at runtime, so a plain fs write
+ * silently won't persist in production -- when BLOB_READ_WRITE_TOKEN is
+ * configured (Production/Preview, and locally if pulled into .env.local),
+ * this uploads to Vercel Blob and returns its public URL instead. Falls
+ * back to writing under `public/<dir>/` only when no Blob token is present,
+ * so local dev keeps working with zero extra setup.
  */
 export async function uploadPhoto(file: FormDataEntryValue | null, dir: string): Promise<string | null> {
   if (!(file instanceof File) || file.size === 0) return null;
@@ -24,6 +23,14 @@ export async function uploadPhoto(file: FormDataEntryValue | null, dir: string):
 
   const ext = path.extname(file.name) || ".jpg";
   const filename = `${randomUUID()}${ext}`;
+
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const blob = await put(`${dir}/${filename}`, file, {
+      access: "public",
+      addRandomSuffix: false,
+    });
+    return blob.url;
+  }
 
   const targetDir = path.join(process.cwd(), "public", dir);
   fs.mkdirSync(targetDir, { recursive: true });
