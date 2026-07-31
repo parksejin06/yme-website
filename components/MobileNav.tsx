@@ -74,7 +74,7 @@ export default function MobileNav({ lang, light = false }: { lang: Lang; light?:
         createPortal(
           <div
             id="mobile-nav-panel"
-            style={{ top: scrolled ? "4rem" : "calc(var(--utility-bar-h) + 4rem)" }}
+            style={{ top: scrolled ? "5rem" : "calc(var(--utility-bar-h) + 5rem)" }}
             className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white"
           >
             <nav aria-label={lang === "ko" ? "모바일 내비게이션" : "Mobile navigation"}>

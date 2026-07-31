@@ -41,7 +41,7 @@ export default function Header({ lang }: { lang: Lang }) {
             height={65}
             priority
             className="h-7 w-7 shrink-0 object-cover mr-1 md:hidden"
-            style={{ objectPosition: "29% 50%" }}
+            style={{ objectPosition: "30% 50%" }}
           />
           <Image
             src={light ? "/images/img-sig2-white-text.png" : "/images/img-sig2.png"}
