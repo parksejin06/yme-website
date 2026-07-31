@@ -51,7 +51,7 @@ export default function PageHero({
         </h1>
         {description && (
           <p
-            className="mt-4 max-w-2xl text-balance text-white/80"
+            className="mt-4 max-w-2xl break-keep text-balance text-white/80"
             style={{ fontSize: "clamp(1rem, 0.8vw + 0.75rem, 1.1875rem)", lineHeight: 1.65 }}
           >
             {description}
